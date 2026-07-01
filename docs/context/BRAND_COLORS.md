@@ -38,11 +38,14 @@ Drive `brand-colors` doc — they describe the logo, not the site.)
 
 See `docs/brand-assets/ynsh-logo-primary.svg`.
 
-## Canonical typography
-- **Headlines:** Playfair Display — this is what the YNSH logo wordmark uses. (Not DM Serif
-  Display; that was an earlier BBCH-derived note.)
+## Canonical typography — same as BBCH
+YNSH uses the **same fonts as BBCH** so the two sites read as siblings.
+- **Headlines:** DM Serif Display.
 - **Body:** Inter, 16px+ minimum.
 - Both loaded via Google Fonts.
+
+*Logo exception:* the logo wordmark (`docs/brand-assets/ynsh-logo-primary.svg`) is set in
+**Playfair Display**. That is logo-only; the **site UI headings use DM Serif Display**.
 
 ## Correction history
 - Earlier task briefings and the first sync draft listed a **gold/ink** token set
@@ -50,6 +53,7 @@ See `docs/brand-assets/ynsh-logo-primary.svg`.
 - A subsequent note pulled a **forest/sage/navy** "site" palette from the Drive
   `brand-colors` doc.
 - **Both were wrong for the site UI.** Final decision: the **site uses the BBCH palette**
-  above; **forest/sage/navy are logo-only**. Playfair Display + Inter for type.
+  above; **forest/sage/navy are logo-only**. Fonts match BBCH: **DM Serif Display**
+  headlines + **Inter** body (site UI). The logo wordmark keeps Playfair Display.
 
 See `_DRIVE_PLACEHOLDERS_README.md`.

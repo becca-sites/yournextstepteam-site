@@ -139,11 +139,16 @@ Keep these for the logo/wordmark only; do not use them as the site UI palette.
 separately, a forest/sage/navy "site" palette from the Drive `brand-colors` doc. Both are
 wrong for the site UI — the site uses the BBCH palette above; forest/sage/navy are logo-only.*
 
-### Typography (CANONICAL — updated from Drive)
-- **Headlines: Playfair Display** (warm, editorial). *Note: earlier drafts said "DM Serif
-  Display" — that was from BBCH, not YNSH. Use Playfair Display for YNSH.*
+### Typography (CANONICAL — same as BBCH)
+YNSH uses the **same fonts as BBCH** so the two sites read as siblings.
+- **Headlines: DM Serif Display** (warm, editorial)
 - **Body: Inter** (clean, readable), 16px+ minimum
 - Both loaded via Google Fonts link tag
+
+*Note on the logo:* the YNSH logo wordmark (`docs/brand-assets/ynsh-logo-primary.svg`) is
+set in **Playfair Display**. That is a logo-only typeface choice; the **site UI headings
+use DM Serif Display**. The logo font and the site heading font are intentionally allowed
+to differ.
 
 ### Design Principles
 - Apple-level polish with warmth and personality
