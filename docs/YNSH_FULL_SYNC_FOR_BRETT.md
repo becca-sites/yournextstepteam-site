@@ -5,7 +5,15 @@
 
 ## WHO IS BECCA PITTS
 
-Licensed real estate agent in Washington state (eXp Realty). 15+ years experience. SRES Certified (Seniors Real Estate Specialist). Phone: 253.678.7089. Email: becca@yournextstephome.com (personal: beccapitts14@gmail.com).
+Licensed real estate agent in Washington state (eXp Realty). 15+ years experience. SRES Certified (Seniors Real Estate Specialist). Phone: 253.678.7089.
+
+**Business address (use for directory listings — this is a UPS PMB, not a home address):**
+1002 N Meridian St, PMB 165, Puyallup, WA 98371
+
+**Email:**
+- **Forms / contact routing:** becca@yournextstepteam.com (canonical — use this for all site forms; NOT beccapitts14@gmail.com)
+- Brand email: becca@yournextstephome.com
+- Personal (do not surface publicly): beccapitts14@gmail.com
 
 Runs three businesses:
 1. **Your Next Step Home** (yournextstephome.com) — Real estate hub, Pierce County + surrounding WA counties
@@ -100,6 +108,22 @@ She still serves traditional buyers and sellers (most of her reviews are from th
 ## DESIGN SYSTEM (for the new build)
 
 ### Color Palette
+
+> ⚠️ **CANONICAL (updated, from Google Drive `brand-colors` doc — use this):**
+> The Drive docs are more recent than the earlier briefings and should be treated as
+> canonical. See `docs/context/BRAND_COLORS.md`.
+>
+> | Token | Hex | Usage |
+> |---|---|---|
+> | Forest Green | #2D5016 | Primary dark green, headings, logo house |
+> | Sage Green | #4A7D2E | Secondary green, subtitles, accents |
+> | Navy | #1A2845 | Wordmark, primary text |
+> | Warm Cream | #FDFBF7 | Backgrounds |
+
+**Earlier token set (SUPERSEDED — kept for reference only).** The gold/ink tokens below
+came from a different property (BBCH), not YNSH. Where they conflict with the canonical
+palette above, the canonical palette wins.
+
 | Token | Hex | Usage |
 |---|---|---|
 | --color-forest | #2D5016 | Primary dark green, headings |
@@ -111,9 +135,10 @@ She still serves traditional buyers and sellers (most of her reviews are from th
 | --color-bone | #FDFBF7 | Card backgrounds |
 | --color-fog | #F0F2EE | Section wash |
 
-### Typography
-- Headlines: DM Serif Display (warm, editorial)
-- Body: Inter (clean, readable), 16px+ minimum
+### Typography (CANONICAL — updated from Drive)
+- **Headlines: Playfair Display** (warm, editorial). *Note: earlier drafts said "DM Serif
+  Display" — that was from BBCH, not YNSH. Use Playfair Display for YNSH.*
+- **Body: Inter** (clean, readable), 16px+ minimum
 - Both loaded via Google Fonts link tag
 
 ### Design Principles
