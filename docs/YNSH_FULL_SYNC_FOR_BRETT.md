@@ -109,31 +109,35 @@ She still serves traditional buyers and sellers (most of her reviews are from th
 
 ### Color Palette
 
-> ⚠️ **CANONICAL (updated, from Google Drive `brand-colors` doc — use this):**
-> The Drive docs are more recent than the earlier briefings and should be treated as
-> canonical. See `docs/context/BRAND_COLORS.md`.
->
-> | Token | Hex | Usage |
-> |---|---|---|
-> | Forest Green | #2D5016 | Primary dark green, headings, logo house |
-> | Sage Green | #4A7D2E | Secondary green, subtitles, accents |
-> | Navy | #1A2845 | Wordmark, primary text |
-> | Warm Cream | #FDFBF7 | Backgrounds |
-
-**Earlier token set (SUPERSEDED — kept for reference only).** The gold/ink tokens below
-came from a different property (BBCH), not YNSH. Where they conflict with the canonical
-palette above, the canonical palette wins.
+> ✅ **CANONICAL SITE PALETTE — same as BBCH (Burien Best Care Home).**
+> YNSH intentionally shares BBCH's site palette to create a visual family between the two
+> sites. Use these tokens for the site UI. See `docs/context/BRAND_COLORS.md`.
 
 | Token | Hex | Usage |
 |---|---|---|
-| --color-forest | #2D5016 | Primary dark green, headings |
-| --color-forest-soft | #3A6B1E | Eyebrow labels |
-| --color-gold | #D4A843 | CTA buttons, accent bars |
-| --color-gold-deep | #B8892E | CTA hover, italic accents |
-| --color-ink | #1A2028 | Primary text |
+| --color-ink | #1A2028 | Headings, primary text |
 | --color-ink-soft | #4A5560 | Body text |
+| --color-slate | #2D3E4A | Primary dark |
+| --color-slate-soft | #3A4D5A | Eyebrow labels |
+| --color-moss | #5A6E58 | Brand green |
 | --color-bone | #FDFBF7 | Card backgrounds |
-| --color-fog | #F0F2EE | Section wash |
+| --color-sunshine | #F3B94D | CTA buttons, accents |
+| --color-sunshine-deep | #D99A2B | CTA hover |
+| --color-clay | #B8876B | Warm accent (minimal) |
+| --color-fog | #E8ECE6 | Section wash |
+
+**Logo-only colors (NOT the site palette).** The YNSH logo uses its own dedicated colors.
+Keep these for the logo/wordmark only; do not use them as the site UI palette.
+
+| Color | Hex | Usage |
+|---|---|---|
+| Forest Green | #2D5016 | Logo house silhouette |
+| Sage Green | #4A7D2E | Logo subtitle |
+| Navy | #1A2845 | Logo wordmark |
+
+*Superseded: earlier drafts listed a gold/ink token set (`--color-gold #D4A843`, etc.) and,
+separately, a forest/sage/navy "site" palette from the Drive `brand-colors` doc. Both are
+wrong for the site UI — the site uses the BBCH palette above; forest/sage/navy are logo-only.*
 
 ### Typography (CANONICAL — updated from Drive)
 - **Headlines: Playfair Display** (warm, editorial). *Note: earlier drafts said "DM Serif
