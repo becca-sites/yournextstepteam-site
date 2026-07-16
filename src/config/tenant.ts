@@ -187,12 +187,12 @@ export const tenant: Tenant = {
     title: "REALTOR®, Senior Real Estate Specialist",
     brokerage: "eXp Realty",
     brokerageDisclosure:
-      "Rebecca Pitts is a licensed real estate broker in Washington State, affiliated with eXp Realty. MLS #87890. License #TODO Becca provide. eXp Realty is a licensed real estate brokerage. Equal Housing Opportunity.",
-    headshot: "/images/agent/headshot-placeholder.svg",
+      "Rebecca Pitts is a licensed real estate broker in Washington State, affiliated with eXp Realty. MLS #87890. License #107351. eXp Realty is a licensed real estate brokerage. Equal Housing Opportunity.",
+    headshot: "/photos/headshots/becca-headshot.webp",
     bio: "I help older adults and their families navigate the moves that matter most. From aging-in-place modifications to right-sized downsizing, every transition gets patience, a clear plan, and someone who has done this before.",
     storyLong:
       "I built the care I wished I had for my own parents. After 20 years in senior care and 15 years in real estate, I understand that selling a home you have lived in for decades is never just a transaction. It is a family decision. And it deserves someone who will treat it that way.",
-    license: "WA #TODO Becca provide",
+    license: "WA #107351",
     mlsId: "87890",
     phone: "253.678.7089",
     email: "becca@yournextstepteam.com",
@@ -287,7 +287,7 @@ export const tenant: Tenant = {
     heroPrimary: "/images/hero/valley-landscape.jpg",
     heroSecondary: "/images/hero/valley-hero-1.jpg",
     heroTertiary: "/images/hero/valley-hero-2.jpg",
-    agentHeadshot: "/images/agent/headshot-placeholder.svg",
+    agentHeadshot: "/photos/headshots/becca-headshot.webp",
     listingShowcase: [
       "/images/listings/home-bellevue.jpg",
       "/images/listings/home-main-1.jpg",

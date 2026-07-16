@@ -36,18 +36,19 @@ export default function CaseStudiesPage() {
           <FadeIn className="mx-auto max-w-2xl text-center">
             <div className="rounded-2xl border border-dashed border-neutral-300 bg-[var(--color-surface)] px-8 py-16">
               <p className="font-display text-2xl font-semibold text-neutral-950">
-                Client stories are coming soon.
+                Client success stories coming soon.
               </p>
               <p className="mt-4 text-base text-neutral-600">
                 We are documenting the real transitions we have helped families
-                navigate. In the meantime, hear it from them directly.
+                navigate. Leave your email and we will let you know when the
+                first stories are published.
               </p>
               <div className="mt-8 flex flex-wrap justify-center gap-3">
                 <Link href="/contact" className="btn-primary">
-                  Book a consultation
+                  Get notified when stories go live
                 </Link>
-                <Link href="/your-best-season" className="btn-ghost">
-                  Watch the series
+                <Link href="/podcast" className="btn-ghost">
+                  Listen to the podcast
                 </Link>
               </div>
             </div>
