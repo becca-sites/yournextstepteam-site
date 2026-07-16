@@ -1,0 +1,163 @@
+@import "tailwindcss";
+
+:root {
+  --color-primary: #1A2028;
+  --color-secondary: #5A6E58;
+  --color-accent: #F3B94D;
+  --color-accent-hover: #D99A2B;
+  --color-surface: #FDFBF7;
+  --color-ink: #1A2028;
+  --color-ink-soft: #4A5560;
+  --color-slate: #2D3E4A;
+  --color-slate-soft: #3A4D5A;
+  --color-moss: #5A6E58;
+  --color-bone: #FDFBF7;
+  --color-sunshine: #F3B94D;
+  --color-sunshine-deep: #D99A2B;
+  --color-clay: #B8876B;
+  --color-fog: #E8ECE6;
+  --color-muted: #4A5560;
+  --color-background: #ffffff;
+  --color-foreground: #1A2028;
+  --font-heading: "DM Serif Display", Georgia, serif;
+  --font-body: "Inter", system-ui, sans-serif;
+}
+
+@theme inline {
+  --color-background: var(--color-background);
+  --color-foreground: var(--color-foreground);
+  --color-primary: var(--color-primary);
+  --color-secondary: var(--color-secondary);
+  --color-accent: var(--color-accent);
+  --color-surface: var(--color-surface);
+  --color-ink: var(--color-ink);
+  --color-muted: var(--color-muted);
+  --font-heading: var(--font-heading);
+  --font-body: var(--font-body);
+  --font-display: var(--font-heading);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--color-ink);
+  background: var(--color-background);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  letter-spacing: -0.015em;
+  color: var(--color-ink);
+}
+
+a {
+  color: inherit;
+}
+
+.surface-warm {
+  background-color: var(--color-surface);
+}
+
+.eyebrow {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-moss);
+}
+
+.display-num {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-sunshine);
+  color: var(--color-ink);
+  padding: 0.85rem 1.5rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.btn-primary:hover {
+  background: var(--color-sunshine-deep);
+  transform: translateY(-1px);
+}
+
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(26, 32, 40, 0.2);
+  color: var(--color-ink);
+  background: transparent;
+  padding: 0.85rem 1.5rem;
+  border-radius: 9999px;
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.btn-ghost:hover {
+  border-color: var(--color-ink);
+  background: rgba(26, 32, 40, 0.04);
+}
+
+.btn-on-dark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-sunshine);
+  color: var(--color-ink);
+  padding: 0.85rem 1.5rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.btn-on-dark:hover {
+  background: var(--color-sunshine-deep);
+}
+
+.btn-ghost-on-dark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  color: #ffffff;
+  padding: 0.85rem 1.5rem;
+  border-radius: 9999px;
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+/* Mosaic tile hover treatment (CCM parity). */
+.mosaic-tile-img {
+  filter: grayscale(0.85) brightness(0.95);
+  opacity: 0.7;
+  transition: filter 480ms cubic-bezier(0.16, 1, 0.3, 1),
+    opacity 480ms cubic-bezier(0.16, 1, 0.3, 1),
+    transform 480ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.group:hover .mosaic-tile-img {
+  filter: grayscale(calc(1 - var(--hover-saturation, 0.6)))
+    brightness(var(--hover-brightness, 1.05));
+  opacity: 1;
+  transform: scale(1.04);
+}
+
+.rounded-4xl {
+  border-radius: 2rem;
+}

@@ -1,0 +1,152 @@
+import Link from "next/link";
+import Image from "next/image";
+import { tenant } from "@/config/tenant";
+import { FadeIn } from "@/components/FadeIn";
+
+const NAV_WORKING = [
+  { href: "/buyers", label: "For buyers" },
+  { href: "/sellers", label: "For sellers" },
+  { href: "/listings", label: "Current listings" },
+  { href: "/buyers/questionnaire", label: "Buyer Questionnaire" },
+];
+
+const NAV_LEARN = [
+  { href: "/podcast", label: "Next Step Conversations" },
+  { href: "/your-best-season", label: "Your Best Season" },
+  { href: "/about", label: "About Becca" },
+  { href: "/contact", label: "Contact" },
+];
+
+export function Footer() {
+  const year = new Date().getFullYear();
+  const socials = Object.entries(tenant.social).filter(([, v]) => v);
+
+  return (
+    <footer className="mt-24 border-t border-black/5 bg-[var(--color-primary)] text-white/85">
+      <FadeIn>
+        <div className="mx-auto max-w-7xl px-4 py-16 lg:px-8">
+          <div className="grid gap-10 md:grid-cols-4">
+            <div>
+              <Link href="/" aria-label="Your Next Step Home" className="inline-block">
+                <Image
+                  src={tenant.brand.logo}
+                  alt={tenant.agent.name}
+                  width={160}
+                  height={36}
+                />
+              </Link>
+              <p className="mt-6 max-w-sm text-sm leading-6 text-white/70">
+                {tenant.market.positioning}
+              </p>
+              <p className="mt-4 text-sm text-white/70">{tenant.agent.brokerage}</p>
+            </div>
+
+            <nav aria-label="Working with Becca">
+              <p className="text-xs font-semibold uppercase tracking-widest text-white/60">
+                Working with Becca
+              </p>
+              <ul className="mt-4 space-y-2 text-sm">
+                {NAV_WORKING.map((item) => (
+                  <li key={item.href}>
+                    <Link href={item.href} className="transition hover:text-white">
+                      {item.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+
+            <nav aria-label="Learn more">
+              <p className="text-xs font-semibold uppercase tracking-widest text-white/60">
+                Learn more
+              </p>
+              <ul className="mt-4 space-y-2 text-sm">
+                {NAV_LEARN.map((item) => (
+                  <li key={item.href}>
+                    <Link href={item.href} className="transition hover:text-white">
+                      {item.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-widest text-white/60">
+                Get in touch
+              </p>
+              <ul className="mt-4 space-y-2 text-sm">
+                <li>
+                  <a
+                    href={`mailto:${tenant.agent.email}`}
+                    className="transition hover:text-white"
+                  >
+                    {tenant.agent.email}
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href={`tel:${tenant.agent.phone.replace(/[^+\d]/g, "")}`}
+                    className="transition hover:text-white"
+                  >
+                    {tenant.agent.phone}
+                  </a>
+                </li>
+                <li className="text-white/50">
+                  {tenant.agent.address}
+                </li>
+              </ul>
+              {socials.length > 0 && (
+                <ul className="mt-6 flex gap-4 text-sm">
+                  {socials.map(([k, v]) => (
+                    <li key={k}>
+                      <a
+                        href={String(v)}
+                        rel="noopener"
+                        target="_blank"
+                        className="capitalize text-white/50 transition hover:text-white"
+                      >
+                        {k}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </div>
+          </div>
+
+          <div className="mt-10 rounded-xl border border-white/10 p-5">
+            <p className="text-xs font-semibold uppercase tracking-widest text-white/60">
+              Part of the family
+            </p>
+            <p className="mt-2 text-sm text-white/70">
+              <a
+                href={tenant.sibling.url}
+                target="_blank"
+                rel="noopener"
+                className="font-medium text-white/85 transition hover:text-white"
+              >
+                {tenant.sibling.name}
+              </a>{" "}
+              &mdash; {tenant.sibling.description}
+            </p>
+          </div>
+
+          <div className="mt-10 border-t border-white/10 pt-6 text-xs text-white/60">
+            <p>{tenant.agent.brokerageDisclosure}</p>
+            <p className="mt-2">
+              Equal Housing Opportunity. Serving{" "}
+              {tenant.market.neighborhoods.slice(0, 6).join(", ")}
+              {tenant.market.neighborhoods.length > 6
+                ? ", and surrounding areas."
+                : "."}
+            </p>
+            <p className="mt-2">
+              &copy; {year} {tenant.agent.name}. All rights reserved.
+            </p>
+          </div>
+        </div>
+      </FadeIn>
+    </footer>
+  );
+}
