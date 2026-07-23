@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 220" role="img" aria-label="Your Next Step Home, Real Estate Broker">
+  <title>Your Next Step Home</title>
+  <desc>Primary horizontal logo: forest green house silhouette with navy serif wordmark and tracked subtitle</desc>
+  <g transform="translate(48, 50)">
+    <path d="M 65 0 L 130 55 L 130 110 Q 130 120 120 120 L 10 120 Q 0 120 0 110 L 0 55 Z" fill="#2D5016"/>
+    <rect x="52" y="76" width="26" height="44" fill="#FDFBF7"/>
+  </g>
+  <text x="220" y="108" font-family="'Playfair Display', Georgia, serif" font-size="50" font-weight="700" fill="#1A2845">Your Next Step Home</text>
+  <text x="222" y="148" font-family="'Inter', Arial, sans-serif" font-size="14" font-weight="500" letter-spacing="6" fill="#4A7D2E">REAL ESTATE BROKER</text>
+</svg>
