@@ -78,7 +78,7 @@ export default async function BlogPost({ params }: Props) {
           >
             ← All posts
           </Link>
-          <p className="mt-6 text-[11px] uppercase tracking-widest text-[var(--color-secondary)]">
+          <p className="mt-6 text-xs uppercase tracking-widest text-[var(--color-secondary)]">
             {String(file.data.publishedAt ?? "")}
             {file.data.category ? ` · ${String(file.data.category)}` : ""}
           </p>

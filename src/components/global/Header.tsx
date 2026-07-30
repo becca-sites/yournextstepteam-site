@@ -39,10 +39,14 @@ export function Header() {
   return (
     <header className="sticky top-0 z-40 border-b border-black/5 bg-white/90 backdrop-blur-md">
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-4 lg:px-8">
-        <Link href="/" aria-label="Your Next Step Home" className="flex items-center">
+        <Link
+          href="/"
+          aria-label="Your Next Step Home"
+          className="flex min-h-[44px] items-center"
+        >
           <Image
             src={tenant.brand.logo}
-            alt={tenant.agent.name}
+            alt=""
             width={160}
             height={36}
             priority
@@ -60,8 +64,8 @@ export function Header() {
                     href={item.href}
                     className={
                       active
-                        ? "rounded-full bg-[var(--color-surface)] px-4 py-2 text-[var(--color-ink)] transition"
-                        : "rounded-full px-4 py-2 text-neutral-600 transition hover:bg-[var(--color-surface)] hover:text-[var(--color-ink)]"
+                        ? "inline-flex min-h-[44px] items-center rounded-full bg-[var(--color-surface)] px-4 py-3 text-[var(--color-ink)] transition"
+                        : "inline-flex min-h-[44px] items-center rounded-full px-4 py-3 text-neutral-700 transition hover:bg-[var(--color-surface)] hover:text-[var(--color-ink)]"
                     }
                     aria-current={active ? "page" : undefined}
                   >
@@ -74,7 +78,7 @@ export function Header() {
         </nav>
 
         <div className="flex items-center gap-3">
-          <Link href="/contact" className="hidden sm:inline-flex btn-primary text-sm">
+          <Link href="/contact" className="hidden sm:inline-flex btn-primary">
             Book a call
           </Link>
           <button
@@ -83,7 +87,7 @@ export function Header() {
             aria-expanded={open}
             aria-controls="mobile-nav"
             aria-label={open ? "Close menu" : "Open menu"}
-            className="lg:hidden -m-2.5 rounded-md p-2.5 text-neutral-950 transition hover:bg-neutral-100"
+            className="lg:hidden -m-2.5 flex min-h-[44px] min-w-[44px] items-center justify-center rounded-md p-2.5 text-neutral-950 transition hover:bg-neutral-100"
           >
             <svg viewBox="0 0 24 24" fill="currentColor" className="h-6 w-6" aria-hidden="true">
               {open ? (

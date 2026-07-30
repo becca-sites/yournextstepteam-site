@@ -66,7 +66,7 @@ function PodcastSection() {
                 <FadeIn key={ep.slug}>
                   <Link
                     href={`/your-best-season/${ep.slug}`}
-                    className="group flex items-baseline gap-3 text-base"
+                    className="group flex min-h-[44px] items-center gap-3 text-base"
                   >
                     <span className="font-mono text-xs text-[var(--color-moss)]">
                       {String(ep.number).padStart(2, "0")}

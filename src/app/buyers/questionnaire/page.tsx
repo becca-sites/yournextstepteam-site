@@ -157,7 +157,7 @@ export default function BuyerQuestionnairePage() {
                     <select
                       id={q.id}
                       name={q.id}
-                      className="mt-2 block w-full rounded-lg border border-neutral-300 bg-white px-4 py-3 text-base text-neutral-950 transition focus:border-[var(--color-moss)] focus:ring-2 focus:ring-[var(--color-moss)]/20 focus:outline-none"
+                      className="mt-2 block w-full rounded-lg border border-neutral-500 bg-white px-4 py-3 text-base text-neutral-950 transition focus:border-[var(--color-moss)]"
                     >
                       <option value="">Select one</option>
                       {q.options?.map((opt) => (
@@ -173,7 +173,7 @@ export default function BuyerQuestionnairePage() {
                       id={q.id}
                       name={q.id}
                       placeholder={q.placeholder}
-                      className="mt-2 block w-full rounded-lg border border-neutral-300 bg-white px-4 py-3 text-base text-neutral-950 transition placeholder:text-neutral-400 focus:border-[var(--color-moss)] focus:ring-2 focus:ring-[var(--color-moss)]/20 focus:outline-none"
+                      className="mt-2 block w-full rounded-lg border border-neutral-500 bg-white px-4 py-3 text-base text-neutral-950 transition placeholder:text-neutral-500 focus:border-[var(--color-moss)]"
                     />
                   )}
                   {q.type === "textarea" && (
@@ -182,7 +182,7 @@ export default function BuyerQuestionnairePage() {
                       name={q.id}
                       rows={3}
                       placeholder={q.placeholder}
-                      className="mt-2 block w-full rounded-lg border border-neutral-300 bg-white px-4 py-3 text-base text-neutral-950 transition placeholder:text-neutral-400 focus:border-[var(--color-moss)] focus:ring-2 focus:ring-[var(--color-moss)]/20 focus:outline-none"
+                      className="mt-2 block w-full rounded-lg border border-neutral-500 bg-white px-4 py-3 text-base text-neutral-950 transition placeholder:text-neutral-500 focus:border-[var(--color-moss)]"
                     />
                   )}
                 </div>

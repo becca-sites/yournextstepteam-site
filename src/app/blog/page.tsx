@@ -50,7 +50,7 @@ export default function BlogIndex() {
                       />
                     </div>
                     <div className="px-6 py-6">
-                      <p className="text-[11px] uppercase tracking-widest text-[var(--color-secondary)]">
+                      <p className="text-xs uppercase tracking-widest text-[var(--color-secondary)]">
                         {post.publishedAt}
                         {post.category ? ` · ${post.category}` : ""}
                       </p>

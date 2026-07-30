@@ -19,7 +19,7 @@ export function FinalCtaBlock({
         className="object-cover opacity-25"
       />
       <div className="relative mx-auto max-w-4xl px-4 py-24 text-center lg:px-8 lg:py-28">
-        <p className="text-[11px] font-semibold uppercase tracking-widest text-white/70">
+        <p className="text-xs font-semibold uppercase tracking-widest text-white/70">
           Let us write your story
         </p>
         <h2 className="mt-4 font-heading text-3xl font-semibold leading-tight md:text-5xl">

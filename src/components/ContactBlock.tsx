@@ -41,7 +41,7 @@ export function ContactBlock({ heading, children }: Props) {
               <div className="relative h-[200px] w-[200px] overflow-hidden rounded-full ring-2 ring-white/15">
                 <Image
                   src={tenant.agent.headshot}
-                  alt={tenant.agent.name}
+                  alt=""
                   fill
                   className="object-cover"
                   sizes="200px"
@@ -59,7 +59,7 @@ export function ContactBlock({ heading, children }: Props) {
                 <dd className="mt-3">
                   <a
                     href={`mailto:${tenant.agent.email}`}
-                    className="text-white hover:text-[var(--color-accent)]"
+                    className="inline-flex min-h-[44px] items-center text-white underline underline-offset-4 hover:text-[var(--color-accent)]"
                   >
                     {tenant.agent.email}
                   </a>

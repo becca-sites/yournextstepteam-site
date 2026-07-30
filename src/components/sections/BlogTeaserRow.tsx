@@ -47,7 +47,7 @@ export function BlogTeaserRow() {
                 </div>
                 <div className="px-6 py-6">
                   {post.category && (
-                    <p className="text-[11px] font-semibold uppercase tracking-widest text-[color:var(--color-secondary)]">
+                    <p className="text-xs font-semibold uppercase tracking-widest text-[color:var(--color-secondary)]">
                       {post.category}
                     </p>
                   )}

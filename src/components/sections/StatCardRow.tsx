@@ -37,7 +37,7 @@ export function StatCardRow({
               <p
                 className={
                   isDark
-                    ? "text-[11px] font-semibold uppercase tracking-widest text-white/60"
+                    ? "text-xs font-semibold uppercase tracking-widest text-white/60"
                     : "eyebrow"
                 }
               >

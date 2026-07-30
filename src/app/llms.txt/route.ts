@@ -1,10 +1,24 @@
 import { NextResponse } from "next/server";
 import { siteConfig, resolveSiteUrl } from "@/site.config";
 import { getAllPosts, getAllNeighborhoods } from "@/lib/content";
+import { isNoIndex } from "@/lib/placeholder";
 
 // llms.txt. A manifest for AI crawlers that summarizes site purpose,
 // key pages, and the canonical content surfaces an LLM should index.
 export function GET() {
+  // While the noindex guard is on, this file would do the opposite of its job:
+  // it hands AI crawlers Becca's name, license number, phone and a full page
+  // index. Serve a refusal instead.
+  if (isNoIndex()) {
+    return new NextResponse("# Not available\n\nThis site is not published yet.\n", {
+      status: 200,
+      headers: {
+        "Content-Type": "text/plain; charset=utf-8",
+        "X-Robots-Tag": "noindex, nofollow",
+      },
+    });
+  }
+
   const base = resolveSiteUrl();
   const posts = getAllPosts();
   const neighborhoods = getAllNeighborhoods();

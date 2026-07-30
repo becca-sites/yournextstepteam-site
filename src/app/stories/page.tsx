@@ -59,7 +59,7 @@ export default function StoriesIndexPage() {
                     </div>
                     <div className="px-6 py-6">
                       {story.outcome && (
-                        <p className="text-[11px] font-semibold uppercase tracking-widest text-[color:var(--color-secondary)]">
+                        <p className="text-xs font-semibold uppercase tracking-widest text-[color:var(--color-secondary)]">
                           {story.outcome}
                         </p>
                       )}

@@ -2,10 +2,15 @@ import type { MetadataRoute } from "next";
 import { resolveSiteUrl } from "@/site.config";
 import { tenant } from "@/config/tenant";
 import { getAllPosts } from "@/lib/content";
+import { isNoIndex } from "@/lib/placeholder";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = resolveSiteUrl();
   const now = new Date();
+
+  // While the site is walled off, hand crawlers an empty sitemap rather than a
+  // map of every page we are asking them not to visit.
+  if (isNoIndex()) return [];
 
   const staticPaths = [
     "/",

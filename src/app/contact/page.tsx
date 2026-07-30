@@ -47,7 +47,7 @@ export default function ContactPage() {
                   <dd className="mt-1 font-medium">
                     <a
                       href={`tel:${tenant.agent.phone.replace(/[^+\d]/g, "")}`}
-                      className="hover:text-[var(--color-moss)]"
+                      className="inline-flex min-h-[44px] items-center underline underline-offset-4 hover:text-[var(--color-moss)]"
                     >
                       {tenant.agent.phone}
                     </a>
@@ -60,7 +60,7 @@ export default function ContactPage() {
                   <dd className="mt-1 font-medium">
                     <a
                       href={`mailto:${tenant.agent.email}`}
-                      className="hover:text-[var(--color-moss)]"
+                      className="inline-flex min-h-[44px] items-center underline underline-offset-4 hover:text-[var(--color-moss)]"
                     >
                       {tenant.agent.email}
                     </a>

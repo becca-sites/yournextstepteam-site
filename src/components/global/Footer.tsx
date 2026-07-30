@@ -27,10 +27,14 @@ export function Footer() {
         <div className="mx-auto max-w-7xl px-4 py-16 lg:px-8">
           <div className="grid gap-10 md:grid-cols-4">
             <div>
-              <Link href="/" aria-label="Your Next Step Home" className="inline-block">
+              <Link
+                href="/"
+                aria-label="Your Next Step Home"
+                className="inline-flex min-h-[44px] items-center"
+              >
                 <Image
                   src={tenant.brand.logo}
-                  alt={tenant.agent.name}
+                  alt=""
                   width={160}
                   height={36}
                 />
@@ -42,13 +46,16 @@ export function Footer() {
             </div>
 
             <nav aria-label="Working with Becca">
-              <p className="text-xs font-semibold uppercase tracking-widest text-white/60">
+              <h2 className="text-xs font-semibold uppercase tracking-widest text-white/60">
                 Working with Becca
-              </p>
+              </h2>
               <ul className="mt-4 space-y-2 text-sm">
                 {NAV_WORKING.map((item) => (
                   <li key={item.href}>
-                    <Link href={item.href} className="transition hover:text-white">
+                    <Link
+                      href={item.href}
+                      className="inline-flex min-h-[44px] items-center transition hover:text-white"
+                    >
                       {item.label}
                     </Link>
                   </li>
@@ -57,13 +64,16 @@ export function Footer() {
             </nav>
 
             <nav aria-label="Learn more">
-              <p className="text-xs font-semibold uppercase tracking-widest text-white/60">
+              <h2 className="text-xs font-semibold uppercase tracking-widest text-white/60">
                 Learn more
-              </p>
+              </h2>
               <ul className="mt-4 space-y-2 text-sm">
                 {NAV_LEARN.map((item) => (
                   <li key={item.href}>
-                    <Link href={item.href} className="transition hover:text-white">
+                    <Link
+                      href={item.href}
+                      className="inline-flex min-h-[44px] items-center transition hover:text-white"
+                    >
                       {item.label}
                     </Link>
                   </li>
@@ -72,14 +82,14 @@ export function Footer() {
             </nav>
 
             <div>
-              <p className="text-xs font-semibold uppercase tracking-widest text-white/60">
+              <h2 className="text-xs font-semibold uppercase tracking-widest text-white/60">
                 Get in touch
-              </p>
+              </h2>
               <ul className="mt-4 space-y-2 text-sm">
                 <li>
                   <a
                     href={`mailto:${tenant.agent.email}`}
-                    className="transition hover:text-white"
+                    className="inline-flex min-h-[44px] items-center transition hover:text-white"
                   >
                     {tenant.agent.email}
                   </a>
@@ -87,7 +97,7 @@ export function Footer() {
                 <li>
                   <a
                     href={`tel:${tenant.agent.phone.replace(/[^+\d]/g, "")}`}
-                    className="transition hover:text-white"
+                    className="inline-flex min-h-[44px] items-center transition hover:text-white"
                   >
                     {tenant.agent.phone}
                   </a>
@@ -102,11 +112,12 @@ export function Footer() {
                     <li key={k}>
                       <a
                         href={String(v)}
-                        rel="noopener"
+                        rel="noopener noreferrer"
                         target="_blank"
-                        className="capitalize text-white/50 transition hover:text-white"
+                        className="inline-flex min-h-[44px] items-center capitalize text-white/70 transition hover:text-white"
                       >
                         {k}
+                        <span className="sr-only"> (opens in a new tab)</span>
                       </a>
                     </li>
                   ))}
@@ -116,17 +127,18 @@ export function Footer() {
           </div>
 
           <div className="mt-10 rounded-xl border border-white/10 p-5">
-            <p className="text-xs font-semibold uppercase tracking-widest text-white/60">
+            <h2 className="text-xs font-semibold uppercase tracking-widest text-white/60">
               Part of the family
-            </p>
+            </h2>
             <p className="mt-2 text-sm text-white/70">
               <a
                 href={tenant.sibling.url}
                 target="_blank"
-                rel="noopener"
-                className="font-medium text-white/85 transition hover:text-white"
+                rel="noopener noreferrer"
+                className="font-medium text-white underline underline-offset-2 transition hover:text-white"
               >
                 {tenant.sibling.name}
+                <span className="sr-only"> (opens in a new tab)</span>
               </a>{" "}
               &mdash; {tenant.sibling.description}
             </p>

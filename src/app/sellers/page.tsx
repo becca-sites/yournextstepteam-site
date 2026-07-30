@@ -151,7 +151,7 @@ export default function SellersPage() {
                 <details key={faq.question} className="group px-6 py-5">
                   <summary className="flex cursor-pointer items-center justify-between gap-3 text-left font-display text-lg font-semibold">
                     {faq.question}
-                    <span className="text-2xl text-neutral-400 transition group-open:rotate-45">
+                    <span aria-hidden="true" className="text-2xl text-neutral-600 transition group-open:rotate-45">
                       +
                     </span>
                   </summary>

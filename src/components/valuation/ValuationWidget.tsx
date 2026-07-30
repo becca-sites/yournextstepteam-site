@@ -60,7 +60,11 @@ export function ValuationWidget() {
 
   if (submitted) {
     return (
-      <div className="rounded-2xl border border-black/5 bg-[var(--color-surface)] p-10 text-center">
+      <div
+        role="status"
+        aria-live="polite"
+        className="rounded-2xl border border-black/5 bg-[var(--color-surface)] p-10 text-center"
+      >
         <p className="eyebrow">Estimate request received</p>
         <h2 className="mt-3 font-heading text-2xl font-semibold md:text-3xl">
           Thanks. {tenant.agent.firstName} will be in touch within 24 hours.
@@ -90,12 +94,12 @@ export function ValuationWidget() {
         placeholder={`123 Main St, ${tenant.market.city}, ${tenant.market.stateAbbreviation}`}
         value={address}
         onChange={(e) => setAddress(e.target.value)}
-        className="mt-3 block w-full rounded-xl border border-black/10 bg-white px-5 py-4 font-heading text-lg outline-none transition focus:border-[var(--color-primary)]"
+        className="mt-3 block w-full rounded-xl border border-neutral-500 bg-white px-5 py-4 text-lg transition focus:border-[var(--color-primary)]"
       />
       <button type="submit" className="btn-primary mt-5">
         Get my estimate
       </button>
-      <p className="mt-4 text-xs text-[color:var(--color-muted)]">
+      <p className="mt-4 text-sm text-[color:var(--color-muted)]">
         By submitting, you agree to receive a follow-up email with the personalized
         CMA. No additional marketing contact unless you opt in.
       </p>
