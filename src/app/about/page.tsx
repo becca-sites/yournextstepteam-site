@@ -18,20 +18,20 @@ export const metadata: Metadata = {
 
 const VALUES = [
   {
-    title: "Patience over pressure",
-    body: "Senior transitions take time. We move at the family's pace, answer every question, and never push toward a decision that is not ready.",
+    title: "Education before everything",
+    body: "I would rather give you too much information than not enough. You can always tell me to get to the point. No pressure timeline — we move at your pace, and every question gets a real answer, not a sales pitch.",
   },
   {
-    title: "Tell the truth",
-    body: "Honest pricing, honest condition assessments, honest market reads. Families making big decisions deserve straight information.",
+    title: "Honest about what I do not know",
+    body: "If something is outside my expertise, I will tell you that and send you to someone who can answer it better than me. I do not just hand you a name — I check in with them first, make sure they are still active and still good, and then I introduce you.",
   },
   {
-    title: "Coordinate the full picture",
-    body: "Attorney, financial planner, contractor, moving company. We work alongside the team the family already trusts and fill in the gaps.",
+    title: "I catch the things other people miss",
+    body: "Plumbing fixtures marked NA on an inspection when they should not be. A showing system left on auto-accept when it should be manual. The details matter, and fifteen years of contract work means I know where to look.",
   },
   {
-    title: "Stay in the relationship",
-    body: "Closing day is where the long part of the relationship starts. Most of our work comes from families we have already served.",
+    title: "The relationship does not end at closing",
+    body: "I have helped clients move furniture, retrieve forgotten items from new owners, and coordinate storage after the deal closed. Closing day is where the real relationship starts. Most of my work comes from families I have already served.",
   },
 ];
 
@@ -46,7 +46,7 @@ export default function AboutPage() {
             <FadeIn className="lg:col-span-7">
               <p className="eyebrow">About</p>
               <h1 className="mt-5 font-display text-4xl font-semibold leading-[1.05] tracking-tight md:text-6xl">
-                Real estate for the moves that matter most.
+                Your agent should be your advocate, not your salesperson.
               </h1>
               <p className="mt-6 max-w-xl text-lg text-neutral-600 md:text-xl">
                 {tenant.agent.bio}
@@ -85,17 +85,17 @@ export default function AboutPage() {
               <p>{tenant.agent.storyLong}</p>
               <p>
                 Grew up in Eatonville and now based in {tenant.market.city},{" "}
-                {tenant.market.stateAbbreviation}, serving Pierce and South King
-                County across the {tenant.market.primaryArea}. The focus is
-                senior real estate: helping older adults and their families with
-                aging-in-place conversions, medical-accessible modifications,
-                downsizing, and the estate transitions that come with a
-                later-in-life move.
+                {tenant.market.stateAbbreviation}. I work across Pierce and
+                South King County — buyers, sellers, land, relocations, estate
+                transitions. Some agents these days prove this career is not for
+                them. I have been doing this for fifteen years because I actually
+                care about getting it right.
               </p>
               <p>
-                Every client gets the same patient process and the same
-                attention. Off the clock, there is a Boxer named Jagger who, in
-                the family&apos;s words, &quot;has moves like Mick Jagger.&quot;
+                Every client gets the same patient process. The challenging ones
+                get the same level of care as the easy ones. Off the clock,
+                there is a Boxer named Jagger who, in the family&apos;s words,
+                &quot;has moves like Mick Jagger.&quot;
               </p>
             </div>
           </FadeIn>
@@ -194,10 +194,10 @@ export default function AboutPage() {
         </Container>
       </section>
 
-      <ContactBlock heading="Like the way we work?">
+      <ContactBlock heading="Like the way I work?">
         <p>
-          A short, no pressure call to see if we are a fit for what you are
-          working on.
+          A short conversation. No pressure. If I am not the right fit, I will
+          tell you — and I will point you to someone who is.
         </p>
       </ContactBlock>
     </>

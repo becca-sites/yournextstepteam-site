@@ -189,9 +189,9 @@ export const tenant: Tenant = {
     brokerageDisclosure:
       "Rebecca Pitts is a licensed real estate broker in Washington State, affiliated with eXp Realty. MLS #87890. License #107351. eXp Realty is a licensed real estate brokerage. Equal Housing Opportunity.",
     headshot: "/photos/headshots/becca-headshot.webp",
-    bio: "I help older adults and their families navigate the moves that matter most. From aging-in-place modifications to right-sized downsizing, every transition gets patience, a clear plan, and someone who has done this before.",
+    bio: "The search is five percent of the process. The other ninety-five is where things get real — inspections, appraisals, contract clauses, financing surprises. I would rather give you too much information than not enough. You can always tell me to get to the point.",
     storyLong:
-      "I built the care I wished I had for my own parents. After 20 years in senior care and 15 years in real estate, I understand that selling a home you have lived in for decades is never just a transaction. It is a family decision. And it deserves someone who will treat it that way.",
+      "Twenty years in senior care before I ever sold a house. That background is why I work the way I do — I do not rush people, I answer every question with a real answer instead of a sales pitch, and I coordinate with lenders, inspectors, and attorneys before I send you to any of them. If I can not help you directly, I know who can. And I check them out first.",
     license: "WA #107351",
     mlsId: "87890",
     phone: "253.678.7089",
@@ -370,40 +370,40 @@ export const tenant: Tenant = {
 
   scenarios: [
     {
-      title: "Planning to age in place",
+      title: "Buying your first home",
       description:
-        "You want to stay in the home you love. Which modifications matter, what they cost, and how to prioritize the ones that keep you safe and independent.",
-      href: "/sellers",
+        "Good. Ask all the questions. Sorry long answer just trying to give you all the information — that is how I work. No pressure timeline. We move at your pace.",
+      href: "/buyers",
     },
     {
-      title: "Ready to downsize",
+      title: "Selling to buy the next one",
       description:
-        "Decades in one house and it is time for something that fits the next chapter. A calm, staged plan to sell well and land somewhere that works.",
+        "This is not a short answer situation. Bridge loans, contingency timelines, two closings that need to land in the same window. I manage the moving pieces.",
       href: "/sellers",
     },
     {
       title: "Helping a parent move",
       description:
-        "You are the adult child coordinating a move for mom or dad. A patient partner who has done this before and can carry the logistics with you.",
+        "You are the adult child coordinating a move for mom or dad. Twenty years in senior care before I ever sold a house — I understand what is really going on here.",
       href: "/contact",
     },
     {
-      title: "Buying the right next home",
+      title: "Buying land to build on",
       description:
-        "Single level, low maintenance, close to care and community. Finding the home that fits how life actually looks now.",
+        "Land is a different animal. Higher down payments, different loan programs, construction timelines. I do my homework before I send you to a lender.",
       href: "/buyers",
     },
     {
-      title: "Relocating to the area",
+      title: "Relocating from out of state",
       description:
-        "Moving to Pierce or South King County to be closer to family? Which towns fit your pace, your budget, and the care network you need.",
+        "Moving to Pierce or South King County from somewhere else entirely. Virtual tours, neighborhood research, and if I can not sell where you are now, I know agents who can.",
       href: "/contact",
     },
     {
-      title: "Sorting out the estate",
+      title: "Ready to downsize",
       description:
-        "An inherited property, a trust sale, or a transition after a loss. Coordinated with the family, the attorney, and no pressure on the timeline.",
-      href: "/contact",
+        "Decades in one house and it is time for something that fits the next chapter. A clear plan to sell well and land somewhere that actually works for your life now.",
+      href: "/sellers",
     },
   ],
 
@@ -411,27 +411,27 @@ export const tenant: Tenant = {
     {
       question: "What does an SRES designation mean?",
       answer:
-        "The Seniors Real Estate Specialist (SRES) designation means additional training in the financial, emotional, and logistical challenges that come with real estate transactions for older adults. It covers reverse mortgages, tax implications of selling a long-held home, aging-in-place modifications, and how to coordinate with elder law attorneys and financial planners.",
+        "It means I have done additional training specifically for real estate transactions involving older adults. Reverse mortgages, tax implications of selling a home you have lived in for thirty years, aging-in-place modifications, coordinating with elder law attorneys. Twenty years in senior care before real estate gave me the context. The SRES gave me the framework.",
     },
     {
       question: "How do you help families who are not sure whether to sell or stay?",
       answer:
-        "We start with a conversation, not a listing appointment. I walk the home with the family, talk through what modifications would cost versus what selling and moving would look like, and lay both paths side by side. No pressure toward either outcome. The goal is a clear decision made with real numbers.",
+        "We start with a conversation, not a listing appointment. I walk the home with the family, talk through what modifications would cost versus what selling and moving would look like, and lay both paths side by side. No pressure toward either outcome. I would rather give you too much information than not enough.",
     },
     {
       question: "Can you coordinate with our trust or estate attorney?",
       answer:
-        "Yes, and this is one of the most common scenarios I handle. Estate sales, trust sales, and transitions after a loss all involve legal coordination. I work directly with the family's attorney to make sure the real estate side stays aligned with the legal timeline.",
+        "Yes, and this is one of the most common scenarios I handle. Estate sales, trust sales, and transitions after a loss all involve legal coordination. I work directly with the family's attorney to make sure the real estate side stays aligned with the legal timeline. If you do not have an attorney yet, I have names I trust.",
     },
     {
       question: "What if we need to sell and buy at the same time?",
       answer:
-        "Coordinating a simultaneous sell-and-buy is one of the most complex transactions in residential real estate. I stage the timeline, manage contingencies on both contracts, and keep both sides moving so you are not stuck between two closings.",
+        "This is not a short answer situation. It is one of the most complex transactions in residential real estate — bridge loans, contingency timelines, two agents, two closings. I manage the lender relationship, keep the other agent from pushing you before you are ready, and coordinate both sides so you are not stuck between two transactions.",
     },
     {
       question: "Do you work with first-time buyers too?",
       answer:
-        "Absolutely. The same patient, education-first approach applies. If you are buying your first home, you will get the same level of attention and explanation as a senior client navigating a complex transition. Every question gets answered.",
+        "Absolutely. Ask all the questions — that is how I work. No pressure timeline. We move at your pace, every question gets a real answer, and I would rather over-explain than leave you guessing. On average, my buyers are under contract within 45 days of starting their search.",
     },
   ],
 

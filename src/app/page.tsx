@@ -19,9 +19,9 @@ function HeroSection() {
           <FadeIn className="max-w-2xl">
             <p className="eyebrow">{tenant.brand.eyebrow}</p>
             <h1 className="mt-5 font-display text-5xl font-semibold leading-[1.05] tracking-tight text-neutral-950 md:text-7xl">
-              Senior real estate
+              Finding the house
               <br />
-              for every next step.
+              is the easy part.
             </h1>
             <p className="mt-6 max-w-xl text-lg text-neutral-600 md:text-xl">
               {tenant.agent.bio}
@@ -179,16 +179,16 @@ function AboutPreviewSection() {
           <FadeIn className="lg:col-span-7">
             <p className="eyebrow">Nice to meet you</p>
             <h2 className="mt-4 font-display text-3xl font-semibold leading-tight md:text-4xl">
-              A {tenant.agent.yearsOfExperience}-year career built on patience,
-              local relationships, and a clear process.
+              {tenant.agent.yearsOfExperience} years. 150+ closings. And I still
+              answer my own phone.
             </h2>
             <p className="mt-5 text-base text-neutral-600 md:text-lg">
               {tenant.agent.storyLong}
             </p>
             <p className="mt-4 text-base text-neutral-600 md:text-lg">
-              Based in {tenant.market.city}, working across the{" "}
+              Based in {tenant.market.city}, working across{" "}
               {tenant.market.primaryArea}. {tenant.market.commuteToHub} from{" "}
-              {tenant.market.hubCity}, close enough to commute and far enough to
+              {tenant.market.hubCity} — close enough to commute and far enough to
               feel like a different pace.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
@@ -239,8 +239,8 @@ export default function HomePage() {
       <AboutPreviewSection />
       <ContactBlock heading="Ready to talk about your next step?">
         <p>
-          Fifteen minutes. No pressure. A real conversation about where you
-          are and what comes next.
+          Fifteen minutes. No pressure. No sales pitch. Just a real
+          conversation about where you are and what comes next.
         </p>
       </ContactBlock>
     </>

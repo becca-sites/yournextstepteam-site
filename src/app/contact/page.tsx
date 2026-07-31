@@ -23,9 +23,9 @@ export default function ContactPage() {
               Let us talk.
             </h1>
             <p className="mt-5 max-w-2xl text-lg text-neutral-600 md:text-xl">
-              {tenant.agent.firstName} responds personally to every inquiry. No
-              long forms, no auto-responder runaround. A real conversation about
-              what you are working on.
+              I answer my own phone and I respond to every message personally.
+              No auto-responder, no assistant screening your call. You get me.
+              Ask all the questions — that is how I work.
             </p>
           </FadeIn>
         </Container>
@@ -88,7 +88,8 @@ export default function ContactPage() {
                 <p className="font-semibold text-neutral-950">Hours</p>
                 <p className="mt-2">
                   Monday through Saturday, 8 AM to 7 PM Pacific. Sundays by
-                  appointment. Texts and emails answered same day.
+                  appointment. Texts and emails answered same day — I do not
+                  leave people hanging.
                 </p>
               </div>
 
