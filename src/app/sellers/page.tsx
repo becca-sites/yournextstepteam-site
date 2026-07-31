@@ -76,22 +76,22 @@ const SYSTEM = [
 
 const CASE_STUDIES = [
   {
-    tag: "South Hill downsizing",
+    tag: "Tacoma green belt listing",
     situation:
-      "A senior couple who had lived in their South Hill home for over 40 years. Four bedrooms, a large yard, and decades of memories. They needed to downsize to a single-level but were not sure where to start.",
+      "A young couple selling their first home — a property in Tacoma surrounded by green belt on all sides. Nothing but green out every window. That is a rare thing in the city, and we needed to make sure buyers felt it, not just read about it.",
     approach:
-      "We walked the home together, identified the updates that would earn their money back, and skipped the ones that would not. Professional photography, targeted marketing to families looking in that school district, and a pricing strategy based on three months of comparable sales in the neighborhood.",
+      "I shot a custom listing video myself. Missed the fenced backyard in the first cut and re-shot it because that detail matters. We priced using neighborhood comps and got two showings in the first week. When a buyer came back with their spouse for a second look, we knew we had real interest. Offer came in, we went mutual, and I caught an inspection error the other agent missed — plumbing fixtures marked NA when they should not have been.",
     result:
-      "Sold $32K over list price. Eight days on market. The couple moved into a ranch-style home ten minutes away, closer to their grandchildren.",
+      "Under contract with a contractor credit negotiated. Appraisal ordered and on track for a clean close. The sellers texted me 'You ARE amazing!!!' — and I meant it when I said it right back.",
   },
   {
-    tag: "Estate transition in Bonney Lake",
+    tag: "The most challenging client I have ever had",
     situation:
-      "Adult children managing the sale of their parent's home after a move to assisted living. The house needed cleanout, minor repairs, and coordination with the family's estate attorney.",
+      "A seller in the Tehaleh area who needed constant communication, last-minute changes, and a lot of patience. The kind of client some agents would have walked away from. I am not some agents.",
     approach:
-      "We handled the vendor coordination for cleanout and repairs, worked directly with the attorney on trust documentation, and staged the home with minimal investment. Listed with a clear timeline that matched the family's legal schedule.",
+      "We talked almost daily. I set expectations on closing timelines down to the hour — 'could happen as early as 9 AM or as late as 5 PM' — and explained when proceeds would hit. After closing, I went back to the house to help load furniture, retrieve forgotten items from the new owners, spray the carpets, and coordinate storage. For the fee of one chocolate.",
     result:
-      "Sold at full asking price. The family avoided the stress of managing contractors and legal timelines on their own. Closing aligned with the trust disbursement schedule.",
+      "Home sold and closed. She went from my most challenging client to one of my most loyal. We still text. She sends me memes. That is what happens when you do not give up on people.",
   },
 ];
 

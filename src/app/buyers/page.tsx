@@ -43,23 +43,23 @@ const ZILLOW_GAPS = [
 
 const SCENARIOS = [
   {
-    title: "Finding the right single-level home",
-    body: "No stairs, wide doorways, walk-in showers, and close to the care network you need. We know which neighborhoods and floor plans fit the next chapter.",
+    title: "Buying land to build on",
+    body: "Land is a different animal. Higher down payments, different loan programs, construction timelines that layer on top. I do my homework before I send you to a lender — so when you sit down with them, you already know what you are walking into.",
     link: "/contact",
   },
   {
-    title: "Coordinating a sell-and-buy",
-    body: "Selling the family home and buying something that fits your life now. Staging both timelines, managing contingencies, and keeping both closings on track.",
+    title: "Selling one home to buy the next",
+    body: "This is not a short answer situation. Bridge loans, contingency timelines, two closings that need to land in the same window. I manage the moving pieces and keep the lender and the other agent from pushing you before you are ready.",
     link: "/contact",
   },
   {
-    title: "Relocating to be closer to family",
-    body: "Moving to Pierce or South King County from out of the area. Which towns fit your pace, your budget, and the medical or community access you need.",
+    title: "Relocating from out of state",
+    body: "Moving to Pierce or South King County from somewhere else entirely. I will match you with the right neighborhoods, coordinate virtual tours, and if I can not sell where you are now, I know agents in other states who can. I check them out first.",
     link: "/contact",
   },
   {
-    title: "First-time buyer with questions",
-    body: "Every question gets answered. The same patient, education-first approach that guides our senior clients applies to every buyer, regardless of experience.",
+    title: "First-time buyer with a lot of questions",
+    body: "Good. Ask all of them. Sorry long answer just trying to give you all the information — that is how I work. No pressure timeline. We move at your pace, and every question gets a real answer, not a sales pitch.",
     link: "/buyers/questionnaire",
   },
 ];
@@ -67,19 +67,19 @@ const SCENARIOS = [
 const PILLARS = [
   {
     title: "Education before everything",
-    body: "No pressure timeline. We move at your pace, answer every question, and make sure you understand each step before we take it. Over 150 closings taught us that informed buyers make better decisions.",
+    body: "No pressure timeline. We move at your pace, answer every question, and make sure you understand each step before we take it. I would rather give you too much information than not enough — you can always ask me to get to the point.",
   },
   {
     title: "Accessibility-first evaluation",
     body: "We assess every home for accessibility: single-level living, grab bar potential, doorway widths, proximity to medical care and community resources. If the home does not fit your life in five years, we keep looking.",
   },
   {
-    title: "Contract-level protection",
-    body: "Fifteen years of contract negotiations. We know which contingencies protect you, what to push for on every deal, and when to walk away. Your interests are the only ones at the table.",
+    title: "I catch the things other people miss",
+    body: "Plumbing fixtures marked NA on the inspection when they should not be. A showing system left on auto-accept when it should be manual. The details matter, and fifteen years of contract work means I know where to look.",
   },
   {
-    title: "A network that has your back",
-    body: "Inspectors, lenders, insurance, elder law attorneys, contractors, movers. A vetted network for everything before, during, and after closing. One call gets you the right person.",
+    title: "A network I have actually vetted",
+    body: "Lenders, inspectors, contractors, attorneys — I do not just hand you a name. I check in with them first, make sure they are still active and still good, and then I introduce you. If I can not help you directly, I know who can.",
   },
 ];
 
@@ -92,22 +92,22 @@ const BUYER_FAQS = [
   {
     question: "What happens if the appraisal comes in low?",
     answer:
-      "A low appraisal does not kill the deal. There are multiple paths forward: renegotiate the price with the seller, ask the buyer to cover an appraisal gap, or provide additional comparable sales to the lender for a reconsideration of value. We prepare for this possibility before it happens.",
+      "A low appraisal does not kill the deal. There are multiple paths forward — renegotiate the price, cover an appraisal gap, or provide additional comparable sales to the lender for a reconsideration of value. I prepare for this possibility before it happens, because if you are only thinking about it when the report lands, you are already behind.",
   },
   {
     question: "Can you help if I am relocating from out of state?",
     answer:
-      "Absolutely. We work with relocating buyers regularly, especially military families from JBLM and professionals moving from California, Oregon, and the East Coast. We handle virtual tours, neighborhood research, and can coordinate a compressed timeline when you are buying sight-unseen or on a tight schedule.",
+      "Absolutely. I work with relocating buyers regularly — military families from JBLM, professionals moving from California, Oregon, and the East Coast. Virtual tours, neighborhood research, compressed timelines. And if you need to sell where you are now, I have agents I trust in other states. I do not just hand you a name — I check in with them first, make the introduction, and follow up to make sure it is actually working.",
   },
   {
     question: "How long does it take to find the right home?",
     answer:
-      "It depends on your criteria and the market. Some buyers find the right home in two weeks. Others take three months. We do not rush the process. The goal is the right home, not the fastest close. On average, our buyers are under contract within 45 days of starting their search.",
+      "It depends on your criteria and the market. Some buyers find the right home in two weeks. Others take three months. I do not rush the process. Keep the faith — all you need is one, as long as it is the right one. On average, my buyers are under contract within 45 days of starting their search.",
   },
   {
     question: "What if I need to sell and buy at the same time?",
     answer:
-      "This is one of the most complex transactions in residential real estate, and one we handle regularly. We stage the timeline, manage contingencies on both contracts, and coordinate both closings so you are not stuck between two transactions or carrying two mortgages.",
+      "This is not a short answer situation. It is one of the most complex transactions in residential real estate — bridge loans, contingency timelines, two agents, two closings. I manage the lender relationship, keep the other agent from pushing you before you are ready, and coordinate both sides so you are not stuck between two transactions. I have done this enough times to know where it breaks down, and I plan around those points.",
   },
 ];
 
@@ -129,8 +129,9 @@ export default function BuyersPage() {
               </h1>
               <p className="mt-6 max-w-xl text-lg text-neutral-600 md:text-xl">
                 The next forty-seven days is where deals fall apart. Inspections,
-                appraisals, contract clauses, financing surprises. A good buyer
-                agent is your representation through all of it.
+                appraisals, contract clauses, financing surprises. Your agent
+                should be your advocate, not your salesperson. That is the
+                difference.
               </p>
               <div className="mt-9 flex flex-wrap gap-3">
                 <Link href="/buyers/questionnaire" className="btn-primary">
@@ -188,8 +189,9 @@ export default function BuyersPage() {
             <p className="mt-6 text-lg text-white/80">
               Every listing is online now. That is not the question. The question
               is what happens after you find the house. The search is five
-              percent of the process. The other ninety-five percent is where
-              buyers need real representation.
+              percent of the process. The other ninety-five is where things get
+              real — and where some agents these days prove this career is not
+              for them.
             </p>
             <FadeInStagger className="mt-10 grid gap-6 sm:grid-cols-2">
               {ZILLOW_GAPS.map((gap) => (
@@ -309,15 +311,18 @@ export default function BuyersPage() {
                   Client story
                 </p>
                 <p className="mt-4 text-lg leading-relaxed text-neutral-700">
-                  A JBLM military family making their first purchase in
-                  Washington. They needed a single-level home near base with
-                  accessible features for a family member, on a VA loan timeline.
-                  We identified the right neighborhoods, coordinated with their
-                  lender on VA-specific requirements, and found a home that
-                  checked every box. Closed in 34 days.
+                  A young couple wanted to buy land and build. Not a house — land.
+                  That is a different loan, a different down payment, a different
+                  timeline. Before I even connected them with a lender, I
+                  researched the programs myself: what the down payment would look
+                  like, how construction loans layer on top, whether a family
+                  member&apos;s veteran status could help. I was honest about what
+                  I did not know and sent them to someone who could answer the rest.
+                  That is not passing the buck — that is making sure you get real
+                  answers from the right person.
                 </p>
                 <p className="mt-4 text-sm text-neutral-400">
-                  Names and details changed for privacy.
+                  Details changed for privacy.
                 </p>
               </div>
             </div>
