@@ -7,6 +7,7 @@ import { FadeIn, FadeInStagger } from "@/components/FadeIn";
 import { SectionIntro } from "@/components/SectionIntro";
 import { ContactBlock } from "@/components/ContactBlock";
 import { ServiceSchema } from "@/components/schema/ServiceSchema";
+import { FAQSchema } from "@/components/schema/FAQSchema";
 import { StatCardRow } from "@/components/sections/StatCardRow";
 
 export const metadata: Metadata = {
@@ -14,6 +15,37 @@ export const metadata: Metadata = {
   description: `Senior downsizing, estate transitions, and aging-in-place evaluations with ${tenant.agent.name} across the ${tenant.market.primaryArea}.`,
   alternates: { canonical: "/sellers" },
 };
+
+const CREDENTIALS = [
+  "SRES Certified",
+  "15+ Years in WA",
+  "150+ Closings",
+  "Senior Care Background",
+];
+
+const FEARS = [
+  "Pricing the home wrong and leaving tens of thousands on the table",
+  "Trusting the wrong agent and getting stuck in a six-month listing",
+  "Accepting the first offer without knowing what the market will actually bear",
+  "Watching the house sit for weeks while neighbors sell in days",
+  "Letting emotional attachment cloud the decisions that matter most",
+];
+
+const OLD_WAY = [
+  "Zestimate as a pricing strategy",
+  "30 photos from the agent's phone",
+  "Sign in the yard and hope",
+  "Generic open house with no follow-up",
+  "Settlement at the first offer",
+];
+
+const YNSH_SYSTEM = [
+  "Full CMA with neighborhood-level data",
+  "Professional photography, video, and twilight exteriors",
+  "Targeted digital and network marketing",
+  "Qualified buyer previews before showing day",
+  "Negotiation strategy for every offer",
+];
 
 const SYSTEM = [
   {
@@ -38,7 +70,28 @@ const SYSTEM = [
   },
   {
     title: "Negotiation that holds the line",
-    body: "Twelve years of contract negotiations. The edge is communication and rapport with the other agent, plus the discipline to know when to push and when to hold.",
+    body: "Fifteen years of contract negotiations. The edge is communication and rapport with the other agent, plus the discipline to know when to push and when to hold.",
+  },
+];
+
+const CASE_STUDIES = [
+  {
+    tag: "South Hill downsizing",
+    situation:
+      "A senior couple who had lived in their South Hill home for over 40 years. Four bedrooms, a large yard, and decades of memories. They needed to downsize to a single-level but were not sure where to start.",
+    approach:
+      "We walked the home together, identified the updates that would earn their money back, and skipped the ones that would not. Professional photography, targeted marketing to families looking in that school district, and a pricing strategy based on three months of comparable sales in the neighborhood.",
+    result:
+      "Sold $32K over list price. Eight days on market. The couple moved into a ranch-style home ten minutes away, closer to their grandchildren.",
+  },
+  {
+    tag: "Estate transition in Bonney Lake",
+    situation:
+      "Adult children managing the sale of their parent's home after a move to assisted living. The house needed cleanout, minor repairs, and coordination with the family's estate attorney.",
+    approach:
+      "We handled the vendor coordination for cleanout and repairs, worked directly with the attorney on trust documentation, and staged the home with minimal investment. Listed with a clear timeline that matched the family's legal schedule.",
+    result:
+      "Sold at full asking price. The family avoided the stress of managing contractors and legal timelines on their own. Closing aligned with the trust disbursement schedule.",
   },
 ];
 
@@ -48,7 +101,9 @@ export default function SellersPage() {
   return (
     <>
       <ServiceSchema name="Seller representation" serviceType="Real estate seller's agent" />
+      <FAQSchema items={FAQS} />
 
+      {/* Hero */}
       <section className="relative overflow-hidden bg-[var(--color-surface)]">
         <Container className="pt-16 pb-12 lg:pt-24 lg:pb-20">
           <div className="grid max-w-7xl gap-12 lg:grid-cols-12 lg:gap-12">
@@ -71,6 +126,24 @@ export default function SellersPage() {
                   Watch: The Downsizing Decision
                 </Link>
               </div>
+              <div className="mt-6 flex flex-wrap gap-2">
+                {CREDENTIALS.map((cred) => (
+                  <span
+                    key={cred}
+                    className="inline-flex items-center gap-1.5 rounded-full border border-[var(--color-moss)]/20 bg-[var(--color-surface)] px-3 py-1.5 text-xs font-medium text-[var(--color-moss)]"
+                  >
+                    <svg
+                      viewBox="0 0 16 16"
+                      fill="currentColor"
+                      className="h-3.5 w-3.5"
+                      aria-hidden="true"
+                    >
+                      <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.75.75 0 0 1 1.06-1.06L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z" />
+                    </svg>
+                    {cred}
+                  </span>
+                ))}
+              </div>
             </FadeIn>
             <FadeIn scaleIn className="lg:col-span-5">
               <div className="relative aspect-[4/5] w-full overflow-hidden rounded-3xl bg-neutral-200 shadow-xl">
@@ -88,36 +161,114 @@ export default function SellersPage() {
         </Container>
       </section>
 
+      {/* Stats */}
       <StatCardRow
         stats={tenant.resultsStats}
         eyebrow="The receipts"
         heading={`What ${tenant.agent.yearsOfExperience} years in the ${tenant.market.state} market looks like.`}
       />
 
-      <section className="bg-white py-20 md:py-24">
+      {/* PAS Fear Copy */}
+      <section className="bg-[var(--color-primary)] py-20 md:py-24">
         <Container>
           <FadeIn className="mx-auto max-w-4xl">
-            <p className="eyebrow">What sellers are really thinking about</p>
-            <h2 className="mt-3 font-display text-3xl font-semibold leading-tight md:text-4xl">
-              This is not just about the house.
+            <p className="text-xs font-semibold uppercase tracking-widest text-white/60">
+              The real conversation
+            </p>
+            <h2 className="mt-3 font-display text-3xl font-semibold leading-tight text-white md:text-4xl">
+              What sellers are really afraid of.
             </h2>
-            <div className="mt-6 space-y-5 text-lg text-neutral-600">
-              <p>
-                It is about the dining room where every Thanksgiving happened.
-                The marks on the door frame from the kids growing up. The garden
-                your spouse planted the year you moved in.
+            <p className="mt-6 text-lg text-white/80">
+              Nobody says these things out loud in the first meeting. But every
+              seller thinks them. And pretending they do not exist is how deals
+              go sideways.
+            </p>
+            <div className="mt-10 space-y-4">
+              {FEARS.map((fear) => (
+                <div key={fear} className="flex items-start gap-3">
+                  <svg
+                    viewBox="0 0 16 16"
+                    fill="currentColor"
+                    className="mt-1 h-4 w-4 shrink-0 text-red-400"
+                    aria-hidden="true"
+                  >
+                    <path d="M3.72 3.72a.75.75 0 0 1 1.06 0L8 6.94l3.22-3.22a.75.75 0 1 1 1.06 1.06L9.06 8l3.22 3.22a.75.75 0 1 1-1.06 1.06L8 9.06l-3.22 3.22a.75.75 0 0 1-1.06-1.06L6.94 8 3.72 4.78a.75.75 0 0 1 0-1.06Z" />
+                  </svg>
+                  <p className="text-base text-white/90">{fear}</p>
+                </div>
+              ))}
+            </div>
+            <div className="mt-10 rounded-2xl border border-white/10 bg-white/5 p-7">
+              <p className="text-lg font-medium text-white">
+                That is what experience is for. Not a speech. A system.
               </p>
-              <p>
-                Selling a home with decades of life in it takes someone who
-                understands that the logistics and the emotions are not separate
-                things. They are the same thing. And the process needs to honor
-                both.
+              <p className="mt-3 text-base text-white/70">
+                Fifteen years of navigating these exact fears across{" "}
+                {tenant.market.primaryArea}. Every one of them has a process
+                behind it. That is what you are hiring.
               </p>
             </div>
           </FadeIn>
         </Container>
       </section>
 
+      {/* Old Way vs YNSH System */}
+      <section className="bg-white py-20 md:py-24">
+        <Container>
+          <FadeIn>
+            <SectionIntro
+              eyebrow="Side by side"
+              title="The old way versus the YNSH system."
+            />
+          </FadeIn>
+          <FadeIn className="mt-12 mx-auto max-w-4xl">
+            <div className="grid gap-6 md:grid-cols-2">
+              <div className="rounded-2xl border border-red-200/60 bg-red-50/30 p-7">
+                <p className="text-xs font-semibold uppercase tracking-widest text-red-800/60">
+                  The old way
+                </p>
+                <div className="mt-5 space-y-4">
+                  {OLD_WAY.map((item) => (
+                    <div key={item} className="flex items-start gap-3">
+                      <svg
+                        viewBox="0 0 16 16"
+                        fill="currentColor"
+                        className="mt-0.5 h-4 w-4 shrink-0 text-red-400"
+                        aria-hidden="true"
+                      >
+                        <path d="M3.72 3.72a.75.75 0 0 1 1.06 0L8 6.94l3.22-3.22a.75.75 0 1 1 1.06 1.06L9.06 8l3.22 3.22a.75.75 0 1 1-1.06 1.06L8 9.06l-3.22 3.22a.75.75 0 0 1-1.06-1.06L6.94 8 3.72 4.78a.75.75 0 0 1 0-1.06Z" />
+                      </svg>
+                      <p className="text-sm text-neutral-700">{item}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+              <div className="rounded-2xl border border-[var(--color-moss)]/20 bg-[var(--color-moss)]/5 p-7">
+                <p className="text-xs font-semibold uppercase tracking-widest text-[var(--color-moss)]">
+                  The YNSH system
+                </p>
+                <div className="mt-5 space-y-4">
+                  {YNSH_SYSTEM.map((item) => (
+                    <div key={item} className="flex items-start gap-3">
+                      <svg
+                        viewBox="0 0 16 16"
+                        fill="currentColor"
+                        className="mt-0.5 h-4 w-4 shrink-0 text-[var(--color-moss)]"
+                        aria-hidden="true"
+                      >
+                        <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.75.75 0 0 1 1.06-1.06L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z" />
+                      </svg>
+                      <p className="text-sm text-neutral-700">{item}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </FadeIn>
+        </Container>
+      </section>
+
+      {/* Numbered Service Blocks */}
       <section className="surface-warm py-20 md:py-24">
         <Container>
           <SectionIntro
@@ -125,10 +276,15 @@ export default function SellersPage() {
             title="The full system, included."
           />
           <FadeInStagger className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {SYSTEM.map((card) => (
+            {SYSTEM.map((card, i) => (
               <FadeIn key={card.title}>
                 <div className="rounded-2xl border border-black/5 bg-white p-7">
-                  <h3 className="font-display text-lg font-semibold">{card.title}</h3>
+                  <p className="font-mono text-xs tracking-widest text-[var(--color-moss)]">
+                    {String(i + 1).padStart(2, "0")}
+                  </p>
+                  <h3 className="mt-3 font-display text-lg font-semibold">
+                    {card.title}
+                  </h3>
                   <p className="mt-3 text-sm leading-relaxed text-neutral-600">
                     {card.body}
                   </p>
@@ -139,6 +295,84 @@ export default function SellersPage() {
         </Container>
       </section>
 
+      {/* Case Studies */}
+      <section className="bg-white py-20 md:py-24">
+        <Container>
+          <FadeIn>
+            <p className="eyebrow">From the field</p>
+            <h2 className="mt-3 font-display text-3xl font-semibold leading-tight md:text-4xl">
+              Real results from real transitions.
+            </h2>
+          </FadeIn>
+          <FadeInStagger className="mt-12 grid gap-8 md:grid-cols-2">
+            {CASE_STUDIES.map((study) => (
+              <FadeIn key={study.tag}>
+                <div className="rounded-2xl border border-black/5 bg-[var(--color-surface)] p-7">
+                  <p className="inline-block rounded-full bg-[var(--color-moss)]/10 px-3 py-1 text-xs font-medium text-[var(--color-moss)]">
+                    {study.tag}
+                  </p>
+                  <div className="mt-5 space-y-4">
+                    <div>
+                      <p className="text-xs font-semibold uppercase tracking-widest text-neutral-400">
+                        Situation
+                      </p>
+                      <p className="mt-1.5 text-sm leading-relaxed text-neutral-600">
+                        {study.situation}
+                      </p>
+                    </div>
+                    <div>
+                      <p className="text-xs font-semibold uppercase tracking-widest text-neutral-400">
+                        Approach
+                      </p>
+                      <p className="mt-1.5 text-sm leading-relaxed text-neutral-600">
+                        {study.approach}
+                      </p>
+                    </div>
+                    <div>
+                      <p className="text-xs font-semibold uppercase tracking-widest text-neutral-400">
+                        Result
+                      </p>
+                      <p className="mt-1.5 text-sm font-medium leading-relaxed text-neutral-800">
+                        {study.result}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </FadeIn>
+            ))}
+          </FadeInStagger>
+          <p className="mt-6 text-center text-xs text-neutral-400">
+            Names and details changed for privacy.
+          </p>
+        </Container>
+      </section>
+
+      {/* Quiz Soft CTA */}
+      <section className="surface-warm py-20 md:py-24">
+        <Container>
+          <FadeIn className="mx-auto max-w-2xl text-center">
+            <p className="eyebrow">No pressure</p>
+            <h2 className="mt-4 font-display text-3xl font-semibold md:text-4xl">
+              Not ready to talk yet? That is fine.
+            </h2>
+            <p className="mt-4 text-lg text-neutral-600">
+              Take the Real Estate IQ Quiz instead. Six real scenarios from the{" "}
+              {tenant.market.primaryArea} market. See how you would handle
+              pricing, inspections, and negotiations. No contact required.
+            </p>
+            <div className="mt-8">
+              <Link
+                href="/quiz"
+                className="btn-ghost min-h-[44px]"
+              >
+                Take the quiz
+              </Link>
+            </div>
+          </FadeIn>
+        </Container>
+      </section>
+
+      {/* FAQ */}
       <section className="bg-white py-20 md:py-24">
         <Container>
           <FadeIn className="mx-auto max-w-4xl">
@@ -149,9 +383,12 @@ export default function SellersPage() {
             <div className="mt-10 divide-y divide-black/10 rounded-2xl border border-black/5 bg-[var(--color-surface)]">
               {FAQS.map((faq) => (
                 <details key={faq.question} className="group px-6 py-5">
-                  <summary className="flex cursor-pointer items-center justify-between gap-3 text-left font-display text-lg font-semibold">
+                  <summary className="flex min-h-[44px] cursor-pointer items-center justify-between gap-3 text-left font-display text-lg font-semibold">
                     {faq.question}
-                    <span aria-hidden="true" className="text-2xl text-neutral-600 transition group-open:rotate-45">
+                    <span
+                      aria-hidden="true"
+                      className="text-2xl text-neutral-600 transition group-open:rotate-45"
+                    >
                       +
                     </span>
                   </summary>

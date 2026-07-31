@@ -9,6 +9,7 @@ import { tenant } from "@/config/tenant";
 const NAV_ITEMS = [
   { href: "/buyers", label: "Buyers" },
   { href: "/sellers", label: "Sellers" },
+  { href: "/quiz", label: "Quiz" },
   { href: "/podcast", label: "Podcast" },
   { href: "/about", label: "About" },
   { href: "/listings", label: "Listings" },

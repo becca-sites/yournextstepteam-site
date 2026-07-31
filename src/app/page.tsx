@@ -34,6 +34,11 @@ function HeroSection() {
                 I am selling
               </Link>
             </div>
+            <div className="mt-4">
+              <Link href="/quiz" className="text-sm font-medium text-[var(--color-moss)] hover:underline">
+                Or take the Real Estate IQ Quiz &rarr;
+              </Link>
+            </div>
             <p className="mt-6 text-sm text-neutral-500">
               {tenant.market.city}, {tenant.market.stateAbbreviation} &middot;{" "}
               {tenant.market.commuteToHub} to {tenant.market.hubCity}

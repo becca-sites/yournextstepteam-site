@@ -8,6 +8,7 @@ const NAV_WORKING = [
   { href: "/sellers", label: "For sellers" },
   { href: "/listings", label: "Current listings" },
   { href: "/buyers/questionnaire", label: "Buyer Questionnaire" },
+  { href: "/quiz", label: "Real Estate IQ Quiz" },
 ];
 
 const NAV_LEARN = [
