@@ -7,7 +7,8 @@ const NAV_WORKING = [
   { href: "/buyers", label: "For buyers" },
   { href: "/sellers", label: "For sellers" },
   { href: "/listings", label: "Current listings" },
-  { href: "/buyers/questionnaire", label: "Buyer Questionnaire" },
+  { href: tenant.listings.buyerQuestionnaireUrl, label: "Buyer Questionnaire", external: true },
+  { href: tenant.listings.sellerQuestionnaireUrl, label: "Seller Questionnaire", external: true },
   { href: "/quiz", label: "Real Estate IQ Quiz" },
 ];
 
@@ -51,16 +52,30 @@ export function Footer() {
                 Working with Becca
               </h2>
               <ul className="mt-4 space-y-2 text-sm">
-                {NAV_WORKING.map((item) => (
-                  <li key={item.href}>
-                    <Link
-                      href={item.href}
-                      className="inline-flex min-h-[44px] items-center transition hover:text-white"
-                    >
-                      {item.label}
-                    </Link>
-                  </li>
-                ))}
+                {NAV_WORKING.map((item) =>
+                  "external" in item && item.external ? (
+                    <li key={item.href}>
+                      <a
+                        href={item.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex min-h-[44px] items-center transition hover:text-white"
+                      >
+                        {item.label}
+                        <span className="sr-only"> (opens in a new tab)</span>
+                      </a>
+                    </li>
+                  ) : (
+                    <li key={item.href}>
+                      <Link
+                        href={item.href}
+                        className="inline-flex min-h-[44px] items-center transition hover:text-white"
+                      >
+                        {item.label}
+                      </Link>
+                    </li>
+                  ),
+                )}
               </ul>
             </nav>
 

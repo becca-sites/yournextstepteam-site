@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { tenant } from "@/config/tenant";
 import { Container } from "@/components/Container";
 import { FadeIn } from "@/components/FadeIn";
@@ -99,12 +98,14 @@ export default function ContactPage() {
                 </p>
                 <p className="mt-2">
                   Start with the{" "}
-                  <Link
-                    href="/buyers/questionnaire"
+                  <a
+                    href={tenant.listings.buyerQuestionnaireUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="font-medium text-[var(--color-moss)] hover:underline"
                   >
                     Buyer Questionnaire
-                  </Link>{" "}
+                  </a>{" "}
                   so {tenant.agent.firstName} can come prepared with a plan.
                 </p>
               </div>

@@ -59,8 +59,8 @@ const SCENARIOS = [
   },
   {
     title: "First-time buyer with a lot of questions",
-    body: "Good. Ask all of them. Sorry long answer just trying to give you all the information — that is how I work. No pressure timeline. We move at your pace, and every question gets a real answer, not a sales pitch.",
-    link: "/buyers/questionnaire",
+    body: "Good. Ask all of them. Sorry, long answer, just trying to give you all the information: that is how I work. No pressure timeline. We move at your pace, and every question gets a real answer, not a sales pitch.",
+    link: tenant.listings.buyerQuestionnaireUrl,
   },
 ];
 
@@ -134,9 +134,14 @@ export default function BuyersPage() {
                 difference.
               </p>
               <div className="mt-9 flex flex-wrap gap-3">
-                <Link href="/buyers/questionnaire" className="btn-primary">
+                <a
+                  href={tenant.listings.buyerQuestionnaireUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-primary"
+                >
                   Take the Buyer Questionnaire
-                </Link>
+                </a>
                 <Link href="/contact" className="btn-ghost">
                   Book a buyer consultation
                 </Link>
@@ -228,6 +233,9 @@ export default function BuyersPage() {
               <FadeIn key={s.title}>
                 <Link
                   href={s.link}
+                  {...(s.link.startsWith("http")
+                    ? { target: "_blank", rel: "noopener noreferrer" }
+                    : {})}
                   className="group flex h-full flex-col rounded-2xl border border-black/5 bg-[var(--color-surface)] p-7 transition hover:-translate-y-0.5 hover:border-[var(--color-primary)] hover:shadow-xl"
                 >
                   <p className="font-mono text-xs tracking-widest text-[var(--color-moss)]">

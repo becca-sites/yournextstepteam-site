@@ -259,8 +259,8 @@ export const tenant: Tenant = {
     leadWebhookUrl: "",
     agentSiteUrl: "https://rebeccapitts.exprealty.com/",
     searchAllHomesUrl: "https://rebeccapitts.exprealty.com/",
-    buyerQuestionnaireUrl: "/buyers/questionnaire",
-    sellerQuestionnaireUrl: "/sellers/questionnaire",
+    buyerQuestionnaireUrl: "https://form.jotform.com/202806769439164",
+    sellerQuestionnaireUrl: "https://form.jotform.com/202806282649157",
   },
 
   videos: {

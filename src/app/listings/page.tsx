@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { tenant } from "@/config/tenant";
 import { Container } from "@/components/Container";
 import { FadeIn } from "@/components/FadeIn";
@@ -40,9 +39,14 @@ export default function ListingsPage() {
               >
                 Search all homes
               </a>
-              <Link href="/buyers/questionnaire" className="btn-ghost">
+              <a
+                href={tenant.listings.buyerQuestionnaireUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-ghost"
+              >
                 Take the Buyer Questionnaire
-              </Link>
+              </a>
             </div>
             <p className="mt-8 text-sm text-neutral-500">
               Prefer to browse directly?{" "}

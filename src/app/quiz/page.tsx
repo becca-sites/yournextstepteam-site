@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { tenant } from "@/config/tenant";
 import { Container } from "@/components/Container";
 
 interface QuizQuestion {
@@ -348,12 +349,14 @@ export default function QuizPage() {
                 <Link href="/contact" className="btn-primary min-h-[44px]">
                   Ready for a real conversation?
                 </Link>
-                <Link
-                  href="/buyers/questionnaire"
+                <a
+                  href={tenant.listings.buyerQuestionnaireUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="btn-ghost min-h-[44px]"
                 >
                   Take the Buyer Questionnaire
-                </Link>
+                </a>
               </div>
             </div>
           </Container>

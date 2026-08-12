@@ -1,4 +1,3 @@
-import Link from "next/link";
 import Image from "next/image";
 import { tenant } from "@/config/tenant";
 import { Container } from "@/components/Container";
@@ -22,18 +21,24 @@ export function ContactBlock({ heading, children }: Props) {
               </h2>
               <div className="mt-6 text-xl text-white/85">{children}</div>
               <div className="mt-10 flex flex-wrap gap-4">
-                <Link
+                <a
                   href={tenant.listings.buyerQuestionnaireUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="inline-flex items-center justify-center rounded-lg bg-[var(--color-sunshine)] px-6 py-3 text-sm font-semibold text-[var(--color-ink)] transition hover:bg-[var(--color-sunshine-deep)]"
                 >
                   Buyer Questionnaire
-                </Link>
-                <Link
+                  <span className="sr-only"> (opens in a new tab)</span>
+                </a>
+                <a
                   href={tenant.listings.sellerQuestionnaireUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="inline-flex items-center justify-center rounded-lg border border-white/40 px-6 py-3 text-sm font-semibold text-white transition hover:border-white/70 hover:bg-white/10"
                 >
                   Seller Questionnaire
-                </Link>
+                  <span className="sr-only"> (opens in a new tab)</span>
+                </a>
               </div>
             </div>
 
