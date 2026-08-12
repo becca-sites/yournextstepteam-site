@@ -189,9 +189,9 @@ export const tenant: Tenant = {
     brokerageDisclosure:
       "Rebecca Pitts is a licensed real estate broker in Washington State, affiliated with eXp Realty. MLS #87890. License #107351. eXp Realty is a licensed real estate brokerage. Equal Housing Opportunity.",
     headshot: "/photos/headshots/becca-headshot.webp",
-    bio: "The search is five percent of the process. The other ninety-five is where things get real — inspections, appraisals, contract clauses, financing surprises. I would rather give you too much information than not enough. You can always tell me to get to the point.",
+    bio: "The search is five percent of the process. The other ninety-five is where things get real: inspections, appraisals, contract clauses, financing surprises. I would rather give you too much information than not enough. You can always tell me to get to the point.",
     storyLong:
-      "Twenty years in senior care before I ever sold a house. That background is why I work the way I do — I do not rush people, I answer every question with a real answer instead of a sales pitch, and I coordinate with lenders, inspectors, and attorneys before I send you to any of them. If I can not help you directly, I know who can. And I check them out first.",
+      "Fifteen years and 150-plus closings taught me this: I do not rush people, I answer every question with a real answer instead of a sales pitch, and I coordinate with lenders, inspectors, and attorneys before I ever send you to one of them. If I cannot help you directly, I know who can. And I check them out first.",
     license: "WA #107351",
     mlsId: "87890",
     phone: "253.678.7089",
@@ -203,12 +203,12 @@ export const tenant: Tenant = {
   },
 
   market: {
-    city: "Puyallup",
+    city: "Bonney Lake",
     state: "Washington",
     stateAbbreviation: "WA",
     primaryArea: "Pierce County",
     positioning:
-      "Senior real estate across Pierce and South King County. Aging-in-place strategy, downsizing, and every next step for older adults and their families.",
+      "Full-service real estate across Pierce and South King County, with specialized SRES training in aging-in-place strategy, downsizing, and every next step for older adults and their families.",
     neighborhoods: [
       "Bonney Lake",
       "Tacoma",
@@ -227,7 +227,7 @@ export const tenant: Tenant = {
     ],
     zip: "98371",
     schoolDistrict: "Puyallup School District",
-    commuteToHub: "30 minutes",
+    commuteToHub: "40 minutes",
     hubCity: "Tacoma",
   },
 
@@ -239,7 +239,7 @@ export const tenant: Tenant = {
     textColor: "#1A2028",
     logo: "/images/brand/logo.svg",
     tagline: "Your next step starts here.",
-    eyebrow: "Pierce County · South King County · Puget Sound",
+    eyebrow: "Puget Sound · Pierce & South King County",
     headingFont: "DM Serif Display",
     bodyFont: "Inter",
   },
@@ -354,10 +354,10 @@ export const tenant: Tenant = {
 
   // TODO Becca verify: all stats are placeholders.
   stats: [
-    { value: "15+", label: "Years in real estate", detail: "Pierce and South King County" },
-    { value: "SRES", label: "Senior specialist", detail: "Certified designation" },
-    { value: "20+", label: "Years in senior care", detail: "Before real estate" },
-    { value: "3", label: "Podcast episodes", detail: "Next Step Conversations" },
+    { value: "15+", label: "Years in real estate", detail: "Puget Sound region" },
+    { value: "150+", label: "Closings", detail: "Career total" },
+    { value: "SRES", label: "Senior Real Estate Specialist", detail: "Certified for 55+ life transitions" },
+    { value: "Icon Agent", label: "eXp Icon Agent", detail: "TODO Becca verify: confirm year" },
   ],
 
   // TODO Becca verify: all results stats are placeholders.

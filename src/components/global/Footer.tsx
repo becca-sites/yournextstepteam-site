@@ -23,9 +23,9 @@ export function Footer() {
   const socials = Object.entries(tenant.social).filter(([, v]) => v);
 
   return (
-    <footer className="mt-24 border-t border-black/5 bg-[var(--color-primary)] text-white/85">
+    <footer className="border-t border-black/5 bg-[var(--color-slate)] text-white/85">
       <FadeIn>
-        <div className="mx-auto max-w-7xl px-4 py-16 lg:px-8">
+        <div className="mx-auto max-w-7xl px-4 py-12 lg:px-8">
           <div className="grid gap-10 md:grid-cols-4">
             <div>
               <Link
@@ -89,19 +89,19 @@ export function Footer() {
               <ul className="mt-4 space-y-2 text-sm">
                 <li>
                   <a
-                    href={`mailto:${tenant.agent.email}`}
-                    className="inline-flex min-h-[44px] items-center transition hover:text-white"
-                  >
-                    {tenant.agent.email}
-                  </a>
-                </li>
-                <li>
-                  <a
                     href={`tel:${tenant.agent.phone.replace(/[^+\d]/g, "")}`}
                     className="inline-flex min-h-[44px] items-center transition hover:text-white"
                   >
                     {tenant.agent.phone}
                   </a>
+                </li>
+                <li>
+                  <Link
+                    href="/contact"
+                    className="inline-flex min-h-[44px] items-center transition hover:text-white"
+                  >
+                    Send a message
+                  </Link>
                 </li>
                 <li className="text-white/50">
                   {tenant.agent.address}
@@ -127,7 +127,7 @@ export function Footer() {
             </div>
           </div>
 
-          <div className="mt-10 rounded-xl border border-white/10 p-5">
+          <div className="mt-8 rounded-lg border border-white/10 p-5">
             <h2 className="text-xs font-semibold uppercase tracking-widest text-white/60">
               Part of the family
             </h2>
@@ -140,12 +140,12 @@ export function Footer() {
               >
                 {tenant.sibling.name}
                 <span className="sr-only"> (opens in a new tab)</span>
-              </a>{" "}
-              &mdash; {tenant.sibling.description}
+              </a>
+              : {tenant.sibling.description}
             </p>
           </div>
 
-          <div className="mt-10 border-t border-white/10 pt-6 text-xs text-white/60">
+          <div className="mt-8 border-t border-white/10 pt-6 text-xs text-white/60">
             <p>{tenant.agent.brokerageDisclosure}</p>
             <p className="mt-2">
               Equal Housing Opportunity. Serving{" "}
