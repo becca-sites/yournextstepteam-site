@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 const CREDENTIALS = [
   "SRES Certified",
   "15+ Years in WA",
-  "150+ Closings",
+  "270 Closings",
   "Senior Care Background",
 ];
 

@@ -8,8 +8,9 @@
  *
  * V1 CONTENT PASS (2026-07-16). Pivoted to becca-sites/yournextstephome-site.
  * Palette locked to BBCH sibling brand (Ink/Moss/Bone/Sunshine). Real podcast
- * episodes with verified YouTube IDs. Stats and testimonials are still TODO
- * placeholders. The site is walled off from search and AI indexing while
+ * episodes with verified YouTube IDs. Stats and testimonials are real, sourced
+ * from Becca's Zillow agent profile (2026-08-19). Neighborhood data is still
+ * TODO, so the site remains walled off from search and AI indexing while
  * placeholder safeguards are active. See README "Placeholder Mode" and
  * `src/lib/placeholder.ts`.
  */
@@ -113,6 +114,12 @@ export interface TenantTestimonial {
   name: string;
   context: string;
   location: string;
+  /** Star rating as left by the reviewer, out of 5. */
+  rating?: number;
+  /** Review date, ISO yyyy-mm-dd. */
+  date?: string;
+  /** Where the review was published. */
+  source?: string;
 }
 
 export interface TenantStat {
@@ -191,7 +198,7 @@ export const tenant: Tenant = {
     headshot: "/photos/headshots/becca-headshot.webp",
     bio: "The search is five percent of the process. The other ninety-five is where things get real: inspections, appraisals, contract clauses, financing surprises. I would rather give you too much information than not enough. You can always tell me to get to the point.",
     storyLong:
-      "Fifteen years and 150-plus closings taught me this: I do not rush people, I answer every question with a real answer instead of a sales pitch, and I coordinate with lenders, inspectors, and attorneys before I ever send you to one of them. If I cannot help you directly, I know who can. And I check them out first.",
+      "Fifteen years and 270 closings taught me this: I do not rush people, I answer every question with a real answer instead of a sales pitch, and I coordinate with lenders, inspectors, and attorneys before I ever send you to one of them. If I cannot help you directly, I know who can. And I check them out first.",
     license: "WA #107351",
     mlsId: "87890",
     phone: "253.678.7089",
@@ -320,52 +327,73 @@ export const tenant: Tenant = {
     ],
   },
 
-  // TODO Becca verify: all testimonials are placeholders.
+  // Verified reviews from Becca's Zillow agent profile. Reviewer names are the
+  // Zillow screen names as published.
   testimonials: [
     {
       quote:
-        "Becca walked us through every step of moving Mom out of the family home. She understood this was not just a sale. She treated it like what it was: a family decision.",
-      name: "Sample Client",
-      context: "Senior downsizing, family transition",
-      location: "TODO Becca verify",
+        "Becca was incredible every step of the process in selling our house. She was always there when we had a question as we were getting the house ready to put on the market. And she always offered easy to follow advice as it came time to list.",
+      name: "coderunfun",
+      context: "Sold Single Family",
+      location: "Puyallup, WA",
+      rating: 5,
+      date: "2024-06-24",
+      source: "Zillow",
     },
     {
       quote:
-        "We were trying to figure out whether to modify the house or sell it. Becca helped us think through both paths before we made a decision. No pressure, just real information.",
-      name: "Sample Family",
-      context: "Aging-in-place evaluation",
-      location: "TODO Becca verify",
+        "Becca has helped us buy four rental properties and sell one. We have found her to be knowledgeable, effective and tenacious in representing us. She is very familiar with the multiple listing contract forms and very efficient in tailoring contracts.",
+      name: "janpauw",
+      context: "Bought and sold Multiple Occupancy",
+      location: "Sumner, WA",
+      rating: 5,
+      date: "2023-10-16",
+      source: "Zillow",
     },
     {
       quote:
-        "First-time buyers with a lot of questions. Becca answered every single one and never made us feel like we were slowing things down. We found the right home at the right price.",
-      name: "Sample Buyers",
-      context: "First-time purchase",
-      location: "TODO Becca verify",
+        "Becca is ridiculously smart and was able to navigate an extremely challenging purchase on a property we recently made. Her sense of humor and tenacity kept us laughing as we slowly rolled across the finish line. She had amazing knowledge of the area.",
+      name: "cleochatra3",
+      context: "Bought Vacant Land",
+      location: "Fall City, WA",
+      rating: 5,
+      date: "2023-09-03",
+      source: "Zillow",
     },
     {
       quote:
-        "After Dad passed, selling the house felt overwhelming. Becca coordinated with our attorney, handled the estate sale logistics, and kept us informed at every turn.",
-      name: "Sample Estate Client",
-      context: "Estate transition",
-      location: "TODO Becca verify",
+        "Becca is truly an outstanding real estate agent and I highly recommend her services without any hesitation. I'd give her 6 stars if that was an option. Professional, knowledgeable, thorough and simply got the job done!",
+      name: "wineboy1",
+      context: "Sold Single Family",
+      location: "Spanaway, WA",
+      rating: 5,
+      date: "2022-08-06",
+      source: "Zillow",
+    },
+    {
+      quote:
+        "This market is tough for a buyer, and especially so if you're like me, a first-time buyer with particular home requirements and a hard limit on resources. By the time Becca was recommended to me, I was tired of searching and feeling a bit under supported.",
+      name: "BryannaRaiche",
+      context: "Bought Single Family",
+      location: "Tacoma, WA",
+      rating: 5,
+      date: "2021-08-15",
+      source: "Zillow",
     },
   ],
 
-  // TODO Becca verify: all stats are placeholders.
   stats: [
-    { value: "15+", label: "Years in real estate", detail: "Puget Sound region" },
-    { value: "150+", label: "Closings", detail: "Career total" },
+    { value: "15", label: "Years in real estate", detail: "Puget Sound region" },
+    { value: "270", label: "Closings", detail: "Career total" },
     { value: "SRES", label: "Senior Real Estate Specialist", detail: "Certified for 55+ life transitions" },
-    { value: "Icon Agent", label: "eXp Icon Agent", detail: "TODO Becca verify: confirm year" },
+    { value: "Icon Agent", label: "eXp Icon Agent", detail: "Awarded 2022" },
   ],
 
-  // TODO Becca verify: all results stats are placeholders.
   resultsStats: [
-    { value: "150+", label: "Total closings", detail: "Career total" },
-    { value: "$58M", label: "Volume sold", detail: "Career total" },
-    { value: "5.0", label: "Google rating", detail: "Verified reviews" },
-    { value: "60+", label: "Five-star reviews", detail: "From local clients" },
+    { value: "270", label: "Total closings", detail: "Career total" },
+    { value: "$516K", label: "Average sale price", detail: "$165K to $1M price range" },
+    { value: "5.0", label: "Zillow rating", detail: "46 verified reviews" },
+    { value: "12", label: "Sales in the last 12 months", detail: "Pierce and South King County" },
   ],
 
   scenarios: [

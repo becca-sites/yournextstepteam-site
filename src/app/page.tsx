@@ -96,7 +96,7 @@ function AboutPreviewSection() {
           <FadeIn className="lg:col-span-7">
             <p className="eyebrow">Nice to meet you</p>
             <h2 className="mt-4 font-display text-3xl font-semibold leading-tight md:text-4xl">
-              {tenant.agent.yearsOfExperience} years. 150+ closings. And I still
+              {tenant.agent.yearsOfExperience} years. 270 closings. And I still
               answer my own phone.
             </h2>
             <p className="mt-5 text-base text-neutral-600 md:text-lg">
