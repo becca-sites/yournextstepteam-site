@@ -263,7 +263,8 @@ export const tenant: Tenant = {
     iframeUrl: "https://rebeccapitts.exprealty.com/",
     searchUrl: "https://rebeccapitts.exprealty.com/",
     widgetScriptUrl: "",
-    leadWebhookUrl: "",
+    leadWebhookUrl:
+      "https://script.google.com/macros/s/AKfycbzAfpXoCywT6p7YKOl3S0Uy50zbroCq3HErEp_U6t70kpBQmckXX-4j6z6C91quzBy4/exec",
     agentSiteUrl: "https://rebeccapitts.exprealty.com/",
     searchAllHomesUrl: "https://rebeccapitts.exprealty.com/",
     buyerQuestionnaireUrl: "https://form.jotform.com/202806769439164",

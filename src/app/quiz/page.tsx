@@ -115,11 +115,14 @@ export default function QuizPage() {
     e.preventDefault();
     setSubmitting(true);
     try {
-      await fetch("https://hook.us2.make.com/placeholder", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ firstName, email, source: "quiz" }),
-      });
+      await fetch(
+        "https://script.google.com/macros/s/AKfycbzAfpXoCywT6p7YKOl3S0Uy50zbroCq3HErEp_U6t70kpBQmckXX-4j6z6C91quzBy4/exec",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ firstName, email, source: "quiz" }),
+        }
+      );
     } catch {
       // Proceed even if webhook fails
     }
