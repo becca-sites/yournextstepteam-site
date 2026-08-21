@@ -78,18 +78,18 @@ const CASE_STUDIES = [
   {
     tag: "Tacoma green belt listing",
     situation:
-      "A young couple selling their first home — a property in Tacoma surrounded by green belt on all sides. Nothing but green out every window. That is a rare thing in the city, and we needed to make sure buyers felt it, not just read about it.",
+      "A young couple selling their first home, a property in Tacoma surrounded by green belt on all sides. Nothing but green out every window. That is a rare thing in the city, and we needed to make sure buyers felt it, not just read about it.",
     approach:
-      "I shot a custom listing video myself. Missed the fenced backyard in the first cut and re-shot it because that detail matters. We priced using neighborhood comps and got two showings in the first week. When a buyer came back with their spouse for a second look, we knew we had real interest. Offer came in, we went mutual, and I caught an inspection error the other agent missed — plumbing fixtures marked NA when they should not have been.",
+      "I shot a custom listing video myself. Missed the fenced backyard in the first cut and re-shot it because that detail matters. We priced using neighborhood comps and got two showings in the first week. When a buyer came back with their spouse for a second look, we knew we had real interest. Offer came in, we went mutual, and I caught an inspection error the other agent missed: plumbing fixtures marked NA when they should not have been.",
     result:
-      "Under contract with a contractor credit negotiated. Appraisal ordered and on track for a clean close. The sellers texted me 'You ARE amazing!!!' — and I meant it when I said it right back.",
+      "Under contract with a contractor credit negotiated. Appraisal ordered and on track for a clean close. The sellers texted me 'You ARE amazing!!!', and I meant it when I said it right back.",
   },
   {
     tag: "The most challenging client I have ever had",
     situation:
       "A seller in the Tehaleh area who needed constant communication, last-minute changes, and a lot of patience. The kind of client some agents would have walked away from. I am not some agents.",
     approach:
-      "We talked almost daily. I set expectations on closing timelines down to the hour — 'could happen as early as 9 AM or as late as 5 PM' — and explained when proceeds would hit. After closing, I went back to the house to help load furniture, retrieve forgotten items from the new owners, spray the carpets, and coordinate storage. For the fee of one chocolate.",
+      "We talked almost daily. I set expectations on closing timelines down to the hour ('could happen as early as 9 AM or as late as 5 PM') and explained when proceeds would hit. After closing, I went back to the house to help load furniture, retrieve forgotten items from the new owners, spray the carpets, and coordinate storage. For the fee of one chocolate.",
     result:
       "Home sold and closed. She went from my most challenging client to one of my most loyal. We still text. She sends me memes. That is what happens when you do not give up on people.",
   },

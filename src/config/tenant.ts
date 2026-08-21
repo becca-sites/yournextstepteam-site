@@ -401,7 +401,7 @@ export const tenant: Tenant = {
     {
       title: "Buying your first home",
       description:
-        "Good. Ask all the questions. Sorry long answer just trying to give you all the information — that is how I work. No pressure timeline. We move at your pace.",
+        "Good. Ask all the questions. Sorry long answer just trying to give you all the information; that is how I work. No pressure timeline. We move at your pace.",
       href: "/buyers",
     },
     {
@@ -413,7 +413,7 @@ export const tenant: Tenant = {
     {
       title: "Helping a parent move",
       description:
-        "You are the adult child coordinating a move for mom or dad. Twenty years in senior care before I ever sold a house — I understand what is really going on here.",
+        "You are the adult child coordinating a move for mom or dad. Twenty years in senior care before I ever sold a house: I understand what is really going on here.",
       href: "/contact",
     },
     {
@@ -455,12 +455,12 @@ export const tenant: Tenant = {
     {
       question: "What if we need to sell and buy at the same time?",
       answer:
-        "This is not a short answer situation. It is one of the most complex transactions in residential real estate — bridge loans, contingency timelines, two agents, two closings. I manage the lender relationship, keep the other agent from pushing you before you are ready, and coordinate both sides so you are not stuck between two transactions.",
+        "This is not a short answer situation. It is one of the most complex transactions in residential real estate: bridge loans, contingency timelines, two agents, two closings. I manage the lender relationship, keep the other agent from pushing you before you are ready, and coordinate both sides so you are not stuck between two transactions.",
     },
     {
       question: "Do you work with first-time buyers too?",
       answer:
-        "Absolutely. Ask all the questions — that is how I work. No pressure timeline. We move at your pace, every question gets a real answer, and I would rather over-explain than leave you guessing. On average, my buyers are under contract within 45 days of starting their search.",
+        "Absolutely. Ask all the questions; that is how I work. No pressure timeline. We move at your pace, every question gets a real answer, and I would rather over-explain than leave you guessing. On average, my buyers are under contract within 45 days of starting their search.",
     },
   ],
 

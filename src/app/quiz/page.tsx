@@ -17,7 +17,7 @@ const QUESTIONS: QuizQuestion[] = [
     scenario:
       "Your Zestimate says $420K. A nearly identical home two streets over just sold for $455K. What should you trust?",
     choices: [
-      { label: "A", text: "Go with the Zestimate — it updates daily" },
+      { label: "A", text: "Go with the Zestimate; it updates daily" },
       { label: "B", text: "Ask for a CMA from a local agent" },
       { label: "C", text: "Split the difference and list at $437K" },
     ],
@@ -29,7 +29,7 @@ const QUESTIONS: QuizQuestion[] = [
     scenario:
       "Your inspector finds a cracked foundation. The seller is offering a $5,000 credit. What do you do?",
     choices: [
-      { label: "A", text: "Take the credit — it covers the repair" },
+      { label: "A", text: "Take the credit; it covers the repair" },
       { label: "B", text: "Get a structural engineer's estimate first" },
       { label: "C", text: "Walk away immediately" },
     ],
@@ -56,7 +56,7 @@ const QUESTIONS: QuizQuestion[] = [
     scenario:
       "The appraisal comes in $25K below your accepted offer. What can you do?",
     choices: [
-      { label: "A", text: "The deal is dead — start over" },
+      { label: "A", text: "The deal is dead; start over" },
       {
         label: "B",
         text: "Negotiate a price reduction, seller concession, or appraisal gap coverage",
@@ -71,10 +71,10 @@ const QUESTIONS: QuizQuestion[] = [
     scenario:
       "You are relocating from California. An agent there offers to handle both sides of the deal. Should you accept?",
     choices: [
-      { label: "A", text: "Yes — fewer people means less confusion" },
+      { label: "A", text: "Yes, fewer people means less confusion" },
       {
         label: "B",
-        text: "No — get your own buyer's agent in the destination market",
+        text: "No, get your own buyer's agent in the destination market",
       },
       { label: "C", text: "Only if they discount the commission" },
     ],
@@ -87,7 +87,7 @@ const QUESTIONS: QuizQuestion[] = [
       "Your home needs about $15K in repairs before listing. Your agent says to skip them. What is the right call?",
     choices: [
       { label: "A", text: "Always fix everything before listing" },
-      { label: "B", text: "Skip repairs — buyers expect to negotiate" },
+      { label: "B", text: "Skip repairs; buyers expect to negotiate" },
       {
         label: "C",
         text: "Fix what the CMA says will return more than it costs",

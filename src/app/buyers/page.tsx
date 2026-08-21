@@ -44,7 +44,7 @@ const ZILLOW_GAPS = [
 const SCENARIOS = [
   {
     title: "Buying land to build on",
-    body: "Land is a different animal. Higher down payments, different loan programs, construction timelines that layer on top. I do my homework before I send you to a lender — so when you sit down with them, you already know what you are walking into.",
+    body: "Land is a different animal. Higher down payments, different loan programs, construction timelines that layer on top. I do my homework before I send you to a lender, so when you sit down with them, you already know what you are walking into.",
     link: "/contact",
   },
   {
@@ -67,7 +67,7 @@ const SCENARIOS = [
 const PILLARS = [
   {
     title: "Education before everything",
-    body: "No pressure timeline. We move at your pace, answer every question, and make sure you understand each step before we take it. I would rather give you too much information than not enough — you can always ask me to get to the point.",
+    body: "No pressure timeline. We move at your pace, answer every question, and make sure you understand each step before we take it. I would rather give you too much information than not enough; you can always ask me to get to the point.",
   },
   {
     title: "Accessibility-first evaluation",
@@ -79,7 +79,7 @@ const PILLARS = [
   },
   {
     title: "A network I have actually vetted",
-    body: "Lenders, inspectors, contractors, attorneys — I do not just hand you a name. I check in with them first, make sure they are still active and still good, and then I introduce you. If I can not help you directly, I know who can.",
+    body: "Lenders, inspectors, contractors, attorneys: I do not just hand you a name. I check in with them first, make sure they are still active and still good, and then I introduce you. If I can not help you directly, I know who can.",
   },
 ];
 
@@ -92,22 +92,22 @@ const BUYER_FAQS = [
   {
     question: "What happens if the appraisal comes in low?",
     answer:
-      "A low appraisal does not kill the deal. There are multiple paths forward — renegotiate the price, cover an appraisal gap, or provide additional comparable sales to the lender for a reconsideration of value. I prepare for this possibility before it happens, because if you are only thinking about it when the report lands, you are already behind.",
+      "A low appraisal does not kill the deal. There are multiple paths forward: renegotiate the price, cover an appraisal gap, or provide additional comparable sales to the lender for a reconsideration of value. I prepare for this possibility before it happens, because if you are only thinking about it when the report lands, you are already behind.",
   },
   {
     question: "Can you help if I am relocating from out of state?",
     answer:
-      "Absolutely. I work with relocating buyers regularly — military families from JBLM, professionals moving from California, Oregon, and the East Coast. Virtual tours, neighborhood research, compressed timelines. And if you need to sell where you are now, I have agents I trust in other states. I do not just hand you a name — I check in with them first, make the introduction, and follow up to make sure it is actually working.",
+      "Absolutely. I work with relocating buyers regularly: military families from JBLM, professionals moving from California, Oregon, and the East Coast. Virtual tours, neighborhood research, compressed timelines. And if you need to sell where you are now, I have agents I trust in other states. I do not just hand you a name; I check in with them first, make the introduction, and follow up to make sure it is actually working.",
   },
   {
     question: "How long does it take to find the right home?",
     answer:
-      "It depends on your criteria and the market. Some buyers find the right home in two weeks. Others take three months. I do not rush the process. Keep the faith — all you need is one, as long as it is the right one. On average, my buyers are under contract within 45 days of starting their search.",
+      "It depends on your criteria and the market. Some buyers find the right home in two weeks. Others take three months. I do not rush the process. Keep the faith; all you need is one, as long as it is the right one. On average, my buyers are under contract within 45 days of starting their search.",
   },
   {
     question: "What if I need to sell and buy at the same time?",
     answer:
-      "This is not a short answer situation. It is one of the most complex transactions in residential real estate — bridge loans, contingency timelines, two agents, two closings. I manage the lender relationship, keep the other agent from pushing you before you are ready, and coordinate both sides so you are not stuck between two transactions. I have done this enough times to know where it breaks down, and I plan around those points.",
+      "This is not a short answer situation. It is one of the most complex transactions in residential real estate: bridge loans, contingency timelines, two agents, two closings. I manage the lender relationship, keep the other agent from pushing you before you are ready, and coordinate both sides so you are not stuck between two transactions. I have done this enough times to know where it breaks down, and I plan around those points.",
   },
 ];
 
@@ -195,7 +195,7 @@ export default function BuyersPage() {
               Every listing is online now. That is not the question. The question
               is what happens after you find the house. The search is five
               percent of the process. The other ninety-five is where things get
-              real — and where some agents these days prove this career is not
+              real, and where some agents these days prove this career is not
               for them.
             </p>
             <FadeInStagger className="mt-10 grid gap-6 sm:grid-cols-2">
@@ -319,14 +319,14 @@ export default function BuyersPage() {
                   Client story
                 </p>
                 <p className="mt-4 text-lg leading-relaxed text-neutral-700">
-                  A young couple wanted to buy land and build. Not a house — land.
+                  A young couple wanted to buy land and build. Not a house: land.
                   That is a different loan, a different down payment, a different
                   timeline. Before I even connected them with a lender, I
                   researched the programs myself: what the down payment would look
                   like, how construction loans layer on top, whether a family
                   member&apos;s veteran status could help. I was honest about what
                   I did not know and sent them to someone who could answer the rest.
-                  That is not passing the buck — that is making sure you get real
+                  That is not passing the buck; that is making sure you get real
                   answers from the right person.
                 </p>
                 <p className="mt-4 text-sm text-neutral-400">

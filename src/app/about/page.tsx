@@ -19,11 +19,11 @@ export const metadata: Metadata = {
 const VALUES = [
   {
     title: "Education before everything",
-    body: "I would rather give you too much information than not enough. You can always tell me to get to the point. No pressure timeline — we move at your pace, and every question gets a real answer, not a sales pitch.",
+    body: "I would rather give you too much information than not enough. You can always tell me to get to the point. No pressure timeline: we move at your pace, and every question gets a real answer, not a sales pitch.",
   },
   {
     title: "Honest about what I do not know",
-    body: "If something is outside my expertise, I will tell you that and send you to someone who can answer it better than me. I do not just hand you a name — I check in with them first, make sure they are still active and still good, and then I introduce you.",
+    body: "If something is outside my expertise, I will tell you that and send you to someone who can answer it better than me. I do not just hand you a name; I check in with them first, make sure they are still active and still good, and then I introduce you.",
   },
   {
     title: "I catch the things other people miss",
@@ -86,7 +86,7 @@ export default function AboutPage() {
               <p>
                 Grew up in Eatonville and now based in {tenant.market.city},{" "}
                 {tenant.market.stateAbbreviation}. I work across Pierce and
-                South King County — buyers, sellers, land, relocations, estate
+                South King County: buyers, sellers, land, relocations, estate
                 transitions. Some agents these days prove this career is not for
                 them. I have been doing this for fifteen years because I actually
                 care about getting it right.
@@ -197,7 +197,7 @@ export default function AboutPage() {
       <ContactBlock heading="Like the way I work?">
         <p>
           A short conversation. No pressure. If I am not the right fit, I will
-          tell you — and I will point you to someone who is.
+          tell you, and I will point you to someone who is.
         </p>
       </ContactBlock>
     </>
