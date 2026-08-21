@@ -371,31 +371,46 @@ summary,
    */
   overflow-x: clip;
   overflow-y: visible;
-  /* Cards dissolve into the section background instead of being sliced off. */
-  -webkit-mask-image: linear-gradient(
-    to right,
-    transparent,
-    #000 7%,
-    #000 93%,
-    transparent
-  );
-  mask-image: linear-gradient(
-    to right,
-    transparent,
-    #000 7%,
-    #000 93%,
-    transparent
-  );
-  /*
-   * Without this the mask undoes the overflow rule above. A mask paints only
-   * inside its clip box, which is the border box by default, so every pixel of
-   * an expanded card hanging below the row would be masked away to nothing.
-   * `no-clip` lets the mask keep fading the left and right edges while leaving
-   * the overhang alone: the gradient runs `to right` and repeats, so the tile
-   * that covers the overhang carries the identical horizontal fade.
-   */
-  -webkit-mask-clip: no-clip;
-  mask-clip: no-clip;
+}
+
+/*
+ * The edge fade, which dissolves cards into the section background instead of
+ * slicing them off.
+ *
+ * This used to be a `mask-image` on the row, and that is what broke the hover
+ * expansion. A mask paints only inside its clip box, the border box by default,
+ * so every pixel of an expanded card hanging below the row was masked away to
+ * nothing: the card appeared to open a little and then stop dead at the row's
+ * bottom edge, mid-sentence. `mask-clip: no-clip` lifts that restriction on
+ * paper, but it is the kind of property that silently does nothing on an engine
+ * that has not shipped it, and when it does nothing there is no fallback, only
+ * a feature that looks broken.
+ *
+ * Two overlays cannot fail that way. They are painted on top of the row rather
+ * than subtracted from it, and they are only as tall as the row, so they have
+ * no opinion at all about what hangs below it.
+ */
+.marquee::before,
+.marquee::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 7%;
+  /* Above the track, which is its own stacking context by way of the animation. */
+  z-index: 2;
+  /* Or the fade would swallow hover on the cards beneath it. */
+  pointer-events: none;
+}
+
+.marquee::before {
+  left: 0;
+  background: linear-gradient(to right, var(--marquee-fade, #fff), transparent);
+}
+
+.marquee::after {
+  right: 0;
+  background: linear-gradient(to left, var(--marquee-fade, #fff), transparent);
 }
 
 .marquee-track {
@@ -501,11 +516,23 @@ summary,
 
 @media (hover: hover) {
   /*
-   * Lift the hovered row above its neighbour, then the hovered card above the
-   * cards beside it. Two steps rather than one because the mask on `.marquee`
-   * makes each row its own stacking context, so a z-index on the card alone
-   * cannot reach past the row below.
+   * Three steps out, because an open card has to clear three different things
+   * and no single z-index reaches past all of them.
+   *
+   * The card rises above the cards beside it, but only within the track, which
+   * the marquee animation's transform has already made a stacking context. The
+   * row then rises above the other row, since the card's z-index is trapped
+   * inside that track. The section rises last, so that the overhang lands on
+   * top of whatever follows the testimonials on the page rather than behind it.
+   *
+   * 20 and not higher: the site header is sticky at `z-40`, and a review that
+   * paints over the navigation is a worse bug than one that tucks under it.
    */
+  section:has(.testimonial-card:hover) {
+    position: relative;
+    z-index: 20;
+  }
+
   .marquee:hover {
     z-index: 20;
   }
@@ -518,12 +545,12 @@ summary,
    * The reviews run from 136px to 924px tall in this column, so "expand to fit"
    * would open a card taller than the laptop viewport it sits in, and the page
    * cannot be scrolled to catch up without dragging the pointer off the card
-   * and closing it. 30rem covers most of the set outright and the longest few
+   * and closing it. 400px opens all but the longest handful in full, and those
    * scroll the last of their text, which the paused row allows. The vh term
-   * takes over on short screens, where a card has the least room to grow into.
+   * only bites on a viewport under about 570px tall.
    */
   .testimonial-card:hover .testimonial-card__quote {
-    max-height: min(30rem, 44vh);
+    max-height: min(400px, 70vh);
     -webkit-line-clamp: unset;
     scrollbar-width: thin;
     animation: testimonial-settle 420ms step-end forwards;
