@@ -335,6 +335,86 @@ summary,
 }
 
 /*
+ * Testimonial marquee.
+ *
+ * Each row renders its card set twice, so translating the track by exactly half
+ * its width lands the second copy where the first one started and the loop is
+ * seamless. Card spacing is a right margin on the cards rather than a flex gap,
+ * because a gap would add one extra gap-width to the track and put the -50%
+ * hand-off half a gap out of register.
+ *
+ * The animation is pure CSS so the rows keep moving without a JS timer, and so
+ * hover can pause them by touching nothing but animation-play-state.
+ */
+@keyframes marquee-rtl {
+  from { transform: translate3d(0, 0, 0); }
+  to { transform: translate3d(-50%, 0, 0); }
+}
+
+@keyframes marquee-ltr {
+  from { transform: translate3d(-50%, 0, 0); }
+  to { transform: translate3d(0, 0, 0); }
+}
+
+.marquee {
+  overflow: hidden;
+  /* Cards dissolve into the section background instead of being sliced off. */
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent,
+    #000 7%,
+    #000 93%,
+    transparent
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    #000 7%,
+    #000 93%,
+    transparent
+  );
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  /* Duration is set per row inline, scaled to how many cards that row carries. */
+  animation-duration: 36s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: transform;
+}
+
+.marquee-track--rtl {
+  animation-name: marquee-rtl;
+}
+
+.marquee-track--ltr {
+  animation-name: marquee-ltr;
+}
+
+/* Hold still while someone is reading, by pointer or by keyboard. */
+.marquee:hover .marquee-track,
+.marquee:focus-within .marquee-track {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  /*
+   * `animation: none` clears the name, so the global reduced-motion block's
+   * !important duration has nothing left to run. The row becomes an ordinary
+   * horizontal scroller the reader drives themselves.
+   */
+  .marquee-track {
+    animation: none;
+  }
+
+  .marquee {
+    overflow-x: auto;
+  }
+}
+
+/*
  * Long-form article typography (.prose).
  *
  * The MDX blog and story pages carry Tailwind's `prose` classes, but

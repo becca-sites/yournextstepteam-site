@@ -106,10 +106,24 @@ work done directly in the repo.
   stranger knows who is talking before being asked to pick a path.
 - **Alternate section backgrounds.** Stats, About, and Scenarios were all warm and
   read as one long block. About is white now for separation.
-- **Testimonial attribution aligns across cards** regardless of quote length, with a
-  reserved-height caption block.
-- **Carousels auto-advance** but always pause on hover, focus, and touch, and always
-  honor `prefers-reduced-motion`.
+- **Testimonials are a two-row marquee, not a stepped carousel.** Row one drifts
+  right to left, row two left to right, continuously. Becca's note on the old
+  build was that it wasted space and made her wait to read the next quote; a
+  standing wall of moving proof reads as volume in a way one card at a time does
+  not. Cards are compact and uniform: fixed 320px wide (340px at `md`), fixed
+  height, 12px radius, bone fill, moss hairline, quote clamped to four lines.
+- **No decorative quotation mark on a testimonial card.** It was pure vertical
+  cost above the quote and said nothing a blockquote does not.
+- **Testimonial attribution aligns across cards** regardless of quote length. The
+  fixed card height is what guarantees it now; the old reserved-height caption
+  block is gone. Name, moss middot, location, one line, bottom of the card.
+- **Section heading is "What clients are saying"** with no market name in it. Do
+  not reintroduce `tenant.market.primaryArea` there.
+- **Motion is CSS, not a JS timer.** Marquee rows animate with keyframes and
+  pause via `animation-play-state`, so they cost nothing in JS and the section
+  stays a server component. Anything that auto-advances still pauses on hover
+  and focus, and still honors `prefers-reduced-motion` (under reduce the rows
+  become plain horizontal scrollers).
 - **No pillbox or bubble elements.** Rounded pill badges that carry text but do
   nothing read as broken buttons; people try to click them. If it looks like a
   button, it has to be one. Static labels become plain text: a `·`-joined line for

@@ -183,7 +183,7 @@ export default function HomePage() {
       />
       <AboutPreviewSection />
       <ScenariosSection />
-      <TestimonialCarousel heading="What clients are saying." />
+      <TestimonialCarousel heading="What clients are saying" />
       <ContactBlock heading="Ready to talk about your next step?">
         <p>
           Five minutes or an hour, whatever it takes to figure out what your next

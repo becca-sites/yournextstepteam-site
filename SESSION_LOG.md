@@ -7,6 +7,65 @@ Note: the Google Drive **SESSION_LOG** doc is the more current master. See
 
 ---
 
+## 2026-08-21 — Testimonial section redesign: two-row auto-scrolling marquee
+
+**Deliverable:** the homepage testimonial block is now a pair of continuously
+scrolling marquee rows of compact cards instead of a single wide snap carousel.
+
+### What changed
+
+- **Heading** is `What clients are saying`, with no market name and no trailing
+  period. The component default no longer interpolates
+  `tenant.market.primaryArea`, so nothing here says Puget Sound.
+- **Two rows, opposite directions.** Row one travels right to left, row two left
+  to right. The list is split down the middle; with an odd count the top row
+  takes the extra card.
+- **Pure CSS animation.** The old build advanced the track with a
+  `setInterval` and `scrollTo`. That is gone, along with the `"use client"`
+  boundary and the `framer-motion` dependency in this file. The section renders
+  as a server component now.
+- **Pause on hover** (and on `:focus-within`, for keyboard readers) via
+  `animation-play-state`.
+- **Reduced motion** turns each row into an ordinary horizontal scroller the
+  reader drives. `animation: none` clears the name so the global reduced-motion
+  block's `!important` duration has nothing left to run.
+- **Mobile** collapses to a single row carrying every review, so nothing is
+  dropped below the `md` breakpoint.
+
+### Card design
+
+- Fixed 320px wide (340px at `md`) and fixed 208px tall, 12px radius, bone fill,
+  moss-tinted hairline border, a 3px shadow.
+- No decorative quotation mark, and the padding came in from `p-8` to `p-5`.
+- Quote clamps to four lines with an ellipsis. Attribution is name, a moss
+  middot, then location on one line, pinned to the same y-position in every card
+  because the height is fixed. Measured at 1280px: caption top sits at 152px in
+  every card in both rows.
+
+### Implementation notes worth keeping
+
+- Card spacing is a right **margin** on each card, not a flex `gap`. A gap adds
+  one extra gap-width to the track, which puts the `-50%` hand-off half a gap
+  out of register and makes the loop visibly jump.
+- Each row renders its set twice; the second copy is `aria-hidden` because it
+  exists to close the loop, not to be read.
+- Short review sets are repeated up to `MIN_CARDS_PER_LOOP` (6) so a half-track
+  is always wider than a large viewport. With today's five reviews that is six
+  cards per half on desktop.
+- Duration is `SECONDS_PER_CARD` (6) times the card count, set inline per row,
+  so the **pace** stays constant as reviews are added rather than the loop time.
+  At five reviews a desktop row completes in 36 seconds.
+
+### Open item
+
+- **Only 5 testimonials are in `tenant.testimonials`, not 46.** The brief
+  assumed an earlier task had loaded the full Zillow set; it had not, and no 46
+  review source exists anywhere in the repo. The carousel renders whatever the
+  array holds, so dropping the other 41 in needs no component change. Once they
+  land, the repeat-to-fill logic becomes a no-op and each row runs long.
+
+---
+
 ## 2026-08-21 — Rebrand to Your Next Step Team, real logo, hero tuning
 
 **Deliverable:** the business is now **Your Next Step Team** on

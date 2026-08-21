@@ -1,13 +1,90 @@
-"use client";
-
-import { useCallback, useEffect, useRef, useState } from "react";
-import { useReducedMotion } from "framer-motion";
-import { tenant } from "@/config/tenant";
+import { tenant, type TenantTestimonial } from "@/config/tenant";
 
 export type TestimonialBehavior = boolean | "team-backed";
 
-/** How long each card sits before the carousel advances. */
-const AUTO_SCROLL_MS = 6000;
+/**
+ * Cards a row needs before it is wide enough to cover a large desktop viewport.
+ * Short review sets get repeated up to this count so the loop never shows a gap.
+ */
+const MIN_CARDS_PER_LOOP = 6;
+
+/**
+ * Seconds of travel per card. Holding the pace constant rather than the loop
+ * time keeps the reading speed the same whether the array carries five reviews
+ * or fifty; at the current count a row completes in roughly 36 seconds.
+ */
+const SECONDS_PER_CARD = 6;
+
+/** Repeat a short list until it holds at least `minCount` entries. */
+function repeatToFill<T>(items: T[], minCount: number): T[] {
+  if (items.length === 0) return [];
+  const copies = Math.max(1, Math.ceil(minCount / items.length));
+  return Array.from({ length: copies }, () => items).flat();
+}
+
+function TestimonialCard({ t }: { t: TenantTestimonial }) {
+  return (
+    <figure className="mr-5 flex h-[208px] w-[320px] shrink-0 flex-col rounded-xl border border-[color:var(--color-moss)]/20 bg-[var(--color-bone)] p-5 shadow-[0_1px_3px_rgba(26,32,40,0.07)] md:w-[340px]">
+      {/*
+        The clamp plus the card's fixed height is what keeps every attribution
+        block on the same line across the row, however long the quote runs.
+      */}
+      <blockquote className="line-clamp-4 flex-1 text-sm leading-relaxed text-[color:var(--color-slate)]">
+        {t.quote}
+      </blockquote>
+      <figcaption className="mt-4 flex items-baseline gap-1.5 border-t border-[color:var(--color-moss)]/20 pt-3 text-xs">
+        <span className="min-w-0 truncate font-semibold text-[color:var(--color-slate)]">
+          {t.name}
+        </span>
+        <span
+          className="shrink-0 text-[color:var(--color-moss)]"
+          aria-hidden="true"
+        >
+          &middot;
+        </span>
+        <span className="shrink-0 whitespace-nowrap text-[color:var(--color-muted)]">
+          {t.location}
+        </span>
+      </figcaption>
+    </figure>
+  );
+}
+
+function MarqueeRow({
+  items,
+  direction,
+  className = "",
+}: {
+  items: TenantTestimonial[];
+  direction: "rtl" | "ltr";
+  className?: string;
+}) {
+  const half = repeatToFill(items, MIN_CARDS_PER_LOOP);
+  if (half.length === 0) return null;
+
+  return (
+    <div className={`marquee py-2 ${className}`}>
+      <div
+        className={`marquee-track ${
+          direction === "rtl" ? "marquee-track--rtl" : "marquee-track--ltr"
+        }`}
+        style={{ animationDuration: `${half.length * SECONDS_PER_CARD}s` }}
+      >
+        <div className="flex shrink-0">
+          {half.map((t, idx) => (
+            <TestimonialCard key={`${t.name}-${idx}`} t={t} />
+          ))}
+        </div>
+        {/* Second copy is decorative: it exists to close the loop, not to be read. */}
+        <div className="flex shrink-0" aria-hidden="true">
+          {half.map((t, idx) => (
+            <TestimonialCard key={`dup-${t.name}-${idx}`} t={t} />
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
 
 export function TestimonialCarousel({
   show = true,
@@ -19,86 +96,38 @@ export function TestimonialCarousel({
   eyebrow?: string;
 }) {
   const list = tenant.testimonials ?? [];
-  const trackRef = useRef<HTMLDivElement>(null);
-  const shouldReduceMotion = useReducedMotion();
-  const [paused, setPaused] = useState(false);
-
-  const advance = useCallback(() => {
-    const track = trackRef.current;
-    if (!track) return;
-
-    const cards = Array.from(track.children) as HTMLElement[];
-    if (cards.length < 2) return;
-
-    // Card offsets measured against the track's own content box, so they line
-    // up with scrollLeft regardless of where the track sits on the page.
-    const base = cards[0].offsetLeft;
-    const positions = cards.map((card) => card.offsetLeft - base);
-
-    // Once the last card is fully visible there is nothing left to scroll to,
-    // so wrap back to the beginning.
-    const atEnd = track.scrollLeft + track.clientWidth >= track.scrollWidth - 1;
-    const current = positions.findIndex((left) => left >= track.scrollLeft - 1);
-    const next =
-      atEnd || current < 0 || current >= cards.length - 1 ? 0 : current + 1;
-
-    track.scrollTo({ left: positions[next], behavior: "smooth" });
-  }, []);
-
-  useEffect(() => {
-    // Respect prefers-reduced-motion, and hold still while someone is reading
-    // (hover, keyboard focus, or their own scrolling).
-    if (shouldReduceMotion || paused || list.length < 2) return;
-    const id = window.setInterval(advance, AUTO_SCROLL_MS);
-    return () => window.clearInterval(id);
-  }, [advance, paused, shouldReduceMotion, list.length]);
 
   if (show === false) return null;
   if (list.length === 0) return null;
 
+  const split = Math.ceil(list.length / 2);
+  const topRow = list.slice(0, split);
+  const bottomRow = list.slice(split);
+
   return (
-    <section className="bg-white py-20 md:py-24">
+    <section className="bg-white py-16 md:py-20">
       <div className="mx-auto max-w-7xl px-4 lg:px-8">
         <div className="max-w-2xl">
           <p className="eyebrow">{eyebrow}</p>
           <h2 className="mt-3 font-heading text-3xl font-semibold md:text-4xl">
-            {heading || `What ${tenant.market.primaryArea} clients are saying.`}
+            {heading || "What clients are saying"}
           </h2>
         </div>
+      </div>
 
-        <div
-          ref={trackRef}
-          // items-stretch plus flex-col cards keeps every attribution block on
-          // the same baseline no matter how long the quote above it runs.
-          className="mt-12 flex snap-x snap-mandatory items-stretch gap-6 overflow-x-auto pb-6"
-          onMouseEnter={() => setPaused(true)}
-          onMouseLeave={() => setPaused(false)}
-          onFocusCapture={() => setPaused(true)}
-          onBlurCapture={() => setPaused(false)}
-          onTouchStart={() => setPaused(true)}
-        >
-          {list.map((t, idx) => (
-            <figure
-              key={`${t.name}-${idx}`}
-              className="flex min-w-[300px] max-w-md flex-col snap-start rounded-2xl border border-black/5 bg-[var(--color-surface)] p-8 md:min-w-[420px]"
-            >
-              <p className="font-heading text-3xl text-[var(--color-secondary)]">“</p>
-              <blockquote className="mt-2 mb-6 text-lg leading-relaxed text-[color:var(--color-ink)]">
-                {t.quote}
-              </blockquote>
-              {/* mt-auto pins the attribution to the bottom of every card, and
-                  the reserved min-height keeps the divider and the name on the
-                  same line across cards even when a context line wraps. */}
-              <figcaption className="mt-auto border-t border-black/5 pt-4 text-sm">
-                <div className="min-h-[5rem]">
-                  <p className="font-semibold">{t.name}</p>
-                  <p className="text-[color:var(--color-muted)]">
-                    {t.context} &middot; {t.location}
-                  </p>
-                </div>
-              </figcaption>
-            </figure>
-          ))}
+      {/*
+        Rows run full bleed rather than inside the page container, so cards keep
+        travelling past the gutter instead of appearing to start mid-page.
+      */}
+      <div className="mt-10 space-y-1">
+        {/* Below md everything rides one row, so nothing gets dropped. */}
+        <MarqueeRow items={list} direction="rtl" className="md:hidden" />
+
+        <div className="hidden space-y-1 md:block">
+          <MarqueeRow items={topRow} direction="rtl" />
+          {bottomRow.length > 0 && (
+            <MarqueeRow items={bottomRow} direction="ltr" />
+          )}
         </div>
       </div>
     </section>
