@@ -131,7 +131,15 @@ export interface TenantStat {
 export interface TenantScenario {
   title: string;
   description: string;
+  /** Fallback destination used until the long-form article exists. */
   href: string;
+  /**
+   * Slug of the full blog article this card is meant to open
+   * (content/blog/<articleSlug>.mdx). The homepage links here as soon as the
+   * file exists and falls back to `href` until then, so the cards can never
+   * point at a 404 while the articles are still being written.
+   */
+  articleSlug: string;
 }
 
 export interface TenantFaq {
@@ -215,7 +223,7 @@ export const tenant: Tenant = {
     stateAbbreviation: "WA",
     primaryArea: "Pierce County",
     positioning:
-      "Full-service real estate across Pierce and South King County, with specialized SRES training in aging-in-place strategy, downsizing, and every next step for older adults and their families.",
+      "Real estate across Pierce, King, and surrounding counties, with specialized SRES training in aging-in-place strategy, downsizing, and every next step for older adults and their families.",
     neighborhoods: [
       "Bonney Lake",
       "Tacoma",
@@ -397,42 +405,51 @@ export const tenant: Tenant = {
     { value: "12", label: "Sales in the last 12 months", detail: "Pierce and South King County" },
   ],
 
+  // Written for cold traffic: someone who found this page and has never met
+  // Becca. Each card opens a full article once content/blog/<articleSlug>.mdx
+  // lands; until then it falls back to `href`.
   scenarios: [
     {
       title: "Buying your first home",
       description:
-        "Good. Ask all the questions. Sorry long answer just trying to give you all the information; that is how I work. No pressure timeline. We move at your pace.",
+        "Ask me anything, including the questions you think sound dumb. They aren't. I'll walk you through financing, offers, and inspections at your pace, and you'll understand what you're signing before you sign it.",
       href: "/buyers",
+      articleSlug: "first-time-home-buyer-guide-pierce-county",
     },
     {
       title: "Selling to buy the next one",
       description:
-        "This is not a short answer situation. Bridge loans, contingency timelines, two closings that need to land in the same window. I manage the moving pieces.",
+        "Two transactions, one timeline, and a lot of moving pieces. I coordinate the sale, the purchase, and the financing in between so you don't end up owning two homes or none.",
       href: "/sellers",
+      articleSlug: "selling-and-buying-at-the-same-time-washington",
     },
     {
       title: "Helping a parent move",
       description:
-        "You are the adult child coordinating a move for mom or dad. Twenty years in senior care before I ever sold a house: I understand what is really going on here.",
+        "You're the adult child trying to sort out a move for mom or dad, and it's a lot to carry. I'm a Senior Real Estate Specialist, so I know how to work with the whole family, the timeline, and the attorney, and I won't rush your parent through a decision this big.",
       href: "/contact",
+      articleSlug: "helping-a-parent-move-senior-real-estate-washington",
     },
     {
       title: "Buying land to build on",
       description:
-        "Land is a different animal. Higher down payments, different loan programs, construction timelines. I do my homework before I send you to a lender.",
+        "Land works differently than houses. Bigger down payments, different loan programs, and a build timeline that has to line up with everything else. I do the homework on the parcel before you fall in love with it.",
       href: "/buyers",
+      articleSlug: "buying-land-to-build-pierce-county",
     },
     {
       title: "Relocating from out of state",
       description:
-        "Moving to Pierce or South King County from somewhere else entirely. Virtual tours, neighborhood research, and if I can not sell where you are now, I know agents who can.",
+        "You're moving to Washington from somewhere else entirely, which means you need someone on the ground here. I'll tour homes on video with you, tell you the truth about the commutes, and connect you with a good agent to sell where you are now.",
       href: "/contact",
+      articleSlug: "relocating-to-pierce-county-from-out-of-state",
     },
     {
       title: "Ready to downsize",
       description:
-        "Decades in one house and it is time for something that fits the next chapter. A clear plan to sell well and land somewhere that actually works for your life now.",
+        "Decades in one house, and now it's more house than you need. I'll help you sell well and land somewhere that actually fits your life today, without making you feel rushed out of a place full of memories.",
       href: "/sellers",
+      articleSlug: "downsizing-guide-pierce-county",
     },
   ],
 

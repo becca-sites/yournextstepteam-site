@@ -9,10 +9,31 @@ import { ContactBlock } from "@/components/ContactBlock";
 import { StatCardRow } from "@/components/sections/StatCardRow";
 import { TestimonialCarousel } from "@/components/sections/TestimonialCarousel";
 import { RealEstateAgentSchema } from "@/components/schema/RealEstateAgentSchema";
+import { getAllPosts } from "@/lib/content";
 
 function HeroSection() {
   return (
     <section className="relative min-h-[85vh] overflow-hidden bg-white">
+      {/*
+        HERO BACKGROUND: PENDING VIDEO.
+        Right now this is the photo mosaic. Becca's hero video file is still
+        being produced. When it arrives, replace <HeroMosaicBackground /> below
+        with the video layer:
+
+          <video
+            className="absolute inset-0 -z-10 h-full w-full object-cover"
+            src="/videos/hero/<FILENAME>.mp4"
+            poster={tenant.media.heroPrimary}
+            autoPlay
+            muted
+            loop
+            playsInline
+          />
+
+        Keep the white-to-transparent gradient overlay that HeroMosaicBackground
+        renders (or copy it over) so the headline stays readable, and honor
+        prefers-reduced-motion by falling back to the poster image.
+      */}
       <HeroMosaicBackground />
       <div className="relative z-10 flex min-h-[85vh] items-center">
         <Container className="py-24 lg:py-32">
@@ -26,17 +47,19 @@ function HeroSection() {
             <p className="mt-6 max-w-xl text-lg text-neutral-600 md:text-xl">
               {tenant.agent.bio}
             </p>
+            {/* Buying and selling carry equal weight, so both CTAs use the
+                same button treatment. */}
             <div className="mt-10 flex flex-wrap gap-4">
               <Link href="/buyers" className="btn-primary">
                 Buying a Home
               </Link>
-              <Link href="/sellers" className="btn-ghost">
+              <Link href="/sellers" className="btn-primary">
                 Selling a Home
               </Link>
             </div>
             <div className="mt-4">
               <Link href="/quiz" className="text-sm font-medium text-[var(--color-moss)] hover:underline">
-                Or take the Real Estate IQ Quiz &rarr;
+                Or take YOUR Real Estate IQ Quiz &rarr;
               </Link>
             </div>
           </FadeIn>
@@ -47,6 +70,11 @@ function HeroSection() {
 }
 
 function ScenariosSection() {
+  // Each card is meant to open its full article. Until an article's .mdx file
+  // exists in content/blog, the card falls back to its hub page so nothing on
+  // the homepage ever links to a 404.
+  const publishedSlugs = new Set(getAllPosts().map((p) => p.slug));
+
   return (
     <section className="surface-warm py-20 md:py-28">
       <Container>
@@ -61,27 +89,29 @@ function ScenariosSection() {
         </SectionIntro>
 
         <FadeInStagger className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {tenant.scenarios.map((card, i) => (
-            <FadeIn key={card.title}>
-              <Link
-                href={card.href}
-                className="group flex h-full flex-col rounded-2xl border border-black/5 bg-white p-7 transition hover:-translate-y-0.5 hover:border-[var(--color-primary)] hover:shadow-xl"
-              >
-                <span className="inline-flex h-7 w-7 items-center justify-center rounded-md bg-[var(--color-moss)]/10 text-xs font-semibold text-[var(--color-moss)]">
-                  {i + 1}
-                </span>
-                <h3 className="mt-3 font-display text-xl font-semibold">
-                  {card.title}
-                </h3>
-                <p className="mt-3 text-sm leading-relaxed text-neutral-600">
-                  {card.description}
-                </p>
-                <p className="mt-auto pt-6 text-sm font-medium text-[var(--color-primary)] group-hover:underline">
-                  Start here &rarr;
-                </p>
-              </Link>
-            </FadeIn>
-          ))}
+          {tenant.scenarios.map((card) => {
+            const hasArticle = publishedSlugs.has(card.articleSlug);
+            const href = hasArticle ? `/blog/${card.articleSlug}` : card.href;
+
+            return (
+              <FadeIn key={card.title}>
+                <Link
+                  href={href}
+                  className="group flex h-full flex-col rounded-2xl border border-black/5 bg-white p-7 transition hover:-translate-y-0.5 hover:border-[var(--color-primary)] hover:shadow-xl"
+                >
+                  <h3 className="font-display text-xl font-semibold">
+                    {card.title}
+                  </h3>
+                  <p className="mt-3 text-sm leading-relaxed text-neutral-600">
+                    {card.description}
+                  </p>
+                  <p className="mt-auto pt-6 text-sm font-medium text-[var(--color-primary)] group-hover:underline">
+                    {hasArticle ? "Read the full guide" : "Start here"} &rarr;
+                  </p>
+                </Link>
+              </FadeIn>
+            );
+          })}
         </FadeInStagger>
       </Container>
     </section>
@@ -89,8 +119,10 @@ function ScenariosSection() {
 }
 
 function AboutPreviewSection() {
+  // White here so the three stacked sections (stats, about, scenarios) read as
+  // three sections instead of one long warm block.
   return (
-    <section className="surface-warm py-20 md:py-24">
+    <section className="bg-white py-20 md:py-24">
       <Container>
         <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-16">
           <FadeIn className="lg:col-span-7">
@@ -112,7 +144,7 @@ function AboutPreviewSection() {
                 Read the full story
               </Link>
               <Link href="/contact" className="btn-ghost">
-                Book a consultation
+                Let&apos;s talk
               </Link>
             </div>
           </FadeIn>
@@ -127,10 +159,11 @@ function AboutPreviewSection() {
                 className="object-cover"
               />
             </div>
+            {/* Brokerage identification now lives with the full disclosure at
+                the very bottom of the footer, so it is not repeated here. */}
             <p className="mt-4 text-center text-sm text-neutral-500">
-              {tenant.agent.name} &middot; {tenant.agent.brokerage} &middot;{" "}
-              {tenant.agent.yearsOfExperience} years in{" "}
-              {tenant.market.stateAbbreviation}
+              {tenant.agent.name} &middot; {tenant.agent.yearsOfExperience} years
+              in {tenant.market.state}
             </p>
           </FadeIn>
         </div>
@@ -147,15 +180,15 @@ export default function HomePage() {
       <StatCardRow
         stats={tenant.stats}
         eyebrow="By the numbers"
-        heading={`A ${tenant.agent.yearsOfExperience}-year track record across Western Washington.`}
+        heading={`Becca Pitts: a ${tenant.agent.yearsOfExperience}-year track record across Western Washington`}
       />
-      <ScenariosSection />
-      <TestimonialCarousel heading="What Puget Sound clients are saying." />
       <AboutPreviewSection />
+      <ScenariosSection />
+      <TestimonialCarousel heading="What clients are saying." />
       <ContactBlock heading="Ready to talk about your next step?">
         <p>
-          Fifteen minutes. No pressure. No sales pitch. Just a real
-          conversation about where you are and what comes next.
+          Five minutes or an hour. Whatever we need to talk about to figure out
+          your next step. Let&apos;s talk.
         </p>
       </ContactBlock>
     </>

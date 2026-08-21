@@ -16,6 +16,7 @@ const NAV_LEARN = [
   { href: "/podcast", label: "Next Step Conversations" },
   { href: "/your-best-season", label: "Your Best Season" },
   { href: "/about", label: "About Becca" },
+  { href: tenant.sibling.url, label: tenant.sibling.name, external: true },
   { href: "/contact", label: "Contact" },
 ];
 
@@ -41,10 +42,11 @@ export function Footer() {
                   height={36}
                 />
               </Link>
+              {/* Brokerage identification lives in the compliance strip at the
+                  very bottom, not here. */}
               <p className="mt-6 max-w-sm text-sm leading-6 text-white/70">
                 {tenant.market.positioning}
               </p>
-              <p className="mt-4 text-sm text-white/70">{tenant.agent.brokerage}</p>
             </div>
 
             <nav aria-label="Working with Becca">
@@ -84,16 +86,30 @@ export function Footer() {
                 Learn more
               </h2>
               <ul className="mt-4 space-y-2 text-sm">
-                {NAV_LEARN.map((item) => (
-                  <li key={item.href}>
-                    <Link
-                      href={item.href}
-                      className="inline-flex min-h-[44px] items-center transition hover:text-white"
-                    >
-                      {item.label}
-                    </Link>
-                  </li>
-                ))}
+                {NAV_LEARN.map((item) =>
+                  "external" in item && item.external ? (
+                    <li key={item.href}>
+                      <a
+                        href={item.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex min-h-[44px] items-center transition hover:text-white"
+                      >
+                        {item.label}
+                        <span className="sr-only"> (opens in a new tab)</span>
+                      </a>
+                    </li>
+                  ) : (
+                    <li key={item.href}>
+                      <Link
+                        href={item.href}
+                        className="inline-flex min-h-[44px] items-center transition hover:text-white"
+                      >
+                        {item.label}
+                      </Link>
+                    </li>
+                  ),
+                )}
               </ul>
             </nav>
 
@@ -117,9 +133,6 @@ export function Footer() {
                   >
                     Send a message
                   </Link>
-                </li>
-                <li className="text-white/50">
-                  {tenant.agent.address}
                 </li>
               </ul>
               {socials.length > 0 && (
@@ -161,8 +174,7 @@ export function Footer() {
           </div>
 
           <div className="mt-8 border-t border-white/10 pt-6 text-xs text-white/60">
-            <p>{tenant.agent.brokerageDisclosure}</p>
-            <p className="mt-2">
+            <p>
               Equal Housing Opportunity. Serving{" "}
               {tenant.market.neighborhoods.slice(0, 6).join(", ")}
               {tenant.market.neighborhoods.length > 6
@@ -173,6 +185,15 @@ export function Footer() {
               &copy; {year} {tenant.agent.name}. All rights reserved.
             </p>
           </div>
+
+          {/*
+            Brokerage disclosure sits last, in small print, which is the
+            standard placement. TODO: confirm the exact WA DOL / NWMLS
+            firm-identification and logo requirements before launch.
+          */}
+          <p className="mt-6 text-[11px] leading-5 text-white/45">
+            {tenant.agent.brokerageDisclosure}
+          </p>
         </div>
       </FadeIn>
     </footer>

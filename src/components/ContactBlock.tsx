@@ -20,12 +20,14 @@ export function ContactBlock({ heading, children }: Props) {
                 {heading}
               </h2>
               <div className="mt-6 text-xl text-white/85">{children}</div>
+              {/* Buyers and sellers get the same treatment, so both
+                  questionnaire buttons share one style. */}
               <div className="mt-10 flex flex-wrap gap-4">
                 <a
                   href={tenant.listings.buyerQuestionnaireUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center rounded-lg bg-[var(--color-sunshine)] px-6 py-3 text-sm font-semibold text-[var(--color-ink)] transition hover:bg-[var(--color-sunshine-deep)]"
+                  className="btn-on-dark"
                 >
                   Buyer Questionnaire
                   <span className="sr-only"> (opens in a new tab)</span>
@@ -34,7 +36,7 @@ export function ContactBlock({ heading, children }: Props) {
                   href={tenant.listings.sellerQuestionnaireUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center rounded-lg border border-white/40 px-6 py-3 text-sm font-semibold text-white transition hover:border-white/70 hover:bg-white/10"
+                  className="btn-on-dark"
                 >
                   Seller Questionnaire
                   <span className="sr-only"> (opens in a new tab)</span>
