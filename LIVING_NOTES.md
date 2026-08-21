@@ -9,10 +9,35 @@ work done directly in the repo.
 
 ---
 
+## Positioning (source of truth)
+
+- **Becca is the geographic expert for Pierce County and surrounding areas.**
+  Geographic authority leads. Range of expertise comes second: first home, tenth
+  home, upsize, downsize, right-size, invest, relocate, luxury.
+- **Featured areas, named early and often:** Bonney Lake, Puyallup, North Tacoma,
+  Eatonville. She grew up in Eatonville, which is the credential behind the claim.
+- **Do not highlight Spanaway or Lakewood.** She still serves them; they just do
+  not lead. Spanaway sits in the `extended` region in `tenant.neighborhoods`.
+- **Secondary areas:** Graham, Roy, Gig Harbor, and the wider Pierce, King,
+  Thurston, and Mason county market.
+- **Senior transitions are one strength, not the identity.** The SRES designation
+  is a tool in the box. When it becomes the headline, it shrinks the business to
+  one client type and hides fifteen years of general Pierce County work. This is
+  why `agent.title` is `REALTOR®, SRES®` rather than "Senior Real Estate
+  Specialist": that field runs through the metadata title template on every page.
+- **Weave the place names into H1s, H2s, body copy, and meta descriptions.** Not
+  as a keyword dump; as the specific detail that proves she actually knows the
+  ground. "Which Bonney Lake streets flood" beats "deep local knowledge."
+
 ## Voice and copy
 
 - **Level 2 by default** for anything a visitor reads: polished professional with
   personality. See the `my-writing-style` skill.
+- **Never say what something is not.** No "advocate, not a salesperson," no
+  "no pressure, no sales pitch," no "this isn't a listing appointment." X-not-Y
+  framing plants the negative in the reader's head; the denial is what sticks.
+  State the positive and stop. This is non-negotiable and it applies to headings,
+  body, CTAs, and alt text alike.
 - **No em dashes anywhere in visitor-facing copy.** Commas, colons, semicolons,
   parentheses instead.
 - **Becca is a solo agent.** Always "I" and "me," never "we," "us," or "our team."
@@ -21,18 +46,26 @@ work done directly in the repo.
 - **No raw text-message fragments in website copy.** Becca's texting voice is the
   source material, not the finished product. Homepage traffic is cold: these people
   have never met her, so copy has to stand on its own without her delivery.
-- **"Let's talk" beats "Book a consultation."** Lower friction, sounds like a person.
-- **Time framing on the CTA:** "Five minutes or an hour. Whatever we need to talk
-  about to figure out your next step." Replaced the old "fifteen minutes, no
-  pressure, no sales pitch" line, which read as a script.
+- **"Let's talk" beats "Book a consultation."** Lower friction, sounds like a
+  person. Applied everywhere, including the global header, which previously said
+  "Book a call."
+- **Time framing on the CTA:** "Five minutes or an hour, whatever it takes to
+  figure out what your next step actually is." Replaced the old "fifteen minutes,
+  no pressure, no sales pitch" line, which read as a script.
 
 ## Credentials, and one to watch
 
-- Becca's real estate credentials are **15 years in real estate, 270 closings, SRES
-  designation, eXp Icon Agent (2022)**.
+- Becca's real estate credentials are **15+ years in real estate, 270 closings,
+  SRES certified, eXp Icon Agent (2022)**.
+- **Write "15+ years in real estate in Washington,"** not "15+ years in WA." The
+  short version reads as how long she has lived here.
+- **The stats heading is a fixed string:** "Becca Pitts: 270 closings across
+  Western Washington." Her name carries more than a generic credential label, and
+  it is the same on the homepage, About, and Sellers.
 - **The "twenty years in senior care" line is Daniela's, not Becca's.** It made it
   into site copy at least twice. If it appears again, it is wrong. Becca's senior
-  expertise is the SRES designation and the work itself.
+  expertise is the SRES designation and the work itself. Removed from the last
+  live instance (the SRES FAQ answer) on 2026-08-21.
 
 ## Design direction
 
@@ -49,6 +82,12 @@ work done directly in the repo.
   reserved-height caption block.
 - **Carousels auto-advance** but always pause on hover, focus, and touch, and always
   honor `prefers-reduced-motion`.
+- **No pillbox or bubble elements.** Rounded pill badges that carry text but do
+  nothing read as broken buttons; people try to click them. If it looks like a
+  button, it has to be one. Static labels become plain text: a `·`-joined line for
+  credential rows, a small uppercase eyebrow for tags. Decorative number circles
+  and real nav links are fine, because those are either obviously ornamental or
+  actually clickable.
 - **eXp branding stays small and stays at the bottom.** Brokerage disclosure belongs
   in footer small print, which is standard practice. It should not compete with
   Becca's own brand anywhere above the fold.
@@ -59,5 +98,8 @@ work done directly in the repo.
   content, not just routers to hub pages. Cards fall back to the hub page until the
   article file exists, so unwritten content can never ship a broken link.
 - **Physical address does not go on the site.** It is a PMB.
-- **Service area language:** "Pierce, King, and surrounding counties."
+- **Service area language:** lead with the four featured cities by name, then
+  "and the rest of Pierce County," then King, Thurston, and Mason. The first four
+  entries in `tenant.market.neighborhoods` feed the site-wide meta description, so
+  that array is ordered by priority rather than alphabetically.
 - **`PLACEHOLDER_MODE` stays `true`** until launch is a deliberate decision.
