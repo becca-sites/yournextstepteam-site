@@ -7,6 +7,65 @@ Note: the Google Drive **SESSION_LOG** doc is the more current master. See
 
 ---
 
+## 2026-08-21 — All 46 Zillow reviews into `tenant.testimonials`
+
+**Deliverable:** `tenant.testimonials` now carries every review on Becca's
+Zillow agent profile, 46 of them, in place of the five hand-picked excerpts.
+Commit `c090918`, pushed to `origin/main`.
+
+### What changed
+
+- **46 entries, newest first**, each with the verbatim review text, the Zillow
+  screen name, the transaction summary, a city, an ISO date, and the reviewer's
+  own star rating.
+- **`quote` is now the full review, not an excerpt.** The card clamps at four
+  lines (`line-clamp-4`), so long reviews trail off with an ellipsis rather than
+  ending on a curated sentence. That is the trade for showing what people
+  actually wrote.
+- **No interface change and no component change.** `TenantTestimonial` already
+  had `quote`, `name`, `context`, `location`, `rating`, `date`, and `source`.
+  `TestimonialCarousel` splits 46 into 23 per marquee row, past the
+  `MIN_CARDS_PER_LOOP` threshold, so no repeat padding kicks in. Rows run 138s
+  each on desktop and 276s on the single mobile row.
+
+### One correction to the brief
+
+The reviews were described as all 5.0. **45 are five stars; one is four** —
+`user7088909`, 4/2/2015, the reviewer who mentions being Becca's sister.
+`rating` records each reviewer's own score, so that entry reads `rating: 4`.
+Zillow itself still publishes the profile average as 5.0, so the
+`resultsStats` tile ("5.0 Zillow rating, 46 verified reviews") is still what
+Zillow shows and was left alone.
+
+### Locations
+
+Zillow's transaction summaries are inconsistent, so `location` was normalised:
+
+- Neighbourhood prefixes dropped — "West end, Tacoma, WA" became "Tacoma, WA".
+- ZIP-only summaries resolved to their city: 98409 / 98405 / 98466 to Tacoma,
+  98374 Puyallup, 98387 Spanaway, 98056 Renton.
+- Two reviews name no place at all and read "Washington".
+
+The untouched Zillow wording survives in `context` on every entry, so the
+original is recoverable.
+
+### How the data was pulled
+
+The profile only server-renders 10 reviews; the rest arrive from a `/graphql`
+`Reviews` call as the modal is scrolled, and that call is bot-walled against
+replay. The working route was scrolling the real browser and capturing the
+app's own responses. All 46 quotes were then checksummed against the live page
+before the file was written, so the text in the repo is byte-identical to
+Zillow's.
+
+### Still pending
+
+- Everything under the previous sessions' "Still pending" remains open.
+- If the clipped four-line cards read badly to Becca, the fix is a curated
+  `quote` plus a separate full-text field, not a shorter clamp.
+
+---
+
 ## 2026-08-21 — Testimonial section redesign: two-row auto-scrolling marquee
 
 **Deliverable:** the homepage testimonial block is now a pair of continuously

@@ -172,3 +172,27 @@ work done directly in the repo.
   slug stays, so existing links and the sitemap survive.
 - **Name the sub-market, not the city, when that is what she works.** The site
   says "North Tacoma" everywhere else, so the neighborhood entry does too.
+
+## Review and testimonial conventions
+
+- **Every review Becca has goes on the site, not a flattering subset.** All 46
+  Zillow reviews live in `tenant.testimonials`. Cherry-picking five reads like
+  marketing; the full set reads like a record.
+- **Review text is verbatim.** Typos, run-ons, and all — "Beeca", "usa house",
+  "propmtness" are in the source and stay. Whitespace is collapsed and nothing
+  else is touched. Anything that would be a rewrite belongs in a separate
+  field, never edited into `quote`.
+- **`rating` is the reviewer's own score, not the platform average.** One of the
+  46 is four stars. Zillow rounds its profile badge to 5.0 and the stats tile
+  quotes Zillow, but the individual entry keeps the four. Rounding a real score
+  up in the data is the kind of small dishonesty that costs a licence.
+- **Reviewer names are the Zillow screen names as published.** No cleaning up
+  `vdn4yf8ct2` or `zuser20150105142216044` into something prettier. They are
+  what a reader can go verify on Zillow.
+- **Locations get normalised to a city, and the raw Zillow wording is kept.**
+  Neighborhood prefixes come off the display string and ZIP-only entries resolve
+  to their city, but the original transaction summary stays in `context` so the
+  source is never lost. Where Zillow gives no place, the entry says
+  "Washington" rather than guessing one.
+- **Reviews are sorted newest first** and the count is stamped in the comment
+  above the array, so a stale scrape is obvious.
