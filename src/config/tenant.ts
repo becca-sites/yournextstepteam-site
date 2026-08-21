@@ -400,12 +400,17 @@ export const tenant: Tenant = {
     ],
   },
 
-  // Verified reviews from Becca's Zillow agent profile. Reviewer names are the
-  // Zillow screen names as published.
+  // All 46 verified reviews from Becca's Zillow agent profile, newest first.
+  // Reviewer names are the Zillow screen names as published, and `quote` is the
+  // review text verbatim (whitespace collapsed). Zillow publishes the profile
+  // rating as 5.0; 45 of the 46 reviews are five stars and one is four, so
+  // `rating` carries each reviewer's own score rather than the rounded average.
+  // `location` is the city from Zillow's transaction summary, with the
+  // neighbourhood prefix dropped and ZIP-only entries resolved to their city.
   testimonials: [
     {
       quote:
-        "Becca was incredible every step of the process in selling our house. She was always there when we had a question as we were getting the house ready to put on the market. And she always offered easy to follow advice as it came time to list.",
+        "Becca was incredible every step of the process in selling our house. She was always there when we had a question as we were getting the house ready to put on the market. And she always offered easy to follow advice as it came time to list. We got a lot of quick action on our house once it was on the market and her expertise brought things to a quick closing! Use Becca when buying or selling your home, you will not regret it!!",
       name: "coderunfun",
       context: "Sold Single Family",
       location: "Puyallup, WA",
@@ -415,7 +420,7 @@ export const tenant: Tenant = {
     },
     {
       quote:
-        "Becca has helped us buy four rental properties and sell one. We have found her to be knowledgeable, effective and tenacious in representing us. She is very familiar with the multiple listing contract forms and very efficient in tailoring contracts.",
+        "Becca has helped us buy four rental properties and sell one. We have found her to be knowledgeable, effective and tenacious in representing us. She is very familiar with the multiple listing contract forms and very efficient in tailoring contracts to our needs and circumstances. She also has been very helpful in finding solutions when problems arose.",
       name: "janpauw",
       context: "Bought and sold Multiple Occupancy",
       location: "Sumner, WA",
@@ -425,9 +430,9 @@ export const tenant: Tenant = {
     },
     {
       quote:
-        "Becca is ridiculously smart and was able to navigate an extremely challenging purchase on a property we recently made. Her sense of humor and tenacity kept us laughing as we slowly rolled across the finish line. She had amazing knowledge of the area.",
+        "Becca is ridiculously smart and was able to navigate an extremely challenging purchase on a property we recently made. Her sense of humor and tenacity kept us laughing as we slowly rolled across the finish line. She had amazing knowledge of the area and knew just how to compare properties to help us negotiate a fair deal. We love our property! I highly recommend Becca Pitts to anyone purchasing a home.",
       name: "cleochatra3",
-      context: "Bought Vacant Land",
+      context: "Bought home",
       location: "Fall City, WA",
       rating: 5,
       date: "2023-09-03",
@@ -445,12 +450,422 @@ export const tenant: Tenant = {
     },
     {
       quote:
-        "This market is tough for a buyer, and especially so if you're like me, a first-time buyer with particular home requirements and a hard limit on resources. By the time Becca was recommended to me, I was tired of searching and feeling a bit under supported.",
+        "This market is tough for a buyer, and especially so if you’re like me, a first-time buyer with particular home requirements and a hard limit on resources. By the time Becca was recommended to me, I was tired of searching and feeling a bit under supported from my agents. Immediately, Becca was a whirlwind of positive energy that helped me get the excitement back that I needed. She listened (and heard), put in the work, talked me through the process bits, and generally made me feel like she was on my team, even when things didn’t go our way. Becca has a way of going to bat for her clients and still holding herself and others to a high standard of integrity and ethics, which was important to me and hard to find in this market. I got a home that meets all of my requirements and that I absolutely love because of the relationships and respect that Becca has fostered in the real estate world, and I will always have gratitude for her role in the rollercoaster process of buying my first home!",
       name: "BryannaRaiche",
       context: "Bought Single Family",
       location: "Tacoma, WA",
       rating: 5,
       date: "2021-08-15",
+      source: "Zillow",
+    },
+    {
+      quote:
+        "Becca was awesome to work with. She is very knowledgeable with a chill attitude that helped lessen any anxieties we were feeling through the home buying and selling process.",
+      name: "Seappudoray",
+      context: "Bought and sold Single Family",
+      location: "Tacoma, WA",
+      rating: 5,
+      date: "2021-08-07",
+      source: "Zillow",
+    },
+    {
+      quote:
+        "Becca went ABOVE AND BEYOND to help us into our home. We have had other agents in the past and no one has come close to the level of Becca!! She made the process easy for us and was always available to answer our questions. We would 1,000 percent recommend Becca to not only our nearest and dearest but to complete strangers. Thanks Becca for making our dreams a reality!!",
+      name: "vdn4yf8ct2",
+      context: "Bought Single Family",
+      location: "Puyallup, WA",
+      rating: 5,
+      date: "2021-07-30",
+      source: "Zillow",
+    },
+    {
+      quote:
+        "I would recommend Becca to ANYONE who is looking to buy or sell a home! Becca was not only professional and hard-working, but she really cared about making sure my family ended up with the right home for us. She was diligent and patient and available to answer any and all questions I had. She eased my stress, was flexible and supportive, and really cared about us more than anything in the homebuying process. What I appreciated most (other than knowing she really cared about us) was how HONEST she was. She didn't put any veils over my eyes our sugar-coat anything; she was realistic and proactive and made sure that we had everything we needed. I am eternally grateful for Becca and her team, and I am a customer (and now friend!) for life!",
+      name: "HALLALICIAE",
+      context: "Bought Single Family",
+      location: "Tacoma, WA",
+      rating: 5,
+      date: "2021-01-11",
+      source: "Zillow",
+    },
+    {
+      quote:
+        "Becca was a pleasure to work with. She is professional and responsive. She was an excellent partner during the home buying process. I couldn't expect more. I would 100% work with her again in the future.",
+      name: "brendan dudley",
+      context: "Bought Single Family",
+      location: "Bremerton, WA",
+      rating: 5,
+      date: "2020-07-30",
+      source: "Zillow",
+    },
+    {
+      quote:
+        "Working with Becca on selling my home was a breeze. She was there during every step of the process, setting realistic expectations and clearly communicating every piece of the puzzle. It was so nice to have someone I knew I could trust during what can be a very stressful time! I'd enthusiastically recommend her to anyone!",
+      name: "Autumn Starr",
+      context: "Sold Single Family",
+      location: "Covington, WA",
+      rating: 5,
+      date: "2020-03-12",
+      source: "Zillow",
+    },
+    {
+      quote:
+        "She answered all my questions, made all the time in the world to make sure I understood the process as well as the how’s and why’s - she was with me every step of the way and I couldn’t imagine having anyone better in my side through this process.",
+      name: "jcyust",
+      context: "Bought Single Family",
+      location: "Tacoma, WA",
+      rating: 5,
+      date: "2020-02-28",
+      source: "Zillow",
+    },
+    {
+      quote:
+        "A chain of friends referred us to Becca, and for that I'm thankful. She was an amazing person to have in our corner when buying our first home. She was with us every step of the way and made herself available at a moment's notice when time was of the essence. She never skipped beat with all of our paperwork requirements, and was thorough with communicating all of our requests and needs to both the seller and lender. We greatly valued her opinion because she can foresee possible outcomes of big decisions and help zero in on the best strategy. On top of all that, she was a joy to work with and very approachable. I will recommend Becca to anyone I know buying a house in the region.",
+      name: "joose206",
+      context: "Bought Single Family",
+      location: "Tacoma, WA",
+      rating: 5,
+      date: "2020-02-13",
+      source: "Zillow",
+    },
+    {
+      quote:
+        "When we first contacted Becca, we weren’t even sure if we would be able to buy a house, and had absolutely no idea how the process even worked and she was amazing from the get go! Came to our house (we had a small baby) and explain every step of the way. She even helped us find a loan agent that we also loved. We ended up buying a house we absolute adore and she was essential in helping us closing the deal, giving us her honest opinions along the way and being always available through the whole process. Becca, went above and beyond to make sure we got the best experience out of this and kept being amazing and thoughtful even after we were already settled at the new house. We were so happy we referred Becca to our friends and they were also very happy with the experience. If you’re looking for an agent, this is the one!",
+      name: "Patricia albuquerque",
+      context: "Bought Single Family",
+      location: "Tacoma, WA",
+      rating: 5,
+      date: "2020-01-13",
+      source: "Zillow",
+    },
+    {
+      quote:
+        "We had an exceptional experience working with Becca purchasing our first home. She was responsive, proactive, professional and a joy to work with. I recommend her to my own friends and family!",
+      name: "user2186870",
+      context: "Bought Single Family",
+      location: "Tacoma, WA",
+      rating: 5,
+      date: "2020-01-13",
+      source: "Zillow",
+    },
+    {
+      quote:
+        "We were first time home buyers and Becca was truly wonderful to work with. She was so patient with us and explained things every step of the way. She made the process of buying our first home SO much less stressful. Becca did a great job of listening to our wants, needs, concerns, etc., and made sure to help us find exactly the type of home we were looking for. She was also incredibly responsive and was always just a phone call or text message away. Becca is awesome at what she does!",
+      name: "zuser20150105142216044",
+      context: "Bought Single Family",
+      location: "Graham, WA",
+      rating: 5,
+      date: "2018-06-19",
+      source: "Zillow",
+    },
+    {
+      quote:
+        "I highly recommend Becca for the selling or buying of your home. She assisted us with both the sale of our old home and the purchase of our new home (new construction). Becca is very honest, detailed, and informed about the process of buying and selling. She took care of, or informed us on many things that were outside our scope of knowledge. This was our first time selling a home, and our first time buying a newly constructed home, so we had many questions/concerns, but she was always there to answer questions, give advice, and offer reassurance/support. A+++!",
+      name: "zuser20170428073515293",
+      context: "Sold Single Family",
+      location: "Puyallup, WA",
+      rating: 5,
+      date: "2018-05-03",
+      source: "Zillow",
+    },
+    {
+      quote:
+        "My husband and I were first-time homebuyers this year and had a million questions about the home purchasing process. Becca was phenomenal to work with and seamlessly guided us through it all! She was quick, efficient, and returned calls and emails promptly. For future home sale or purchase, we will absolutely work with Becca again! Thank you, thank you!",
+      name: "zuser20150207111443494",
+      context: "Bought Condo",
+      location: "Bothell, WA",
+      rating: 5,
+      date: "2017-11-18",
+      source: "Zillow",
+    },
+    {
+      quote:
+        "Becca Iverson is wonderful!!! I would recommend her for all your needs on buying a home. I am a first-time home buyer and she was there every time we needed to look at a house. When we finally got our home we love! The house appraised under. Becca played Hardball and got previous owner to drop the price ALOT!!!! It would be in your best interest to work with Becca. I will always have Becca work with us! Thank you Becca from the bottom of our heart !!",
+      name: "symakk",
+      context: "Bought Single Family",
+      location: "Puyallup, WA",
+      rating: 5,
+      date: "2017-05-08",
+      source: "Zillow",
+    },
+    {
+      quote:
+        "Becca is absolutely amazing! Our team has done several transactions with her and she has made each one of them completely effortless. She is always professional and her customer service is far superior than the average real estate agent. We have witnessed her go above and beyond for her clients and colleagues on a regular basis. You can tell that Becca really has a heart for this business. She keeps the fun in real estate while simultaneously showing how knowledgeable she is about the industry. I will ALWAYS highly recommend Becca to my friends and family. 10 Stars for you Ms. Iverson!!!",
+      name: "Leah West",
+      context: "Bought and sold home",
+      location: "Tacoma, WA",
+      rating: 5,
+      date: "2017-05-03",
+      source: "Zillow",
+    },
+    {
+      quote:
+        "We had received Becca's name from a very good friend at church, not knowing that she was the niece of this friend. I am so glad that I had asked my friend to recommend someone. Becca was absolutely fabulous. She responded immediately to every question we had. She was very informative on the processes that we had to go through. We used her talents with both selling our log home, and then purchasing our new home in town. When you are selling one home, and buying another home at the same time, the details can get complicated. But Becca kept us straight, and we couldn't have done it without her.",
+      name: "user17717706",
+      context: "Bought and sold Single Family",
+      location: "Puyallup, WA",
+      rating: 5,
+      date: "2017-04-29",
+      source: "Zillow",
+    },
+    {
+      quote:
+        "Becca is amazing! She is very skilled in her field and gets things done quickly and professionally. She sold our last home and helped us buy our new home. I would recommend her to everyone I know who is looking for a great home buying experience!!",
+      name: "firefightress3",
+      context: "Bought and sold Single Family",
+      location: "Roslyn, WA",
+      rating: 5,
+      date: "2017-04-29",
+      source: "Zillow",
+    },
+    {
+      quote:
+        "If you want a real estate agent that will go above and beyond expectations, Becca is the agent for you! When we were finally ready to buy, my wife and I were overwhelmed with emotions and a little fear. Becca put all those fears to rest immediately, and made us feel more like family than buyers. She was always on top of the ball, and really quick to respond to any questions we had, or houses that we wanted to go see! She is BEYOND amazing and I highly recommend her when your considering buying or selling! She is the only one we will ever use!",
+      name: "girardy23",
+      context: "Bought home",
+      location: "Gig Harbor, WA",
+      rating: 5,
+      date: "2017-04-26",
+      source: "Zillow",
+    },
+    {
+      quote:
+        "Very responsive, patient and always made time for last minute scheduling. Becca was very easy to work with and I hope to continue to work with her for future purchases.",
+      name: "jojoyoung21",
+      context: "Bought and sold Single Family",
+      location: "Tacoma, WA",
+      rating: 5,
+      date: "2017-01-04",
+      source: "Zillow",
+    },
+    {
+      quote:
+        "Becca is THE 'woman'! We recently became homeless after deciding to put our house up for sale in AZ and getting an offer sooner than expected. So, off to Washington on a last minute trip to find a house, and we were lucky enough to have been handed to Becca! We had 3 days to get it done, and she spent almost every waking moment showing us houses. It was exhausting! We put her through the ringer with our demands, BUT, through it all, she remained happy, kept us on track, and kept us entertained! Also, due to her local knowledge, she was able to keep us from making a huge mistake of buying in the wrong area (which we thought we were set on). And when the time came to put an offer in, she was the advocate we needed. We almost got into a bidding war, but due to her knowledge, expertise and experience, she beat our competitor and prevented us from paying a dollar more then we had to! Then, since we had to go back to Phoenix to finalize things, she stood in our place during the inspection to make sure we were getting a solid deal. What could have turned into a miserable experience due to our time crunch and circumstances, ended up being a great one because of her!...and now we're lucky enough to have gained a new friend!",
+      name: "Leland Brechbiel",
+      context: "Bought Single Family",
+      location: "Auburn, WA",
+      rating: 5,
+      date: "2016-07-30",
+      source: "Zillow",
+    },
+    {
+      quote:
+        "Becca is one of the hardest working people I have ever met. She goes the extra mile for you and will not rest until every detail is taken care of. Becca also helped my sister buy her first house and did a great job finding the perfect home and making the process as seamless as possible.",
+      name: "tashat9",
+      context: "Showed home",
+      location: "Puyallup, WA",
+      rating: 5,
+      date: "2016-07-27",
+      source: "Zillow",
+    },
+    {
+      quote:
+        "Very knowledgeable, easy to work with, hardworking, and great communicator. We are very happy with our experience and will continue to work with Becca for all our real estate needs.",
+      name: "user3550574",
+      context: "Showed home",
+      location: "Tacoma, WA",
+      rating: 5,
+      date: "2016-07-27",
+      source: "Zillow",
+    },
+    {
+      quote:
+        "Becca did a wonderful job helping prepare and sell mother's house. She had many suggestions on what to improve and what would not matter when selling our parents house. Couldn't have done it without her",
+      name: "pgc76359",
+      context: "Sold home",
+      location: "Shoreline, WA",
+      rating: 5,
+      date: "2016-07-27",
+      source: "Zillow",
+    },
+    {
+      quote:
+        "Becca was always responsive and available whenever we called, emailed or text her. She is very knowledgeable in her field and helped us through what could only be described as a nightmare sale, always on top of everything. We also used her to buy our new home which was thankfully not a nightmare but when there were a few bumps Becca was there to smooth it all out. I would recommend Becca to anyone needing a good realtor!",
+      name: "matt p ollie",
+      context: "Bought and sold home",
+      location: "Renton, WA",
+      rating: 5,
+      date: "2016-07-22",
+      source: "Zillow",
+    },
+    {
+      quote:
+        "I was impressed with Beeca from our very first meeting. Initially, I hired her because she actually answered her phone on a Saturday afternoon. We scheduled a meeting right away and she came prepared with research and facts about the housing market in my area. I was new to the selling process and would soon be relocating. From the beginning, she gave me solid advice for getting my home on the market quickly at a price that was competitive, yet priced to move. Move it did. I had a fantastic offer within three days of listing the property. The offer was even higher than asking price. Becca was responsive and available whenever I had a question. She is a straight-shooter whose word I came to trust as well as rely upon. Due to my change of circumstances, most of our interactions took place online. However, the quality of the experience was never compromised. No doubt I will work with Becca again when I am ready to purchase another property.",
+      name: "Liw2",
+      context: "Sold home",
+      location: "Spanaway, WA",
+      rating: 5,
+      date: "2016-05-24",
+      source: "Zillow",
+    },
+    {
+      quote:
+        "I have used other agents in the past and never really had the experience I was hoping for. Becca was amazingly refreshing from the start. I buy and sell multiple properties in a year and she gets back to me ridiculously quick on everything I request. In a market changing as quickly as the greater Seattle area it is important to have an agent as competent as Becca is. You will be happy you chose her because she is a true professional!",
+      name: "championsand12",
+      context: "Bought and sold Single Family",
+      location: "Kent, WA",
+      rating: 5,
+      date: "2016-04-17",
+      source: "Zillow",
+    },
+    {
+      quote:
+        "Becca, is amazing at what she does, she is easy to get a hold of, friendly, knowledgeable, great follow through. You feel like you are the only client she is working with, she gives you all the time you need. she is very professional and I will be using her in the future and you should too!",
+      name: "Rachel030",
+      context: "Bought Single Family",
+      location: "Puyallup, WA",
+      rating: 5,
+      date: "2015-12-02",
+      source: "Zillow",
+    },
+    {
+      quote:
+        "Becca did a great job negotiating the purchase of my new house and gave me great advice! She went out of her way (literally - from Tacoma to Port Ludlow) to not only show the house I bought to me, but to my family (2nd time). Highly recommend her.",
+      name: "Tracey Kellogg",
+      context: "Bought Single Family",
+      location: "Port Ludlow, WA",
+      rating: 5,
+      date: "2015-08-31",
+      source: "Zillow",
+    },
+    {
+      quote:
+        "Becca was great to work with. Very knowledgeable and great at explaining things. She worked with my schedule to show me houses as soon as possible. She was very patient and never pressured me. When I liked a house she was great about going after it quickly and fiercely. I love my new home, and without her fast response time I might not have it.",
+      name: "petra 67",
+      context: "Bought Single Family",
+      location: "Tacoma, WA",
+      rating: 5,
+      date: "2015-08-28",
+      source: "Zillow",
+    },
+    {
+      quote:
+        "My experience with my Becca was absolutely fantastic. I had the opportunity to meet with her at an open house almost a year ago. When my husband and I found a house that we were interested in, we called her immediately for her assistance. During the entire process Becca was extremely responsive and negotiated on our behalf extremely well. We had a couple of snags in closing the house (NOTHING related to Becca) and she was there for us to assist us and negotiate for us the entire time. She was a real advocate and we really appreciate it. We were impressed with her skills, knowledge, work ethic and quick responsiveness and I have recommended her to everybody I know because I truly do not think you can find a better or more qualified agent!!!",
+      name: "melindahansen7",
+      context: "Bought Single Family",
+      location: "Gig Harbor, WA",
+      rating: 5,
+      date: "2015-08-27",
+      source: "Zillow",
+    },
+    {
+      quote:
+        "Becca was amazing. Always there when I needed her and did her best to meet me when I wanted to see a house on super short notice! Gave a lot if great insights, walked me through the whole process, and helped me find a great house that is perfect for me.",
+      name: "user1496408",
+      context: "Bought Single Family",
+      location: "Puyallup, WA",
+      rating: 5,
+      date: "2015-04-04",
+      source: "Zillow",
+    },
+    {
+      quote:
+        "Becca Iverson was hands down the right real estate agent for me. Becca quickly grasped what I was looking for in a home, and was remarkably responsive to my questions and concerns. I really appreciated her honesty, and she made certain that I found the right home in the right price-range. Becca was also incredibly persistent on my behalf, and helped make everything fall into place as quickly as possible. I highly recommend her.",
+      name: "bethie schmidt",
+      context: "Bought Single Family",
+      location: "Tacoma, WA",
+      rating: 5,
+      date: "2015-04-03",
+      source: "Zillow",
+    },
+    {
+      quote:
+        "Sometimes in life you come across people that you trust and communicate with like you have known them for years..In my case never met her not even after closing on the house as i am still overseas. However, just how she made it work as if she was buying a house for herself while taking care of all the requirements that i had set out..i am really impressed with the work ethic, propmtness especially when she realized i was working this while deployed overseas. All in all a blessing to have a realtor who could be my eyes and ears all along the way on this..thanks Becca for making this happen and will be working with you again in future for sure...hang on to my keys till i am back..",
+      name: "Arvind Sharma",
+      context: "Bought Townhouse",
+      location: "Tacoma, WA",
+      rating: 5,
+      date: "2015-04-03",
+      source: "Zillow",
+    },
+    {
+      quote:
+        "Becca is such a go-getter! We were very impressed with her on all levels. She is a very knowledgeable real estate agent and we highly recommend her to anyone. She saw our family through a very difficult home buying transaction and throughout the entire process she was an effective leader, never gave up, and sucessfully saw us through to the end. She was fantastic to work with!",
+      name: "user6601231",
+      context: "Bought Single Family",
+      location: "Gig Harbor, WA",
+      rating: 5,
+      date: "2015-04-02",
+      source: "Zillow",
+    },
+    {
+      quote:
+        "My home buying process was pretty easy. From others I’ve talked to, I think a big portion of that was due to the agent I used. She linked me up with a great lender that got me pre-approved within a day and then when we went out to look at homes, every single one of them were within my criteria I sent forth. I found ‘the house’ the first day out. I have been in it for almost a year now; and I am loving my new home. Granted Becca IS my sister, but…she knows her stuff. -Iverson",
+      name: "user7088909",
+      context: "Bought Single Family",
+      location: "Tacoma, WA",
+      rating: 4,
+      date: "2015-04-02",
+      source: "Zillow",
+    },
+    {
+      quote:
+        "Becca Iverson is a great person and a true professional. She took the reigns when our other agent had family matters to attend to and helped us negotiate a great deal on our dream home. Throughout the entire process she was available to answer any questions or concerns we had. We truly appreciate her stepping in when we needed someone the most. I would gladly refer anyone I know to Becca.",
+      name: "Eric Brown",
+      context: "Bought home",
+      location: "Washington",
+      rating: 5,
+      date: "2015-01-15",
+      source: "Zillow",
+    },
+    {
+      quote:
+        "I had the greatest experience with Becca. My wife and I just bought our first house, and were pretty nervous about what we were getting into. Becca was super helpful with any questions we had, and when she didn't know the answer, usually could quickly direct us to someone who did. She also really went to bat for us when we had some disputes with the sellers about some work that we wanted done before the sale went through. My wife and I love our new home, and Becca has been in touch to make sure we're happy and ready to help us with a recommendation for any work we need or want done. I'm completely satisfied with my experience, and would gladly direct any friends who were in the market to her door.",
+      name: "Dave Brouillette",
+      context: "Bought home",
+      location: "Tacoma, WA",
+      rating: 5,
+      date: "2014-12-12",
+      source: "Zillow",
+    },
+    {
+      quote:
+        "We purchased our home from out of state and made initial contact with Becca via the internet. She was really helpful and accommodating before we had committed to anything. Once we travelled to the area to view homes, she had everything set up and organized and made the trip(s) both enjoyable and productive. She was responsive and very knowledgeable and we were thoroughly pleased. She was a pleasure to work with and made a stressful process a lot easier. We'll definitely work with her in the future.",
+      name: "denise t m",
+      context: "Bought home",
+      location: "Washington",
+      rating: 5,
+      date: "2014-11-28",
+      source: "Zillow",
+    },
+    {
+      quote:
+        'My husband and I worked with Becca in buying our first home and we had to go through 8 Realtors to get to the best one! She was very patient in showing us many homes as when we would drive around looking at different houses our kids would fall asleep and she was more than happy to show usa house twice...because one of us had to stay in the car with our kiddos! She also is considerate that when showing a VA home loan client different properties there are strict requirements to be approved by a VA appraiser and everytime an issue came up with the house and we couldn\'t close she was immediately back to looking at houses for us. So don\'t choose a realtor that wants to pressure you into buying any home to make money off a sale, which we have encountered alot. Choose a friend who will be there for you and guide you through the process of not purchasing a house but purchasing a "HOME" that is right for you and your family to start making endless memories for years to come! So what are you waiting for the longer you wait your "Dream Home" is waiting somewhere out there for her to show it to you!',
+      name: "Lesheana Acfalle",
+      context: "Bought home",
+      location: "Tacoma, WA",
+      rating: 5,
+      date: "2014-11-25",
+      source: "Zillow",
+    },
+    {
+      quote:
+        "Becca Iverson made buying our first home a wonderful experience. She was available any time we had questions and was able to work with our crazy schedule to view homes. She was able to explain the home buying process in a way that we understood it and felt comfortable with it. My husband and I had met with several Realtors before choosing Becca and I am happy we looked around and found someone that knew what she was doing and what would work for us.",
+      name: "laurensmith014",
+      context: "Bought home",
+      location: "Spanaway, WA",
+      rating: 5,
+      date: "2014-11-24",
+      source: "Zillow",
+    },
+    {
+      quote:
+        "Becca was so helpful in helping me purchase my first home. She was able to meet me at times that were convenient to my schedule and was always available by phone when I needed her. She was even able to recommend a lending agency that was way more helpful and expedient than the one I originally started with. I would highly recommend Becca if you are planning on purchasing a home any time soon, she is so personable and caring and really makes the buying experience a great one.",
+      name: "adidas 769",
+      context: "Bought Single Family",
+      location: "Carbonado, WA",
+      rating: 5,
+      date: "2014-11-24",
+      source: "Zillow",
+    },
+    {
+      quote:
+        "My husband and I used Becca as our buying agent to purchase our home in Gig Harbor. We started our home search in July and looked at house after house not finding the right one. Becca was super patient with us, very flexible, and was always available to show us the next batch of new listings. After 5 months of searching we found our dream home. Becca found it and encouraged us to check it out. We made an offer and our offer was accepted. We were thrilled. We found Becca to be very a diligent, hardworking, and confident agent. She maintained a good relationship with the seller's agent and advised us in negotiating and even got a riding lawn mower out of the deal! Becca was an essential role in finding us the home of our dreams.",
+      name: "henuno",
+      context: "Bought Single Family",
+      location: "Gig Harbor, WA",
+      rating: 5,
+      date: "2014-11-24",
       source: "Zillow",
     },
   ],
