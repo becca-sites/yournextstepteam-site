@@ -22,30 +22,82 @@ function repeatToFill<T>(items: T[], minCount: number): T[] {
   return Array.from({ length: copies }, () => items).flat();
 }
 
+const MONTHS = [
+  "January",
+  "February",
+  "March",
+  "April",
+  "May",
+  "June",
+  "July",
+  "August",
+  "September",
+  "October",
+  "November",
+  "December",
+];
+
+/**
+ * "2024-06-24" to "June 2024".
+ *
+ * Split rather than `new Date`, because a bare ISO date parses as UTC midnight
+ * and would render as the previous month for anyone west of Greenwich, which
+ * on a server-rendered card means a hydration mismatch as well as a wrong date.
+ */
+function formatReviewDate(iso: string | undefined): string | null {
+  if (!iso) return null;
+  const [year, month] = iso.split("-");
+  const name = MONTHS[Number(month) - 1];
+  return name && year ? `${name} ${year}` : null;
+}
+
 function TestimonialCard({ t }: { t: TenantTestimonial }) {
+  const date = formatReviewDate(t.date);
+  const detail = [t.context, date].filter(Boolean).join(" · ");
+
   return (
-    <figure className="mr-5 flex h-[208px] w-[320px] shrink-0 flex-col rounded-xl border border-[color:var(--color-moss)]/20 bg-[var(--color-bone)] p-5 shadow-[0_1px_3px_rgba(26,32,40,0.07)] md:w-[340px]">
-      {/*
-        The clamp plus the card's fixed height is what keeps every attribution
-        block on the same line across the row, however long the quote runs.
-      */}
-      <blockquote className="line-clamp-4 flex-1 text-sm leading-relaxed text-[color:var(--color-slate)]">
-        {t.quote}
-      </blockquote>
-      <figcaption className="mt-4 flex items-baseline gap-1.5 border-t border-[color:var(--color-moss)]/20 pt-3 text-xs">
-        <span className="min-w-0 truncate font-semibold text-[color:var(--color-slate)]">
-          {t.name}
-        </span>
-        <span
-          className="shrink-0 text-[color:var(--color-moss)]"
-          aria-hidden="true"
-        >
-          &middot;
-        </span>
-        <span className="shrink-0 whitespace-nowrap text-[color:var(--color-muted)]">
-          {t.location}
-        </span>
-      </figcaption>
+    /*
+      The figure holds the card's place in the row and never changes size. The
+      panel inside it is what grows on hover, and it is positioned so that
+      growing paints over the neighbouring cards instead of reflowing the row
+      and shoving the rest of the page down. See `.testimonial-card` in
+      globals.css for the hover behaviour itself.
+    */
+    <figure className="testimonial-card relative mr-5 h-[208px] w-[320px] shrink-0 md:w-[340px]">
+      <div className="testimonial-card__panel absolute inset-x-0 top-0 flex min-h-[208px] flex-col rounded-xl border border-[color:var(--color-moss)]/20 bg-[var(--color-bone)] p-5 shadow-[0_1px_3px_rgba(26,32,40,0.07)]">
+        {/*
+          The clamp plus the card's fixed height is what keeps every attribution
+          block on the same line across the row, however long the quote runs.
+        */}
+        <blockquote className="testimonial-card__quote line-clamp-4 text-sm leading-relaxed text-[color:var(--color-slate)]">
+          {t.quote}
+        </blockquote>
+        {/* Eats the slack under a short quote so the attribution stays pinned
+            to the bottom edge while the card is collapsed, and collapses to
+            nothing once the expanded quote fills the card. */}
+        <div className="flex-1" aria-hidden="true" />
+        <figcaption className="mt-4 border-t border-[color:var(--color-moss)]/20 pt-3 text-xs">
+          <div className="flex items-baseline gap-1.5">
+            <span className="min-w-0 truncate font-semibold text-[color:var(--color-slate)]">
+              {t.name}
+            </span>
+            <span
+              className="shrink-0 text-[color:var(--color-moss)]"
+              aria-hidden="true"
+            >
+              &middot;
+            </span>
+            <span className="shrink-0 whitespace-nowrap text-[color:var(--color-muted)]">
+              {t.location}
+            </span>
+          </div>
+          {detail && (
+            <p className="testimonial-card__meta text-[color:var(--color-muted)]">
+              {detail}
+            </p>
+          )}
+        </figcaption>
+      </div>
     </figure>
   );
 }
@@ -53,17 +105,33 @@ function TestimonialCard({ t }: { t: TenantTestimonial }) {
 function MarqueeRow({
   items,
   direction,
+  expand = "down",
   className = "",
 }: {
   items: TenantTestimonial[];
   direction: "rtl" | "ltr";
+  /**
+   * Which way a hovered card grows. The lower row opens upward so that its
+   * expanded cards stay on screen: a row sitting two thirds of the way down the
+   * viewport has nowhere to grow downward, and the reader cannot scroll after
+   * it without moving the pointer off the card and closing it.
+   */
+  expand?: "down" | "up";
   className?: string;
 }) {
   const half = repeatToFill(items, MIN_CARDS_PER_LOOP);
   if (half.length === 0) return null;
 
   return (
-    <div className={`marquee py-2 ${className}`}>
+    <div
+      className={[
+        "marquee py-2",
+        expand === "up" && "marquee--expand-up",
+        className,
+      ]
+        .filter(Boolean)
+        .join(" ")}
+    >
       <div
         className={`marquee-track ${
           direction === "rtl" ? "marquee-track--rtl" : "marquee-track--ltr"
@@ -126,7 +194,7 @@ export function TestimonialCarousel({
         <div className="hidden space-y-1 md:block">
           <MarqueeRow items={topRow} direction="rtl" />
           {bottomRow.length > 0 && (
-            <MarqueeRow items={bottomRow} direction="ltr" />
+            <MarqueeRow items={bottomRow} direction="ltr" expand="up" />
           )}
         </div>
       </div>

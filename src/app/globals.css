@@ -357,7 +357,20 @@ summary,
 }
 
 .marquee {
+  position: relative;
   overflow: hidden;
+  /*
+   * A card expanding on hover grows past the bottom of its row, so the row has
+   * to clip sideways without clipping vertically. `overflow: hidden` cannot do
+   * that: hidden on one axis forces the other to `auto`, which would put a
+   * scrollbar on the row. `clip` carries no such rule, so the pair below keeps
+   * the track from reaching the page's horizontal scrollbar while letting an
+   * expanded card spill downward. Older engines that do not know `clip` fall
+   * back to the `hidden` above and clip the expansion, which degrades to the
+   * collapsed card rather than to a broken layout.
+   */
+  overflow-x: clip;
+  overflow-y: visible;
   /* Cards dissolve into the section background instead of being sliced off. */
   -webkit-mask-image: linear-gradient(
     to right,
@@ -373,6 +386,16 @@ summary,
     #000 93%,
     transparent
   );
+  /*
+   * Without this the mask undoes the overflow rule above. A mask paints only
+   * inside its clip box, which is the border box by default, so every pixel of
+   * an expanded card hanging below the row would be masked away to nothing.
+   * `no-clip` lets the mask keep fading the left and right edges while leaving
+   * the overhang alone: the gradient runs `to right` and repeats, so the tile
+   * that covers the overhang carries the identical horizontal fade.
+   */
+  -webkit-mask-clip: no-clip;
+  mask-clip: no-clip;
 }
 
 .marquee-track {
@@ -399,6 +422,126 @@ summary,
   animation-play-state: paused;
 }
 
+/*
+ * Hover to read the whole review.
+ *
+ * The row is already paused by the rule above, so the card under the cursor is
+ * standing still by the time it opens. What animates is the quote's
+ * `max-height`, not the card's: growing the quote lets the attribution ride
+ * down with the text instead of being clipped away and popping back at the end
+ * of the transition. The panel's own height is `auto` and simply follows.
+ *
+ * `-webkit-line-clamp` cannot be transitioned, so it is dropped outright on
+ * hover. That costs one frame of the ellipsis disappearing before the growth
+ * starts, which reads as the card opening rather than as a glitch.
+ *
+ * Only for real pointers. On a touch screen `:hover` sticks after a tap and
+ * would leave cards jammed open with no way to close them.
+ */
+/*
+ * `lh` is the element's own computed line-height, so `4lh` is exactly the four
+ * lines `line-clamp-4` shows and the two cannot drift apart. Hard-coding a rem
+ * value here is what slices the fourth line in half the moment any type scale
+ * moves under it. The rem fallback is only for engines without `lh`, and is
+ * sized to today's 27.2px leading.
+ */
+.testimonial-card__quote {
+  max-height: 6.8rem;
+  max-height: 4lh;
+  overflow: hidden;
+  transition: max-height 420ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.testimonial-card__panel {
+  transition: box-shadow 240ms ease-out;
+}
+
+/*
+ * The gap above this line is padding that opens with it, not a static margin
+ * or padding. On a border-box element `max-height: 0` still cannot squeeze out
+ * padding, so either would survive the collapse and lift the attribution off
+ * the bottom edge of every card at rest.
+ */
+.testimonial-card__meta {
+  max-height: 0;
+  padding-top: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition:
+    max-height 420ms cubic-bezier(0.22, 1, 0.36, 1),
+    padding-top 420ms cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 240ms ease-out 120ms;
+}
+
+/*
+ * Holds `overflow-y: hidden` for the length of the growth, then flips it to
+ * `auto` on the last frame. Without this the four reviews long enough to need
+ * a scrollbar are not the problem: it is the other forty-two, which would each
+ * flash a scrollbar for the whole 420ms while the box was still smaller than
+ * the text it was on its way to fitting.
+ */
+@keyframes testimonial-settle {
+  from {
+    overflow-y: hidden;
+  }
+  to {
+    overflow-y: auto;
+  }
+}
+
+/*
+ * Anchoring the panel to the bottom of its slot instead of the top makes it
+ * grow upward. Nothing moves while the card is collapsed, since the panel is
+ * exactly as tall as the slot then and the two edges coincide.
+ */
+.marquee--expand-up .testimonial-card__panel {
+  top: auto;
+  bottom: 0;
+}
+
+@media (hover: hover) {
+  /*
+   * Lift the hovered row above its neighbour, then the hovered card above the
+   * cards beside it. Two steps rather than one because the mask on `.marquee`
+   * makes each row its own stacking context, so a z-index on the card alone
+   * cannot reach past the row below.
+   */
+  .marquee:hover {
+    z-index: 20;
+  }
+
+  .testimonial-card:hover {
+    z-index: 10;
+  }
+
+  /*
+   * The reviews run from 136px to 924px tall in this column, so "expand to fit"
+   * would open a card taller than the laptop viewport it sits in, and the page
+   * cannot be scrolled to catch up without dragging the pointer off the card
+   * and closing it. 30rem covers most of the set outright and the longest few
+   * scroll the last of their text, which the paused row allows. The vh term
+   * takes over on short screens, where a card has the least room to grow into.
+   */
+  .testimonial-card:hover .testimonial-card__quote {
+    max-height: min(30rem, 44vh);
+    -webkit-line-clamp: unset;
+    scrollbar-width: thin;
+    animation: testimonial-settle 420ms step-end forwards;
+  }
+
+  .testimonial-card:hover .testimonial-card__panel {
+    box-shadow: 0 12px 32px rgba(26, 32, 40, 0.16);
+  }
+
+  .testimonial-card:hover .testimonial-card__meta {
+    /* Two lines, because the longer transaction summaries wrap in this column. */
+    max-height: 3rem;
+    max-height: 2lh;
+    padding-top: 0.25rem;
+    opacity: 1;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   /*
    * `animation: none` clears the name, so the global reduced-motion block's
@@ -409,8 +552,17 @@ summary,
     animation: none;
   }
 
+  /*
+   * Both axes, explicitly: the base rule's `overflow-y: visible` exists to let
+   * a hovered card spill out of a row that is clipped sideways, and that pairing
+   * is not legal once this axis scrolls. A reader driving the row by hand gets
+   * a scrollbar for the expanded card instead. Expansion still works here, just
+   * without the transition, which the global reduced-motion block already
+   * flattens.
+   */
   .marquee {
     overflow-x: auto;
+    overflow-y: auto;
   }
 }
 
