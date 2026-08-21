@@ -21,8 +21,13 @@ function HeroSection() {
       {/* Falls back to the photo mosaic if the video is ever unset. */}
       {video ? <HeroVideo video={video} /> : <HeroMosaicBackground />}
       <div className="relative z-10 flex min-h-[85vh] items-center">
-        <Container className="py-24 lg:py-32">
-          <FadeIn className="max-w-2xl">
+        {/* Deliberately not <Container>: its inner `mx-auto max-w-2xl` centers
+            the column below lg, which pushed the hero text out of line with the
+            "By the numbers" strip underneath. This mirrors StatCardRow's own
+            wrapper (max-w-7xl, px-4 lg:px-8) so the eyebrow, H1, paragraph, and
+            CTAs share a left edge with the section below at every breakpoint. */}
+        <div className="mx-auto w-full max-w-7xl px-4 py-24 lg:px-8 lg:py-32">
+          <FadeIn className="max-w-2xl text-left">
             <p className="eyebrow">{tenant.brand.eyebrow}</p>
             <h1 className="mt-5 font-display text-5xl font-semibold leading-[1.05] tracking-tight text-neutral-950 md:text-7xl">
               I know Pierce County
@@ -54,7 +59,7 @@ function HeroSection() {
               </Link>
             </div>
           </FadeIn>
-        </Container>
+        </div>
       </div>
     </section>
   );

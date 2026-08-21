@@ -64,18 +64,14 @@ export function HeroMosaicBackground() {
         })}
       </div>
 
+      {/* Left-to-right wash only. The bottom fade is gone here for the same
+          reason it is gone in HeroVideo: this is the video's stand-in, so the
+          two need to sit in the hero the same way. */}
       <div
         className="pointer-events-none absolute inset-0"
         style={{
           background:
             "linear-gradient(to right, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 35%, rgba(255,255,255,0.8) 50%, rgba(255,255,255,0.3) 75%, rgba(255,255,255,0) 100%)",
-        }}
-      />
-      <div
-        className="pointer-events-none absolute inset-x-0 bottom-0 h-32"
-        style={{
-          background:
-            "linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%)",
         }}
       />
     </div>

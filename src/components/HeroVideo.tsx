@@ -60,22 +60,16 @@ export function HeroVideo({ video }: { video: TenantHeroVideo }) {
       </video>
 
       {/*
-        The same two gradients HeroMosaicBackground used: a left-to-right wash
-        that keeps the headline legible over the footage, and a bottom fade into
-        the white section below.
+        One gradient only: a left-to-right wash that keeps the headline legible
+        over the footage. There is deliberately no bottom fade, so the video
+        stays fully visible right down to the edge of the section and meets the
+        stat strip below as a hard line rather than a wash of white.
       */}
       <div
         className="pointer-events-none absolute inset-0"
         style={{
           background:
             "linear-gradient(to right, rgba(255,255,255,0.97) 0%, rgba(255,255,255,0.92) 35%, rgba(255,255,255,0.7) 55%, rgba(255,255,255,0.25) 78%, rgba(255,255,255,0) 100%)",
-        }}
-      />
-      <div
-        className="pointer-events-none absolute inset-x-0 bottom-0 h-32"
-        style={{
-          background:
-            "linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%)",
         }}
       />
     </div>

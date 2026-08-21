@@ -162,3 +162,71 @@ pending" below is therefore done.
 5. **Brokerage compliance research.** The WA DOL and NWMLS firm-identification
    and logo requirements have not been verified. There is a TODO in the footer.
 6. `PLACEHOLDER_MODE` deliberately left at `true`. Site stays walled off.
+
+
+---
+
+## 2026-08-21 (later) — Hero layout alignment + real neighborhood market data
+
+**Deliverable:** homepage hero re-aligned to the grid used by the rest of the
+page, and the neighborhood market numbers replaced with Becca's real figures.
+
+### Hero layout
+
+- **Hero text is left-justified on the same grid as the section below it.** The
+  hero was using `<Container>`, whose inner `mx-auto max-w-2xl` centers the
+  column below the `lg` breakpoint. That put the eyebrow, H1, paragraph, and
+  CTAs out of line with the "By the numbers" strip underneath. The hero now
+  uses `mx-auto max-w-7xl px-4 lg:px-8`, mirroring `StatCardRow`'s own wrapper.
+  Verified: hero and stat-strip left edges match at 1440px, 1280px, and 820px.
+- **Bottom gradient removed from the hero background.** The video now plays
+  fully visible to the bottom edge of the section and meets the stat strip as a
+  hard line. The left-to-right white wash stays, because that is what keeps the
+  headline readable over the footage.
+- The same bottom fade was removed from `HeroMosaicBackground`, which is the
+  fallback that renders if `tenant.media.heroVideo` is ever unset. The two need
+  to sit in the hero the same way.
+
+### Neighborhood market data
+
+Real medians, days on market, and year-over-year moves are in for eight areas.
+Taglines and descriptions written in Level 2 voice, first person, no em dashes.
+
+| Area | Median | Notes |
+| --- | --- | --- |
+| Bonney Lake | $640K | 22 DOM, flat YoY |
+| Tehaleh | $665K | +2.8% YoY, new construction demand |
+| Puyallup | $575K | 21 to 43 DOM, 17 min to Tacoma |
+| North Tacoma | $630K | 7 DOM, $363/sqft, 88-91 compete |
+| Eatonville | $550K | rural, gateway to Rainier |
+| Graham | $570K | secondary area |
+| Roy | $500K | most affordable entry point |
+| Gig Harbor | $835K | priciest, +6.5% YoY |
+
+- **`Roy` is a new entry.** It did not exist in `tenant.neighborhoods`. The
+  drive time on it is an estimate and carries a TODO; everything else is
+  Becca's data.
+- **The `tacoma` entry is now named "North Tacoma."** The slug stays `tacoma`
+  so `/neighborhoods/tacoma` and the sitemap keep working, but the display name
+  and the ZIP (98406, not the 98402 downtown ZIP) now describe the sub-market
+  Becca actually works and the name every other page on the site uses.
+- **Puyallup's commute corrected** from 25 minutes to 17.
+
+### Files touched
+
+- `src/app/page.tsx` — hero wrapper swapped off `Container`
+- `src/components/HeroVideo.tsx` — bottom gradient removed
+- `src/components/HeroMosaic.tsx` — bottom gradient removed from the fallback
+- `src/config/tenant.ts` — nine neighborhood entries filled in, `Roy` added
+
+### Still pending
+
+1. **Six neighborhoods still carry `TODO Becca verify`:** Milton / Edgewood,
+   Sumner, Spanaway, Orting, Enumclaw, Auburn. No numbers were supplied for
+   these, and market medians are not something to invent on a live site.
+2. **Verify the Roy drive time.**
+3. **Every neighborhood page prints `tenant.market.schoolDistrict`** ("Puyallup
+   School District") as the primary district, which is wrong for Roy, Eatonville,
+   Graham, and Gig Harbor. The district needs to move onto `TenantNeighborhood`
+   as a per-area field. Pre-existing, not touched here.
+4. Everything under the previous session's "Still pending" remains open.

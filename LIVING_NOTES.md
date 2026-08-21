@@ -103,3 +103,30 @@ work done directly in the repo.
   entries in `tenant.market.neighborhoods` feed the site-wide meta description, so
   that array is ordered by priority rather than alphabetically.
 - **`PLACEHOLDER_MODE` stays `true`** until launch is a deliberate decision.
+
+## Hero and layout conventions
+
+- **The hero text sits on the same grid as every section under it.** Left edge of
+  the eyebrow, H1, paragraph, and CTAs lines up with the "By the numbers" strip
+  below. `<Container>` is the wrong wrapper for the hero: its inner
+  `mx-auto max-w-2xl` centers the column below `lg` and breaks that line. Use
+  `mx-auto max-w-7xl px-4 lg:px-8` there instead.
+- **No bottom fade on the hero.** The video plays fully visible all the way to
+  the bottom edge and meets the section below as a clean line. Only the
+  left-to-right white wash stays, and only because it is what makes the headline
+  readable over the footage. This applies to the mosaic fallback too.
+
+## Market data conventions
+
+- **Market numbers are Becca's, not invented.** Medians, days on market, and
+  year-over-year moves come from her or from the NWMLS county report. An area
+  with no number keeps its `TODO Becca verify` placeholder rather than getting a
+  plausible-looking guess. A wrong median on a real estate site is worse than a
+  visible blank.
+- **Numbers get a date stamp.** There is a comment above `tenant.neighborhoods`
+  recording when the figures were supplied, so a stale set is obvious.
+- **Neighborhood slugs do not change once they ship.** When a display name needs
+  to be corrected (Tacoma became North Tacoma), the name and ZIP change and the
+  slug stays, so existing links and the sitemap survive.
+- **Name the sub-market, not the city, when that is what she works.** The site
+  says "North Tacoma" everywhere else, so the neighborhood entry does too.
