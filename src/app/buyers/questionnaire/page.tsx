@@ -216,7 +216,7 @@ export default function BuyerQuestionnairePage() {
                   href="/contact"
                   className="font-medium text-[var(--color-moss)] hover:underline"
                 >
-                  book a consultation
+                  send me a message
                 </Link>
                 .
               </p>

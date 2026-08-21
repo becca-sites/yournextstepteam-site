@@ -7,22 +7,23 @@ import { ValuationWidget } from "@/components/valuation/ValuationWidget";
 
 export const metadata: Metadata = {
   title: "What is my home worth",
-  description: `Instant home value estimate for the ${tenant.market.primaryArea}. A 24-hour personalized CMA follow-up from ${tenant.agent.firstName}.`,
+  description:
+    "Instant home value estimate for Bonney Lake, Puyallup, North Tacoma, Eatonville, and the rest of Pierce County, refined by hand into a real CMA within 24 hours.",
   alternates: { canonical: "/home-value" },
 };
 
 const STEPS = [
   {
     title: "Enter your address",
-    body: "One field. No login. The instant estimate is generated from public records, recent comparable sales, and current market data.",
+    body: "One field, and you are done. The instant estimate comes from public records, recent comparable sales, and current market data.",
   },
   {
     title: "Get a personalized CMA",
-    body: `${tenant.agent.firstName} reviews the estimate, runs a true comparative market analysis, and sends a refined number within 24 hours.`,
+    body: "I review the estimate myself, run a true comparative market analysis against closed sales near you, and send a refined number within 24 hours.",
   },
   {
     title: "Decide what comes next",
-    body: "No pressure. Some sellers list within a month, some plan a year out. The number is yours to use either way.",
+    body: "Some sellers list within a month, some plan a year out, and some just wanted the number. It is yours to use however you like.",
   },
 ];
 
@@ -37,15 +38,16 @@ export default function HomeValuePage() {
               What is your home worth right now?
             </h1>
             <p className="mt-6 max-w-xl text-lg text-[color:var(--color-muted)] md:text-xl">
-              An instant estimate from public data, refined by hand within 24 hours.
-              No login, no follow-up calls you did not ask for.
+              Start with an instant estimate from public data, then I refine it
+              by hand against your actual Pierce County comps and send you the
+              real number within 24 hours.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Link href="#valuation" className="btn-primary">
                 Get my estimate
               </Link>
               <Link href="/contact" className="btn-ghost">
-                Talk to {tenant.agent.firstName} first
+                Let&apos;s talk first
               </Link>
             </div>
           </div>

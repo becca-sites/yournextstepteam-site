@@ -6,8 +6,9 @@ import { Border } from "@/components/Border";
 import { ContactForm } from "@/components/forms/ContactForm";
 
 export const metadata: Metadata = {
-  title: "Contact",
-  description: `Get in touch with ${tenant.agent.name}, Senior Real Estate Specialist in ${tenant.market.city}, ${tenant.market.stateAbbreviation}.`,
+  title: "Contact Becca Pitts",
+  description:
+    "Call, text, or email Becca Pitts directly. REALTOR® in Bonney Lake, WA, working Puyallup, North Tacoma, Eatonville, and the rest of Pierce County.",
   alternates: { canonical: "/contact" },
 };
 
@@ -19,12 +20,13 @@ export default function ContactPage() {
           <FadeIn>
             <p className="eyebrow">Contact</p>
             <h1 className="mt-4 font-display text-4xl font-semibold leading-tight md:text-6xl">
-              Let us talk.
+              Let&apos;s talk.
             </h1>
             <p className="mt-5 max-w-2xl text-lg text-neutral-600 md:text-xl">
-              I answer my own phone and I respond to every message personally.
-              No auto-responder, no assistant screening your call. You get me.
-              Ask all the questions; that is how I work.
+              Call the number below and I pick it up. Every message comes
+              straight to me and I answer it myself. Buying, selling, or just
+              wondering what your Bonney Lake or Puyallup house would bring right
+              now: ask all the questions. That is how I work.
             </p>
           </FadeIn>
         </Container>
@@ -36,7 +38,7 @@ export default function ContactPage() {
             <FadeIn className="lg:col-span-5">
               <p className="eyebrow">Direct</p>
               <h2 className="mt-2 font-display text-2xl font-semibold">
-                Reach {tenant.agent.firstName} directly
+                Reach me directly
               </h2>
               <dl className="mt-8 space-y-5 text-base">
                 <div>
@@ -87,8 +89,8 @@ export default function ContactPage() {
                 <p className="font-semibold text-neutral-950">Hours</p>
                 <p className="mt-2">
                   Monday through Saturday, 8 AM to 7 PM Pacific. Sundays by
-                  appointment. Texts and emails answered same day; I do not
-                  leave people hanging.
+                  appointment. Texts and emails get an answer the same day, every
+                  day.
                 </p>
               </div>
 
@@ -106,7 +108,8 @@ export default function ContactPage() {
                   >
                     Buyer Questionnaire
                   </a>{" "}
-                  so {tenant.agent.firstName} can come prepared with a plan.
+                  and I will show up to our first conversation with a plan and
+                  the right neighborhoods already pulled.
                 </p>
               </div>
 

@@ -4,7 +4,7 @@ import { tenant } from "@/config/tenant";
 
 export function FinalCtaBlock({
   heading = "Every home has a story. Ready to write yours?",
-  subhead = "Fifteen minutes. Let us get connected and figure out the right next step.",
+  subhead = "Fifteen minutes on the phone with me and we will know what your next step is.",
 }: {
   heading?: string;
   subhead?: string;
@@ -20,7 +20,7 @@ export function FinalCtaBlock({
       />
       <div className="relative mx-auto max-w-4xl px-4 py-24 text-center lg:px-8 lg:py-28">
         <p className="text-xs font-semibold uppercase tracking-widest text-white/70">
-          Let us write your story
+          Pierce County, Washington
         </p>
         <h2 className="mt-4 font-heading text-3xl font-semibold leading-tight md:text-5xl">
           {heading}
@@ -28,7 +28,7 @@ export function FinalCtaBlock({
         <p className="mt-5 text-lg text-white/80">{subhead}</p>
         <div className="mt-9 flex flex-wrap justify-center gap-3">
           <Link href="/contact" className="btn-on-dark">
-            Book a consultation
+            Let&apos;s talk
           </Link>
           <a href={`tel:${tenant.agent.phone}`} className="btn-ghost-on-dark">
             Call {tenant.agent.firstName}

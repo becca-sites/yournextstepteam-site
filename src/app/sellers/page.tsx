@@ -11,66 +11,71 @@ import { FAQSchema } from "@/components/schema/FAQSchema";
 import { StatCardRow } from "@/components/sections/StatCardRow";
 
 export const metadata: Metadata = {
-  title: `Sell a home in ${tenant.market.city}`,
-  description: `Senior downsizing, estate transitions, and aging-in-place evaluations with ${tenant.agent.name} across the ${tenant.market.primaryArea}.`,
+  title: "Sell your home in Bonney Lake, Puyallup, North Tacoma, or Eatonville",
+  description:
+    "List with Becca Pitts: 270 closings, 15+ years in real estate in Washington, and pricing built on Pierce County comps. Bonney Lake, Puyallup, North Tacoma, and Eatonville sellers.",
   alternates: { canonical: "/sellers" },
 };
 
+/*
+ * Plain-text credential line. Formerly rounded pill badges, which looked like
+ * buttons without being clickable.
+ */
 const CREDENTIALS = [
-  "SRES Certified",
-  "15+ Years in WA",
-  "270 Closings",
-  "Senior Care Background",
+  "SRES® Certified",
+  "15+ years in real estate in Washington",
+  "270 closings",
+  "eXp Icon Agent, 2022",
 ];
 
 const FEARS = [
   "Pricing the home wrong and leaving tens of thousands on the table",
   "Trusting the wrong agent and getting stuck in a six-month listing",
-  "Accepting the first offer without knowing what the market will actually bear",
-  "Watching the house sit for weeks while neighbors sell in days",
-  "Letting emotional attachment cloud the decisions that matter most",
+  "Accepting the first offer while wondering what the market would have paid",
+  "Watching the house sit for weeks while three neighbors sell in days",
+  "Letting thirty years of memories drive a decision that needs a spreadsheet",
 ];
 
 const OLD_WAY = [
-  "Zestimate as a pricing strategy",
-  "30 photos from the agent's phone",
-  "Sign in the yard and hope",
-  "Generic open house with no follow-up",
-  "Settlement at the first offer",
+  "A Zestimate used as a pricing strategy",
+  "Thirty photos shot on the agent's phone",
+  "A sign in the yard and a hope",
+  "A generic open house with no follow-up",
+  "Settling at the first offer that shows up",
 ];
 
 const YNSH_SYSTEM = [
-  "Full CMA with neighborhood-level data",
+  "A full CMA built on comps within a mile of you",
   "Professional photography, video, and twilight exteriors",
-  "Targeted digital and network marketing",
+  "Targeted digital marketing plus my Pierce County agent network",
   "Qualified buyer previews before showing day",
-  "Negotiation strategy for every offer",
+  "A negotiation strategy written for each offer that lands",
 ];
 
 const SYSTEM = [
   {
     title: "A real walk-through, before we talk price",
-    body: "Pricing starts with seeing the home. We walk every room together, note what is working and what is holding the home back, and build a clear path from where you are now to listing day.",
+    body: "Pricing starts with seeing the home. We walk every room together, I note what is working and what is holding the home back, and I build a clear path from where you are today to listing day.",
   },
   {
-    title: "Aging-in-place or sell evaluation",
-    body: "Not sure whether to stay or go? We walk the home with the family, price out modifications versus selling, and lay both paths side by side. No pressure toward either outcome.",
+    title: "Pricing built from the comps on your block",
+    body: "Bonney Lake, Puyallup, North Tacoma, and Eatonville price differently, and so do pockets inside each of them. I pull closed sales within a mile, adjust for condition, layout, and lot, and show you the reasoning behind the number.",
+  },
+  {
+    title: "Stay-or-sell evaluation",
+    body: "Weighing whether to modify the home or move? I walk it with the family, price out the modifications against what selling and relocating looks like, and lay both paths side by side so you can choose with real numbers in hand.",
   },
   {
     title: "Estate and trust coordination",
-    body: "Estate sales, trust sales, and transitions after a loss all involve legal coordination. We work directly with the family's attorney to keep the real estate timeline aligned.",
+    body: "Estate sales, trust sales, and transitions after a loss all run on a legal timeline. I work directly with the family's attorney and keep the real estate side lined up with it.",
   },
   {
-    title: "Prep and light staging",
-    body: "Most homes need somewhere between a deep clean and a few weeks of light styling. We make the calls together and bring in trusted partners only when the math earns the spend.",
-  },
-  {
-    title: "Real photography and video",
-    body: "Cinematic stills, twilight exteriors when the home earns them, drone for the right lots, and a walkthrough video that buyers actually watch.",
+    title: "Prep, light staging, and real photography",
+    body: "Most homes need somewhere between a deep clean and a few weeks of styling. We make those calls together, and I bring in trusted partners when the math earns the spend. Then: cinematic stills, twilight exteriors, drone for the right lots, and a walkthrough video buyers actually finish.",
   },
   {
     title: "Negotiation that holds the line",
-    body: "Fifteen years of contract negotiations. The edge is communication and rapport with the other agent, plus the discipline to know when to push and when to hold.",
+    body: "Fifteen years of contract negotiations across Pierce County. The edge is rapport with the other agent plus the discipline to know when to push and when to sit still.",
   },
 ];
 
@@ -78,20 +83,20 @@ const CASE_STUDIES = [
   {
     tag: "Tacoma green belt listing",
     situation:
-      "A young couple selling their first home, a property in Tacoma surrounded by green belt on all sides. Nothing but green out every window. That is a rare thing in the city, and we needed to make sure buyers felt it, not just read about it.",
+      "A young couple selling their first home, a Tacoma property ringed by green belt on all sides. Nothing but green out every window. That is rare inside the city, and buyers needed to feel it rather than read about it.",
     approach:
-      "I shot a custom listing video myself. Missed the fenced backyard in the first cut and re-shot it because that detail matters. We priced using neighborhood comps and got two showings in the first week. When a buyer came back with their spouse for a second look, we knew we had real interest. Offer came in, we went mutual, and I caught an inspection error the other agent missed: plumbing fixtures marked NA when they should not have been.",
+      "I shot the listing video myself. Missed the fenced backyard in the first cut and re-shot it, because that detail sells this house. We priced off neighborhood comps and had two showings in the first week. When a buyer came back with their spouse for a second look, I knew we had real interest. Offer came in, we went mutual, and I caught an inspection error the other agent missed: plumbing fixtures marked NA when they should have been flagged.",
     result:
-      "Under contract with a contractor credit negotiated. Appraisal ordered and on track for a clean close. The sellers texted me 'You ARE amazing!!!', and I meant it when I said it right back.",
+      "Under contract with a contractor credit negotiated, appraisal ordered, clean close. The sellers texted me 'You ARE amazing!!!' and I meant it when I said it right back.",
   },
   {
     tag: "The most challenging client I have ever had",
     situation:
-      "A seller in the Tehaleh area who needed constant communication, last-minute changes, and a lot of patience. The kind of client some agents would have walked away from. I am not some agents.",
+      "A seller in the Tehaleh area who needed daily communication, last-minute changes, and a lot of patience. The kind of client some agents hand off. I am not some agents.",
     approach:
-      "We talked almost daily. I set expectations on closing timelines down to the hour ('could happen as early as 9 AM or as late as 5 PM') and explained when proceeds would hit. After closing, I went back to the house to help load furniture, retrieve forgotten items from the new owners, spray the carpets, and coordinate storage. For the fee of one chocolate.",
+      "We talked almost every day. I set expectations on closing timelines down to the hour ('could happen as early as 9 AM or as late as 5 PM') and explained exactly when proceeds would hit her account. After closing I went back to the house to help load furniture, retrieve forgotten items from the new owners, spray the carpets, and coordinate storage. My fee for that part was one chocolate.",
     result:
-      "Home sold and closed. She went from my most challenging client to one of my most loyal. We still text. She sends me memes. That is what happens when you do not give up on people.",
+      "Home sold and closed. She went from my most challenging client to one of my most loyal. We still text. She sends me memes. That is what happens when you stay with people through the hard part.",
   },
 ];
 
@@ -108,48 +113,34 @@ export default function SellersPage() {
         <Container className="pt-16 pb-12 lg:pt-24 lg:pb-20">
           <div className="grid max-w-7xl gap-12 lg:grid-cols-12 lg:gap-12">
             <FadeIn className="lg:col-span-7">
-              <p className="eyebrow">For sellers</p>
+              <p className="eyebrow">For sellers in Pierce County</p>
               <h1 className="mt-5 font-display text-4xl font-semibold leading-[1.05] tracking-tight md:text-6xl">
-                Selling a home you have lived in for decades is not just a
-                transaction.
+                Your house is worth what this block says it is worth.
               </h1>
               <p className="mt-6 max-w-xl text-lg text-neutral-600 md:text-xl">
-                It is a family decision. Downsizing, estate transitions, and
-                aging-in-place evaluations handled with patience, a clear plan,
-                and someone who has done this before.
+                So I price it off closed sales within a mile of you. Bonney
+                Lake, Puyallup, North Tacoma, Eatonville: 270 closings across
+                Pierce County means I know what your street is doing this month,
+                and I can tell you which repairs earn their money back before we
+                photograph a thing.
               </p>
               <div className="mt-9 flex flex-wrap gap-3">
                 <Link href="/contact" className="btn-primary">
-                  Book a listing consultation
+                  Let&apos;s talk
                 </Link>
-                <Link href="/your-best-season/the-downsizing-decision" className="btn-ghost">
-                  Watch: The Downsizing Decision
+                <Link href="/home-value" className="btn-ghost">
+                  Get your home value
                 </Link>
               </div>
-              <div className="mt-6 flex flex-wrap gap-2">
-                {CREDENTIALS.map((cred) => (
-                  <span
-                    key={cred}
-                    className="inline-flex items-center gap-1.5 rounded-full border border-[var(--color-moss)]/20 bg-[var(--color-surface)] px-3 py-1.5 text-xs font-medium text-[var(--color-moss)]"
-                  >
-                    <svg
-                      viewBox="0 0 16 16"
-                      fill="currentColor"
-                      className="h-3.5 w-3.5"
-                      aria-hidden="true"
-                    >
-                      <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.75.75 0 0 1 1.06-1.06L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z" />
-                    </svg>
-                    {cred}
-                  </span>
-                ))}
-              </div>
+              <p className="mt-6 text-sm text-neutral-500">
+                {CREDENTIALS.join(" · ")}
+              </p>
             </FadeIn>
             <FadeIn scaleIn className="lg:col-span-5">
               <div className="relative aspect-[4/5] w-full overflow-hidden rounded-3xl bg-neutral-200 shadow-xl">
                 <Image
                   src={tenant.media.lifestyle[1] ?? tenant.media.heroPrimary}
-                  alt={`${tenant.market.city} home`}
+                  alt={`Home in ${tenant.market.city}, Washington`}
                   fill
                   priority
                   sizes="(min-width: 1024px) 40vw, 100vw"
@@ -165,7 +156,7 @@ export default function SellersPage() {
       <StatCardRow
         stats={tenant.resultsStats}
         eyebrow="The receipts"
-        heading={`What ${tenant.agent.yearsOfExperience} years in the ${tenant.market.state} market looks like.`}
+        heading="Becca Pitts: 270 closings across Western Washington"
       />
 
       {/* PAS Fear Copy */}
@@ -176,12 +167,12 @@ export default function SellersPage() {
               The real conversation
             </p>
             <h2 className="mt-3 font-display text-3xl font-semibold leading-tight text-white md:text-4xl">
-              What sellers are really afraid of.
+              What sellers are actually worried about.
             </h2>
             <p className="mt-6 text-lg text-white/80">
-              Nobody says these things out loud in the first meeting. But every
-              seller thinks them. And pretending they do not exist is how deals
-              go sideways.
+              Nobody says these out loud at the first meeting. Every seller
+              thinks them. So let&apos;s put them on the table, because each one
+              has an answer.
             </p>
             <div className="mt-10 space-y-4">
               {FEARS.map((fear) => (
@@ -200,12 +191,12 @@ export default function SellersPage() {
             </div>
             <div className="mt-10 rounded-2xl border border-white/10 bg-white/5 p-7">
               <p className="text-lg font-medium text-white">
-                That is what experience is for. Not a speech. A system.
+                That is what experience buys you. A process for each one.
               </p>
               <p className="mt-3 text-base text-white/70">
-                Fifteen years of navigating these exact fears across{" "}
-                {tenant.market.primaryArea}. Every one of them has a process
-                behind it. That is what you are hiring.
+                Fifteen years working these exact worries across Bonney Lake,
+                Puyallup, North Tacoma, and Eatonville. Every one of them has a
+                process behind it, and that process is what you are hiring.
               </p>
             </div>
           </FadeIn>
@@ -218,7 +209,7 @@ export default function SellersPage() {
           <FadeIn>
             <SectionIntro
               eyebrow="Side by side"
-              title="The old way versus the YNSH system."
+              title="The old way versus the way I list a home."
             />
           </FadeIn>
           <FadeIn className="mt-12 mx-auto max-w-4xl">
@@ -245,7 +236,7 @@ export default function SellersPage() {
               </div>
               <div className="rounded-2xl border border-[var(--color-moss)]/20 bg-[var(--color-moss)]/5 p-7">
                 <p className="text-xs font-semibold uppercase tracking-widest text-[var(--color-moss)]">
-                  The YNSH system
+                  How I do it
                 </p>
                 <div className="mt-5 space-y-4">
                   {YNSH_SYSTEM.map((item) => (
@@ -273,7 +264,7 @@ export default function SellersPage() {
         <Container>
           <SectionIntro
             eyebrow="What you get"
-            title="The full system, included."
+            title="The whole system, included in the listing."
           />
           <FadeInStagger className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {SYSTEM.map((card, i) => (
@@ -301,14 +292,14 @@ export default function SellersPage() {
           <FadeIn>
             <p className="eyebrow">From the field</p>
             <h2 className="mt-3 font-display text-3xl font-semibold leading-tight md:text-4xl">
-              Real results from real transitions.
+              Two listings, start to finish.
             </h2>
           </FadeIn>
           <FadeInStagger className="mt-12 grid gap-8 md:grid-cols-2">
             {CASE_STUDIES.map((study) => (
               <FadeIn key={study.tag}>
                 <div className="rounded-2xl border border-black/5 bg-[var(--color-surface)] p-7">
-                  <p className="inline-block rounded-full bg-[var(--color-moss)]/10 px-3 py-1 text-xs font-medium text-[var(--color-moss)]">
+                  <p className="text-xs font-semibold uppercase tracking-widest text-[var(--color-moss)]">
                     {study.tag}
                   </p>
                   <div className="mt-5 space-y-4">
@@ -351,20 +342,17 @@ export default function SellersPage() {
       <section className="surface-warm py-20 md:py-24">
         <Container>
           <FadeIn className="mx-auto max-w-2xl text-center">
-            <p className="eyebrow">No pressure</p>
+            <p className="eyebrow">Start wherever you like</p>
             <h2 className="mt-4 font-display text-3xl font-semibold md:text-4xl">
-              Not ready to talk yet? That is fine.
+              Still thinking it over? Perfect.
             </h2>
             <p className="mt-4 text-lg text-neutral-600">
-              Take the Real Estate IQ Quiz instead. Six real scenarios from the{" "}
-              {tenant.market.primaryArea} market. See how you would handle
-              pricing, inspections, and negotiations. No contact required.
+              Take the Real Estate IQ Quiz. Six real scenarios out of the Pierce
+              County market, and you will see how you would handle pricing,
+              inspections, and negotiation. It takes about four minutes.
             </p>
             <div className="mt-8">
-              <Link
-                href="/quiz"
-                className="btn-ghost min-h-[44px]"
-              >
+              <Link href="/quiz" className="btn-ghost min-h-[44px]">
                 Take the quiz
               </Link>
             </div>
@@ -378,7 +366,7 @@ export default function SellersPage() {
           <FadeIn className="mx-auto max-w-4xl">
             <p className="eyebrow">Seller FAQ</p>
             <h2 className="mt-3 font-display text-3xl font-semibold md:text-4xl">
-              Questions sellers ask first.
+              Questions Pierce County sellers ask me first.
             </h2>
             <div className="mt-10 divide-y divide-black/10 rounded-2xl border border-black/5 bg-[var(--color-surface)]">
               {FAQS.map((faq) => (
@@ -402,10 +390,10 @@ export default function SellersPage() {
         </Container>
       </section>
 
-      <ContactBlock heading="Ready to talk through what your home is worth?">
+      <ContactBlock heading="Curious what your home would bring right now?">
         <p>
-          Twenty minutes on the phone, no pressure. A real conversation about
-          your home, your timeline, and what the next step looks like.
+          Twenty minutes on the phone and I will walk you through your comps,
+          your timeline, and what your street is actually doing. Let&apos;s talk.
         </p>
       </ContactBlock>
     </>

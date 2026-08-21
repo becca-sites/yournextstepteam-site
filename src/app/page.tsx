@@ -5,47 +5,38 @@ import { Container } from "@/components/Container";
 import { FadeIn, FadeInStagger } from "@/components/FadeIn";
 import { SectionIntro } from "@/components/SectionIntro";
 import { HeroMosaicBackground } from "@/components/HeroMosaic";
+import { HeroVideo } from "@/components/HeroVideo";
 import { ContactBlock } from "@/components/ContactBlock";
 import { StatCardRow } from "@/components/sections/StatCardRow";
 import { TestimonialCarousel } from "@/components/sections/TestimonialCarousel";
 import { RealEstateAgentSchema } from "@/components/schema/RealEstateAgentSchema";
+import { HeroVideoSchema } from "@/components/schema/HeroVideoSchema";
 import { getAllPosts } from "@/lib/content";
 
 function HeroSection() {
+  const video = tenant.media.heroVideo;
+
   return (
     <section className="relative min-h-[85vh] overflow-hidden bg-white">
-      {/*
-        HERO BACKGROUND: PENDING VIDEO.
-        Right now this is the photo mosaic. Becca's hero video file is still
-        being produced. When it arrives, replace <HeroMosaicBackground /> below
-        with the video layer:
-
-          <video
-            className="absolute inset-0 -z-10 h-full w-full object-cover"
-            src="/videos/hero/<FILENAME>.mp4"
-            poster={tenant.media.heroPrimary}
-            autoPlay
-            muted
-            loop
-            playsInline
-          />
-
-        Keep the white-to-transparent gradient overlay that HeroMosaicBackground
-        renders (or copy it over) so the headline stays readable, and honor
-        prefers-reduced-motion by falling back to the poster image.
-      */}
-      <HeroMosaicBackground />
+      {/* Falls back to the photo mosaic if the video is ever unset. */}
+      {video ? <HeroVideo video={video} /> : <HeroMosaicBackground />}
       <div className="relative z-10 flex min-h-[85vh] items-center">
         <Container className="py-24 lg:py-32">
           <FadeIn className="max-w-2xl">
             <p className="eyebrow">{tenant.brand.eyebrow}</p>
             <h1 className="mt-5 font-display text-5xl font-semibold leading-[1.05] tracking-tight text-neutral-950 md:text-7xl">
-              Finding the house
+              I know Pierce County
               <br />
-              is the easy part.
+              street by street.
             </h1>
+            {/* Hero subhead is written for this page rather than pulled from
+                tenant.agent.bio, so the headline and the copy under it read as
+                one thought. The bio still carries the About page hero. */}
             <p className="mt-6 max-w-xl text-lg text-neutral-600 md:text-xl">
-              {tenant.agent.bio}
+              Bonney Lake, Puyallup, North Tacoma, Eatonville. Fifteen years in
+              real estate in Washington and 270 closings behind me, so I can
+              tell you what your street is doing, what that house is really
+              worth, and what it takes to get you into it.
             </p>
             {/* Buying and selling carry equal weight, so both CTAs use the
                 same button treatment. */}
@@ -83,8 +74,8 @@ function ScenariosSection() {
           title="What does your next step look like?"
         >
           <p>
-            Real scenarios from buyers and sellers across the Puget Sound
-            region. Find the path that sounds like yours.
+            Real scenarios from buyers and sellers across Bonney Lake, Puyallup,
+            North Tacoma, and Eatonville. Find the one that sounds like yours.
           </p>
         </SectionIntro>
 
@@ -135,9 +126,11 @@ function AboutPreviewSection() {
               {tenant.agent.storyLong}
             </p>
             <p className="mt-4 text-base text-neutral-600 md:text-lg">
-              Based in {tenant.market.city}, working across{" "}
-              {tenant.market.primaryArea} and the greater Puget Sound region.
-              Close enough to commute, far enough to feel like a different pace.
+              I&apos;m based in {tenant.market.city} and I work Puyallup, North
+              Tacoma, Eatonville, and the rest of {tenant.market.primaryArea},
+              plus King, Thurston, and Mason when the right home is there. First
+              house or tenth, upsizing, downsizing, investing, relocating: the
+              questions change, the way I work them stays the same.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Link href="/about" className="btn-primary">
@@ -162,8 +155,8 @@ function AboutPreviewSection() {
             {/* Brokerage identification now lives with the full disclosure at
                 the very bottom of the footer, so it is not repeated here. */}
             <p className="mt-4 text-center text-sm text-neutral-500">
-              {tenant.agent.name} &middot; {tenant.agent.yearsOfExperience} years
-              in {tenant.market.state}
+              {tenant.agent.name} &middot; {tenant.agent.yearsOfExperience}+
+              years in real estate in {tenant.market.state}
             </p>
           </FadeIn>
         </div>
@@ -176,19 +169,20 @@ export default function HomePage() {
   return (
     <>
       <RealEstateAgentSchema />
+      <HeroVideoSchema />
       <HeroSection />
       <StatCardRow
         stats={tenant.stats}
         eyebrow="By the numbers"
-        heading={`Becca Pitts: a ${tenant.agent.yearsOfExperience}-year track record across Western Washington`}
+        heading="Becca Pitts: 270 closings across Western Washington"
       />
       <AboutPreviewSection />
       <ScenariosSection />
       <TestimonialCarousel heading="What clients are saying." />
       <ContactBlock heading="Ready to talk about your next step?">
         <p>
-          Five minutes or an hour. Whatever we need to talk about to figure out
-          your next step. Let&apos;s talk.
+          Five minutes or an hour, whatever it takes to figure out what your next
+          step actually is. Let&apos;s talk.
         </p>
       </ContactBlock>
     </>

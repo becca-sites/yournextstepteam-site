@@ -6,6 +6,12 @@
  *
  * TENANT: Rebecca "Becca" Pitts (yournextstephome.com).
  *
+ * COPY PASS (2026-08-21). Full first-person rewrite positioning Becca as the
+ * geographic expert for Bonney Lake, Puyallup, North Tacoma, and Eatonville,
+ * with range of expertise second and senior transitions as one strength rather
+ * than the whole identity. Copy rules for this tenant: first person, no
+ * X-not-Y framing, no em dashes, solo agent ("I", never "we" about Becca).
+ *
  * V1 CONTENT PASS (2026-07-16). Pivoted to becca-sites/yournextstephome-site.
  * Palette locked to BBCH sibling brand (Ink/Moss/Bone/Sunshine). Real podcast
  * episodes with verified YouTube IDs. Stats and testimonials are real, sourced
@@ -98,10 +104,28 @@ export interface TenantPodcast {
   youtubePlaylistUrl: string;
 }
 
+export interface TenantHeroVideo {
+  /** H.264 MP4. Universally supported, so it is the only encode we ship. */
+  src: string;
+  /** Still frame shown before playback, under reduced motion, and on failure. */
+  poster: string;
+  /**
+   * What the footage actually shows. Used as the video's accessible
+   * description and, when the site goes live, as the VideoObject name.
+   */
+  description: string;
+  /** City and state the footage was shot in. */
+  locality: string;
+  region: string;
+  /** Seconds. Used for the VideoObject duration. */
+  durationSeconds: number;
+}
+
 export interface TenantMedia {
   heroPrimary: string;
   heroSecondary: string;
   heroTertiary: string;
+  heroVideo?: TenantHeroVideo;
   agentHeadshot: string;
   agentEnvironment?: string;
   listingShowcase: string[];
@@ -199,14 +223,14 @@ export const tenant: Tenant = {
   agent: {
     name: 'Rebecca "Becca" Pitts',
     firstName: "Becca",
-    title: "REALTOR®, Senior Real Estate Specialist",
+    title: "REALTOR®, SRES®",
     brokerage: "eXp Realty",
     brokerageDisclosure:
       "Rebecca Pitts is a licensed real estate broker in Washington State, affiliated with eXp Realty. MLS #87890. License #107351. eXp Realty is a licensed real estate brokerage. Equal Housing Opportunity.",
     headshot: "/photos/headshots/becca-headshot.webp",
-    bio: "The search is five percent of the process. The other ninety-five is where things get real: inspections, appraisals, contract clauses, financing surprises. I would rather give you too much information than not enough. You can always tell me to get to the point.",
+    bio: "The search is about five percent of this. The other ninety-five is inspections, appraisals, contract clauses, and financing surprises, and that is where I earn my keep. Fifteen years in real estate in Washington, 270 closings across Bonney Lake, Puyallup, North Tacoma, and Eatonville.",
     storyLong:
-      "Fifteen years and 270 closings taught me this: I do not rush people, I answer every question with a real answer instead of a sales pitch, and I coordinate with lenders, inspectors, and attorneys before I ever send you to one of them. If I cannot help you directly, I know who can. And I check them out first.",
+      "Here is the thing about 270 closings: they teach you exactly where a deal breaks. So I move at your pace, I give you a real answer to every question, and I talk to the lender, the inspector, and the attorney myself before I ever hand you a name. I grew up in Eatonville and I have worked Pierce County for fifteen years, which means I know these neighborhoods street by street.",
     license: "WA #107351",
     mlsId: "87890",
     phone: "253.678.7089",
@@ -223,22 +247,24 @@ export const tenant: Tenant = {
     stateAbbreviation: "WA",
     primaryArea: "Pierce County",
     positioning:
-      "Real estate across Pierce, King, and surrounding counties, with specialized SRES training in aging-in-place strategy, downsizing, and every next step for older adults and their families.",
+      "Real estate across Bonney Lake, Puyallup, North Tacoma, and Eatonville, plus the wider Pierce, King, Thurston, and Mason County market. First home or tenth home, upsizing, downsizing, right-sizing, investing, relocating, luxury.",
+    // Ordered by priority. The first four feed the site-wide meta description,
+    // so the featured areas lead and the rest follow.
     neighborhoods: [
       "Bonney Lake",
-      "Tacoma",
-      "Gig Harbor",
       "Puyallup",
-      "Graham",
+      "North Tacoma",
       "Eatonville",
+      "Sumner",
+      "Graham",
+      "Orting",
+      "Roy",
+      "Gig Harbor",
       "Milton",
       "Edgewood",
-      "Sumner",
-      "Spanaway",
-      "Orting",
+      "Tehaleh",
       "Enumclaw",
       "Auburn",
-      "Tehaleh",
     ],
     zip: "98371",
     schoolDistrict: "Puyallup School District",
@@ -254,7 +280,7 @@ export const tenant: Tenant = {
     textColor: "#1A2028",
     logo: "/images/brand/logo.svg",
     tagline: "Your next step starts here.",
-    eyebrow: "Puget Sound · Pierce & South King County",
+    eyebrow: "Bonney Lake · Puyallup · North Tacoma · Eatonville",
     headingFont: "DM Serif Display",
     bodyFont: "Inter",
   },
@@ -303,6 +329,17 @@ export const tenant: Tenant = {
     heroPrimary: "/images/hero/valley-landscape.jpg",
     heroSecondary: "/images/hero/valley-hero-1.jpg",
     heroTertiary: "/images/hero/valley-hero-2.jpg",
+    // Source was 2560x1440 HEVC at 30 MB. HEVC in MP4 does not play in Chrome
+    // or Firefox, so it is re-encoded to 1080p H.264 (4.7 MB) for the web.
+    heroVideo: {
+      src: "/videos/hero.mp4",
+      poster: "/images/hero/hero-poster.webp",
+      description:
+        "Aerial and walkthrough tour of a hillside home on acreage in Eatonville, Washington, opening over the property and the valley below, then moving through the terraced garden and water feature, the vaulted great room, and the primary bedroom.",
+      locality: "Eatonville",
+      region: "WA",
+      durationSeconds: 24,
+    },
     agentHeadshot: "/photos/headshots/becca-headshot.webp",
     listingShowcase: [
       "/images/listings/home-bellevue.jpg",
@@ -392,14 +429,14 @@ export const tenant: Tenant = {
   ],
 
   stats: [
-    { value: "15", label: "Years in real estate", detail: "Puget Sound region" },
-    { value: "270", label: "Closings", detail: "Career total" },
-    { value: "SRES", label: "Senior Real Estate Specialist", detail: "Certified for 55+ life transitions" },
-    { value: "Icon Agent", label: "eXp Icon Agent", detail: "Awarded 2022" },
+    { value: "15+", label: "Years in real estate", detail: "Licensed in Washington" },
+    { value: "270", label: "Closings", detail: "Bonney Lake to Eatonville and beyond" },
+    { value: "SRES®", label: "Senior Real Estate Specialist", detail: "Certified for 55+ moves" },
+    { value: "Icon", label: "eXp Icon Agent", detail: "Awarded 2022" },
   ],
 
   resultsStats: [
-    { value: "270", label: "Total closings", detail: "Career total" },
+    { value: "270", label: "Total closings", detail: "Career total across Western Washington" },
     { value: "$516K", label: "Average sale price", detail: "$165K to $1M price range" },
     { value: "5.0", label: "Zillow rating", detail: "46 verified reviews" },
     { value: "12", label: "Sales in the last 12 months", detail: "Pierce and South King County" },
@@ -410,44 +447,44 @@ export const tenant: Tenant = {
   // lands; until then it falls back to `href`.
   scenarios: [
     {
-      title: "Buying your first home",
+      title: "Buying your first home in Pierce County",
       description:
-        "Ask me anything, including the questions you think sound dumb. They aren't. I'll walk you through financing, offers, and inspections at your pace, and you'll understand what you're signing before you sign it.",
+        "Ask me anything, including the questions you think sound dumb. Those are usually the good ones. I'll walk you through financing, offers, and inspections at your pace, and you'll understand what you're signing before you sign it.",
       href: "/buyers",
       articleSlug: "first-time-home-buyer-guide-pierce-county",
     },
     {
-      title: "Selling to buy the next one",
+      title: "Selling one home to buy the next",
       description:
-        "Two transactions, one timeline, and a lot of moving pieces. I coordinate the sale, the purchase, and the financing in between so you don't end up owning two homes or none.",
+        "Two transactions, one timeline, and a dozen moving pieces. I coordinate the sale, the purchase, and the financing in between so the two closings land where they should and you move once.",
       href: "/sellers",
       articleSlug: "selling-and-buying-at-the-same-time-washington",
     },
     {
       title: "Helping a parent move",
       description:
-        "You're the adult child trying to sort out a move for mom or dad, and it's a lot to carry. I'm a Senior Real Estate Specialist, so I know how to work with the whole family, the timeline, and the attorney, and I won't rush your parent through a decision this big.",
+        "You're the adult child sorting out a move for mom or dad, and it's a lot to carry. I'm SRES certified, so I know how to work with the whole family, the timeline, and the attorney, and I give your parent the room to make a decision this big.",
       href: "/contact",
       articleSlug: "helping-a-parent-move-senior-real-estate-washington",
     },
     {
       title: "Buying land to build on",
       description:
-        "Land works differently than houses. Bigger down payments, different loan programs, and a build timeline that has to line up with everything else. I do the homework on the parcel before you fall in love with it.",
+        "Land works differently than houses. Bigger down payments, different loan programs, and a build timeline that has to line up with everything else. I do the homework on the parcel, the septic, and the setbacks before you fall in love with it.",
       href: "/buyers",
       articleSlug: "buying-land-to-build-pierce-county",
     },
     {
-      title: "Relocating from out of state",
+      title: "Relocating to Pierce County",
       description:
-        "You're moving to Washington from somewhere else entirely, which means you need someone on the ground here. I'll tour homes on video with you, tell you the truth about the commutes, and connect you with a good agent to sell where you are now.",
+        "You're moving to Washington from somewhere else entirely, so you need someone standing on the ground here. I'll tour homes on video with you, tell you the truth about the commute out of Bonney Lake, and hand you off to an agent I trust to sell where you are now.",
       href: "/contact",
       articleSlug: "relocating-to-pierce-county-from-out-of-state",
     },
     {
-      title: "Ready to downsize",
+      title: "Ready to downsize or right-size",
       description:
-        "Decades in one house, and now it's more house than you need. I'll help you sell well and land somewhere that actually fits your life today, without making you feel rushed out of a place full of memories.",
+        "Decades in one house, and now it's more house than you need. I'll help you sell well and land somewhere that fits the life you have today, with all the time you need to say goodbye to a place full of memories.",
       href: "/sellers",
       articleSlug: "downsizing-guide-pierce-county",
     },
@@ -455,29 +492,34 @@ export const tenant: Tenant = {
 
   faqs: [
     {
-      question: "What does an SRES designation mean?",
+      question: "What areas do you actually work?",
       answer:
-        "It means I have done additional training specifically for real estate transactions involving older adults. Reverse mortgages, tax implications of selling a home you have lived in for thirty years, aging-in-place modifications, coordinating with elder law attorneys. Twenty years in senior care before real estate gave me the context. The SRES gave me the framework.",
+        "Bonney Lake, Puyallup, North Tacoma, and Eatonville are home turf. I grew up in Eatonville and I have worked this county for fifteen years. I also list and sell in Sumner, Graham, Orting, Roy, Gig Harbor, and out into King, Thurston, and Mason counties. If you are wondering whether your address is in my range, call and ask. It usually is.",
     },
     {
-      question: "How do you help families who are not sure whether to sell or stay?",
+      question: "How do you decide what my home should list for?",
       answer:
-        "We start with a conversation, not a listing appointment. I walk the home with the family, talk through what modifications would cost versus what selling and moving would look like, and lay both paths side by side. No pressure toward either outcome. I would rather give you too much information than not enough.",
+        "I walk the home first, then I build a full CMA from closed sales within a mile or so of you, adjusted for condition, layout, lot, and what is moving right now. Bonney Lake and North Tacoma can behave like two different markets in the same month, so a countywide average tells you very little. You get the comps and the reasoning behind them, and then we pick the number together.",
+    },
+    {
+      question: "What does SRES certified mean?",
+      answer:
+        "It is additional training for real estate involving older adults. Reverse mortgages, the tax side of selling a home you have lived in for thirty years, aging-in-place modifications, coordinating with elder law attorneys. It is one part of what I do, and it is the part families lean on hardest when the move involves a parent.",
     },
     {
       question: "Can you coordinate with our trust or estate attorney?",
       answer:
-        "Yes, and this is one of the most common scenarios I handle. Estate sales, trust sales, and transitions after a loss all involve legal coordination. I work directly with the family's attorney to make sure the real estate side stays aligned with the legal timeline. If you do not have an attorney yet, I have names I trust.",
+        "Yes, and I do it often. Estate sales, trust sales, and transitions after a loss all run on a legal timeline, and I keep the real estate side lined up with it. I talk to your attorney directly. If you do not have one yet, I have names I have already vetted.",
     },
     {
       question: "What if we need to sell and buy at the same time?",
       answer:
-        "This is not a short answer situation. It is one of the most complex transactions in residential real estate: bridge loans, contingency timelines, two agents, two closings. I manage the lender relationship, keep the other agent from pushing you before you are ready, and coordinate both sides so you are not stuck between two transactions.",
+        "It is one of the most complex transactions in residential real estate: bridge loans, contingency timelines, two agents, two closings. I manage the lender relationship, hold the other agent to your timeline, and coordinate both sides so the two closings land where they should. I have done this enough times to know the three places it usually breaks, and I plan around them.",
     },
     {
       question: "Do you work with first-time buyers too?",
       answer:
-        "Absolutely. Ask all the questions; that is how I work. No pressure timeline. We move at your pace, every question gets a real answer, and I would rather over-explain than leave you guessing. On average, my buyers are under contract within 45 days of starting their search.",
+        "Absolutely, and honestly it is some of my favorite work. Ask all the questions; that is how I work. We move at your pace, every question gets a real answer, and I would rather over-explain than leave you guessing. On average, my buyers are under contract within 45 days of starting their search.",
     },
   ],
 
@@ -573,7 +615,7 @@ export const tenant: Tenant = {
     {
       slug: "spanaway",
       name: "Spanaway",
-      region: "primary",
+      region: "extended",
       median: "$TODO",
       zip: "98387",
       commute: "15 minutes to Tacoma",

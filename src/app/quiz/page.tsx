@@ -15,33 +15,33 @@ interface QuizQuestion {
 const QUESTIONS: QuizQuestion[] = [
   {
     scenario:
-      "Your Zestimate says $420K. A nearly identical home two streets over just sold for $455K. What should you trust?",
+      "Your Zestimate on your Bonney Lake house says $420K. A nearly identical home two streets over closed at $455K last month. Which number do you trust?",
     choices: [
-      { label: "A", text: "Go with the Zestimate; it updates daily" },
-      { label: "B", text: "Ask for a CMA from a local agent" },
+      { label: "A", text: "The Zestimate; it updates daily" },
+      { label: "B", text: "A CMA built from local closed sales" },
       { label: "C", text: "Split the difference and list at $437K" },
     ],
     correctIndex: 1,
     explanation:
-      "Zestimates can be off by 5-15%. A CMA uses actual comparable sales, adjustments for condition, and current market momentum.",
+      "Zestimates run 5 to 15 percent off, and they get worse on acreage, view lots, and anything unusual. I build a CMA from actual closed sales near you, adjusted for condition, layout, and what is moving this month.",
   },
   {
     scenario:
-      "Your inspector finds a cracked foundation. The seller is offering a $5,000 credit. What do you do?",
+      "Your inspector finds a cracked foundation. The seller offers a $5,000 credit. What do you do?",
     choices: [
       { label: "A", text: "Take the credit; it covers the repair" },
-      { label: "B", text: "Get a structural engineer's estimate first" },
+      { label: "B", text: "Get a structural engineer's scope first" },
       { label: "C", text: "Walk away immediately" },
     ],
     correctIndex: 1,
     explanation:
-      "Foundation repairs can run $8K to $30K+. Without a structural engineer's scope, $5K is a guess. Get the real number, then negotiate.",
+      "Foundation work runs $8K to $30K and up. Until a structural engineer writes the scope, $5,000 is a guess. Get the real number, then go back to the table with it.",
   },
   {
     scenario:
-      "You get three offers on day one. One has an escalation clause. What is your next move?",
+      "Your Puyallup listing draws three offers on day one. One carries an escalation clause. What is your next move?",
     choices: [
-      { label: "A", text: "Take the highest number" },
+      { label: "A", text: "Take the highest number on the table" },
       { label: "B", text: "Counter the escalation clause buyer" },
       {
         label: "C",
@@ -50,52 +50,52 @@ const QUESTIONS: QuizQuestion[] = [
     ],
     correctIndex: 2,
     explanation:
-      "Escalation clauses cap out. Best-and-final lets every buyer put their strongest number forward. You often end up higher than the escalation cap.",
+      "Escalation clauses cap out. Best and final makes every buyer put their strongest number forward, and in this market you often land above where that cap would have stopped you.",
   },
   {
     scenario:
-      "The appraisal comes in $25K below your accepted offer. What can you do?",
+      "The appraisal comes in $25K under your accepted offer. What are your options?",
     choices: [
       { label: "A", text: "The deal is dead; start over" },
       {
         label: "B",
-        text: "Negotiate a price reduction, seller concession, or appraisal gap coverage",
+        text: "Renegotiate the price, add a seller concession, or cover the gap",
       },
-      { label: "C", text: "Sue the appraiser" },
+      { label: "C", text: "Challenge the appraiser's license" },
     ],
     correctIndex: 1,
     explanation:
-      "Low appraisals happen in fast-moving markets. There are multiple paths forward: renegotiate the price, ask the buyer to cover the gap, or provide additional comps to the lender for a reconsideration of value.",
+      "Low appraisals are routine in a fast market. You can renegotiate the price, ask the buyer to cover the gap, or send fresh comps to the lender for a reconsideration of value. I plan for this before the report ever lands.",
   },
   {
     scenario:
-      "You are relocating from California. An agent there offers to handle both sides of the deal. Should you accept?",
+      "You are relocating to Pierce County from California. The listing agent on a North Tacoma house offers to represent you too. Do you take it?",
     choices: [
       { label: "A", text: "Yes, fewer people means less confusion" },
       {
         label: "B",
-        text: "No, get your own buyer's agent in the destination market",
+        text: "Get your own buyer's agent in the destination market",
       },
       { label: "C", text: "Only if they discount the commission" },
     ],
     correctIndex: 1,
     explanation:
-      "Dual agency means one agent represents both sides. In Washington State, you want your own advocate who knows Pierce County neighborhoods, school districts, flood zones, and local contractors.",
+      "That is dual agency: one agent working both sides. Moving into a market you have never lived in, you want someone whose only job is you, and who knows which Pierce County streets flood, where the school boundaries actually fall, and which contractors show up.",
   },
   {
     scenario:
-      "Your home needs about $15K in repairs before listing. Your agent says to skip them. What is the right call?",
+      "Your Eatonville home needs roughly $15K of work before listing. Your agent says skip it. What is the right call?",
     choices: [
-      { label: "A", text: "Always fix everything before listing" },
-      { label: "B", text: "Skip repairs; buyers expect to negotiate" },
+      { label: "A", text: "Fix everything before listing, always" },
+      { label: "B", text: "Skip it all; buyers expect to negotiate" },
       {
         label: "C",
-        text: "Fix what the CMA says will return more than it costs",
+        text: "Fix what the comps say will return more than it costs",
       },
     ],
     correctIndex: 2,
     explanation:
-      "Not every repair earns its money back. A smart agent runs the numbers: paint and carpet might return 3x, but a kitchen remodel might only return 60 cents on the dollar.",
+      "Repairs earn their money back at wildly different rates. Paint and carpet can return three times the spend. A kitchen remodel right before listing often returns sixty cents on the dollar. I run the numbers room by room and tell you where the money goes.",
   },
 ];
 
@@ -151,12 +151,12 @@ export default function QuizPage() {
 
   function getResultMessage() {
     if (score >= 5) {
-      return "You know your stuff. Imagine having that instinct working for you.";
+      return "You know your stuff. Imagine that instinct with 270 closings behind it.";
     }
     if (score >= 3) {
-      return "Solid foundation. A few of these scenarios trip up even experienced buyers and sellers.";
+      return "Solid footing. A couple of these trip up buyers and sellers who have done this twice already.";
     }
-    return "These are the situations where the right agent makes all the difference.";
+    return "These are exactly the moments where having the right agent changes the number on the closing statement.";
   }
 
   const progressPercent =
@@ -176,11 +176,12 @@ export default function QuizPage() {
               Real Estate IQ Quiz
             </p>
             <h1 className="mt-3 font-display text-3xl font-semibold leading-tight tracking-tight md:text-5xl">
-              Test Your Real Estate IQ
+              Test your real estate IQ
             </h1>
             <p className="mt-4 text-lg text-neutral-600">
-              Six real scenarios from the Pierce County market. See how you
-              would handle them.
+              Six scenarios pulled straight out of Bonney Lake, Puyallup, North
+              Tacoma, and Eatonville transactions. See how you would handle them.
+              About four minutes.
             </p>
           </div>
         </Container>
@@ -244,7 +245,8 @@ export default function QuizPage() {
                   {submitting ? "Starting..." : "Start the quiz"}
                 </button>
                 <p className="text-center text-xs text-neutral-400">
-                  No spam. We just want to know who aced it.
+                  Your score comes to me and nowhere else. I just want to know
+                  who aced it.
                 </p>
               </form>
             </div>
@@ -343,14 +345,14 @@ export default function QuizPage() {
                 {getResultMessage()}
               </h2>
               <p className="mt-4 text-lg text-neutral-600">
-                {firstName ? `Nice work, ${firstName}. ` : ""}Every one of
-                these scenarios comes from a real transaction in Pierce County.
-                The difference between a good outcome and a great one is often
-                the agent standing next to you.
+                {firstName ? `Nice work, ${firstName}. ` : ""}Every one of these
+                came out of a real Pierce County transaction I worked. The gap
+                between a good outcome and a great one usually comes down to the
+                agent standing next to you.
               </p>
               <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
                 <Link href="/contact" className="btn-primary min-h-[44px]">
-                  Ready for a real conversation?
+                  Let&apos;s talk
                 </Link>
                 <a
                   href={tenant.listings.buyerQuestionnaireUrl}

@@ -67,7 +67,7 @@ export default function VideosPage() {
 
       <FinalCtaBlock
         heading="Have a question the videos did not cover?"
-        subhead="A short, no pressure call to talk through your situation and the right next step."
+        subhead="Let's talk. One short call to walk through your situation and figure out the right next step."
       />
     </>
   );

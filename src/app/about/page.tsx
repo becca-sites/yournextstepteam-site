@@ -11,27 +11,28 @@ import { RealEstateAgentSchema } from "@/components/schema/RealEstateAgentSchema
 import { StatCardRow } from "@/components/sections/StatCardRow";
 
 export const metadata: Metadata = {
-  title: "About",
-  description: `Meet ${tenant.agent.name}, Senior Real Estate Specialist serving the ${tenant.market.primaryArea}.`,
+  title: "About Becca Pitts",
+  description:
+    "Becca Pitts grew up in Eatonville and works Bonney Lake, Puyallup, North Tacoma, and the rest of Pierce County. 15+ years in real estate in Washington, 270 closings, SRES® certified, eXp Icon Agent 2022.",
   alternates: { canonical: "/about" },
 };
 
 const VALUES = [
   {
-    title: "Education before everything",
-    body: "I would rather give you too much information than not enough. You can always tell me to get to the point. No pressure timeline: we move at your pace, and every question gets a real answer, not a sales pitch.",
+    title: "Education first, every time",
+    body: "I would rather give you too much information than leave you guessing, and you can always tell me to get to the point. We move at your pace, and every question gets a real answer.",
   },
   {
-    title: "Honest about what I do not know",
-    body: "If something is outside my expertise, I will tell you that and send you to someone who can answer it better than me. I do not just hand you a name; I check in with them first, make sure they are still active and still good, and then I introduce you.",
+    title: "Straight about what I know and what I don't",
+    body: "If something sits outside my expertise, I say so and send you to the person who can answer it better. And I check in with them first, confirm they are still active and still good, and then I make the introduction.",
   },
   {
-    title: "I catch the things other people miss",
-    body: "Plumbing fixtures marked NA on an inspection when they should not be. A showing system left on auto-accept when it should be manual. The details matter, and fifteen years of contract work means I know where to look.",
+    title: "I catch what other people miss",
+    body: "Plumbing fixtures marked NA on an inspection when they should have been flagged. A showing system left on auto-accept when it should be manual. Details decide deals, and fifteen years of contract work taught me where to look.",
   },
   {
-    title: "The relationship does not end at closing",
-    body: "I have helped clients move furniture, retrieve forgotten items from new owners, and coordinate storage after the deal closed. Closing day is where the real relationship starts. Most of my work comes from families I have already served.",
+    title: "The relationship keeps going after closing",
+    body: "I have helped clients load furniture, retrieve forgotten items from new owners, and coordinate storage weeks after the deal closed. Closing day is where the real relationship starts. Most of my business comes from families I have already worked with.",
   },
 ];
 
@@ -46,7 +47,8 @@ export default function AboutPage() {
             <FadeIn className="lg:col-span-7">
               <p className="eyebrow">About</p>
               <h1 className="mt-5 font-display text-4xl font-semibold leading-[1.05] tracking-tight md:text-6xl">
-                Your agent should be your advocate, not your salesperson.
+                I grew up in Eatonville. I have sold homes here for fifteen
+                years.
               </h1>
               <p className="mt-6 max-w-xl text-lg text-neutral-600 md:text-xl">
                 {tenant.agent.bio}
@@ -71,7 +73,7 @@ export default function AboutPage() {
       <StatCardRow
         stats={tenant.stats}
         eyebrow="Credentials"
-        heading="The background behind the work."
+        heading="Becca Pitts: 270 closings across Western Washington"
       />
 
       <section className="bg-white py-20 md:py-24">
@@ -79,23 +81,32 @@ export default function AboutPage() {
           <FadeIn className="mx-auto max-w-3xl">
             <p className="eyebrow">The longer story</p>
             <h2 className="mt-3 font-display text-3xl font-semibold leading-tight md:text-4xl">
-              Why senior real estate.
+              Fifteen years, one county, 270 closings.
             </h2>
             <div className="mt-8 space-y-5 text-lg text-neutral-700">
               <p>{tenant.agent.storyLong}</p>
               <p>
-                Grew up in Eatonville and now based in {tenant.market.city},{" "}
-                {tenant.market.stateAbbreviation}. I work across Pierce and
-                South King County: buyers, sellers, land, relocations, estate
-                transitions. Some agents these days prove this career is not for
-                them. I have been doing this for fifteen years because I actually
-                care about getting it right.
+                I grew up in Eatonville and I am based in {tenant.market.city},{" "}
+                {tenant.market.stateAbbreviation} now. Most of my work happens in
+                Bonney Lake, Puyallup, North Tacoma, and Eatonville, and I also
+                list and sell in Sumner, Graham, Orting, Roy, Gig Harbor, and out
+                into King, Thurston, and Mason counties. Buyers, sellers, land,
+                relocations, investors, estate transitions. First home or tenth
+                home.
+              </p>
+              <p>
+                Senior transitions are one piece of that. I am SRES® certified,
+                which means extra training in reverse mortgages, aging-in-place
+                planning, and the tax side of selling a home someone has lived in
+                for thirty years. Families lean on it hard when a move involves a
+                parent, and I am glad to have it. It is one of the tools, and the
+                rest of the toolbox is fifteen years of Pierce County contracts.
               </p>
               <p>
                 Every client gets the same patient process. The challenging ones
-                get the same level of care as the easy ones. Off the clock,
-                there is a Boxer named Jagger who, in the family&apos;s words,
-                &quot;has moves like Mick Jagger.&quot;
+                get the same care as the easy ones. Off the clock, there is a
+                Boxer named Jagger who, in the family&apos;s words, &quot;has
+                moves like Mick Jagger.&quot;
               </p>
             </div>
           </FadeIn>
@@ -105,8 +116,8 @@ export default function AboutPage() {
       <section className="surface-warm py-20 md:py-24">
         <Container>
           <SectionIntro
-            eyebrow="How we work"
-            title="Four principles that shape every transaction."
+            eyebrow="How I work"
+            title="Four things I hold to on every transaction."
           />
           <FadeInStagger className="mt-12 grid gap-6 md:grid-cols-2">
             {VALUES.map((v) => (
@@ -159,9 +170,9 @@ export default function AboutPage() {
               {tenant.sibling.name}
             </h2>
             <p className="mt-4 text-base text-neutral-600">
-              {tenant.sibling.description} When families need care placement as
-              part of their transition, Burien Best Care Home is the sister
-              business Becca trusts.
+              {tenant.sibling.description} When a family I am working with needs
+              care placement as part of the move, this is the sister business I
+              point them to.
             </p>
             <a
               href={tenant.sibling.url}
@@ -196,8 +207,9 @@ export default function AboutPage() {
 
       <ContactBlock heading="Like the way I work?">
         <p>
-          A short conversation. No pressure. If I am not the right fit, I will
-          tell you, and I will point you to someone who is.
+          Let&apos;s talk. One short conversation about your timeline and where
+          you want to land. If someone else is the better fit for what you need,
+          I will say so and point you to them.
         </p>
       </ContactBlock>
     </>

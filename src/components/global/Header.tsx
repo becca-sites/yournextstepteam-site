@@ -80,7 +80,7 @@ export function Header() {
 
         <div className="flex items-center gap-3">
           <Link href="/contact" className="hidden sm:inline-flex btn-primary">
-            Book a call
+            Let&apos;s talk
           </Link>
           <button
             type="button"
@@ -126,7 +126,7 @@ export function Header() {
               })}
               <li className="mt-4">
                 <Link href="/contact" className="btn-primary w-full text-center">
-                  Book a call
+                  Let&apos;s talk
                 </Link>
               </li>
             </ul>
