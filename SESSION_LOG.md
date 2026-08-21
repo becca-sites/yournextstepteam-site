@@ -7,6 +7,54 @@ Note: the Google Drive **SESSION_LOG** doc is the more current master. See
 
 ---
 
+## 2026-08-21 — Fix: the edge-fade mask was clipping the expanded card
+
+**Deliverable:** the hover expansion now actually clears its row. Reported as
+"only expands a little bit and the full review text gets cut off by the panel
+below it." Commit `c0ac1b4`.
+
+### The cause was the mask, not the overflow
+
+The row's `mask-image` was doing the clipping. A mask paints only inside its
+clip box, the border box by default, so every pixel of an open card hanging
+below the row was masked away to nothing. `mask-clip: no-clip` was meant to
+lift that and does in Chrome, which is why this shipped looking fine.
+
+**Forcing `mask-clip: border-box` in Chrome reproduces the reported symptom
+exactly** — the card opens a little way and stops dead at the row's bottom edge,
+mid-sentence. That is the whole bug: `no-clip` is a property that silently does
+nothing on an engine that has not shipped it, and when it does nothing there is
+no fallback, only a feature that looks broken.
+
+### What replaced it
+
+The mask is gone. The same fade is now two pseudo-element gradient overlays,
+painted on top of the row rather than subtracted from it, and only as tall as
+the row, so they have no opinion about what hangs below it. They carry
+`pointer-events: none` so they do not swallow hover on the cards beneath.
+
+**Regression test worth keeping:** re-apply `mask-clip: border-box` and hover.
+Before, the card was stuck at 208px. Now it measures 499px and clears its row by
+283px, because there is no longer a mask for that property to affect.
+
+### Also changed
+
+- **The section lifts on hover, not just the row.** Belt and braces so the
+  overhang lands on top of whatever follows the testimonials. Capped at
+  `z-index: 20`, below the sticky header's `z-40` — a review painting over the
+  navigation would be a worse bug than one tucking under it.
+- **The quote cap is a flat 400px** rather than `min(30rem, 44vh)`. The vh term
+  resolved to roughly 360px on a laptop and made the opening look timid.
+
+### Lesson for this file
+
+A CSS property with no fallback path is a liability, not a nicety. `no-clip`,
+`overflow-x: clip`, and `:has()` are all in here; the first one broke, and the
+tell was that it worked perfectly in the browser it was developed in. Anything
+load-bearing needs a "what if this does nothing" answer.
+
+---
+
 ## 2026-08-21 — Testimonial cards expand on hover
 
 **Deliverable:** hovering a testimonial card opens it to the full review text

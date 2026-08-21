@@ -209,3 +209,16 @@ work done directly in the repo.
 - **Hover behaviour lives behind `@media (hover: hover)`.** On a touch screen
   `:hover` sticks after a tap, and a card that opens on tap with no close
   affordance is a trap.
+- **Fade edges with an overlay, never with `mask-image`.** A mask paints only
+  inside its clip box, so it erases anything that grows outside the element —
+  which is exactly what broke the hover expansion once. Two gradient
+  pseudo-elements give the identical look, sit on top rather than subtracting,
+  and have no opinion about content that escapes the box.
+- **A CSS property with no fallback path is a liability.** `mask-clip: no-clip`
+  worked perfectly in the browser it was written in and silently did nothing
+  elsewhere, so the feature looked broken rather than degraded. Before leaning
+  on anything newish, answer "what does this look like if it does nothing?" — if
+  the answer is "broken", find another way.
+- **Nothing on the page outranks the header.** It is sticky at `z-40`. Hover
+  and overlay effects stay at 20 or below, because content painting over the
+  navigation is worse than content tucking under it.
