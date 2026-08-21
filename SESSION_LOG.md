@@ -7,6 +7,61 @@ Note: the Google Drive **SESSION_LOG** doc is the more current master. See
 
 ---
 
+## 2026-08-21 — Testimonial cards expand on hover
+
+**Deliverable:** hovering a testimonial card opens it to the full review text
+and collapses it again on mouse-out. Pure CSS, no click, no modal. Commit
+`da4d003`.
+
+### What changed
+
+- **The quote's `max-height` is what animates**, not the card's. Growing the
+  quote lets the attribution ride down with the text; growing the card instead
+  clips the attribution away and snaps it back at the end of the transition.
+- **The expanded card also shows the transaction type and month** ("Bought
+  Single Family · July 2020"), which is hidden at rest.
+- **A hovered card no longer reflows the row.** The card that grows is a panel
+  positioned inside a fixed-size figure, so it paints over its neighbours
+  instead of pushing the rest of the page down. Collapsed geometry is unchanged:
+  every card still measures exactly 208px.
+- **The lower row opens upward.** A row two thirds of the way down the viewport
+  has nowhere to grow downward, and the reader cannot scroll after it without
+  moving the pointer off the card and closing it.
+
+### Three things that had to give way
+
+1. **`.marquee` overflow.** `hidden` on one axis forces the other to `auto`, so
+   the row would have grown a scrollbar. Now `clip` on x and `visible` on y.
+2. **The edge-fade mask.** A mask paints only inside its clip box, which is the
+   border box by default, so every pixel of an expanded card below the row was
+   masked to nothing. Fixed with `mask-clip: no-clip`.
+3. **The collapsed quote height.** `4lh`, not a rem value. The quote resolves to
+   16px/27.2px, not the 14px/1.625 that `text-sm leading-relaxed` implies, so a
+   hard-coded 5.6875rem cut the fourth line in half. Worth knowing if anyone
+   touches the type scale: something in the cascade is beating `text-sm` here.
+
+### Judgment calls
+
+- **Expanded height is capped at `min(30rem, 44vh)`.** The reviews run from
+  136px to 924px tall in this column, and an uncapped card opens taller than the
+  viewport it sits in, which the reader cannot scroll to catch up with. Most of
+  the set opens in full; the longest few scroll the last of their text inside
+  the card, which the paused row allows.
+- **`@media (hover: hover)` gates the whole thing.** On a touch screen `:hover`
+  sticks after a tap and would leave cards jammed open with no way to close
+  them. Touch users still get the four-line card.
+- **A card can still overhang the fold** if the row happens to sit low in a
+  short window. The wheel scrolls the card's own text in that case, so nothing
+  is unreachable, but it is the known rough edge.
+
+### Still pending
+
+- Everything under the previous sessions' "Still pending" remains open.
+- Touch users have no way to read a full review on the homepage. If that
+  matters, it needs a separate affordance, not a change to this one.
+
+---
+
 ## 2026-08-21 — All 46 Zillow reviews into `tenant.testimonials`
 
 **Deliverable:** `tenant.testimonials` now carries every review on Becca's

@@ -196,3 +196,16 @@ work done directly in the repo.
   "Washington" rather than guessing one.
 - **Reviews are sorted newest first** and the count is stamped in the comment
   above the array, so a stale scrape is obvious.
+- **Hover opens a card, nothing else does.** No click, no modal, no close
+  button. The row pauses on hover already, so the card is standing still by the
+  time it opens, and moving the pointer away is the whole close interaction.
+- **Opening a card must never move the page.** The card that grows is a
+  positioned panel inside a fixed-size slot, so it paints over its neighbours.
+  A hovered card that reflows the row shoves every section below it down the
+  page, which is worse than any amount of overlap.
+- **Row heights are measured in `lh`, not rem.** The quote's leading is not what
+  its utility classes imply, so any "four lines" number written in rem will
+  slice the fourth line in half the next time the type scale moves.
+- **Hover behaviour lives behind `@media (hover: hover)`.** On a touch screen
+  `:hover` sticks after a tap, and a card that opens on tap with no close
+  affordance is a trap.
