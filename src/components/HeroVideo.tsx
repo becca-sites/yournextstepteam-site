@@ -38,7 +38,11 @@ export function HeroVideo({ video }: { video: TenantHeroVideo }) {
   }, [shouldReduceMotion]);
 
   return (
-    <div className="absolute inset-0 -z-10 overflow-hidden" aria-hidden="true">
+    // z-0, not -z-10. The hero <section> is position:relative with z-index:auto,
+    // so it does not open a stacking context, and a negative z-index here paints
+    // the video underneath the section's own bg-white instead of on top of it.
+    // z-0 sits above that background and below the z-10 content column.
+    <div className="absolute inset-0 z-0 overflow-hidden" aria-hidden="true">
       <video
         ref={ref}
         className="h-full w-full object-cover"

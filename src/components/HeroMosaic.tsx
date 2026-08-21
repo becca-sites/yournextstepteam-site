@@ -23,7 +23,10 @@ function hoverIntensity(col: number): {
 
 export function HeroMosaicBackground() {
   return (
-    <div className="absolute inset-0 -z-10 overflow-hidden" aria-hidden="true">
+    // z-0, not -z-10. The hero <section> is position:relative with z-index:auto,
+    // so it opens no stacking context, and a negative z-index paints this behind
+    // the section's own bg-white. See the same note in HeroVideo.
+    <div className="absolute inset-0 z-0 overflow-hidden" aria-hidden="true">
       <div className="grid h-full w-full auto-rows-fr grid-cols-6 gap-1.5 sm:grid-cols-8 lg:grid-cols-10">
         {BG_TILES.map((src, i) => {
           const col = i % 10;
