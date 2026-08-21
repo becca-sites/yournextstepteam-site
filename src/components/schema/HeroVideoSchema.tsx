@@ -21,8 +21,10 @@ const PUBLISHED = "2026-08-21";
  * whole domain rather than a ranking bump.
  *
  * The compliant way to rank for that specific property is a real page for it: a
- * sold listing or case study with the address visible on screen, this video
- * embedded, and RealEstateListingSchema attached. See SESSION_LOG.md.
+ * sold listing or case study under /case-studies with the address visible on
+ * screen, this video embedded, and RealEstateListingSchema attached. That page
+ * can carry the full street address in its markup precisely because a visitor
+ * can read it, and it will outrank a hidden string on the homepage anyway.
  *
  * Like every other schema component here, this is gated behind placeholder
  * mode, so nothing emits until the site deliberately goes live.
