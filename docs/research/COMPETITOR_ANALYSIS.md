@@ -1,4 +1,4 @@
-# Your Next Step Home — Competitive Intelligence
+# Your Next Step Team — Competitive Intelligence
 
 *Date: April 1, 2026*
 

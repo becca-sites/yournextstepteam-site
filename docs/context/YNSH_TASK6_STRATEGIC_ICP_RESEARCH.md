@@ -16,7 +16,7 @@ This is NOT a surface-level marketing exercise. This is deep strategic work that
 
 Licensed real estate agent in Washington state (eXp Realty, formerly Inside Real Estate / BoldTrail). 15+ years experience. SRES Certified (Seniors Real Estate Specialist). Runs three businesses:
 
-1. **Your Next Step Home** (yournextstephome.com) — Real estate hub serving Pierce County + surrounding WA counties
+1. **Your Next Step Team** (yournextstepteam.com) — Real estate hub serving Pierce County + surrounding WA counties
 2. **Your Best Season** (yourbestseason.com) — Senior transitions education platform
 3. **Burien Best Care Home** (burienbestcarehome.com) — Adult family home in Burien, WA (King County)
 
@@ -127,7 +127,7 @@ This informs both the assessment quiz (soft WTP questions) and Becca's pricing/p
 
 ### 4. Business Model & Financial Planning
 
-**Pro Forma / P&L for Your Next Step Home (12-month projection)**
+**Pro Forma / P&L for Your Next Step Team (12-month projection)**
 
 Build a basic financial model for Becca's real estate practice:
 
@@ -238,11 +238,11 @@ Design the architecture for these systems (not full implementation, but strategi
 - Agent-to-agent referral strategy (for refer-outs and refer-ins)
 - Professional referral network (financial advisors, elder law attorneys, divorce attorneys, HR relocation contacts)
 - Past client referral program (what incentivizes referrals without being cheesy?)
-- Cross-business referral flow (Your Best Season → Your Next Step Home → Burien Best Care Home)
+- Cross-business referral flow (Your Best Season → Your Next Step Team → Burien Best Care Home)
 
 **G. Hospital/Care Facility Discharge Planner Outreach**
 - This was identified as the #1 referral channel for Burien Best Care Home
-- But it also applies to Your Next Step Home: when families need to sell a parent's home after care placement
+- But it also applies to Your Next Step Team: when families need to sell a parent's home after care placement
 - Target list: Highline Medical, Valley Medical, Swedish, UW Medicine, Virginia Mason, Harborview
 - Outreach strategy and relationship building approach
 

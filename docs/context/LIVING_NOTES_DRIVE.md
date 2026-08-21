@@ -1,6 +1,6 @@
 # PLACEHOLDER — LIVING_NOTES (Google Doc)
 
-**Source:** Google Drive folder "Your Next Step Home — Becca Context"
+**Source:** Google Drive folder "Your Next Step Team — Becca Context"
 (`1N12pmm_RQs-DS8_VoLaRbcmQPwVEaW0P`), doc named **LIVING_NOTES**.
 **Maps to:** `docs/context/LIVING_NOTES_DRIVE.md`
 

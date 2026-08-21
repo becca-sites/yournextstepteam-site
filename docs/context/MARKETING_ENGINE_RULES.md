@@ -9,9 +9,9 @@
 
 ## Three-Website Architecture (all domains purchased)
 
-**Site 1: Your Next Step Home** (yournextstephome.com)
+**Site 1: Your Next Step Team** (yournextstepteam.com)
 - Primary real estate hub for all ICPs
-- Redirect: yournextsteprealty.com → yournextstephome.com
+- Redirect: yournextsteprealty.com → yournextstepteam.com
 - Content: Market updates, buyer/seller guides, neighborhood guides, assessment, vendor directory
 - ManyChat keywords: MARKET, KEYS, CHECKLIST, NEIGHBORHOOD, INVEST, DREAM
 
@@ -20,7 +20,7 @@
 - Also purchased: downsizewashington.com (redirect TBD)
 - Content: Downsizing guides, senior transition resources, interviews with senior services leaders
 - ManyChat keywords: DOWNSIZE, VALUE
-- Cross-links to yournextstephome.com and burienbestcarehome.com
+- Cross-links to yournextstepteam.com and burienbestcarehome.com
 
 **Site 3: Burien Best Care Home** (burienbestcarehome.com)
 - Adult family home business site

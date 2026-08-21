@@ -32,14 +32,17 @@ export function Footer() {
             <div>
               <Link
                 href="/"
-                aria-label="Your Next Step Home"
+                aria-label={`${tenant.brand.name} home`}
                 className="inline-flex min-h-[44px] items-center"
               >
+                {/* White knockout, because the footer sits on slate. */}
                 <Image
-                  src={tenant.brand.logo}
+                  src={tenant.brand.logoLight}
                   alt=""
-                  width={160}
-                  height={36}
+                  width={tenant.brand.logoWidth}
+                  height={tenant.brand.logoHeight}
+                  sizes="110px"
+                  className="h-12 w-auto"
                 />
               </Link>
               {/* Brokerage identification lives in the compliance strip at the

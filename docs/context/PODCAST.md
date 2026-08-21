@@ -10,7 +10,7 @@ Real conversations about the moves that matter most. Whether you're buying your 
 Becca Pitts
 
 ## Scope
-Covers both traditional real estate topics (buying, selling, investing, first-time buyers, market updates) AND senior transition education (aging in place, downsizing, care transitions, elder law, home modifications). The podcast serves as content for both yournextstephome.com and yourbestseason.com.
+Covers both traditional real estate topics (buying, selling, investing, first-time buyers, market updates) AND senior transition education (aging in place, downsizing, care transitions, elder law, home modifications). The podcast serves as content for both yournextstepteam.com and yourbestseason.com.
 
 ## Guest Categories
 - Lenders and mortgage brokers

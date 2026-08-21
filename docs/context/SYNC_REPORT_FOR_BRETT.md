@@ -40,7 +40,7 @@ Licensed real estate agent in Washington state (Inside Real Estate / BoldTrail).
 - **Images:** next/image for optimization
 - **Deployment:** Vercel (GitHub auto-deploy)
 - **GitHub account:** YourNextStepTeam (github.com/YourNextStepTeam)
-- Repos: yournextstephome-site, yourbestseason-site, burienbestcarehome-site
+- Repos: yournextstepteam-site, yourbestseason-site, burienbestcarehome-site
 
 ### Content Rules (ALL sites)
 - NEVER use em dashes anywhere (commas, periods, semicolons, colons, parentheses only). This is non-negotiable. Em dashes are an AI content giveaway.
@@ -161,7 +161,7 @@ An in-person community open house is planned (date TBD). Site needs RSVP section
 
 ### Cross-Links
 - Links to yourbestseason.com for senior transitions education
-- Links to yournextstephome.com for home sales (families selling parent's home)
+- Links to yournextstepteam.com for home sales (families selling parent's home)
 - Pipeline: education -> home sale -> care placement
 
 ### Unsplash Photos for This Site
@@ -233,7 +233,7 @@ Washington state broadly. Pierce County and King County primary.
 Organization, FAQPage, BreadcrumbList
 
 ### Cross-Links
-- Links to yournextstephome.com when discussing selling the family home
+- Links to yournextstepteam.com when discussing selling the family home
 - Links to burienbestcarehome.com when discussing care placement options
 
 ### Unsplash Photos
@@ -252,16 +252,16 @@ Organization, FAQPage, BreadcrumbList
 
 ---
 
-## SITE 3: YOUR NEXT STEP HOME
+## SITE 3: YOUR NEXT STEP TEAM
 
 ### Business Details
-- **URL:** yournextstephome.com
-- **Redirect:** yournextsteprealty.com -> yournextstephome.com
+- **URL:** yournextstepteam.com
+- **Redirect:** yournextsteprealty.com -> yournextstepteam.com
 - **Tagline:** "Your next step starts here"
 - **Type:** Real estate hub for Pierce County WA
 - **Brokerage:** Inside Real Estate / BoldTrail
-- **GitHub:** github.com/YourNextStepTeam/yournextstephome-site
-- **Current Vercel:** yournextstephome-site.vercel.app (v1 HTML deployed)
+- **GitHub:** github.com/YourNextStepTeam/yournextstepteam-site
+- **Current Vercel:** yournextstepteam-site.vercel.app (v1 HTML deployed)
 
 ### Color Palette
 - Forest green: #2D5016
@@ -326,7 +326,7 @@ Becca's three-business structure creates a keyword moat no competitor has:
 - Caring Transitions does senior transitions but no real estate
 - Three Tree Living does AFH but no transitions platform
 - Becca is the ONLY one who can cross-link all three and capture the full lifecycle:
-  **Education (Your Best Season) -> Home Sale (Your Next Step Home) -> Care Placement (Burien Best Care Home)**
+  **Education (Your Best Season) -> Home Sale (Your Next Step Team) -> Care Placement (Burien Best Care Home)**
 
 Each site builds independent topical authority. Strategic cross-linking passes authority between all three. This is the competitive advantage.
 
@@ -346,7 +346,7 @@ Two scheduled tasks running daily:
 
 - **GitHub:** YourNextStepTeam (authenticated via gh CLI on Becca's PC)
 - **Vercel:** yournextstepteam's projects (hobby plan, connected to GitHub)
-- **Domains purchased:** yournextstephome.com, yournextsteprealty.com, yourbestseason.com, downsizewashington.com, burienbestcarehome.com, burienadultfamilyhome.com
+- **Domains purchased:** yournextstepteam.com, yournextsteprealty.com, yourbestseason.com, downsizewashington.com, burienbestcarehome.com, burienadultfamilyhome.com
 - **Google:** beccapitts14@gmail.com
 - **BoldTrail CRM:** existing plan
 - **Becca's email:** beccapitts14@gmail.com

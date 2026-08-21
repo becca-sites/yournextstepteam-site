@@ -42,15 +42,21 @@ export function Header() {
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-4 lg:px-8">
         <Link
           href="/"
-          aria-label="Your Next Step Home"
+          aria-label={`${tenant.brand.name} home`}
           className="flex min-h-[44px] items-center"
         >
+          {/* Intrinsic size is the file's own 640x312 so next/image reserves
+              the right box; the height class is what actually sizes it. */}
           <Image
             src={tenant.brand.logo}
             alt=""
-            width={160}
-            height={36}
+            width={tenant.brand.logoWidth}
+            height={tenant.brand.logoHeight}
             priority
+            // Fixed display size, so pin `sizes`. Without it next/image has no
+            // width to reason about and requests its largest candidate.
+            sizes="110px"
+            className="h-11 w-auto md:h-12"
           />
         </Link>
 

@@ -1,7 +1,7 @@
 # Google Drive Context Files — Placeholders
 
 The following files are **placeholders**. They were requested from the Google Drive
-folder **"Your Next Step Home — Becca Context"**
+folder **"Your Next Step Team — Becca Context"**
 (folder ID: `1N12pmm_RQs-DS8_VoLaRbcmQPwVEaW0P`), but the session that generated this
 commit had **no Google Drive access** (no Drive MCP connector was available), so the
 live document contents could not be pulled programmatically.
@@ -24,15 +24,18 @@ Treat the Drive originals as canonical and replace each placeholder once pulled.
 | `SERVICE_AREAS.md` | service-areas (Google Doc) | Placeholder + known facts |
 | `BRAND_COLORS.md` | brand-colors (Google Doc) | Placeholder + known canonical palette/type |
 | `SITE_REFERENCE_BUDDYBUCK.md` | site-reference-buddybuck (Google Doc) | Placeholder — pull from Drive |
-| `../brand-assets/ynsh-logo-primary.svg` | ynsh-logo-primary.svg | **Local on-disk copy included** (see note) |
+| `../brand-assets/logo-*-source.*` | Logo artwork | **Resolved 2026-08-21** (see note) |
 
-## Note on the logo SVG
-`docs/brand-assets/ynsh-logo-primary.svg` is **NOT** the Drive file. It is the copy
-found on Becca's local disk at
-`Your Next Step Home/Your Next Step Home/YNSH-Logo-Assets/ynsh-logo-primary.svg`.
-It already uses the canonical colors and type (Forest #2D5016 house, Navy #1A2845
-Playfair Display wordmark, Sage #4A7D2E subtitle), so it is likely current, but it has
-**not** been diffed against the Drive version. Confirm against Drive before treating as final.
+## Note on the logo
+Resolved. The placeholder `ynsh-logo-primary.svg` that used to sit here was never the
+real mark: it had been drawn from a written description, and its colors (Forest #2D5016,
+Navy #1A2845, Sage #4A7D2E) and Playfair Display wordmark were all wrong. It has been
+deleted.
+
+The real artwork came from Becca's OneDrive
+(`$ Your Next Step/Logos Pictures_moved/Current Logo/`) on 2026-08-21. Untouched
+originals are in `docs/brand-assets/`; the trimmed web builds are in
+`public/images/brand/`. Logo colors are Olive Green #7F9A3D and Warm Grey #868686.
 
 Individual Drive file IDs were not provided — only the parent folder ID above. Brett can
 open the folder and export each Doc as Markdown/plain text.

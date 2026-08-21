@@ -17,6 +17,9 @@ import type { TenantHeroVideo } from "@/config/tenant";
  * announcing a 24 second property tour here would be noise. The footage is
  * described for crawlers in HeroVideoSchema instead.
  */
+/** Cinematic slow-down for the background footage. 1 is source speed. */
+const HERO_PLAYBACK_RATE = 0.75;
+
 export function HeroVideo({ video }: { video: TenantHeroVideo }) {
   const ref = useRef<HTMLVideoElement>(null);
   const shouldReduceMotion = useReducedMotion();
@@ -30,6 +33,12 @@ export function HeroVideo({ video }: { video: TenantHeroVideo }) {
       el.currentTime = 0;
       return;
     }
+
+    // Three-quarter speed. The source is a drone and walkthrough tour, and at
+    // 1x the camera moves fast enough to read as a listing reel rather than a
+    // backdrop. Set before play() so the opening frames are already slowed.
+    // The rate survives the loop attribute's seek back to zero.
+    el.playbackRate = HERO_PLAYBACK_RATE;
 
     // Some browsers reject the autoplay promise even when muted (low power
     // mode, aggressive autoplay settings). Failing quietly leaves the poster
@@ -64,12 +73,18 @@ export function HeroVideo({ video }: { video: TenantHeroVideo }) {
         over the footage. There is deliberately no bottom fade, so the video
         stays fully visible right down to the edge of the section and meets the
         stat strip below as a hard line rather than a wash of white.
+
+        Peaks at 0.40 rather than the 0.97 it used to, so the footage reads
+        through the text column instead of sitting behind a near-solid white
+        panel. That is a real legibility trade: the h1 and subhead are dark ink
+        on whatever frame is playing, so if a bright frame ever washes them out,
+        raise the stops below rather than adding a second overlay.
       */}
       <div
         className="pointer-events-none absolute inset-0"
         style={{
           background:
-            "linear-gradient(to right, rgba(255,255,255,0.97) 0%, rgba(255,255,255,0.92) 35%, rgba(255,255,255,0.7) 55%, rgba(255,255,255,0.25) 78%, rgba(255,255,255,0) 100%)",
+            "linear-gradient(to right, rgba(255,255,255,0.40) 0%, rgba(255,255,255,0.37) 35%, rgba(255,255,255,0.28) 55%, rgba(255,255,255,0.10) 78%, rgba(255,255,255,0) 100%)",
         }}
       />
     </div>

@@ -1,6 +1,6 @@
 # PLACEHOLDER — service-areas (Google Doc)
 
-**Source:** Google Drive folder "Your Next Step Home — Becca Context"
+**Source:** Google Drive folder "Your Next Step Team — Becca Context"
 (`1N12pmm_RQs-DS8_VoLaRbcmQPwVEaW0P`), doc named **service-areas**.
 **Maps to:** `docs/context/SERVICE_AREAS.md`
 

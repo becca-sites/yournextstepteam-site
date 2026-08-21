@@ -17,8 +17,12 @@ export function LocalBusinessSchema() {
     "@context": "https://schema.org",
     "@type": "RealEstateAgent",
     "@id": `${base}#agent`,
-    name: siteConfig.agentName,
+    // The business is the named entity here; Becca is the person behind it and
+    // is modelled separately in RealEstateAgentSchema's Person node.
+    name: siteConfig.brandName,
+    alternateName: siteConfig.agentName,
     image: `${base}${siteConfig.agentPhotoUrl}`,
+    logo: `${base}${siteConfig.logoUrl}`,
     url: base,
     telephone: siteConfig.agentPhone,
     email: siteConfig.agentEmail,

@@ -39,7 +39,11 @@ export function RealEstateAgentSchema() {
       {
         "@type": "RealEstateAgent",
         "@id": `${base}#agent`,
-        name: siteConfig.agentName,
+        // Matches the sitewide LocalBusiness node: the brand names the business,
+        // the Person node above names Becca.
+        name: siteConfig.brandName,
+        alternateName: siteConfig.agentName,
+        url: base,
         agent: { "@id": `${base}#person` },
         areaServed: siteConfig.serviceArea.map((city) => ({
           "@type": "City",

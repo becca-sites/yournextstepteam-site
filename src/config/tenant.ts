@@ -4,7 +4,15 @@
  * The single source of truth for everything that changes from one agent
  * deployment to the next.
  *
- * TENANT: Rebecca "Becca" Pitts (yournextstephome.com).
+ * TENANT: Rebecca "Becca" Pitts, trading as Your Next Step Team
+ * (yournextstepteam.com).
+ *
+ * REBRAND (2026-08-21). "Your Next Step Home" became "Your Next Step Team"
+ * across the brand, the domain, and the repo (becca-sites/yournextstepteam-site).
+ * The brand name and domain now live in `brand.name` and `brand.domain` so
+ * metadata, schema, and canonical URLs all read from one place instead of
+ * hard-coding the string. The logo wordmark reads "Your Next Step" with no
+ * suffix, which is intentional.
  *
  * COPY PASS (2026-08-21). Full first-person rewrite positioning Becca as the
  * geographic expert for Bonney Lake, Puyallup, North Tacoma, and Eatonville,
@@ -12,7 +20,7 @@
  * than the whole identity. Copy rules for this tenant: first person, no
  * X-not-Y framing, no em dashes, solo agent ("I", never "we" about Becca).
  *
- * V1 CONTENT PASS (2026-07-16). Pivoted to becca-sites/yournextstephome-site.
+ * V1 CONTENT PASS (2026-07-16). Pivoted to becca-sites/yournextstepteam-site.
  * Palette locked to BBCH sibling brand (Ink/Moss/Bone/Sunshine). Real podcast
  * episodes with verified YouTube IDs. Stats and testimonials are real, sourced
  * from Becca's Zillow agent profile (2026-08-19). Neighborhood data is still
@@ -54,12 +62,22 @@ export interface TenantMarket {
 }
 
 export interface TenantBrand {
+  /** Public-facing business name. Used in titles, Open Graph, and schema. */
+  name: string;
+  /** Bare apex domain, no protocol. `brandUrl()` builds the https origin. */
+  domain: string;
   primaryColor: string;
   secondaryColor: string;
   accentColor: string;
   surfaceColor: string;
   textColor: string;
+  /** Two-colour primary lockup. For light backgrounds. */
   logo: string;
+  /** White knockout of the same lockup. For dark backgrounds. */
+  logoLight: string;
+  /** Intrinsic pixels of both logo files, so next/image can reserve the box. */
+  logoWidth: number;
+  logoHeight: number;
   tagline: string;
   eyebrow: string;
   headingFont: string;
@@ -235,7 +253,7 @@ export const tenant: Tenant = {
     mlsId: "87890",
     phone: "253.678.7089",
     email: "becca@yournextstepteam.com",
-    brandEmail: "becca@yournextstephome.com",
+    brandEmail: "becca@yournextstepteam.com",
     address: "1002 N Meridian St, PMB 165, Puyallup, WA 98371",
     yearsOfExperience: 15,
     expProfileUrl: "https://rebeccapitts.exprealty.com/",
@@ -273,12 +291,21 @@ export const tenant: Tenant = {
   },
 
   brand: {
+    name: "Your Next Step Team",
+    domain: "yournextstepteam.com",
     primaryColor: "#1A2028",
     secondaryColor: "#5A6E58",
     accentColor: "#F3B94D",
     surfaceColor: "#FDFBF7",
     textColor: "#1A2028",
-    logo: "/images/brand/logo.svg",
+    // Becca's real mark, trimmed from the supplied artwork in
+    // docs/brand-assets and emitted at 640px wide, which covers a 48px-tall
+    // header logo at 3x DPR. The wordmark reads "Your Next Step" with no
+    // suffix; that is the logo as drawn and it is deliberate.
+    logo: "/images/brand/logo-primary.png",
+    logoLight: "/images/brand/logo-white.png",
+    logoWidth: 640,
+    logoHeight: 312,
     tagline: "Your next step starts here.",
     eyebrow: "Bonney Lake · Puyallup · North Tacoma · Eatonville",
     headingFont: "DM Serif Display",
@@ -780,6 +807,15 @@ export const tenant: Tenant = {
 
   demo: { ribbon: true, noIndex: true },
 };
+
+/**
+ * Canonical https origin for the brand, with no trailing slash.
+ * `resolveSiteUrl()` in site.config.ts falls back to this when
+ * NEXT_PUBLIC_SITE_URL is unset, so previews and production agree on one host.
+ */
+export function brandUrl() {
+  return `https://${tenant.brand.domain}`;
+}
 
 export function resolveListings() {
   return {

@@ -32,7 +32,7 @@ This self-improving documentation system ensures no context is lost between sess
 ## Who I Am
 Becca Pitts. Licensed real estate agent in Washington state (Inside Real Estate / BoldTrail). I run three businesses:
 
-1. **Your Next Step Home** (yournextstephome.com) — Real estate hub serving first-time buyers, move-up buyers, sellers, and investors across Pierce County and surrounding WA counties
+1. **Your Next Step Team** (yournextstepteam.com) — Real estate hub serving first-time buyers, move-up buyers, sellers, and investors across Pierce County and surrounding WA counties
 2. **Your Best Season** (yourbestseason.com) — Senior transitions education platform, interviewing leaders in senior services
 3. **Burien Best Care Home** (burienbestcarehome.com) — Adult family home business in Burien, WA (King County)
 

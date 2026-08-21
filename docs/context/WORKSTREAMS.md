@@ -45,14 +45,14 @@
 **Status:** HTML FILES BUILT, DOMAINS PURCHASED, AWAITING DEPLOYMENT
 
 **Three-Website Architecture (CONFIRMED):**
-1. **yournextstephome.com** (PURCHASED) — Primary real estate hub, all ICPs
-   - Redirect: yournextsteprealty.com → yournextstephome.com (301)
+1. **yournextstepteam.com** (PURCHASED) — Primary real estate hub, all ICPs
+   - Redirect: yournextsteprealty.com → yournextstepteam.com (301)
 2. **downsizewashington.com** (PURCHASED) — Standalone senior transitions hub (uncontested keyword space)
 3. **burienbestcarehome.com** (PURCHASED) — Adult family home business
    - Redirect: burienadultfamilyhome.com → burienbestcarehome.com (301)
 
 **What's been built:**
-- index.html — Landing page for yournextstephome.com
+- index.html — Landing page for yournextstepteam.com
 - assessment.html — 12-question interactive quiz with scoring logic and webhook integration
 - vendors.html — Preferred vendors directory with vendor application form
 - Full SEO/AEO/GEO strategy designed (schema markup, keyword strategy by ICP, internal linking architecture)
@@ -60,7 +60,7 @@
 - Assessment reduced from 40 to 20-25 questions (strategic recommendation accepted)
 
 **Key decisions:**
-- Domain: yournextstephome.com (brand tagline: "Your next step starts here")
+- Domain: yournextstepteam.com (brand tagline: "Your next step starts here")
 - Burien AFH on separate domain (topical authority separation)
 - Assessment: Audit first, expand strategically (not padding to 40 questions)
 
@@ -69,7 +69,7 @@
 **Geographic focus:** Pierce County (Tacoma, Bonney Lake, Graham, Puyallup, Eatonville), South King, Thurston, Kitsap counties
 
 **Next priorities:**
-1. Update existing HTML files to use yournextstephome.com branding and deploy
+1. Update existing HTML files to use yournextstepteam.com branding and deploy
 2. Build 5 neighborhood guide pages (Pierce County areas)
 3. Add full SEO schema markup
 4. Design and build downsizewashington.com
@@ -117,7 +117,7 @@
 
 **What's been done:**
 - All 8 ManyChat keyword flows designed with exact DM copy in Becca's voice:
-  - MARKET, KEYS, CHECKLIST, NEIGHBORHOOD, INVEST, DREAM → route to yournextstephome.com
+  - MARKET, KEYS, CHECKLIST, NEIGHBORHOOD, INVEST, DREAM → route to yournextstepteam.com
   - DOWNSIZE, VALUE → route to downsizewashington.com
 - 4 BoldTrail email sequences with full copy:
   - HOT (80-100): 5 emails / 7 days — consultation-focused
@@ -170,7 +170,7 @@ Automation (Sheets schema) ──→ Automation (Looker Studio dashboards)
 ```
 
 ## Priority: Build the converter first, then the traffic.
-1. Deploy website (yournextstephome.com)
+1. Deploy website (yournextstepteam.com)
 2. Wire up automation (Make.com + Sheets)
 3. Activate CRM sequences (BoldTrail + ManyChat)
 4. Scale content engine (already has calendar + Week 1-2 done)

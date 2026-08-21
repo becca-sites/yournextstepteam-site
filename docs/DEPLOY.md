@@ -7,7 +7,7 @@ the custom domain and the deployment-specific URL returned a plain-text 404 with
 `x-vercel-error: NOT_FOUND`.
 
 Cause: the Vercel project carried an **Output Directory override of `.`** in
-Build & Output Settings, left over from the old static `yournextstephome.com`
+Build & Output Settings, left over from the old static `yournextstepteam.com`
 site. Next.js built correctly into `.next`, then Vercel discarded it and
 published the repository root as a static site. There is no `index.html` at the
 repo root, so `/` and every other route 404'd. Proof at the time: `/README.md`,

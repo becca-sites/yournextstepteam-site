@@ -40,10 +40,13 @@ export function ArticleSchema({
     datePublished: published || undefined,
     dateModified: updated || published || undefined,
     author: { "@id": `${base}#person`, "@type": "Person", name: siteConfig.agentName },
+    // The site publishes this, not the brokerage. The logo path is the real
+    // brand mark rather than the /placeholders/ file, which does not exist.
     publisher: {
+      "@id": `${base}#agent`,
       "@type": "Organization",
-      name: siteConfig.brokerage,
-      logo: { "@type": "ImageObject", url: `${base}/placeholders/logo.svg` },
+      name: siteConfig.brandName,
+      logo: { "@type": "ImageObject", url: `${base}${siteConfig.logoUrl}` },
     },
     mainEntityOfPage: { "@type": "WebPage", "@id": url },
     speakable: {

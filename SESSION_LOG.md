@@ -1,9 +1,90 @@
 # SESSION_LOG
 
-Running decision log for the yournextstephome.com site repo.
+Running decision log for the yournextstepteam.com site repo.
 
 Note: the Google Drive **SESSION_LOG** doc is the more current master. See
 `docs/context/SESSION_LOG_DRIVE.md`. This file logs work done directly in the repo.
+
+---
+
+## 2026-08-21 — Rebrand to Your Next Step Team, real logo, hero tuning
+
+**Deliverable:** the business is now **Your Next Step Team** on
+**yournextstepteam.com**, the real logo artwork is in the repo, and the hero
+video treatment changed.
+
+### Rebrand
+
+- `Your Next Step Home` → `Your Next Step Team` and `yournextstephome` →
+  `yournextstepteam` across every tracked text file: source, content, docs, and
+  the historical sync reports. The GitHub repo was renamed to
+  `becca-sites/yournextstepteam-site`; the local `origin` remote now points there.
+- Blog `.mdx` files were included. Only the brand string and the brand domain
+  moved; no article prose, testimonial, or stat was touched.
+- `tenant.brand` gained `name` and `domain`, so the brand string is defined once
+  instead of being retyped per surface. `brandUrl()` builds the https origin.
+- `resolveSiteUrl()` now falls back to `brandUrl()` rather than `example.com`, so
+  canonical URLs, the sitemap, `llms.txt`, and every JSON-LD `@id` resolve to the
+  real host even if `NEXT_PUBLIC_SITE_URL` is missing on a deploy.
+
+### Metadata and schema
+
+- Title default and template lead with the brand; Open Graph carries
+  `siteName`, `title`, and `url`.
+- `LocalBusinessSchema` and `RealEstateAgentSchema` now name the **business** and
+  carry the agent as `alternateName`. The Person node still names Becca.
+- `ArticleSchema`'s publisher moved from the brokerage to the brand, and its logo
+  path from the non-existent `/placeholders/logo.svg` to the real mark.
+
+### Logo
+
+Becca's real artwork arrived, sourced from OneDrive
+`$ Your Next Step/Logos Pictures_moved/Current Logo/`. The wordmark reads
+**"Your Next Step"** with no suffix; that is the logo as drawn and it is correct.
+
+- Trimmed and emitted at 640px wide into `public/images/brand/`:
+  `logo-primary.png` (two-colour, transparent), `logo-white.png` (knockout for
+  the dark footer), `logo-green.png`, `logo-grey.png`.
+- The two-colour source was a JPEG flattened onto white, so its alpha was rebuilt
+  from `green_1.png`'s mask; all three files share one canvas and registration.
+- Untouched originals kept in `docs/brand-assets/` as the source of truth.
+- **Deleted** `public/images/brand/logo.svg` and
+  `docs/brand-assets/ynsh-logo-primary.svg`. Those were drawn from a written
+  description, not from the real mark, and every fact in them was wrong: Forest
+  #2D5016 / Navy #1A2845 / Sage #4A7D2E in Playfair Display, versus the real
+  Olive #7F9A3D and Warm Grey #868686. `docs/context/BRAND_COLORS.md` corrected.
+- Header and footer size the logo by CSS height with `sizes` pinned, so the
+  2.05:1 lockup is no longer squashed into the old 160×36 box.
+
+### Hero
+
+- Scrim peak dropped from 0.97 to **0.40** so the footage reads through the text
+  column instead of sitting behind a near-solid white panel.
+- Video plays at **0.75x** (`HERO_PLAYBACK_RATE`).
+
+### Open issue: hero contrast
+
+The 0.40 scrim **fails WCAG AA**. Measured against seven frames of `hero.mp4` at
+1280×720, worst case over the text column:
+
+| Scrim peak | H1 (needs 3.0) | Subhead (needs 4.5) |
+|---|---|---|
+| 0.30 | 1.76 | 1.84 |
+| **0.40 (shipped)** | **2.34** | **2.52** |
+| 0.55 | 3.52 | 3.96 |
+| 0.70 | 5.15 | 5.98 |
+| 0.97 (previous) | 9.30 | 11.20 |
+
+The footage is mid-tone, so flipping the text to white does not rescue it either:
+a *dark* scrim at 0.40 gives white text only 1.93 / 2.17.
+
+Options, in order of preference:
+1. Raise the peak to ~0.70. Clears AA on both, still much more video than 0.97.
+2. Keep 0.40 and put an opaque panel behind the text column only.
+3. Re-grade or replace the hero clip with brighter footage.
+
+This matters more than usual here: the site deliberately targets older readers,
+which is why the font pack ships no hairline weights.
 
 ---
 

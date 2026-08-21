@@ -1,5 +1,5 @@
-# Your Next Step Home — Full Sync Report for Brett's Build
-*Generated June 16, 2026. Everything Brett needs to build yournextstephome.com cold.*
+# Your Next Step Team — Full Sync Report for Brett's Build
+*Generated June 16, 2026. Everything Brett needs to build yournextstepteam.com cold.*
 
 ---
 
@@ -12,11 +12,11 @@ Licensed real estate agent in Washington state (eXp Realty). 15+ years experienc
 
 **Email:**
 - **Forms / contact routing:** becca@yournextstepteam.com (canonical — use this for all site forms; NOT beccapitts14@gmail.com)
-- Brand email: becca@yournextstephome.com
+- Brand email: becca@yournextstepteam.com
 - Personal (do not surface publicly): beccapitts14@gmail.com
 
 Runs three businesses:
-1. **Your Next Step Home** (yournextstephome.com) — Real estate hub, Pierce County + surrounding WA counties
+1. **Your Next Step Team** (yournextstepteam.com) — Real estate hub, Pierce County + surrounding WA counties
 2. **Your Best Season** (yourbestseason.com) — Senior transitions education platform
 3. **Burien Best Care Home** (burienbestcarehome.com) — Adult family home in Burien, WA
 
@@ -145,10 +145,11 @@ YNSH uses the **same fonts as BBCH** so the two sites read as siblings.
 - **Body: Inter** (clean, readable), 16px+ minimum
 - Both loaded via Google Fonts link tag
 
-*Note on the logo:* the YNSH logo wordmark (`docs/brand-assets/ynsh-logo-primary.svg`) is
-set in **Playfair Display**. That is a logo-only typeface choice; the **site UI headings
-use DM Serif Display**. The logo font and the site heading font are intentionally allowed
-to differ.
+*Note on the logo:* the real artwork landed on 2026-08-21 and lives at
+`public/images/brand/logo-primary.png` (originals in `docs/brand-assets/`). Its wordmark
+is set in a serif baked into the artwork, not a webfont; the **site UI headings use DM
+Serif Display**. The logo font and the site heading font are intentionally allowed to
+differ. See `docs/context/BRAND_COLORS.md` for the sampled logo colors.
 
 ### Design Principles
 - Apple-level polish with warmth and personality
@@ -331,8 +332,8 @@ to differ.
 
 ## EXISTING GITHUB REPOS
 
-1. **becca-sites/yournextstephome-site** — New repo, scaffolded with docs/ops/content structure. Nearly empty (README + scaffold).
-2. **YourNextStepTeam/yournextstephome-site** — Old repo with static HTML site (index.html, assessment.html, vendors.html, 2 neighborhood guides). Currently deployed to Vercel.
+1. **becca-sites/yournextstepteam-site** — New repo, scaffolded with docs/ops/content structure. Nearly empty (README + scaffold).
+2. **YourNextStepTeam/yournextstepteam-site** — Old repo with static HTML site (index.html, assessment.html, vendors.html, 2 neighborhood guides). Currently deployed to Vercel.
 
 Brett: you'll likely want to build fresh in your own system and push to whichever repo Becca sets up for you.
 

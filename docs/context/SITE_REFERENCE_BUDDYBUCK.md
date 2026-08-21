@@ -1,6 +1,6 @@
 # PLACEHOLDER — site-reference-buddybuck (Google Doc)
 
-**Source:** Google Drive folder "Your Next Step Home — Becca Context"
+**Source:** Google Drive folder "Your Next Step Team — Becca Context"
 (`1N12pmm_RQs-DS8_VoLaRbcmQPwVEaW0P`), doc named **site-reference-buddybuck**.
 **Maps to:** `docs/context/SITE_REFERENCE_BUDDYBUCK.md`
 

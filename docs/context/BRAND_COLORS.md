@@ -1,6 +1,6 @@
 # YNSH Brand Colors & Typography
 
-**Related Drive doc:** Google Drive folder "Your Next Step Home — Becca Context"
+**Related Drive doc:** Google Drive folder "Your Next Step Team — Becca Context"
 (`1N12pmm_RQs-DS8_VoLaRbcmQPwVEaW0P`), doc named **brand-colors**. Drive was not
 accessible from the session that created this file; the palette below was supplied
 directly by Becca and is canonical. Pull the Drive doc for any additional tints/usage
@@ -26,17 +26,27 @@ between the two sites. Use these tokens for the site UI.
 
 ## Logo-only colors (NOT the site palette)
 
-The YNSH logo uses its own dedicated colors. Keep these for the logo/wordmark only; do
-**not** use them as the site UI palette. (These are the forest/sage/navy values from the
-Drive `brand-colors` doc — they describe the logo, not the site.)
+The logo uses its own dedicated colors. Keep these for the logo/wordmark only; do
+**not** use them as the site UI palette.
+
+Sampled from Becca's supplied artwork on 2026-08-21, replacing the forest/sage/navy
+values that were previously recorded here. Those described a placeholder SVG that had
+been drawn from a written description rather than from the real mark, and they were
+wrong on all three counts.
 
 | Color | Hex | Usage |
 |---|---|---|
-| Forest Green | #2D5016 | Logo house silhouette |
-| Sage Green | #4A7D2E | Logo subtitle |
-| Navy | #1A2845 | Logo wordmark |
+| Olive Green | #7F9A3D | Logo house and path mark |
+| Warm Grey | #868686 | Logo wordmark |
 
-See `docs/brand-assets/ynsh-logo-primary.svg`.
+Assets:
+- `public/images/brand/logo-primary.png` — two-colour lockup, transparent, for light backgrounds
+- `public/images/brand/logo-white.png` — white knockout, for dark backgrounds
+- `public/images/brand/logo-green.png` / `logo-grey.png` — single-colour variants
+- `docs/brand-assets/logo-*-source.*` — the untouched originals these were trimmed from
+
+The wordmark reads **"Your Next Step"** with no suffix. That is correct and intentional:
+the business is Your Next Step Team, and the logo does not carry the last word.
 
 ## Canonical typography — same as BBCH
 YNSH uses the **same fonts as BBCH** so the two sites read as siblings.
@@ -44,8 +54,9 @@ YNSH uses the **same fonts as BBCH** so the two sites read as siblings.
 - **Body:** Inter, 16px+ minimum.
 - Both loaded via Google Fonts.
 
-*Logo exception:* the logo wordmark (`docs/brand-assets/ynsh-logo-primary.svg`) is set in
-**Playfair Display**. That is logo-only; the **site UI headings use DM Serif Display**.
+*Logo exception:* the logo wordmark is set in its own serif, which is baked into the
+artwork and is not a webfont the site loads. That is logo-only; the **site UI headings
+use DM Serif Display**.
 
 ## Correction history
 - Earlier task briefings and the first sync draft listed a **gold/ink** token set

@@ -1,8 +1,8 @@
 {
-  "name": "yournextstephome-site",
+  "name": "yournextstepteam-site",
   "version": "0.1.0",
   "private": true,
-  "description": "Marketing site for Rebecca \"Becca\" Pitts (yournextstephome.com), forked from the realestate-template chassis.",
+  "description": "Marketing site for Rebecca \"Becca\" Pitts (yournextstepteam.com), forked from the realestate-template chassis.",
   "scripts": {
     "dev": "next dev",
     "build": "next build",

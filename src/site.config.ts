@@ -7,7 +7,7 @@
  * new components should import directly from `@/config/tenant`.
  */
 
-import { tenant } from "@/config/tenant";
+import { tenant, brandUrl } from "@/config/tenant";
 
 export type RealEstatePersona =
   | "luxury"
@@ -47,6 +47,10 @@ export interface SiteConfig {
   fonts: { heading: string; body: string };
   logoUrl?: string;
   tagline?: string;
+  /** Public-facing business name, e.g. "Your Next Step Team". */
+  brandName: string;
+  /** Bare apex domain, no protocol. */
+  brandDomain: string;
 
   idxProvider: "boldtrail" | "ihomefinder" | "showcaseidx" | "realgeeks" | "custom";
   boldTrailWidgetScriptUrl: string;
@@ -120,6 +124,8 @@ export const siteConfig: SiteConfig = {
   },
   logoUrl: tenant.brand.logo,
   tagline: tenant.brand.tagline,
+  brandName: tenant.brand.name,
+  brandDomain: tenant.brand.domain,
 
   idxProvider: tenant.listings.feedSource,
   boldTrailWidgetScriptUrl: tenant.listings.widgetScriptUrl ?? "",
@@ -174,7 +180,11 @@ export function resolveAnalytics() {
 }
 
 export function resolveSiteUrl() {
-  return process.env.NEXT_PUBLIC_SITE_URL || "https://example.com";
+  // Falls back to the tenant's own domain rather than example.com, so canonical
+  // URLs, the sitemap, llms.txt, and every JSON-LD @id resolve to the real host
+  // even on a deploy that forgets NEXT_PUBLIC_SITE_URL. Indexing is gated by
+  // PLACEHOLDER_MODE / tenant.demo.noIndex, not by this value.
+  return process.env.NEXT_PUBLIC_SITE_URL || brandUrl();
 }
 
 export function resolveIdx() {

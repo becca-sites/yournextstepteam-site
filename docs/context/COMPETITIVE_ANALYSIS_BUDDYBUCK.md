@@ -1,4 +1,4 @@
-# Competitive Analysis: BuddyBuck.com vs Your Next Step Home
+# Competitive Analysis: BuddyBuck.com vs Your Next Step Team
 
 ## BuddyBuck.com Summary
 - Buddy Buck, eXp Realty, Duvall WA (hyperlocal)

@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
-import { siteConfig } from "@/site.config";
+import { siteConfig, resolveSiteUrl } from "@/site.config";
 import { tenant } from "@/config/tenant";
 import { isNoIndex } from "@/lib/placeholder";
 import { LocalBusinessSchema } from "@/components/schema/LocalBusinessSchema";
@@ -49,16 +49,23 @@ const azoSans = localFont({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://example.com"),
+  // Same resolver the sitemap, robots, llms.txt, and every JSON-LD @id use, so
+  // canonical URLs cannot drift from the brand domain.
+  metadataBase: new URL(resolveSiteUrl()),
   title: {
-    default: `${siteConfig.agentName} | ${tenant.market.city} ${siteConfig.agentTitle}`,
-    template: `%s | ${siteConfig.agentName}`,
+    // The brand leads and the agent qualifies it: the business is what people
+    // search for, and Becca is who they get.
+    default: `${tenant.brand.name} | ${tenant.market.city} ${siteConfig.agentTitle} ${siteConfig.agentName}`,
+    template: `%s | ${tenant.brand.name}`,
   },
   description: `${tenant.brand.tagline} ${tenant.market.primaryArea} representation across ${tenant.market.neighborhoods.slice(0, 4).join(", ")}.`,
+  applicationName: tenant.brand.name,
   openGraph: {
     type: "website",
     locale: "en_US",
-    siteName: siteConfig.agentName,
+    siteName: tenant.brand.name,
+    title: `${tenant.brand.name} | ${tenant.market.city} ${siteConfig.agentTitle} ${siteConfig.agentName}`,
+    url: "/",
     images: ["/images/hero/valley-landscape.jpg"],
   },
   twitter: {

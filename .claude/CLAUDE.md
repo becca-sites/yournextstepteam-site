@@ -1,4 +1,4 @@
-# Your Next Step Home — Project Context
+# Your Next Step Team — Project Context
 
 ## MANDATORY: Living Documentation
 At the END of every task session in this project, you MUST:
@@ -7,10 +7,10 @@ At the END of every task session in this project, you MUST:
 3. If a decision affects other projects, note it for the umbrella LIVING_NOTES.md
 
 ## Business
-Your Next Step Home (yournextstephome.com) is Becca Pitts' primary real estate business serving Washington state. Redirect: yournextsteprealty.com → yournextstephome.com.
+Your Next Step Team (yournextstepteam.com) is Becca Pitts' primary real estate business serving Washington state. Redirect: yournextsteprealty.com → yournextstepteam.com.
 
 ## What This Project Covers
-- Website: yournextstephome.com (landing page, assessment tool, vendor directory, neighborhood guides, blog)
+- Website: yournextstepteam.com (landing page, assessment tool, vendor directory, neighborhood guides, blog)
 - Real estate content creation (blog articles, social media, video scripts, email newsletters)
 - SEO/AEO/GEO strategy for real estate search terms
 - Real estate ICP research and refinement

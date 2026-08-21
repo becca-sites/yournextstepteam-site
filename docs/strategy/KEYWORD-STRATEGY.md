@@ -1,4 +1,4 @@
-# Your Next Step Home: SEO, AEO, and GEO Keyword Strategy
+# Your Next Step Team: SEO, AEO, and GEO Keyword Strategy
 
 ## Primary Keywords (High Volume, High Intent)
 

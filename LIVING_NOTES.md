@@ -1,13 +1,41 @@
 # LIVING_NOTES
 
 Running log of design preferences, brand decisions, creative direction, and feedback
-for yournextstephome.com.
+for yournextstepteam.com.
 
 Note: the Google Drive **LIVING_NOTES** doc is the more current master. See
 `docs/context/LIVING_NOTES_DRIVE.md`. This file captures direction that came out of
 work done directly in the repo.
 
 ---
+
+## Brand identity (source of truth)
+
+- **The business is Your Next Step Team on yournextstepteam.com.** It was Your
+  Next Step Home until 2026-08-21. Nothing in the repo should say "Home" any more.
+- **The logo wordmark reads "Your Next Step" with no suffix.** That is not a bug
+  and not a stale asset. The mark says three words, the business says four.
+- **Logo colors are Olive Green #7F9A3D and Warm Grey #868686**, sampled from the
+  real artwork. Any doc claiming Forest #2D5016 / Navy #1A2845 / Sage #4A7D2E in
+  Playfair Display is describing a placeholder that has been deleted; those values
+  were invented from a written description and are wrong.
+- **The logo palette is not the site palette.** The site UI stays on the BBCH
+  Ink/Moss/Bone/Sunshine tokens so it reads as a sibling of Burien Best Care Home.
+- Define the brand name and domain once, in `tenant.brand.name` and
+  `tenant.brand.domain`. Do not retype the string into a component, a title, or a
+  schema block; the last rename had to touch 36 files because it was retyped.
+
+## Hero treatment
+
+- **Show the footage.** The white scrim over the hero video was cut from a 0.97
+  peak to 0.40 because the near-solid wash was the whole complaint: it read as a
+  white page with a video hiding behind it.
+- **Video runs at 0.75x** for a slower, more cinematic drift.
+- **Open tension:** at 0.40 the hero headline and subhead fail WCAG AA against
+  the current clip (2.34 and 2.52 against thresholds of 3.0 and 4.5). Roughly
+  0.70 is the point where both clear. Readability wins over atmosphere on this
+  site, whose visitors skew older, so this needs a decision: raise the scrim, put
+  a panel behind the text column, or shoot brighter footage. See SESSION_LOG.
 
 ## Positioning (source of truth)
 

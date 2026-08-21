@@ -1,4 +1,4 @@
-# Your Next Step Home — Parallel Task Briefings
+# Your Next Step Team — Parallel Task Briefings
 *Copy each section below as the opening prompt for a new project conversation.*
 *All tasks should run with Opus 4.7, extended thinking ON.*
 
@@ -6,7 +6,7 @@
 
 ## TASK 1: Foundation & Design System
 
-You are building the foundation for yournextstephome.com, a real estate website for Becca Pitts, a licensed WA real estate agent serving Pierce County (Tacoma, Bonney Lake, Graham, Puyallup, Eatonville), South King, Thurston, and Kitsap counties.
+You are building the foundation for yournextstepteam.com, a real estate website for Becca Pitts, a licensed WA real estate agent serving Pierce County (Tacoma, Bonney Lake, Graham, Puyallup, Eatonville), South King, Thurston, and Kitsap counties.
 
 ### Your Job
 Set up the complete Next.js project from scratch, establish the design system, build all shared components, and deploy the skeleton to Vercel.
@@ -17,7 +17,7 @@ Set up the complete Next.js project from scratch, establish the design system, b
 - Framer Motion for scroll-reveal animations (respects `prefers-reduced-motion`)
 - Google Fonts via `<link>` tag: DM Serif Display (headlines), Inter (body, 16px+ min)
 - Deployment: Vercel auto-deploy from GitHub
-- GitHub org: becca-sites (repo: yournextstephome-site, branch: main)
+- GitHub org: becca-sites (repo: yournextstepteam-site, branch: main)
 
 ### Color Palette (define as CSS custom properties in globals.css)
 | Token | Hex | Usage |
@@ -33,7 +33,7 @@ Set up the complete Next.js project from scratch, establish the design system, b
 
 ### Shared Components to Build
 1. **Navigation** — Sticky header, logo, nav links (Home, Neighborhoods, Assessment, Vendors, Blog, Contact), mobile hamburger menu with slide-out drawer. CTA button in nav: "Take the Assessment"
-2. **Footer** — Logo, nav links, contact info (253.678.7089, becca@yournextstephome.com), social icons, cross-links to yourbestseason.com and burienbestcarehome.com, copyright
+2. **Footer** — Logo, nav links, contact info (253.678.7089, becca@yournextstepteam.com), social icons, cross-links to yourbestseason.com and burienbestcarehome.com, copyright
 3. **GlassCard** — Two variants: `solid` (bone bg, hairline border, soft shadow) and `glass` (frosted, hero only). Same pattern as the BBCH site.
 4. **ScrollReveal** — Framer Motion wrapper for fade-up-on-scroll. Respects prefers-reduced-motion.
 5. **LoadingScreen** — Brief elegant load screen with "Your next step starts here" that fades into hero. 1.5s max.
@@ -69,7 +69,7 @@ Before starting, check for existing SESSION_LOG.md and LIVING_NOTES.md in the pr
 
 ### GitHub
 - Org: becca-sites
-- Repo name: yournextstephome-site
+- Repo name: yournextstepteam-site
 - Branch: main
 - Push and deploy when ready
 
@@ -77,7 +77,7 @@ Before starting, check for existing SESSION_LOG.md and LIVING_NOTES.md in the pr
 
 ## TASK 2: Homepage Build
 
-You are building the homepage for yournextstephome.com, Becca Pitts' real estate website serving Pierce County and surrounding WA counties.
+You are building the homepage for yournextstepteam.com, Becca Pitts' real estate website serving Pierce County and surrounding WA counties.
 
 ### Your Job
 Build the complete homepage using StoryBrand SB7 framework, Dan Kennedy's Pain-Agitate-Solution approach, and Alex Hormozi's value equation. The page should convert visitors into assessment-takers.
@@ -166,7 +166,7 @@ Check for existing SESSION_LOG.md and LIVING_NOTES.md. Create if missing. Update
 
 ## TASK 3: Assessment Quiz
 
-You are building an interactive real estate readiness assessment for yournextstephome.com. This is the PRIMARY conversion tool for Becca Pitts' real estate business. It replaces the traditional "schedule a call" CTA with a value-first approach.
+You are building an interactive real estate readiness assessment for yournextstepteam.com. This is the PRIMARY conversion tool for Becca Pitts' real estate business. It replaces the traditional "schedule a call" CTA with a value-first approach.
 
 ### Your Job
 Build a multi-step interactive assessment quiz at `/assessment` that scores a visitor's readiness to buy, sell, or invest, captures their contact info, and routes them into the appropriate follow-up sequence.
@@ -281,7 +281,7 @@ Check for SESSION_LOG.md and LIVING_NOTES.md. Create if missing. Update at end.
 
 ## TASK 4: Neighborhood Guides + Vendor Directory
 
-You are building two sections of yournextstephome.com: geo-specific neighborhood guide pages and a vendor directory page.
+You are building two sections of yournextstepteam.com: geo-specific neighborhood guide pages and a vendor directory page.
 
 ### Your Job
 Build 5 neighborhood guide pages and 1 vendor directory page with vendor application form.
@@ -379,7 +379,7 @@ This is a curated list of Becca's trusted service providers. It serves as a reso
 - Neighborhood pages need BreadcrumbList schema
 
 ### SEO for Neighborhood Pages
-- Title format: "[City] Real Estate | Homes for Sale | Your Next Step Home"
+- Title format: "[City] Real Estate | Homes for Sale | Your Next Step Team"
 - Meta description: Unique per page, include city name, mention Pierce County
 - H1: City name
 - H2s: Question-based where possible ("What's it like to live in [City]?", "Who is [City] perfect for?")
@@ -405,7 +405,7 @@ Check for SESSION_LOG.md and LIVING_NOTES.md. Create if missing. Update at end.
 
 ## TASK 5: Content, SEO & Blog Infrastructure
 
-You are building the content layer, SEO infrastructure, and blog system for yournextstephome.com.
+You are building the content layer, SEO infrastructure, and blog system for yournextstepteam.com.
 
 ### Your Job
 Write all page copy using the Kennedy/Hormozi/StoryBrand frameworks, set up comprehensive SEO (schema, meta, sitemap), and build the blog routing system.
@@ -443,7 +443,7 @@ Becca Pitts is a WA real estate agent building a micro-influencer personal brand
 
 **Contact Page** (`/contact`)
 - Schedule a call form (name, email, phone, "What's on your mind?" textarea)
-- Direct contact: 253.678.7089, becca@yournextstephome.com
+- Direct contact: 253.678.7089, becca@yournextstepteam.com
 - Office hours or availability note
 - "What to expect when we talk" section (anxiety reducer): "No pressure. No sales pitch. Just a conversation about where you are and where you want to be."
 - Cross-links to other businesses where relevant
@@ -459,7 +459,7 @@ Becca Pitts is a WA real estate agent building a micro-influencer personal brand
 
 **Meta Tags:**
 - Unique title and description per page
-- Title format: "[Page-specific] | Your Next Step Home | Pierce County Real Estate"
+- Title format: "[Page-specific] | Your Next Step Team | Pierce County Real Estate"
 - Open Graph tags (og:title, og:description, og:image, og:url)
 - Twitter cards
 - Canonical URLs
@@ -541,7 +541,7 @@ Check for SESSION_LOG.md and LIVING_NOTES.md. Create if missing. Update at end w
 - Use consistent design tokens across all tasks (reference the color palette in Task 1)
 
 ### GitHub Workflow
-- All tasks push to the same repo: `becca-sites/yournextstephome-site`
+- All tasks push to the same repo: `becca-sites/yournextstepteam-site`
 - Coordinate branches if needed, or work on separate page directories to avoid conflicts
 - Main branch = production (auto-deploys to Vercel)
 
