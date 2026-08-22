@@ -127,16 +127,13 @@ function AboutPreviewSection() {
               {tenant.agent.yearsOfExperience} years. 270 closings. And I still
               answer my own phone.
             </h2>
-            <p className="mt-5 text-base text-neutral-600 md:text-lg">
-              {tenant.agent.storyLong}
-            </p>
-            <p className="mt-4 text-base text-neutral-600 md:text-lg">
-              I&apos;m based in {tenant.market.city} and I work Puyallup, North
-              Tacoma, Eatonville, and the rest of {tenant.market.primaryArea},
-              plus King, Thurston, and Mason when the right home is there. First
-              house or tenth, upsizing, downsizing, investing, relocating: the
-              questions change, the way I work them stays the same.
-            </p>
+            {/* All of the about copy comes from tenant.agent.storyLong so the
+                homepage and the About page never drift apart. */}
+            <div className="mt-5 space-y-4 text-base text-neutral-600 md:text-lg">
+              {tenant.agent.storyLong.split("\n\n").map((paragraph) => (
+                <p key={paragraph.slice(0, 40)}>{paragraph}</p>
+              ))}
+            </div>
             <div className="mt-8 flex flex-wrap gap-3">
               <Link href="/about" className="btn-primary">
                 Read the full story

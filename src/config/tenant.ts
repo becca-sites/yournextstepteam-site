@@ -246,9 +246,16 @@ export const tenant: Tenant = {
     brokerageDisclosure:
       "Rebecca Pitts is a licensed real estate broker in Washington State, affiliated with eXp Realty. MLS #87890. License #107351. eXp Realty is a licensed real estate brokerage. Equal Housing Opportunity.",
     headshot: "/photos/headshots/becca-headshot.webp",
-    bio: "The search is about five percent of this. The other ninety-five is inspections, appraisals, contract clauses, and financing surprises, and that is where I earn my keep. Fifteen years in real estate in Washington, 270 closings across Bonney Lake, Puyallup, North Tacoma, and Eatonville.",
-    storyLong:
-      "Here is the thing about 270 closings: they teach you exactly where a deal breaks. So I move at your pace, I give you a real answer to every question, and I talk to the lender, the inspector, and the attorney myself before I ever hand you a name. I grew up in Eatonville and I have worked Pierce County for fifteen years, which means I know these neighborhoods street by street.",
+    bio: "Here's the thing about 270 closings: they teach you exactly where a deal breaks. So I structure things so they don't. I anticipate problems and have a Plan B ready, sometimes C and D, before anything goes sideways. That kind of experience also teaches you when it's time to walk away and cut losses, and I'll tell you that honestly too.",
+    // Becca's own words. Paragraphs are separated by a blank line and split on
+    // "\n\n" wherever this renders, so the homepage and the About page stay in
+    // sync from this one source. Keep it em dash free: her voice uses periods
+    // and commas, not dashes.
+    storyLong: [
+      "Here's the thing about 270 closings: they teach you exactly where a deal breaks. So I structure things so they don't. I anticipate problems and have a Plan B ready, sometimes C and D, before anything goes sideways. That kind of experience also teaches you when it's time to walk away and cut losses, and I'll tell you that honestly too.",
+      "I'm a cooperative agent. I look for the win-win because, let's be honest, at the end of the day everyone at the table has the same goal. I'm also solution-oriented. If there's a way to pull something off with integrity, I'm going to find it. I've sat in driveways at 9 PM helping clients think through a tough call. I've driven an hour and a half to track down a signature that saved a deal everyone else had written off. You get me, not an assistant, not a transaction team. And I will give you a real answer to every question, even when the real answer is 'I don't know yet, but I'm going to find out.'",
+      "I've lived in the Puget Sound my whole life. I grew up in the small town of Eatonville, lived in Puyallup and Tacoma for about fifteen years, had a short stint in King County, and now I live in Bonney Lake. I've helped buyers and sellers from Everett to Morton and from Grays Harbor to Roslyn. I've never had a house come to me, so I'll go wherever the right deal is. But generally speaking, I focus my efforts in Pierce and South King Counties, which means I know these neighborhoods street by street. First house or tenth, upsizing, downsizing, investing, relocating: the questions change, the way I work them stays the same.",
+    ].join("\n\n"),
     license: "WA #107351",
     mlsId: "87890",
     phone: "253.678.7089",

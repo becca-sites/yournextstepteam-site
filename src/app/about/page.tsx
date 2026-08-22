@@ -84,16 +84,16 @@ export default function AboutPage() {
               Fifteen years, one county, 270 closings.
             </h2>
             <div className="mt-8 space-y-5 text-lg text-neutral-700">
-              <p>{tenant.agent.storyLong}</p>
-              <p>
-                I grew up in Eatonville and I am based in {tenant.market.city},{" "}
-                {tenant.market.stateAbbreviation} now. Most of my work happens in
-                Bonney Lake, Puyallup, North Tacoma, and Eatonville, and I also
-                list and sell in Sumner, Graham, Orting, Roy, Gig Harbor, and out
-                into King, Thurston, and Mason counties. Buyers, sellers, land,
-                relocations, investors, estate transitions. First home or tenth
-                home.
-              </p>
+              {/* The first paragraph of storyLong is tenant.agent.bio, which is
+                  already the hero copy at the top of this page, so the longer
+                  story picks up from the second paragraph. The homepage renders
+                  all of them. */}
+              {tenant.agent.storyLong
+                .split("\n\n")
+                .slice(1)
+                .map((paragraph) => (
+                  <p key={paragraph.slice(0, 40)}>{paragraph}</p>
+                ))}
               <p>
                 Senior transitions are one piece of that. I am SRES® certified,
                 which means extra training in reverse mortgages, aging-in-place
