@@ -71,6 +71,11 @@ work done directly in the repo.
 - **Becca is a solo agent.** Always "I" and "me," never "we," "us," or "our team."
   The one exception is "we" meaning you and I together, as in "whatever we need to
   talk about."
+- **The transaction team is an addition, not a disclaimer.** Becca works with a
+  transaction coordinator, and the About copy now credits that support instead of
+  denying it ("You get me, plus my transaction team..."). Keep the possessive: it
+  is "my transaction team" behind her, never "we" or "our team" doing the work.
+  Becca is still the person the client deals with.
 - **No raw text-message fragments in website copy.** Becca's texting voice is the
   source material, not the finished product. Homepage traffic is cold: these people
   have never met her, so copy has to stand on its own without her delivery.

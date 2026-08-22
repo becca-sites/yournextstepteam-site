@@ -7,6 +7,40 @@ Note: the Google Drive **SESSION_LOG** doc is the more current master. See
 
 ---
 
+## 2026-08-22 — About copy: "plus my transaction team" replaces the X-not-Y line
+
+**Deliverable:** one sentence in the second About paragraph rewritten. Commit
+`ebe908d`.
+
+Was: "You get me, not an assistant, not a transaction team."
+Now: "You get me, plus my transaction team keeping every deadline and detail on
+track behind the scenes."
+
+Two problems with the old line. It was X-not-Y framing, which this file already
+rules out, and it disclaimed a transaction team Becca actually has and relies on.
+The replacement is additive: it credits the support without moving her out of the
+client's seat, and it keeps the sentence's job in the paragraph, which is to land
+right before "And I will give you a real answer to every question."
+
+### Files touched
+
+- `src/config/tenant.ts` — `agent.storyLong`, second paragraph
+
+`storyLong` is the single source for this copy. The homepage
+(`src/app/page.tsx`), the About page (`src/app/about/page.tsx`), and
+`AboutPreview.tsx` all read from it, so the one edit covers every surface.
+
+### Still pending
+
+1. **`content/blog/trusted-real-estate-agent-pierce-county.mdx:96` still has the
+   old framing:** "every client gets me. Not an assistant, not a junior agent,
+   not a 'team member' you've never met." Same X-not-Y pattern, and the same
+   contradiction with the transaction team. Out of scope for this request, but it
+   should get the same treatment.
+2. Everything under the previous sessions' "Still pending" remains open.
+
+---
+
 ## 2026-08-21 — Fix: the edge-fade mask was clipping the expanded card
 
 **Deliverable:** the hover expansion now actually clears its row. Reported as
