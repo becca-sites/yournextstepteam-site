@@ -7,20 +7,30 @@ Note: the Google Drive **SESSION_LOG** doc is the more current master. See
 
 ---
 
-## 2026-08-22 — About copy: "plus my transaction team" replaces the X-not-Y line
+## 2026-08-22 — About copy: transaction team, and the drive is "hours"
 
-**Deliverable:** one sentence in the second About paragraph rewritten. Commit
-`ebe908d`.
+**Deliverable:** two sentences in the second About paragraph rewritten. Commits
+`ebe908d` and the follow-up.
 
 Was: "You get me, not an assistant, not a transaction team."
 Now: "You get me, plus my transaction team keeping every deadline and detail on
 track behind the scenes."
+
+Was: "I've driven an hour and a half to track down a signature..."
+Now: "I've driven hours to track down a signature..."
 
 Two problems with the old line. It was X-not-Y framing, which this file already
 rules out, and it disclaimed a transaction team Becca actually has and relies on.
 The replacement is additive: it credits the support without moving her out of the
 client's seat, and it keeps the sentence's job in the paragraph, which is to land
 right before "And I will give you a real answer to every question."
+
+On the drive time: "an hour and a half" undersold it. Becca has put in as much as
+eight hours in a single day chasing signatures, so the specific number was both
+low and the smallest version of the story. "Hours" is open-ended and keeps the
+parallel with the sentence before it ("I've sat in driveways at 9 PM... I've
+driven hours..."). The eight-hour figure is on the table if a future pass wants
+the harder number instead.
 
 ### Files touched
 
