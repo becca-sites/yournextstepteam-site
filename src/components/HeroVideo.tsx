@@ -70,21 +70,21 @@ export function HeroVideo({ video }: { video: TenantHeroVideo }) {
 
       {/*
         One gradient only: a left-to-right wash that keeps the headline legible
-        over the footage. There is deliberately no bottom fade, so the video
-        stays fully visible right down to the edge of the section and meets the
-        stat strip below as a hard line rather than a wash of white.
+        over the footage. There is deliberately no bottom fade here, so the
+        video stays fully visible right down to the edge of the section. The
+        homepage hero paints its own dark scrim over this at the bottom, behind
+        the glass stat cards.
 
-        Peaks at 0.40 rather than the 0.97 it used to, so the footage reads
-        through the text column instead of sitting behind a near-solid white
-        panel. That is a real legibility trade: the h1 and subhead are dark ink
-        on whatever frame is playing, so if a bright frame ever washes them out,
-        raise the stops below rather than adding a second overlay.
+        Peaks at 0.90 on the far left, where the left-justified h1 and subhead
+        sit, so the dark ink stays readable against any frame of the footage.
+        It then drops fast and is fully clear by 62%, which leaves the right
+        side of the video untouched.
       */}
       <div
         className="pointer-events-none absolute inset-0"
         style={{
           background:
-            "linear-gradient(to right, rgba(255,255,255,0.40) 0%, rgba(255,255,255,0.37) 35%, rgba(255,255,255,0.28) 55%, rgba(255,255,255,0.10) 78%, rgba(255,255,255,0) 100%)",
+            "linear-gradient(to right, rgba(255,255,255,0.90) 0%, rgba(255,255,255,0.80) 20%, rgba(255,255,255,0.60) 35%, rgba(255,255,255,0.30) 50%, rgba(255,255,255,0) 62%)",
         }}
       />
     </div>
