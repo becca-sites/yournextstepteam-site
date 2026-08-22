@@ -38,9 +38,7 @@ function HeroSection() {
           <FadeIn className="max-w-2xl text-left">
             <p className="eyebrow">{tenant.brand.eyebrow}</p>
             <h1 className="mt-5 font-display text-5xl font-semibold leading-[1.05] tracking-tight text-neutral-950 md:text-7xl">
-              I know Pierce County
-              <br />
-              street by street.
+              Your Puget Sound expert.
             </h1>
             {/* Hero subhead is written for this page rather than pulled from
                 tenant.agent.bio, so the headline and the copy under it read as
