@@ -1,6 +1,6 @@
-# PLACEHOLDER — SESSION_LOG (Google Doc)
+# PLACEHOLDER - SESSION_LOG (Google Doc)
 
-**Source:** Google Drive folder "Your Next Step Team — Becca Context"
+**Source:** Google Drive folder "Your Next Step Team - Becca Context"
 (`1N12pmm_RQs-DS8_VoLaRbcmQPwVEaW0P`), doc named **SESSION_LOG**.
 **Maps to:** `docs/context/SESSION_LOG_DRIVE.md`
 

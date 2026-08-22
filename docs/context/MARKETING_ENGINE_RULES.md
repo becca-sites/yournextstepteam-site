@@ -1,4 +1,4 @@
-# Becca Pitts Marketing Engine — Project Context
+# Becca Pitts Marketing Engine - Project Context
 
 ## Strategic First Principles (non-negotiable)
 - Build the converter first, then the traffic. The funnel must convert before we scale awareness.
@@ -42,20 +42,20 @@ BoldTrail (CRM), Metricool Pro (analytics), Make.com (automation), ManyChat (DM 
 ManyChat mini-assessment (3-5 Qs in DMs) → Website full assessment (12 Qs built, targeting 20-25, with embedded WTP research) → BoldTrail CRM sequences (Hot 80-100 / Warm 50-79 / Future below 50)
 
 ## Content Pillars
-1. Market Intelligence — local data, trends, predictions
-2. Transaction Decoded — step-by-step buying/selling education
-3. Lifestyle and Community — neighborhood guides, local business spotlights
-4. Investment and Wealth Building — equity strategies, ROI, tax
-5. Behind the Curtain — personal brand, day-in-life, transparent industry takes
+1. Market Intelligence - local data, trends, predictions
+2. Transaction Decoded - step-by-step buying/selling education
+3. Lifestyle and Community - neighborhood guides, local business spotlights
+4. Investment and Wealth Building - equity strategies, ROI, tax
+5. Behind the Curtain - personal brand, day-in-life, transparent industry takes
 
 ## Geographic Focus
 Pierce County (Tacoma, Bonney Lake, Graham, Puyallup, Eatonville), South King, Thurston, Kitsap counties. Burien (King County) for AFH.
 
 ## Four Workstreams
-1. Content Engine — calendar, social posts, blog, video scripts, podcast, newsletter
-2. Website and Assessment — HTML pages, interactive quiz, vendor page, SEO/AEO/GEO
-3. Automation and Analytics — Make.com scenarios, Metricool, Sheets, Looker Studio
-4. CRM and Email — BoldTrail sequences, ManyChat flows, lead routing
+1. Content Engine - calendar, social posts, blog, video scripts, podcast, newsletter
+2. Website and Assessment - HTML pages, interactive quiz, vendor page, SEO/AEO/GEO
+3. Automation and Analytics - Make.com scenarios, Metricool, Sheets, Looker Studio
+4. CRM and Email - BoldTrail sequences, ManyChat flows, lead routing
 
 See @WORKSTREAMS.md for detailed status and dependencies.
 See @Becca_Pitts_Marketing_Engine_Project_Brief.md for full strategic details.

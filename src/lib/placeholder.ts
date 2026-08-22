@@ -5,12 +5,12 @@
  *
  * Two things live here:
  *
- * 1. isPlaceholderMode() — while the site still carries demo/scaffold content,
+ * 1. isPlaceholderMode() - while the site still carries demo/scaffold content,
  *    this keeps all schema.org JSON-LD (RealEstateAgent, Person, LocalBusiness,
  *    Service, Article, FAQ, breadcrumbs, listings) out of the crawlable output so
  *    none of it can be indexed or attributed as the real agent's identity.
  *
- * 2. isNoIndex() — the single source of truth for whether the site should be
+ * 2. isNoIndex() - the single source of truth for whether the site should be
  *    walled off from crawlers. Every noindex surface reads from this one function:
  *    the <meta name="robots"> tag (src/app/layout.tsx), the X-Robots-Tag response
  *    header (next.config.ts, which inlines the same rule), and /robots.txt

@@ -1,4 +1,4 @@
-# Your Next Step Team — Full Sync Report for Brett's Build
+# Your Next Step Team - Full Sync Report for Brett's Build
 *Generated June 16, 2026. Everything Brett needs to build yournextstepteam.com cold.*
 
 ---
@@ -7,18 +7,18 @@
 
 Licensed real estate agent in Washington state (eXp Realty). 15+ years experience. SRES Certified (Seniors Real Estate Specialist). Phone: 253.678.7089.
 
-**Business address (use for directory listings — this is a UPS PMB, not a home address):**
+**Business address (use for directory listings - this is a UPS PMB, not a home address):**
 1002 N Meridian St, PMB 165, Puyallup, WA 98371
 
 **Email:**
-- **Forms / contact routing:** becca@yournextstepteam.com (canonical — use this for all site forms; NOT beccapitts14@gmail.com)
+- **Forms / contact routing:** becca@yournextstepteam.com (canonical - use this for all site forms; NOT beccapitts14@gmail.com)
 - Brand email: becca@yournextstepteam.com
 - Personal (do not surface publicly): beccapitts14@gmail.com
 
 Runs three businesses:
-1. **Your Next Step Team** (yournextstepteam.com) — Real estate hub, Pierce County + surrounding WA counties
-2. **Your Best Season** (yourbestseason.com) — Senior transitions education platform
-3. **Burien Best Care Home** (burienbestcarehome.com) — Adult family home in Burien, WA
+1. **Your Next Step Team** (yournextstepteam.com) - Real estate hub, Pierce County + surrounding WA counties
+2. **Your Best Season** (yourbestseason.com) - Senior transitions education platform
+3. **Burien Best Care Home** (burienbestcarehome.com) - Adult family home in Burien, WA
 
 **The moat:** No competitor cross-links all three. Education → Home Sale → Care Placement is a lifecycle pipeline no one else owns in this market.
 
@@ -66,11 +66,11 @@ She still serves traditional buyers and sellers (most of her reviews are from th
 - **Most agents ignore this segment.** Becca owns it.
 
 ### Secondary:
-**First-Time Buyers** (25-38) — Anxious, need hand-holding. Instagram, TikTok, YouTube.
-**Move-Up Buyers** (35-55) — Know the process, need strategy. LinkedIn, YouTube, Instagram.
-**Sellers** (all ages) — Want max value, minimal hassle. Facebook, LinkedIn, email.
-**Military Families** — JBLM proximity, PCS moves, VA loans.
-**Investors** — Buy-and-hold, fix-and-flip, house hackers. Data-driven.
+**First-Time Buyers** (25-38) - Anxious, need hand-holding. Instagram, TikTok, YouTube.
+**Move-Up Buyers** (35-55) - Know the process, need strategy. LinkedIn, YouTube, Instagram.
+**Sellers** (all ages) - Want max value, minimal hassle. Facebook, LinkedIn, email.
+**Military Families** - JBLM proximity, PCS moves, VA loans.
+**Investors** - Buy-and-hold, fix-and-flip, house hackers. Data-driven.
 
 ---
 
@@ -90,12 +90,12 @@ She still serves traditional buyers and sellers (most of her reviews are from th
 
 ## COMPETITOR ANALYSIS (Completed)
 
-1. **Kirk Vaux** (downsizewithkirk.com) — Eastside's premier downsizing realtor. SRES certified. Closest model to Becca's senior crossover strategy. Niche specialization beats generalist.
-2. **Monica Church** (monicachurchrealestate.com) — 190K IG, 28.9K YouTube. YouTube-first strategy. Video transcripts = free SEO.
-3. **Rachael Podolsky** (rachaelpodolsky.com) — Luxury specialist, city-specific landing pages, credentials prominently displayed.
-4. **Windermere Pierce County** — Multi-city content structure model.
-5. **Six Degrees Team** — Dedicated downsizing page with bundled services.
-6. **Buddy Buck** (buddybuck.com) — eXp colleague, Duvall hyperlocal. 17 years, $42.16M sold, 43 five-star reviews. Excellent site structure: stats bar, client story pages, Real Estate IQ Quiz, YouTube embedded, community media brand (Duvall TV). Good model for structure BUT Becca's niche is different (senior transitions vs general market).
+1. **Kirk Vaux** (downsizewithkirk.com) - Eastside's premier downsizing realtor. SRES certified. Closest model to Becca's senior crossover strategy. Niche specialization beats generalist.
+2. **Monica Church** (monicachurchrealestate.com) - 190K IG, 28.9K YouTube. YouTube-first strategy. Video transcripts = free SEO.
+3. **Rachael Podolsky** (rachaelpodolsky.com) - Luxury specialist, city-specific landing pages, credentials prominently displayed.
+4. **Windermere Pierce County** - Multi-city content structure model.
+5. **Six Degrees Team** - Dedicated downsizing page with bundled services.
+6. **Buddy Buck** (buddybuck.com) - eXp colleague, Duvall hyperlocal. 17 years, $42.16M sold, 43 five-star reviews. Excellent site structure: stats bar, client story pages, Real Estate IQ Quiz, YouTube embedded, community media brand (Duvall TV). Good model for structure BUT Becca's niche is different (senior transitions vs general market).
 
 **Becca's advantages over all competitors:**
 - Three-business moat (nobody else has education + real estate + care)
@@ -109,7 +109,7 @@ She still serves traditional buyers and sellers (most of her reviews are from th
 
 ### Color Palette
 
-> ✅ **CANONICAL SITE PALETTE — same as BBCH (Burien Best Care Home).**
+> ✅ **CANONICAL SITE PALETTE - same as BBCH (Burien Best Care Home).**
 > YNSH intentionally shares BBCH's site palette to create a visual family between the two
 > sites. Use these tokens for the site UI. See `docs/context/BRAND_COLORS.md`.
 
@@ -137,9 +137,9 @@ Keep these for the logo/wordmark only; do not use them as the site UI palette.
 
 *Superseded: earlier drafts listed a gold/ink token set (`--color-gold #D4A843`, etc.) and,
 separately, a forest/sage/navy "site" palette from the Drive `brand-colors` doc. Both are
-wrong for the site UI — the site uses the BBCH palette above; forest/sage/navy are logo-only.*
+wrong for the site UI - the site uses the BBCH palette above; forest/sage/navy are logo-only.*
 
-### Typography (CANONICAL — same as BBCH)
+### Typography (CANONICAL - same as BBCH)
 YNSH uses the **same fonts as BBCH** so the two sites read as siblings.
 - **Headlines: DM Serif Display** (warm, editorial)
 - **Body: Inter** (clean, readable), 16px+ minimum
@@ -169,7 +169,7 @@ differ. See `docs/context/BRAND_COLORS.md` for the sampled logo colors.
 
 ## CONTENT RULES (NON-NEGOTIABLE)
 
-- NEVER use em dashes (—). Use commas, periods, semicolons, colons, or parentheses.
+- NEVER use em dashes (-). Use commas, periods, semicolons, colons, or parentheses.
 - Voice: warm, bright, charismatic, occasionally sassy. Relatable first, professional second.
 - 80/20 content split: 80% genuinely helpful, 20% CTA.
 - StoryBrand SB7: Becca is the GUIDE, the client is the HERO.
@@ -304,8 +304,8 @@ differ. See `docs/context/BRAND_COLORS.md` for the sampled logo colors.
 
 ## CROSS-LINKED BUSINESSES
 
-- **Your Best Season** (yourbestseason.com) — Senior transitions education. Cross-link when discussing downsizing, aging in place, family conversations.
-- **Burien Best Care Home** (burienbestcarehome.com) — Adult family home. Cross-link when discussing care placement, selling parent's home.
+- **Your Best Season** (yourbestseason.com) - Senior transitions education. Cross-link when discussing downsizing, aging in place, family conversations.
+- **Burien Best Care Home** (burienbestcarehome.com) - Adult family home. Cross-link when discussing care placement, selling parent's home.
 - Pipeline: Education → Home Sale → Care Placement
 
 ---
@@ -332,8 +332,8 @@ differ. See `docs/context/BRAND_COLORS.md` for the sampled logo colors.
 
 ## EXISTING GITHUB REPOS
 
-1. **becca-sites/yournextstepteam-site** — New repo, scaffolded with docs/ops/content structure. Nearly empty (README + scaffold).
-2. **YourNextStepTeam/yournextstepteam-site** — Old repo with static HTML site (index.html, assessment.html, vendors.html, 2 neighborhood guides). Currently deployed to Vercel.
+1. **becca-sites/yournextstepteam-site** - New repo, scaffolded with docs/ops/content structure. Nearly empty (README + scaffold).
+2. **YourNextStepTeam/yournextstepteam-site** - Old repo with static HTML site (index.html, assessment.html, vendors.html, 2 neighborhood guides). Currently deployed to Vercel.
 
 Brett: you'll likely want to build fresh in your own system and push to whichever repo Becca sets up for you.
 

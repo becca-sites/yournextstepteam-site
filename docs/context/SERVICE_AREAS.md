@@ -1,6 +1,6 @@
-# PLACEHOLDER — service-areas (Google Doc)
+# PLACEHOLDER - service-areas (Google Doc)
 
-**Source:** Google Drive folder "Your Next Step Team — Becca Context"
+**Source:** Google Drive folder "Your Next Step Team - Becca Context"
 (`1N12pmm_RQs-DS8_VoLaRbcmQPwVEaW0P`), doc named **service-areas**.
 **Maps to:** `docs/context/SERVICE_AREAS.md`
 
@@ -11,7 +11,7 @@
 
 ## Known coverage (from committed context; the Drive doc has the full ZIP-level detail)
 
-**Primary — Pierce County:**
+**Primary - Pierce County:**
 - Bonney Lake
 - Tacoma (Stadium District, Proctor, North End, 6th Ave, Hilltop, Ruston)
 - Gig Harbor
@@ -23,8 +23,8 @@
 **Secondary:** South King County, Thurston County, Kitsap County.
 
 ## Explicit NOT targets (canonical, from Becca)
-- **White Center** — do not target.
-- **Rainier Valley** — do not target.
+- **White Center** - do not target.
+- **Rainier Valley** - do not target.
 
 The Drive doc contains the full city/county/ZIP coverage; this summary is not exhaustive.
 

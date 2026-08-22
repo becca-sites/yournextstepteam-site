@@ -1,4 +1,4 @@
-# Your Next Step Team — Project Context
+# Your Next Step Team - Project Context
 
 ## MANDATORY: Living Documentation
 At the END of every task session in this project, you MUST:
@@ -19,10 +19,10 @@ Your Next Step Team (yournextstepteam.com) is Becca Pitts' primary real estate b
 - GitHub repo: website source code with version history
 
 ## ICPs
-- First-time buyers (Instagram, TikTok, YouTube Shorts) — millennials/Gen Z, 25-38
-- Move-up buyers (LinkedIn, YouTube, Instagram) — Gen X/elder millennials, 35-55
-- Sellers (Facebook, LinkedIn, email, YouTube) — all ages
-- Real estate investors — cross-channel
+- First-time buyers (Instagram, TikTok, YouTube Shorts) - millennials/Gen Z, 25-38
+- Move-up buyers (LinkedIn, YouTube, Instagram) - Gen X/elder millennials, 35-55
+- Sellers (Facebook, LinkedIn, email, YouTube) - all ages
+- Real estate investors - cross-channel
 
 ## Geographic Focus
 Pierce County (Tacoma, Bonney Lake, Graham, Puyallup, Eatonville), South King, Thurston, Kitsap counties.
@@ -41,7 +41,7 @@ Links to yourbestseason.com for senior transition content.
 Links to burienbestcarehome.com for AFH referrals.
 
 ## Current Status
-- 3 HTML files built (index.html, assessment.html, vendors.html) — need branding update and deployment
+- 3 HTML files built (index.html, assessment.html, vendors.html) - need branding update and deployment
 - Week 1-2 content produced
 - Full SEO/schema strategy designed
 - Assessment scoring: Hot (80-100), Warm (50-79), Future (below 50)

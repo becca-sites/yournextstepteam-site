@@ -1,4 +1,4 @@
-# Next Step Conversations — Podcast
+# Next Step Conversations - Podcast
 
 ## Name
 Next Step Conversations

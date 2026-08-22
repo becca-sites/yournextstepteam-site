@@ -1,12 +1,12 @@
 # YNSH Brand Colors & Typography
 
-**Related Drive doc:** Google Drive folder "Your Next Step Team — Becca Context"
+**Related Drive doc:** Google Drive folder "Your Next Step Team - Becca Context"
 (`1N12pmm_RQs-DS8_VoLaRbcmQPwVEaW0P`), doc named **brand-colors**. Drive was not
 accessible from the session that created this file; the palette below was supplied
 directly by Becca and is canonical. Pull the Drive doc for any additional tints/usage
 notes and reconcile.
 
-## Canonical SITE palette — same as BBCH (Burien Best Care Home)
+## Canonical SITE palette - same as BBCH (Burien Best Care Home)
 
 YNSH intentionally uses the **same site palette as BBCH** to create a visual family
 between the two sites. Use these tokens for the site UI.
@@ -40,15 +40,15 @@ wrong on all three counts.
 | Warm Grey | #868686 | Logo wordmark |
 
 Assets:
-- `public/images/brand/logo-primary.png` — two-colour lockup, transparent, for light backgrounds
-- `public/images/brand/logo-white.png` — white knockout, for dark backgrounds
-- `public/images/brand/logo-green.png` / `logo-grey.png` — single-colour variants
-- `docs/brand-assets/logo-*-source.*` — the untouched originals these were trimmed from
+- `public/images/brand/logo-primary.png` - two-colour lockup, transparent, for light backgrounds
+- `public/images/brand/logo-white.png` - white knockout, for dark backgrounds
+- `public/images/brand/logo-green.png` / `logo-grey.png` - single-colour variants
+- `docs/brand-assets/logo-*-source.*` - the untouched originals these were trimmed from
 
 The wordmark reads **"Your Next Step"** with no suffix. That is correct and intentional:
 the business is Your Next Step Team, and the logo does not carry the last word.
 
-## Canonical typography — same as BBCH
+## Canonical typography - same as BBCH
 YNSH uses the **same fonts as BBCH** so the two sites read as siblings.
 - **Headlines:** DM Serif Display.
 - **Body:** Inter, 16px+ minimum.

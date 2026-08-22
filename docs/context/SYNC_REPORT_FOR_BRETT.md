@@ -1,4 +1,4 @@
-# SYNC REPORT: Becca Pitts — Three Business Website Build
+# SYNC REPORT: Becca Pitts - Three Business Website Build
 *For Brett's build sprint. All context needed to build cold.*
 *Generated: April 22, 2026*
 
@@ -120,8 +120,8 @@ Compassionate, trustworthy, professional but deeply human. Families are in crisi
 Burien, WA (King County). Neighborhoods: Gregory Heights, Boulevard Park, Three Tree Point, Seahurst, 1st Avenue South. Also serves: White Center, Normandy Park, South King County.
 
 ### Direct Competitors
-1. **Three Tree Living** (threetreeliving.com) — Burien/Normandy Park. "Brand new" positioning. Staff bios. Multi-directory listings.
-2. **BetterLiving AFH** (betterlivingafh.com) — Multi-facility Burien. Mission-focused.
+1. **Three Tree Living** (threetreeliving.com) - Burien/Normandy Park. "Brand new" positioning. Staff bios. Multi-directory listings.
+2. **BetterLiving AFH** (betterlivingafh.com) - Multi-facility Burien. Mission-focused.
 - 21 total licensed AFHs in Burien per DSHS data
 
 ### SEO Keywords (Prioritized)
@@ -136,11 +136,11 @@ Must get listed on: WA State DSHS AFH Locator, Adult Family Home Council, Caring
 LocalBusiness, HealthAndBeautyBusiness, FAQPage, BreadcrumbList
 
 ### Pages to Build
-1. **Home** — Load screen ("Where family feels like home"), PAS hero, facility highlights, services overview, open house RSVP, team/staff bios, testimonials, FAQ, schedule-a-visit CTA
-2. **Services** — Memory Care, Daily Living, Respite Care, Post-Hospital Recovery detail cards
-3. **Contact** — Schedule a visit form, "What to Expect on Your Visit" (anxiety reducer), map, phone/email
-4. **About** — Becca's story, "New to Neighborhood, Not New to Care," staff bios, values
-5. **Blog** — 12 articles already written (daily automated content engine running). Blog index page needed.
+1. **Home** - Load screen ("Where family feels like home"), PAS hero, facility highlights, services overview, open house RSVP, team/staff bios, testimonials, FAQ, schedule-a-visit CTA
+2. **Services** - Memory Care, Daily Living, Respite Care, Post-Hospital Recovery detail cards
+3. **Contact** - Schedule a visit form, "What to Expect on Your Visit" (anxiety reducer), map, phone/email
+4. **About** - Becca's story, "New to Neighborhood, Not New to Care," staff bios, values
+5. **Blog** - 12 articles already written (daily automated content engine running). Blog index page needed.
 
 ### Blog Content Already Written (12 articles, ~44,000 words)
 1. Sundowning as staffing problem (memory care)
@@ -203,8 +203,8 @@ An in-person community open house is planned (date TBD). Site needs RSVP section
 Warmer, more patient, more empathetic than the real estate brand. Like a trusted friend who has helped many families through this. Gentle CTAs, not pushy.
 
 ### ICPs
-- Seniors/downsizers (60+, boomers) — Facebook, YouTube, email
-- Adult children (38-55, Gen X/elder millennials) — doing research for parents. Instagram, LinkedIn, Facebook.
+- Seniors/downsizers (60+, boomers) - Facebook, YouTube, email
+- Adult children (38-55, Gen X/elder millennials) - doing research for parents. Instagram, LinkedIn, Facebook.
 - THIS IS BECCA'S PRIMARY DIFFERENTIATING ICP. Most agents ignore this segment.
 
 ### Geographic Focus
@@ -220,9 +220,9 @@ Washington state broadly. Pierce County and King County primary.
 - NO dominant player exists for senior transitions education in Washington state.
 
 ### Pages to Build
-1. **Home** — Load screen ("Your Best Season starts now"), PAS hero addressing the overwhelm of life transitions, "What We Do" (education, interviews, resources), featured articles, lead magnet CTA, testimonials, cross-links, contact
-2. **Resources** — Downloadable guides, checklists, worksheets. Categories: Downsizing, Financial Planning, Emotional Readiness, Family Conversations
-3. **About** — Becca's story, why she started Your Best Season, connection to senior transitions
+1. **Home** - Load screen ("Your Best Season starts now"), PAS hero addressing the overwhelm of life transitions, "What We Do" (education, interviews, resources), featured articles, lead magnet CTA, testimonials, cross-links, contact
+2. **Resources** - Downloadable guides, checklists, worksheets. Categories: Downsizing, Financial Planning, Emotional Readiness, Family Conversations
+3. **About** - Becca's story, why she started Your Best Season, connection to senior transitions
 
 ### Blog Content Already Written (3 SEO articles)
 1. "How to Downsize Your Home in Washington State" (2,021 words)
@@ -272,10 +272,10 @@ Organization, FAQPage, BreadcrumbList
 Warm, bright, charismatic. Becca's playful personality comes through. "Hey girl, let's figure this out together." Should reflect her bubbly, funny side while still being sharp on real estate.
 
 ### ICPs
-1. **First-time buyers** (millennials/Gen Z, 25-38) — Instagram, TikTok, YouTube Shorts
-2. **Move-up buyers** (Gen X/elder millennials, 35-55) — LinkedIn, YouTube, Instagram
-3. **Sellers** (all ages) — Facebook, LinkedIn, email, YouTube
-4. **Real estate investors** — cross-channel
+1. **First-time buyers** (millennials/Gen Z, 25-38) - Instagram, TikTok, YouTube Shorts
+2. **Move-up buyers** (Gen X/elder millennials, 35-55) - LinkedIn, YouTube, Instagram
+3. **Sellers** (all ages) - Facebook, LinkedIn, email, YouTube
+4. **Real estate investors** - cross-channel
 5. **Seniors/downsizers** (crossover with Your Best Season)
 
 ### Geographic Focus
@@ -294,10 +294,10 @@ Pierce County (Tacoma, Bonney Lake, Graham, Puyallup, Eatonville), South King, T
 - People follow people, not brands
 
 ### Pages to Build
-1. **Home** — Load screen ("Your next step starts here"), PAS hero (50/50 split: copy + Becca's photo), services (buying, selling, investing), testimonials, neighborhood highlights, assessment CTA, contact
-2. **Assessment** — 12-question interactive quiz, scoring (Hot 80-100, Warm 50-79, Future <50), lead capture, webhook POST to Make.com
-3. **Vendors** — Preferred vendor directory with category filtering, vendor application form
-4. **Neighborhood Guides** — Tacoma, Bonney Lake (built), Graham, Puyallup, Eatonville (needed)
+1. **Home** - Load screen ("Your next step starts here"), PAS hero (50/50 split: copy + Becca's photo), services (buying, selling, investing), testimonials, neighborhood highlights, assessment CTA, contact
+2. **Assessment** - 12-question interactive quiz, scoring (Hot 80-100, Warm 50-79, Future <50), lead capture, webhook POST to Make.com
+3. **Vendors** - Preferred vendor directory with category filtering, vendor application form
+4. **Neighborhood Guides** - Tacoma, Bonney Lake (built), Graham, Puyallup, Eatonville (needed)
 
 ### ManyChat Keywords (for CTA references)
 MARKET, KEYS, CHECKLIST, NEIGHBORHOOD, INVEST, DREAM

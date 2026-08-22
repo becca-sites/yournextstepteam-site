@@ -1,4 +1,4 @@
-# Your Next Step Team — Parallel Task Briefings
+# Your Next Step Team - Parallel Task Briefings
 *Copy each section below as the opening prompt for a new project conversation.*
 *All tasks should run with Opus 4.7, extended thinking ON.*
 
@@ -32,13 +32,13 @@ Set up the complete Next.js project from scratch, establish the design system, b
 | `--color-fog` | `#F0F2EE` | Cool section wash |
 
 ### Shared Components to Build
-1. **Navigation** — Sticky header, logo, nav links (Home, Neighborhoods, Assessment, Vendors, Blog, Contact), mobile hamburger menu with slide-out drawer. CTA button in nav: "Take the Assessment"
-2. **Footer** — Logo, nav links, contact info (253.678.7089, becca@yournextstepteam.com), social icons, cross-links to yourbestseason.com and burienbestcarehome.com, copyright
-3. **GlassCard** — Two variants: `solid` (bone bg, hairline border, soft shadow) and `glass` (frosted, hero only). Same pattern as the BBCH site.
-4. **ScrollReveal** — Framer Motion wrapper for fade-up-on-scroll. Respects prefers-reduced-motion.
-5. **LoadingScreen** — Brief elegant load screen with "Your next step starts here" that fades into hero. 1.5s max.
-6. **ScheduleCallButton** — Gold filled button with ink text. Primary CTA component.
-7. **SectionWrapper** — Consistent padding, max-width, responsive margins for all page sections.
+1. **Navigation** - Sticky header, logo, nav links (Home, Neighborhoods, Assessment, Vendors, Blog, Contact), mobile hamburger menu with slide-out drawer. CTA button in nav: "Take the Assessment"
+2. **Footer** - Logo, nav links, contact info (253.678.7089, becca@yournextstepteam.com), social icons, cross-links to yourbestseason.com and burienbestcarehome.com, copyright
+3. **GlassCard** - Two variants: `solid` (bone bg, hairline border, soft shadow) and `glass` (frosted, hero only). Same pattern as the BBCH site.
+4. **ScrollReveal** - Framer Motion wrapper for fade-up-on-scroll. Respects prefers-reduced-motion.
+5. **LoadingScreen** - Brief elegant load screen with "Your next step starts here" that fades into hero. 1.5s max.
+6. **ScheduleCallButton** - Gold filled button with ink text. Primary CTA component.
+7. **SectionWrapper** - Consistent padding, max-width, responsive margins for all page sections.
 
 ### Layout Setup
 - `layout.tsx`: metadata (title, description, Open Graph), font loading, Navigation + Footer wrapping all pages
@@ -93,35 +93,35 @@ Build the complete homepage using StoryBrand SB7 framework, Dan Kennedy's Pain-A
 
 ### Homepage Sections (in order)
 
-1. **Loading Screen** — "Your next step starts here" fades in, then fades into hero (1.5s max)
+1. **Loading Screen** - "Your next step starts here" fades in, then fades into hero (1.5s max)
 
-2. **Hero Section** — 50/50 split layout
+2. **Hero Section** - 50/50 split layout
    - Left: PAS headline addressing the overwhelm of buying/selling. Something like "Buying or selling a home shouldn't feel like solving a puzzle blindfolded." Subhead addressing the emotional pain. CTA button: "Find Out Where You Stand" (links to /assessment)
    - Right: Becca's professional photo (use placeholder Unsplash for now: https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=800)
    - Glass panel overlay effect on the photo side
 
-3. **Trust Bar** — Subtle logos/badges row: "Licensed WA Real Estate Agent", "SRES Certified", "Pierce County Specialist", years of experience
+3. **Trust Bar** - Subtle logos/badges row: "Licensed WA Real Estate Agent", "SRES Certified", "Pierce County Specialist", years of experience
 
-4. **"How I Help" Section** — Three cards (GlassCard solid variant):
+4. **"How I Help" Section** - Three cards (GlassCard solid variant):
    - Buying: "From pre-approval to keys in hand, I walk you through every step"
    - Selling: "Strategic pricing, staging guidance, and marketing that actually works"
    - Investing: "Build wealth through real estate with data-driven strategy"
    Each card has a gold accent bar at top and a "Learn More" link
 
-5. **The Process (StoryBrand Plan)** — Three steps:
+5. **The Process (StoryBrand Plan)** - Three steps:
    - Step 1: "Take the Assessment" (5 minutes, tells you exactly where you stand)
    - Step 2: "Get Your Custom Roadmap" (personalized next steps based on your score)
    - Step 3: "Move Forward with Confidence" (whether that's in 2 weeks or 2 years)
 
-6. **Neighborhood Highlights** — Grid of 4-5 featured neighborhoods with photos, name, and a one-line hook. Links to /neighborhoods/[slug]. Use Unsplash placeholders.
+6. **Neighborhood Highlights** - Grid of 4-5 featured neighborhoods with photos, name, and a one-line hook. Links to /neighborhoods/[slug]. Use Unsplash placeholders.
 
-7. **Testimonials** — Carousel or marquee of 3-5 testimonials (write realistic placeholder testimonials that match Becca's voice and market)
+7. **Testimonials** - Carousel or marquee of 3-5 testimonials (write realistic placeholder testimonials that match Becca's voice and market)
 
-8. **"Not Your Typical Agent" Section** — Personal brand differentiator. What makes Becca different: senior transitions expertise, three-business ecosystem, real talk not sales talk. Should feel authentic, not braggy.
+8. **"Not Your Typical Agent" Section** - Personal brand differentiator. What makes Becca different: senior transitions expertise, three-business ecosystem, real talk not sales talk. Should feel authentic, not braggy.
 
-9. **Blog Preview** — Latest 3 blog posts (placeholder cards for now)
+9. **Blog Preview** - Latest 3 blog posts (placeholder cards for now)
 
-10. **Final CTA Section** — Dual CTA:
+10. **Final CTA Section** - Dual CTA:
     - Direct: "Take the Free Assessment" (gold button)
     - Transitional: "Download the First-Time Buyer's Guide" (outlined button, lead magnet)
 
@@ -191,29 +191,29 @@ Build a multi-step interactive assessment quiz at `/assessment` that scores a vi
 ### Assessment Structure (20-25 Questions)
 
 **Section 1: Where Are You? (Situation)**
-1. "What's on your mind right now?" — Single select: Buying my first home / Selling my current home / Both (buying and selling) / Investing in property / Downsizing or transitioning / Just exploring
-2. "How soon are you looking to make a move?" — Single select: ASAP (within 30 days) / 1-3 months / 3-6 months / 6-12 months / Just starting to think about it
-3. "Have you worked with a real estate agent before?" — Single select: Yes, loved them / Yes, it was just okay / Yes, bad experience / No, this is my first time
+1. "What's on your mind right now?" - Single select: Buying my first home / Selling my current home / Both (buying and selling) / Investing in property / Downsizing or transitioning / Just exploring
+2. "How soon are you looking to make a move?" - Single select: ASAP (within 30 days) / 1-3 months / 3-6 months / 6-12 months / Just starting to think about it
+3. "Have you worked with a real estate agent before?" - Single select: Yes, loved them / Yes, it was just okay / Yes, bad experience / No, this is my first time
 
 **Section 2: Readiness Factors**
-4. "Where are you financially?" (for buyers) — Single select: Pre-approved and ready / Talked to a lender but not pre-approved yet / Haven't started the financial piece / Paying cash
-5. "What's your budget range?" — Single select with ranges appropriate to Pierce County market ($250K-$350K / $350K-$450K / $450K-$600K / $600K-$800K / $800K+ / Not sure yet)
-6. "Do you have a home to sell first?" — Single select: Yes, need to sell before buying / Yes, but I can buy without selling first / No, I'm a first-time buyer / I'm only selling
-7. (For sellers) "How would you describe your home's condition?" — Single select: Move-in ready, just needs cleaning / Needs some cosmetic updates / Needs significant work / I'm not sure what it needs
-8. (For sellers) "Do you know what your home is worth?" — Single select: Yes, I've had it appraised recently / I have a rough idea / No clue, that's why I'm here
+4. "Where are you financially?" (for buyers) - Single select: Pre-approved and ready / Talked to a lender but not pre-approved yet / Haven't started the financial piece / Paying cash
+5. "What's your budget range?" - Single select with ranges appropriate to Pierce County market ($250K-$350K / $350K-$450K / $450K-$600K / $600K-$800K / $800K+ / Not sure yet)
+6. "Do you have a home to sell first?" - Single select: Yes, need to sell before buying / Yes, but I can buy without selling first / No, I'm a first-time buyer / I'm only selling
+7. (For sellers) "How would you describe your home's condition?" - Single select: Move-in ready, just needs cleaning / Needs some cosmetic updates / Needs significant work / I'm not sure what it needs
+8. (For sellers) "Do you know what your home is worth?" - Single select: Yes, I've had it appraised recently / I have a rough idea / No clue, that's why I'm here
 
 **Section 3: Emotional Readiness**
-9. "What's your biggest concern right now?" — Multi-select: Not knowing where to start / The financial commitment / Finding the right neighborhood / Timing the market / Selling for the right price / The whole process feeling overwhelming / Making a mistake / Nothing specific, just want guidance
-10. "How are you feeling about this decision?" — Single select: Excited and ready / Cautiously optimistic / Anxious but determined / Overwhelmed / Just gathering info for now
+9. "What's your biggest concern right now?" - Multi-select: Not knowing where to start / The financial commitment / Finding the right neighborhood / Timing the market / Selling for the right price / The whole process feeling overwhelming / Making a mistake / Nothing specific, just want guidance
+10. "How are you feeling about this decision?" - Single select: Excited and ready / Cautiously optimistic / Anxious but determined / Overwhelmed / Just gathering info for now
 
 **Section 4: Preferences & Fit**
-11. "Which areas interest you?" — Multi-select: Tacoma / Bonney Lake / Graham / Puyallup / Eatonville / University Place / Lakewood / Other Pierce County / South King County / I'm open to suggestions
-12. "What matters most to you in an agent?" — Multi-select: Someone who explains everything clearly / Quick responses / Market expertise / Negotiation skills / Patience (I ask a lot of questions) / Honest, even when it's not what I want to hear / Creative problem-solving / Senior transition experience
-13. "How do you prefer to communicate?" — Single select: Text / Phone call / Email / Video chat / Mix of everything
+11. "Which areas interest you?" - Multi-select: Tacoma / Bonney Lake / Graham / Puyallup / Eatonville / University Place / Lakewood / Other Pierce County / South King County / I'm open to suggestions
+12. "What matters most to you in an agent?" - Multi-select: Someone who explains everything clearly / Quick responses / Market expertise / Negotiation skills / Patience (I ask a lot of questions) / Honest, even when it's not what I want to hear / Creative problem-solving / Senior transition experience
+13. "How do you prefer to communicate?" - Single select: Text / Phone call / Email / Video chat / Mix of everything
 
 **Section 5: Wrap-Up**
-14. "On a scale of 1-10, how ready do you feel to take your next step?" — Slider or number select 1-10
-15. "Anything else you want me to know?" — Optional text input (textarea, not required)
+14. "On a scale of 1-10, how ready do you feel to take your next step?" - Slider or number select 1-10
+15. "Anything else you want me to know?" - Optional text input (textarea, not required)
 
 **Lead Capture (after questions, before results)**
 - First name (required)
@@ -333,14 +333,14 @@ Becca Pitts is a WA real estate agent focused on Pierce County. Her differentiat
 
 ### Each Neighborhood Page Should Include:
 
-1. **Hero** — Full-width photo with neighborhood name and tagline overlay (glass panel)
-2. **Quick Stats** — Median price, school district, population, commute to Tacoma/Seattle, vibe keywords
-3. **"What It's Like to Live Here"** — 2-3 paragraphs of genuine, opinionated copy (Becca's voice). Not generic. Should read like a friend telling you about the neighborhood.
-4. **Who This Neighborhood is For** — 3-4 bullet cards matching ICP types
-5. **Things to Know** — 3-5 insider tips (the stuff a Zillow listing won't tell you)
-6. **Current Market Snapshot** — Placeholder section for dynamic data later. For now, static text with approximate numbers.
-7. **Featured Listings** — Placeholder grid (3 cards) for future MLS integration. Static for now.
-8. **CTA Section** — "Curious about [City]? Take the assessment to see if it's the right fit." Gold button to /assessment.
+1. **Hero** - Full-width photo with neighborhood name and tagline overlay (glass panel)
+2. **Quick Stats** - Median price, school district, population, commute to Tacoma/Seattle, vibe keywords
+3. **"What It's Like to Live Here"** - 2-3 paragraphs of genuine, opinionated copy (Becca's voice). Not generic. Should read like a friend telling you about the neighborhood.
+4. **Who This Neighborhood is For** - 3-4 bullet cards matching ICP types
+5. **Things to Know** - 3-5 insider tips (the stuff a Zillow listing won't tell you)
+6. **Current Market Snapshot** - Placeholder section for dynamic data later. For now, static text with approximate numbers.
+7. **Featured Listings** - Placeholder grid (3 cards) for future MLS integration. Static for now.
+8. **CTA Section** - "Curious about [City]? Take the assessment to see if it's the right fit." Gold button to /assessment.
 
 ### Unsplash Photos (use as placeholders)
 - Tacoma: https://images.unsplash.com/photo-1582571352032-448f7928eca3?w=1200 (or similar PNW city)
@@ -357,10 +357,10 @@ This is a curated list of Becca's trusted service providers. It serves as a reso
 
 ### Vendor Page Structure:
 
-1. **Hero** — "Becca's Trusted Vendors" / "The people I trust with my clients"
-2. **Category Filter** — Horizontal pill buttons to filter: All, Lenders, Inspectors, Contractors, Movers, Cleaners, Stagers, Photographers, Attorneys, Insurance, Other
-3. **Vendor Grid** — Cards with: Business name, category tag, one-line description, phone, website link, "Why Becca recommends them" (1 sentence)
-4. **Vendor Application Section** — "Want to be on this list?" form for vendors to apply:
+1. **Hero** - "Becca's Trusted Vendors" / "The people I trust with my clients"
+2. **Category Filter** - Horizontal pill buttons to filter: All, Lenders, Inspectors, Contractors, Movers, Cleaners, Stagers, Photographers, Attorneys, Insurance, Other
+3. **Vendor Grid** - Cards with: Business name, category tag, one-line description, phone, website link, "Why Becca recommends them" (1 sentence)
+4. **Vendor Application Section** - "Want to be on this list?" form for vendors to apply:
    - Business name (required)
    - Contact name (required)
    - Category (required, dropdown matching filter categories)
@@ -479,8 +479,8 @@ Becca Pitts is a WA real estate agent building a micro-influencer personal brand
 ### Blog System
 
 **Routes:**
-- `/blog` — Blog index with hero, paginated post list
-- `/blog/[slug]` — Individual blog posts
+- `/blog` - Blog index with hero, paginated post list
+- `/blog/[slug]` - Individual blog posts
 
 **Blog Infrastructure:**
 - MDX or markdown-based content (stored in `/content/blog/` directory)
@@ -491,11 +491,11 @@ Becca Pitts is a WA real estate agent building a micro-influencer personal brand
 - RSS feed (`/feed.xml`)
 
 **Content Pillars (for blog categorization):**
-1. Market Intelligence — local data, trends
-2. Transaction Decoded — step-by-step education
-3. Lifestyle and Community — neighborhood spotlights
-4. Investment and Wealth Building — equity, ROI
-5. Behind the Curtain — personal brand, day-in-life
+1. Market Intelligence - local data, trends
+2. Transaction Decoded - step-by-step education
+3. Lifestyle and Community - neighborhood spotlights
+4. Investment and Wealth Building - equity, ROI
+5. Behind the Curtain - personal brand, day-in-life
 
 **Seed Posts (write 3 full blog posts to launch with):**
 

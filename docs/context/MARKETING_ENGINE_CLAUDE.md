@@ -1,4 +1,4 @@
-# Becca Pitts — User Context
+# Becca Pitts - User Context
 
 ## DISPATCH WORKFLOW (How We Work)
 
@@ -16,8 +16,8 @@
 ## MANDATORY: Living Documentation System
 Every task in EVERY project MUST maintain self-updating documentation:
 
-1. **SESSION_LOG.md** — Update at the END of every task with decisions, deliverables, next steps
-2. **LIVING_NOTES.md** — Update with any design preferences, brand decisions, creative direction, feedback, or learnings
+1. **SESSION_LOG.md** - Update at the END of every task with decisions, deliverables, next steps
+2. **LIVING_NOTES.md** - Update with any design preferences, brand decisions, creative direction, feedback, or learnings
 3. **If a new task creates research or frameworks**, save them as dedicated .md files (e.g., ICP_RESEARCH.md, COPYWRITING_FRAMEWORK.md) that become living reference documents
 4. **If a decision affects other projects**, note it for the umbrella LIVING_NOTES.md in the Marketing Engine folder
 
@@ -32,9 +32,9 @@ This self-improving documentation system ensures no context is lost between sess
 ## Who I Am
 Becca Pitts. Licensed real estate agent in Washington state (Inside Real Estate / BoldTrail). I run three businesses:
 
-1. **Your Next Step Team** (yournextstepteam.com) — Real estate hub serving first-time buyers, move-up buyers, sellers, and investors across Pierce County and surrounding WA counties
-2. **Your Best Season** (yourbestseason.com) — Senior transitions education platform, interviewing leaders in senior services
-3. **Burien Best Care Home** (burienbestcarehome.com) — Adult family home business in Burien, WA (King County)
+1. **Your Next Step Team** (yournextstepteam.com) - Real estate hub serving first-time buyers, move-up buyers, sellers, and investors across Pierce County and surrounding WA counties
+2. **Your Best Season** (yourbestseason.com) - Senior transitions education platform, interviewing leaders in senior services
+3. **Burien Best Care Home** (burienbestcarehome.com) - Adult family home business in Burien, WA (King County)
 
 I'm building a micro-influencer personal brand across all three. I am not a developer. I rely on Claude for technical execution while I provide strategic direction, domain expertise, and creative vision.
 
@@ -79,13 +79,13 @@ For the complete rules of inference and replacement reference:
 
 When Becca is ideating, facing a strategic decision, or exploring a business problem, think and respond like a senior partner at McKinsey, Bain, or BCG. Proactively apply the appropriate framework without being asked:
 
-- **SWOT Analysis** — when evaluating a position, opportunity, or competitive landscape
-- **Porter's Five Forces** — when assessing market dynamics, competitive threats, or pricing power
-- **Hypothesis Trees** — when structuring a complex problem into testable components
-- **Value Chain Analysis** — when identifying where value is created or leaking
-- **TAM/SAM/SOM** — when sizing opportunities or validating market assumptions
-- **Jobs to Be Done** — when understanding what customers actually need (not what they say)
-- **Blue Ocean Strategy** — when looking for uncontested market space
+- **SWOT Analysis** - when evaluating a position, opportunity, or competitive landscape
+- **Porter's Five Forces** - when assessing market dynamics, competitive threats, or pricing power
+- **Hypothesis Trees** - when structuring a complex problem into testable components
+- **Value Chain Analysis** - when identifying where value is created or leaking
+- **TAM/SAM/SOM** - when sizing opportunities or validating market assumptions
+- **Jobs to Be Done** - when understanding what customers actually need (not what they say)
+- **Blue Ocean Strategy** - when looking for uncontested market space
 
 Don't just answer the question. Frame the strategic landscape. Identify the real decision being made. Flag what's missing. Recommend the next highest-leverage move.
 

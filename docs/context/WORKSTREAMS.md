@@ -1,4 +1,4 @@
-# Becca Pitts Marketing Engine — Workstream Status & Context
+# Becca Pitts Marketing Engine - Workstream Status & Context
 
 *Updated: March 31, 2026*
 *Migrated from claude.ai project to Claude desktop app (Cowork)*
@@ -7,7 +7,7 @@
 
 ## Workstream 1: Content Engine
 
-**Status:** ACTIVE — Week 1 COMPLETE, Week 2 batch COMPLETE
+**Status:** ACTIVE - Week 1 COMPLETE, Week 2 batch COMPLETE
 
 **Scope:** Content calendar, social posts, blog articles, video scripts, podcast planning, email newsletter
 
@@ -45,16 +45,16 @@
 **Status:** HTML FILES BUILT, DOMAINS PURCHASED, AWAITING DEPLOYMENT
 
 **Three-Website Architecture (CONFIRMED):**
-1. **yournextstepteam.com** (PURCHASED) — Primary real estate hub, all ICPs
+1. **yournextstepteam.com** (PURCHASED) - Primary real estate hub, all ICPs
    - Redirect: yournextsteprealty.com → yournextstepteam.com (301)
-2. **downsizewashington.com** (PURCHASED) — Standalone senior transitions hub (uncontested keyword space)
-3. **burienbestcarehome.com** (PURCHASED) — Adult family home business
+2. **downsizewashington.com** (PURCHASED) - Standalone senior transitions hub (uncontested keyword space)
+3. **burienbestcarehome.com** (PURCHASED) - Adult family home business
    - Redirect: burienadultfamilyhome.com → burienbestcarehome.com (301)
 
 **What's been built:**
-- index.html — Landing page for yournextstepteam.com
-- assessment.html — 12-question interactive quiz with scoring logic and webhook integration
-- vendors.html — Preferred vendors directory with vendor application form
+- index.html - Landing page for yournextstepteam.com
+- assessment.html - 12-question interactive quiz with scoring logic and webhook integration
+- vendors.html - Preferred vendors directory with vendor application form
 - Full SEO/AEO/GEO strategy designed (schema markup, keyword strategy by ICP, internal linking architecture)
 - Assessment scoring: Hot (80-100), Warm (50-79), Future (<50)
 - Assessment reduced from 40 to 20-25 questions (strategic recommendation accepted)
@@ -120,10 +120,10 @@
   - MARKET, KEYS, CHECKLIST, NEIGHBORHOOD, INVEST, DREAM → route to yournextstepteam.com
   - DOWNSIZE, VALUE → route to downsizewashington.com
 - 4 BoldTrail email sequences with full copy:
-  - HOT (80-100): 5 emails / 7 days — consultation-focused
-  - WARM (50-79): 8 emails / 30 days — educational nurture
-  - FUTURE (<50): 12 emails / 90 days — long-term drip
-  - SENIOR CARE: 5 emails / 14 days — Burien AFH inquiries
+  - HOT (80-100): 5 emails / 7 days - consultation-focused
+  - WARM (50-79): 8 emails / 30 days - educational nurture
+  - FUTURE (<50): 12 emails / 90 days - long-term drip
+  - SENIOR CARE: 5 emails / 14 days - Burien AFH inquiries
 - Full .docx deliverable created on claude.ai
 
 **Becca's voice notes:**
@@ -133,7 +133,7 @@
 - Home value estimate (VALUE keyword): Personal CMA through BoldTrail, NOT a Zestimate
 
 **Open items needing Becca's input:**
-1. Email 8 in FUTURE sequence: Needs Becca's personal story (why she got into real estate) — 3-4 sentences
+1. Email 8 in FUTURE sequence: Needs Becca's personal story (why she got into real estate) - 3-4 sentences
 2. Burien AFH emails: Who signs them? Becca or someone else on the care home team?
 3. WARM Email 5: Needs preferred lender name for vendor recommendation
 4. Review DOWNSIZE flow tone for the senior ICP
@@ -150,12 +150,12 @@
 
 These .docx files were generated in the claude.ai workstream chats and should be downloaded and saved locally:
 
-1. **Content Strategy Playbook** — from Content Engine chat
-2. **90-Day Content Calendar** (.xlsx) — from Content Engine chat
-3. **Week 2 Content Batch** (.docx) — from Content Engine chat
-4. **CRM Email Sequences v1** (.docx) — from CRM chat
-5. **Google Sheets Data Structure** (.xlsx) — from Automation chat
-6. **Make.com Scenario Blueprints** (.docx) — from Automation chat
+1. **Content Strategy Playbook** - from Content Engine chat
+2. **90-Day Content Calendar** (.xlsx) - from Content Engine chat
+3. **Week 2 Content Batch** (.docx) - from Content Engine chat
+4. **CRM Email Sequences v1** (.docx) - from CRM chat
+5. **Google Sheets Data Structure** (.xlsx) - from Automation chat
+6. **Make.com Scenario Blueprints** (.docx) - from Automation chat
 
 ---
 

@@ -16,9 +16,9 @@ This is NOT a surface-level marketing exercise. This is deep strategic work that
 
 Licensed real estate agent in Washington state (eXp Realty, formerly Inside Real Estate / BoldTrail). 15+ years experience. SRES Certified (Seniors Real Estate Specialist). Runs three businesses:
 
-1. **Your Next Step Team** (yournextstepteam.com) — Real estate hub serving Pierce County + surrounding WA counties
-2. **Your Best Season** (yourbestseason.com) — Senior transitions education platform
-3. **Burien Best Care Home** (burienbestcarehome.com) — Adult family home in Burien, WA (King County)
+1. **Your Next Step Team** (yournextstepteam.com) - Real estate hub serving Pierce County + surrounding WA counties
+2. **Your Best Season** (yourbestseason.com) - Senior transitions education platform
+3. **Burien Best Care Home** (burienbestcarehome.com) - Adult family home in Burien, WA (King County)
 
 **The moat:** No competitor cross-links all three. Education → Home Sale → Care Placement is a lifecycle pipeline no one else owns in this market.
 
@@ -51,10 +51,10 @@ Licensed real estate agent in Washington state (eXp Realty, formerly Inside Real
 
 For each ICP segment, classify their pain points using the **BLAC framework:**
 
-- **B**latant — Pain they openly talk about, search for, complain about publicly
-- **L**atent — Pain they feel but haven't articulated or don't consciously recognize yet
-- **A**spirational — The solution represents something they WANT (lifestyle upgrade, dream outcome)
-- **C**ritical — The solution addresses something they NEED (can't avoid, deadline-driven, crisis)
+- **B**latant - Pain they openly talk about, search for, complain about publicly
+- **L**atent - Pain they feel but haven't articulated or don't consciously recognize yet
+- **A**spirational - The solution represents something they WANT (lifestyle upgrade, dream outcome)
+- **C**ritical - The solution addresses something they NEED (can't avoid, deadline-driven, crisis)
 
 **Map each ICP on a 2x2 matrix: Blatant/Latent (x-axis) vs. Aspirational/Critical (y-axis)**
 
@@ -66,14 +66,14 @@ This tells us:
 
 **ICP Segments to Research:**
 
-1. **First-time buyers (25-38)** — Millennials/Gen Z in Pierce County
-2. **Move-up buyers (35-55)** — Families outgrowing their starter home
-3. **Sellers** — All ages, various motivations
-4. **Seniors/downsizers (60+)** — Becca's differentiator segment
-5. **Adult children managing parent transitions (38-55)** — The decision-maker for seniors
-6. **Real estate investors** — Buy-and-hold, fix-and-flip, house hackers
-7. **Military families** — JBLM proximity, PCS moves, VA loans
-8. **Sphere/referral sources** — Past clients, friends, family, professional network
+1. **First-time buyers (25-38)** - Millennials/Gen Z in Pierce County
+2. **Move-up buyers (35-55)** - Families outgrowing their starter home
+3. **Sellers** - All ages, various motivations
+4. **Seniors/downsizers (60+)** - Becca's differentiator segment
+5. **Adult children managing parent transitions (38-55)** - The decision-maker for seniors
+6. **Real estate investors** - Buy-and-hold, fix-and-flip, house hackers
+7. **Military families** - JBLM proximity, PCS moves, VA loans
+8. **Sphere/referral sources** - Past clients, friends, family, professional network
 
 For EACH segment, document:
 - Demographics (age, income, family status, location)
@@ -91,17 +91,17 @@ For EACH segment, document:
 
 Since we can't interview real customers right now, conduct **synthetic VOC research** by:
 
-1. **Platform analysis** — What do these ICPs say on Reddit (r/RealEstate, r/FirstTimeHomeBuyer, r/personalfinance, r/Tacoma), Facebook groups (Pierce County community groups, military spouse groups, senior transition groups), Zillow forums, BiggerPockets (investors), AgingCare (senior segment)?
+1. **Platform analysis** - What do these ICPs say on Reddit (r/RealEstate, r/FirstTimeHomeBuyer, r/personalfinance, r/Tacoma), Facebook groups (Pierce County community groups, military spouse groups, senior transition groups), Zillow forums, BiggerPockets (investors), AgingCare (senior segment)?
 
-2. **Language mapping** — Document the EXACT words and phrases each ICP uses to describe their situation. Not our words. THEIR words. This feeds directly into ad copy, assessment questions, and content.
+2. **Language mapping** - Document the EXACT words and phrases each ICP uses to describe their situation. Not our words. THEIR words. This feeds directly into ad copy, assessment questions, and content.
 
-3. **Emotional journey mapping** — For each ICP, map the emotional arc from trigger event to transaction close:
+3. **Emotional journey mapping** - For each ICP, map the emotional arc from trigger event to transaction close:
    - What emotion are they feeling at each stage?
    - What question are they asking at each stage?
    - What content would serve them at each stage?
    - What would move them to the next stage?
 
-4. **Competitive perception** — How do these ICPs currently perceive real estate agents? What stereotypes must Becca overcome? What do they wish agents did differently?
+4. **Competitive perception** - How do these ICPs currently perceive real estate agents? What stereotypes must Becca overcome? What do they wish agents did differently?
 
 ---
 
@@ -113,15 +113,15 @@ This informs both the assessment quiz (soft WTP questions) and Becca's pricing/p
 
 **WTP Research Components:**
 
-1. **Price sensitivity by segment** — What does each ICP consider "expensive" vs. "fair" vs. "good value" for a home in Pierce County? What's their actual purchasing power vs. stated budget?
+1. **Price sensitivity by segment** - What does each ICP consider "expensive" vs. "fair" vs. "good value" for a home in Pierce County? What's their actual purchasing power vs. stated budget?
 
-2. **Service WTP** — Would clients pay for premium services (staging consultation, professional photography, dedicated project manager, senior transition coordination)? What's the perceived value gap between Becca's offering and a discount brokerage?
+2. **Service WTP** - Would clients pay for premium services (staging consultation, professional photography, dedicated project manager, senior transition coordination)? What's the perceived value gap between Becca's offering and a discount brokerage?
 
-3. **Commission sensitivity** — How price-sensitive is each segment on commission? Who negotiates? Who doesn't care because they value the service?
+3. **Commission sensitivity** - How price-sensitive is each segment on commission? Who negotiates? Who doesn't care because they value the service?
 
-4. **Van Westendorp Price Sensitivity Meter** — Apply this framework to understand the "acceptable price range" for homes in each Pierce County submarket by ICP.
+4. **Van Westendorp Price Sensitivity Meter** - Apply this framework to understand the "acceptable price range" for homes in each Pierce County submarket by ICP.
 
-5. **Conjoint elements** — What service bundles would each ICP trade off? (e.g., Would a first-time buyer prefer a lower commission OR a concierge-level hand-holding experience?)
+5. **Conjoint elements** - What service bundles would each ICP trade off? (e.g., Would a first-time buyer prefer a lower commission OR a concierge-level hand-holding experience?)
 
 ---
 
@@ -308,7 +308,7 @@ Becca owns all three Hormozi books. Incorporate these frameworks deeply into eve
 
 ## CONTENT RULES
 
-- NEVER use em dashes (—). Use commas, periods, semicolons, colons, or parentheses.
+- NEVER use em dashes (-). Use commas, periods, semicolons, colons, or parentheses.
 - Apply first principles reasoning to every recommendation. Challenge assumptions.
 - Use sentential logic to validate reasoning chains (if P then Q, validate that P holds).
 - Be specific. "Network more" is useless. "Send 3 personalized texts per day to sphere contacts who had a life event in the last 30 days" is actionable.
@@ -319,15 +319,15 @@ Becca owns all three Hormozi books. Incorporate these frameworks deeply into eve
 
 ## DELIVERABLES (save as separate files)
 
-1. `ICP_DEEP_RESEARCH.md` — Full BLAC analysis for all 8 segments
-2. `VOC_RESEARCH.md` — Synthetic voice of customer findings, language maps, emotional journeys
-3. `WTP_ANALYSIS.md` — Willingness to pay findings + assessment quiz question recommendations
-4. `BUSINESS_MODEL.md` — Pro forma, P&L projection, key metrics, Icon Agent path
-5. `STRATEGIC_ANALYSIS.md` — Porter's Five Forces, SWOT, hypothesis tree, value chain, TAM/SAM/SOM, JTBD
-6. `MARKETING_SYSTEMS.md` — Architecture for all 7 outreach systems (A through G)
-7. `TWELVE_MONTH_ROADMAP.md` — Phased execution plan May 2026 to May 2027
-8. `SESSION_LOG.md` — Decisions, methodology, sources, next steps
-9. `LIVING_NOTES.md` — Strategic insights, assumptions to validate, open questions
+1. `ICP_DEEP_RESEARCH.md` - Full BLAC analysis for all 8 segments
+2. `VOC_RESEARCH.md` - Synthetic voice of customer findings, language maps, emotional journeys
+3. `WTP_ANALYSIS.md` - Willingness to pay findings + assessment quiz question recommendations
+4. `BUSINESS_MODEL.md` - Pro forma, P&L projection, key metrics, Icon Agent path
+5. `STRATEGIC_ANALYSIS.md` - Porter's Five Forces, SWOT, hypothesis tree, value chain, TAM/SAM/SOM, JTBD
+6. `MARKETING_SYSTEMS.md` - Architecture for all 7 outreach systems (A through G)
+7. `TWELVE_MONTH_ROADMAP.md` - Phased execution plan May 2026 to May 2027
+8. `SESSION_LOG.md` - Decisions, methodology, sources, next steps
+9. `LIVING_NOTES.md` - Strategic insights, assumptions to validate, open questions
 
 ---
 

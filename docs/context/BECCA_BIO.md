@@ -1,6 +1,6 @@
-# PLACEHOLDER — bio (Google Doc)
+# PLACEHOLDER - bio (Google Doc)
 
-**Source:** Google Drive folder "Your Next Step Team — Becca Context"
+**Source:** Google Drive folder "Your Next Step Team - Becca Context"
 (`1N12pmm_RQs-DS8_VoLaRbcmQPwVEaW0P`), doc named **bio**.
 **Maps to:** `docs/context/BECCA_BIO.md`
 

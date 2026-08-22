@@ -4,7 +4,7 @@
 
 ## Master Project Brief
 
-**Version 1.0 — March 30, 2026**
+**Version 1.0 - March 30, 2026**
 
 *This document is the single source of truth for all workstreams.*
 
@@ -18,7 +18,7 @@ The Becca Pitts Marketing Engine is a self-reinforcing marketing ecosystem desig
 
 ## Mission Statement
 
-Build a marketing machine where content drives assessment completions, assessment data informs content strategy, analytics validate performance, automation handles the data flow, and the CRM nurtures leads — all with minimal daily manual effort once built.
+Build a marketing machine where content drives assessment completions, assessment data informs content strategy, analytics validate performance, automation handles the data flow, and the CRM nurtures leads - all with minimal daily manual effort once built.
 
 ## Core Principles
 
@@ -43,7 +43,7 @@ Build a marketing machine where content drives assessment completions, assessmen
 
 **Market area:** Washington state (primary focus on local communities)
 
-**Brand positioning:** Micro-influencer real estate authority. Not just an agent who posts listings — a trusted community voice who happens to sell homes. Relatable first, professional second.
+**Brand positioning:** Micro-influencer real estate authority. Not just an agent who posts listings - a trusted community voice who happens to sell homes. Relatable first, professional second.
 
 **Voice & tone:** Warm, authentic, occasionally sassy, always honest. Hormozi-style directness in professional content. Never corporate, never salesy.
 
@@ -119,7 +119,7 @@ Each channel has a primary ICP. Content pillars stay consistent, but the angle a
 | **Podcast** | Tier 3 | High-value engaged audience | 1x/week | Week 9 (May 25) |
 | **Substack** | Tier 3 | Newsletter discovery | 1x/week (cross-post) | Week 9 (May 25) |
 
-Facebook is a Tier 1 channel (not a passive syndication layer) because Becca's primary differentiating ICP — seniors and their adult children — is most active on Facebook. Native Facebook content, not just Instagram cross-posts.
+Facebook is a Tier 1 channel (not a passive syndication layer) because Becca's primary differentiating ICP - seniors and their adult children - is most active on Facebook. Native Facebook content, not just Instagram cross-posts.
 
 ---
 
@@ -127,11 +127,11 @@ Facebook is a Tier 1 channel (not a passive syndication layer) because Becca's p
 
 ## Content Pillars
 
-- **Pillar 1 — Market Intelligence:** Local market data, trends, predictions. Serves all segments. SEO-rich, shareable.
-- **Pillar 2 — The Transaction Decoded:** Step-by-step education demystifying buying/selling. Primary: first-time buyers, sellers.
-- **Pillar 3 — Lifestyle & Community:** Neighborhood guides, local business spotlights, community events. Builds local authority. Creates backlink opportunities.
-- **Pillar 4 — Investment & Wealth Building:** Equity strategies, ROI analysis, tax implications. Primary: move-up buyers, investors.
-- **Pillar 5 — Behind the Curtain:** Personal brand, day-in-the-life, client stories, transparent industry takes. Trust accelerator for all segments.
+- **Pillar 1 - Market Intelligence:** Local market data, trends, predictions. Serves all segments. SEO-rich, shareable.
+- **Pillar 2 - The Transaction Decoded:** Step-by-step education demystifying buying/selling. Primary: first-time buyers, sellers.
+- **Pillar 3 - Lifestyle & Community:** Neighborhood guides, local business spotlights, community events. Builds local authority. Creates backlink opportunities.
+- **Pillar 4 - Investment & Wealth Building:** Equity strategies, ROI analysis, tax implications. Primary: move-up buyers, investors.
+- **Pillar 5 - Behind the Curtain:** Personal brand, day-in-the-life, client stories, transparent industry takes. Trust accelerator for all segments.
 
 ## Content Mix (80/20 Rule)
 
@@ -193,11 +193,11 @@ Every ManyChat sequence ends with a CTA to the full website assessment.
 
 ### Assessment Architecture
 
-**Act 1 — Engagement (Qs 1-3):** Easy, exciting questions that build investment. Goal/timeline/priorities.
+**Act 1 - Engagement (Qs 1-3):** Easy, exciting questions that build investment. Goal/timeline/priorities.
 
-**Act 2 — Intelligence Gathering (Qs 4-8):** Embedded WTP and VOC questions disguised as preference questions. Service model preference (anchors price tiers), agent selection criteria, past agent experience, biggest concerns.
+**Act 2 - Intelligence Gathering (Qs 4-8):** Embedded WTP and VOC questions disguised as preference questions. Service model preference (anchors price tiers), agent selection criteria, past agent experience, biggest concerns.
 
-**Act 3 — Qualification & Close (Qs 9-12):** Financial readiness, area interest, urgency, contact info with value proposition.
+**Act 3 - Qualification & Close (Qs 9-12):** Financial readiness, area interest, urgency, contact info with value proposition.
 
 **Dedicated Senior/Downsizer Path:** Assessment branches when user selects downsizing/senior-related goals. Tailored questions about timeline, family involvement, next living situation, emotional readiness.
 
@@ -253,8 +253,8 @@ Optimized for Make.com free tier (1,000 ops/month, 2 active scenarios). Weekly c
 
 ### Future Scenarios (Post-Upgrade)
 
-- Scenario 3: BoldTrail sync — push assessment lead scores to CRM segments
-- Scenario 4: Weekly content recommendation email — pulls top 5 performing posts, sends Becca a summary with recommendations
+- Scenario 3: BoldTrail sync - push assessment lead scores to CRM segments
+- Scenario 4: Weekly content recommendation email - pulls top 5 performing posts, sends Becca a summary with recommendations
 - Scenario 5: Metricool pixel website data → Sheets (once website and blog launch with pixel embedded)
 
 ---
@@ -376,6 +376,6 @@ A record of all strategic decisions made during this project, with rationale.
 
 ---
 
-*End of Master Project Brief — v1.0*
+*End of Master Project Brief - v1.0*
 
 *Last updated: March 30, 2026*
