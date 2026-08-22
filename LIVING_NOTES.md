@@ -66,8 +66,12 @@ work done directly in the repo.
   framing plants the negative in the reader's head; the denial is what sticks.
   State the positive and stop. This is non-negotiable and it applies to headings,
   body, CTAs, and alt text alike.
-- **No em dashes anywhere in visitor-facing copy.** Commas, colons, semicolons,
-  parentheses instead.
+- **No em dashes anywhere in the repo,** not just visitor-facing copy. Commas,
+  colons, semicolons, parentheses, or a plain hyphen instead. This covers docs,
+  notes, code comments, and synced Drive copies as well as site copy, so nothing
+  gets pasted forward from a file that was assumed to be out of scope. Verify
+  with a search for the character itself, not by reading; it is easy to miss
+  next to a hyphen.
 - **Becca is a solo agent.** Always "I" and "me," never "we," "us," or "our team."
   The one exception is "we" meaning you and I together, as in "whatever we need to
   talk about."
@@ -181,9 +185,17 @@ work done directly in the repo.
 ## Review and testimonial conventions
 
 - **Every review Becca has goes on the site, not a flattering subset.** All 46
-  Zillow reviews live in `tenant.testimonials`. Cherry-picking five reads like
+  Zillow reviews and all 11 Google reviews that are not already on Zillow live
+  in `tenant.testimonials`, 57 in total. Cherry-picking five reads like
   marketing; the full set reads like a record.
-- **Review text is verbatim.** Typos, run-ons, and all — "Beeca", "usa house",
+- **Deduplicate on review text, never on name.** People post the same review to
+  Zillow and Google, sometimes word for word, sometimes trimmed. When two
+  entries are the same review, keep the Zillow one: it is usually the longer
+  text and it carries the transaction summary and city that Google does not
+  publish. Matching on name alone would have missed four pairs whose Zillow
+  entry was a screen name, and would have wrongly merged two pairs that are the
+  same person writing genuinely different reviews years apart.
+- **Review text is verbatim.** Typos, run-ons, and all - "Beeca", "usa house",
   "propmtness" are in the source and stay. Whitespace is collapsed and nothing
   else is touched. Anything that would be a rewrite belongs in a separate
   field, never edited into `quote`.
@@ -191,14 +203,28 @@ work done directly in the repo.
   46 is four stars. Zillow rounds its profile badge to 5.0 and the stats tile
   quotes Zillow, but the individual entry keeps the four. Rounding a real score
   up in the data is the kind of small dishonesty that costs a licence.
-- **Reviewer names are the Zillow screen names as published.** No cleaning up
-  `vdn4yf8ct2` or `zuser20150105142216044` into something prettier. They are
-  what a reader can go verify on Zillow.
+- **A screen name is only replaced by a real name the same person published
+  elsewhere.** Nine Zillow entries now read as people instead of usernames,
+  because the identical review turned up on Google under the reviewer's actual
+  name. That is evidence, not tidying. `vdn4yf8ct2` and
+  `zuser20150105142216044` stay exactly as they are, because nothing outside
+  Zillow says who they are, and inventing a name for a real client is off the
+  table. Every renamed entry keeps `source: "Zillow"` so a reader can still go
+  verify it.
 - **Locations get normalised to a city, and the raw Zillow wording is kept.**
   Neighborhood prefixes come off the display string and ZIP-only entries resolve
   to their city, but the original transaction summary stays in `context` so the
   source is never lost. Where Zillow gives no place, the entry says
   "Washington" rather than guessing one.
+- **A field with no source is left empty, not filled in.** Google and Facebook
+  publish no city and no transaction summary, so Google entries omit `location`
+  and `context` and the card drops those lines. Both fields are optional on
+  `TenantTestimonial` for exactly this reason. Putting a plausible city on
+  eleven real clients to keep the layout tidy would be inventing facts on the
+  one page whose whole value is that a reader can go check it.
+- **No testimonial goes in without its text.** If a reviewer's name is known but
+  the review is not, the entry waits. There is no version of writing the quote
+  yourself that is acceptable.
 - **Reviews are sorted newest first** and the count is stamped in the comment
   above the array, so a stale scrape is obvious.
 - **Hover opens a card, nothing else does.** No click, no modal, no close
@@ -215,14 +241,14 @@ work done directly in the repo.
   `:hover` sticks after a tap, and a card that opens on tap with no close
   affordance is a trap.
 - **Fade edges with an overlay, never with `mask-image`.** A mask paints only
-  inside its clip box, so it erases anything that grows outside the element —
+  inside its clip box, so it erases anything that grows outside the element -
   which is exactly what broke the hover expansion once. Two gradient
   pseudo-elements give the identical look, sit on top rather than subtracting,
   and have no opinion about content that escapes the box.
 - **A CSS property with no fallback path is a liability.** `mask-clip: no-clip`
   worked perfectly in the browser it was written in and silently did nothing
   elsewhere, so the feature looked broken rather than degraded. Before leaning
-  on anything newish, answer "what does this look like if it does nothing?" — if
+  on anything newish, answer "what does this look like if it does nothing?" - if
   the answer is "broken", find another way.
 - **Nothing on the page outranks the header.** It is sticky at `z-40`. Hover
   and overlay effects stay at 20 or below, because content painting over the

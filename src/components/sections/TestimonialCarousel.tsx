@@ -81,15 +81,22 @@ function TestimonialCard({ t }: { t: TenantTestimonial }) {
             <span className="min-w-0 truncate font-semibold text-[color:var(--color-slate)]">
               {t.name}
             </span>
-            <span
-              className="shrink-0 text-[color:var(--color-moss)]"
-              aria-hidden="true"
-            >
-              &middot;
-            </span>
-            <span className="shrink-0 whitespace-nowrap text-[color:var(--color-muted)]">
-              {t.location}
-            </span>
+            {/* Google and Facebook reviews carry no city, so the separator
+                and the location both drop out rather than leaving a dangling
+                middot after the name. */}
+            {t.location && (
+              <>
+                <span
+                  className="shrink-0 text-[color:var(--color-moss)]"
+                  aria-hidden="true"
+                >
+                  &middot;
+                </span>
+                <span className="shrink-0 whitespace-nowrap text-[color:var(--color-muted)]">
+                  {t.location}
+                </span>
+              </>
+            )}
           </div>
           {detail && (
             <p className="testimonial-card__meta text-[color:var(--color-muted)]">

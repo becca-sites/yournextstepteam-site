@@ -20,6 +20,15 @@
  * than the whole identity. Copy rules for this tenant: first person, no
  * X-not-Y framing, no em dashes, solo agent ("I", never "we" about Becca).
  *
+ * REVIEW MERGE (2026-08-22). Google reviews folded in alongside the Zillow
+ * set, deduplicated by review text, newest first. Nine Zillow entries were
+ * left under anonymous usernames by that platform but matched a Google review
+ * word for word, so they now carry the reviewer's real name and keep
+ * `source: "Zillow"` (Jamie Van Eaton, Jan Pauw, Bryanna Michele, Sara
+ * Appudoray, Alicia Torrez, Brendan Dudley, Julie, Bethany Schmidt, Patricia
+ * Albuquerque). Google and Facebook publish no transaction summary or city,
+ * so `context` and `location` are optional and the card drops them.
+ *
  * V1 CONTENT PASS (2026-07-16). Pivoted to becca-sites/yournextstepteam-site.
  * Palette locked to BBCH sibling brand (Ink/Moss/Bone/Sunshine). Real podcast
  * episodes with verified YouTube IDs. Stats and testimonials are real, sourced
@@ -154,8 +163,17 @@ export interface TenantMedia {
 export interface TenantTestimonial {
   quote: string;
   name: string;
-  context: string;
-  location: string;
+  /**
+   * Transaction summary, e.g. "Bought Single Family". Zillow publishes this
+   * alongside the review; Google and Facebook do not, so it is optional and
+   * the card drops the line when it is missing.
+   */
+  context?: string;
+  /**
+   * City the transaction closed in. Zillow-only for the same reason as
+   * `context`, so the card drops the separator when it is missing.
+   */
+  location?: string;
   /** Star rating as left by the reviewer, out of 5. */
   rating?: number;
   /** Review date, ISO yyyy-mm-dd. */
@@ -407,14 +425,63 @@ export const tenant: Tenant = {
     ],
   },
 
-  // All 46 verified reviews from Becca's Zillow agent profile, newest first.
-  // Reviewer names are the Zillow screen names as published, and `quote` is the
-  // review text verbatim (whitespace collapsed). Zillow publishes the profile
-  // rating as 5.0; 45 of the 46 reviews are five stars and one is four, so
-  // `rating` carries each reviewer's own score rather than the rounded average.
+  // 57 verified reviews, newest first: all 46 from Becca's Zillow agent
+  // profile plus the 11 Google reviews that are not already on Zillow.
+  //
+  // `quote` is the review text verbatim (whitespace collapsed). Ten of the 21
+  // Google reviews are the same review the reviewer also left on Zillow, so
+  // they are dropped here and the Zillow entry keeps the earlier, usually
+  // longer text; where Zillow published only a screen name, that entry now
+  // carries the reviewer's real name from the matching Google review. Zillow
+  // publishes the profile rating as 5.0; 45 of the 46 Zillow reviews are five
+  // stars and one is four, so `rating` carries each reviewer's own score
+  // rather than the rounded average. Every Google review is five stars.
+  //
   // `location` is the city from Zillow's transaction summary, with the
   // neighbourhood prefix dropped and ZIP-only entries resolved to their city.
+  // Google publishes neither a city nor a transaction summary, so Google
+  // entries omit `location` and `context` instead of guessing at them.
   testimonials: [
+    {
+      quote:
+        "I am extremely thankful for Becca! Not only did she make the whole process easy and understandable, she was always just a phone call or text away and got back to me almost immediately. She truly cares about her clients and proves that. I would recommend her to every person I know, and I honestly have! She isn't just an agent, she became a friend. If you're looking for a realtor, look no further!",
+      name: "Tory Shelton",
+      rating: 5,
+      date: "2024-11-06",
+      source: "Google",
+    },
+    {
+      quote:
+        "Becca is an incredible realtor! She went above and beyond to help us find our dream home. Her knowledge of the market and attention to detail made the process smooth and stress free. She was always available to answer questions and truly cared about our needs. We couldn't have asked for a better experience. Highly recommend!",
+      name: "Rebecca McKee",
+      rating: 5,
+      date: "2024-11-06",
+      source: "Google",
+    },
+    {
+      quote:
+        "Becca is the best there is! She's hard working, knowledgeable, encouraging, caring and compassionate, goes above and beyond for you and makes it happen!",
+      name: "Tasha Shelton",
+      rating: 5,
+      date: "2024-11-06",
+      source: "Google",
+    },
+    {
+      quote:
+        "Had a great experience with working with Becca. She is a very professional realtor that is very quick to respond to my texts! I would highly recommend her!",
+      name: "Johnny Nuchols",
+      rating: 5,
+      date: "2024-10-31",
+      source: "Google",
+    },
+    {
+      quote:
+        "What an amazing whirlwind it was to have Becca and her team helping us find a home. My husband and I are first time home buyers. When everyone else was telling us we couldn't do it Becca was rooting us on and telling us 'you sure can' and 'don't listen to others'. My husband and I had given up until Becca came into our lives. Becca set us up with the La Flamme group and Movement Mortgage and we were pre approved. We immediately started looking at homes. My husband ended up getting frustrated and tired of looking and told me to take care of it. Becca knew what we were looking for and ultimately started looking at homes for us and calling when she found something that would work and doing video calls with me. This one house kept coming up and she looked, then I went and looked. She immediately put in an offer for us, it was excepted and then everyone busted a move getting us finished and closed. We moved in the day after we closed. If you want a mediocre agent who doesn't give a damn then Becca isn't the one for you. Now if you want an amazing, caring, loyal agent who doesn't want to just 'make a sale' then Becca is for you. She will never push you into something that doesn't fit you or you don't love! Today I got home to a gift from Becca, the mugs and candles were perfect and totally us!!!!! I highly recommend you have Becca on your team, you will not be disappointed at all. Becca will forever be a part of this family. We know who's helping us find our next home.",
+      name: "Jennifer Ziegenfuss",
+      rating: 5,
+      date: "2024-09-10",
+      source: "Google",
+    },
     {
       quote:
         "Becca was incredible every step of the process in selling our house. She was always there when we had a question as we were getting the house ready to put on the market. And she always offered easy to follow advice as it came time to list. We got a lot of quick action on our house once it was on the market and her expertise brought things to a quick closing! Use Becca when buying or selling your home, you will not regret it!!",
@@ -428,7 +495,7 @@ export const tenant: Tenant = {
     {
       quote:
         "Becca has helped us buy four rental properties and sell one. We have found her to be knowledgeable, effective and tenacious in representing us. She is very familiar with the multiple listing contract forms and very efficient in tailoring contracts to our needs and circumstances. She also has been very helpful in finding solutions when problems arose.",
-      name: "janpauw",
+      name: "Jan Pauw",
       context: "Bought and sold Multiple Occupancy",
       location: "Sumner, WA",
       rating: 5,
@@ -437,13 +504,29 @@ export const tenant: Tenant = {
     },
     {
       quote:
+        "This is the second time we have worked with Becca for our real estate needs. We have now worked with her both while looking for our dream home (10 years ago) and now selling a home for an aging parent who needed additional care. Both times we were in good hands. Becca was always available for the endless questions we had and very responsive. She is extremely knowledgeable in the field and was helpful with decisions regarding prepping for listing, staging, pricing, negotiations, repairs, and closing. Becca was helpful, a good problem solver, compassionate, hard working, honest, confident, and always has a smile and a fun sense of humor. We are greatful for our wonderful experience with Becca who made the stressfulness of selling a home, a positive experience. Thank you Becca!",
+      name: "Jen Schumacher",
+      rating: 5,
+      date: "2023-10-05",
+      source: "Google",
+    },
+    {
+      quote:
         "Becca is ridiculously smart and was able to navigate an extremely challenging purchase on a property we recently made. Her sense of humor and tenacity kept us laughing as we slowly rolled across the finish line. She had amazing knowledge of the area and knew just how to compare properties to help us negotiate a fair deal. We love our property! I highly recommend Becca Pitts to anyone purchasing a home.",
-      name: "cleochatra3",
+      name: "Jamie Van Eaton",
       context: "Bought home",
       location: "Fall City, WA",
       rating: 5,
       date: "2023-09-03",
       source: "Zillow",
+    },
+    {
+      quote:
+        "Becca is absolutely awesome. Her and her team are so fast to respond very knowledgeable about the area and can save you a lot of time and headache when it comes to what you want. We were looking at raw property and houses at the same time and she drove all over the king and pierce County areas finding us a home. This is the third house we have bought and in my experience she is the first realtor I have really enjoyed working with! I can't imagine trying to work with another realtor. We will be recommending her team to anyone who asks and giving her our business (If we need it, we got exactly what we wanted and don't think we will have a need to move anytime soon)! Thanks Becca you are awesome!",
+      name: "Russell Wells",
+      rating: 5,
+      date: "2023-08-29",
+      source: "Google",
     },
     {
       quote:
@@ -457,8 +540,16 @@ export const tenant: Tenant = {
     },
     {
       quote:
+        "Becca sold my father's home under some very trying circumstances. She professionally handled unexpected adversity, delays which she had no control over and a drawn out exchange of ownership. She went well above and beyond what my expectations were. I wholeheartedly recommend her expertise with no hesitation.",
+      name: "Carl",
+      rating: 5,
+      date: "2022-08-06",
+      source: "Google",
+    },
+    {
+      quote:
         "This market is tough for a buyer, and especially so if you’re like me, a first-time buyer with particular home requirements and a hard limit on resources. By the time Becca was recommended to me, I was tired of searching and feeling a bit under supported from my agents. Immediately, Becca was a whirlwind of positive energy that helped me get the excitement back that I needed. She listened (and heard), put in the work, talked me through the process bits, and generally made me feel like she was on my team, even when things didn’t go our way. Becca has a way of going to bat for her clients and still holding herself and others to a high standard of integrity and ethics, which was important to me and hard to find in this market. I got a home that meets all of my requirements and that I absolutely love because of the relationships and respect that Becca has fostered in the real estate world, and I will always have gratitude for her role in the rollercoaster process of buying my first home!",
-      name: "BryannaRaiche",
+      name: "Bryanna Michele",
       context: "Bought Single Family",
       location: "Tacoma, WA",
       rating: 5,
@@ -467,8 +558,16 @@ export const tenant: Tenant = {
     },
     {
       quote:
+        "Where do I start? Being a buyer in this market is tough. We were referred to Becca after almost a year of striking out on EVERYTHING. She stepped into a difficult situation with confidence, knowledge, attentiveness and a kindness we so desperately needed. She walked us through an unusual deal while we were living out of state, going above and beyond at every step (literally every step). Her level of professionalism and knowledge of the market is unmatched, as well as her ability to put you at ease and hear you like an old friend. We knew right away Becca was next level. I recommend her to anyone who will listen. Thank you for holding our hands and making our buying process a win for everyone involved.",
+      name: "Sarah York",
+      rating: 5,
+      date: "2021-08-15",
+      source: "Google",
+    },
+    {
+      quote:
         "Becca was awesome to work with. She is very knowledgeable with a chill attitude that helped lessen any anxieties we were feeling through the home buying and selling process.",
-      name: "Seappudoray",
+      name: "Sara Appudoray",
       context: "Bought and sold Single Family",
       location: "Tacoma, WA",
       rating: 5,
@@ -488,7 +587,7 @@ export const tenant: Tenant = {
     {
       quote:
         "I would recommend Becca to ANYONE who is looking to buy or sell a home! Becca was not only professional and hard-working, but she really cared about making sure my family ended up with the right home for us. She was diligent and patient and available to answer any and all questions I had. She eased my stress, was flexible and supportive, and really cared about us more than anything in the homebuying process. What I appreciated most (other than knowing she really cared about us) was how HONEST she was. She didn't put any veils over my eyes our sugar-coat anything; she was realistic and proactive and made sure that we had everything we needed. I am eternally grateful for Becca and her team, and I am a customer (and now friend!) for life!",
-      name: "HALLALICIAE",
+      name: "Alicia Torrez",
       context: "Bought Single Family",
       location: "Tacoma, WA",
       rating: 5,
@@ -498,12 +597,20 @@ export const tenant: Tenant = {
     {
       quote:
         "Becca was a pleasure to work with. She is professional and responsive. She was an excellent partner during the home buying process. I couldn't expect more. I would 100% work with her again in the future.",
-      name: "brendan dudley",
+      name: "Brendan Dudley",
       context: "Bought Single Family",
       location: "Bremerton, WA",
       rating: 5,
       date: "2020-07-30",
       source: "Zillow",
+    },
+    {
+      quote:
+        "We nervously met Becca for coffee in January to see if she could help us buy our first home and we were sold on her...she is professional, fun, motivating and she had a plan for us of when we *will* move into a house. We had a deadline looming because of when our apartment lease would expire and our first baby's due date. In the next two months, Becca became our daily guide and cheerleader, sending us possibilities, adjusting her schedule to our two full time jobs to help us look at places, cheering us up when we didn't get some houses, and becoming a great new friend and mentor to us. Finally, she helped us win a lovely home that we absolutely adore! And right on time, too!! It's been three weeks and we pinch ourselves every morning when we wake up in this quiet, beautiful, spacious and bright house. We cannot thank and recommend her enough! Thank You again, Becca! :) -Sam and Hilli",
+      name: "Hillina Hanes",
+      rating: 5,
+      date: "2020-03-23",
+      source: "Google",
     },
     {
       quote:
@@ -517,8 +624,16 @@ export const tenant: Tenant = {
     },
     {
       quote:
+        "We couldn't be more pleased with having Becca being a part of our team during such a life change process. She was always very responsive and saw hazards before realized, and w/ her experience already had potential solutions in mind. She was creative with roadblocks, developed great rapport w/ anyone we needed to align with, and did it all with a positive grace. Becca was absolutely fantastic to work with, and we will definitely tapping her shoulder in the future again if the need arises.",
+      name: "Burke Dalpez",
+      rating: 5,
+      date: "2020-03-02",
+      source: "Google",
+    },
+    {
+      quote:
         "She answered all my questions, made all the time in the world to make sure I understood the process as well as the how’s and why’s - she was with me every step of the way and I couldn’t imagine having anyone better in my side through this process.",
-      name: "jcyust",
+      name: "Julie",
       context: "Bought Single Family",
       location: "Tacoma, WA",
       rating: 5,
@@ -538,7 +653,7 @@ export const tenant: Tenant = {
     {
       quote:
         "When we first contacted Becca, we weren’t even sure if we would be able to buy a house, and had absolutely no idea how the process even worked and she was amazing from the get go! Came to our house (we had a small baby) and explain every step of the way. She even helped us find a loan agent that we also loved. We ended up buying a house we absolute adore and she was essential in helping us closing the deal, giving us her honest opinions along the way and being always available through the whole process. Becca, went above and beyond to make sure we got the best experience out of this and kept being amazing and thoughtful even after we were already settled at the new house. We were so happy we referred Becca to our friends and they were also very happy with the experience. If you’re looking for an agent, this is the one!",
-      name: "Patricia albuquerque",
+      name: "Patricia Albuquerque",
       context: "Bought Single Family",
       location: "Tacoma, WA",
       rating: 5,
@@ -768,7 +883,7 @@ export const tenant: Tenant = {
     {
       quote:
         "Becca Iverson was hands down the right real estate agent for me. Becca quickly grasped what I was looking for in a home, and was remarkably responsive to my questions and concerns. I really appreciated her honesty, and she made certain that I found the right home in the right price-range. Becca was also incredibly persistent on my behalf, and helped make everything fall into place as quickly as possible. I highly recommend her.",
-      name: "bethie schmidt",
+      name: "Bethany Schmidt",
       context: "Bought Single Family",
       location: "Tacoma, WA",
       rating: 5,

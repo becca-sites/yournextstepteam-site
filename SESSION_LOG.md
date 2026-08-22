@@ -7,7 +7,85 @@ Note: the Google Drive **SESSION_LOG** doc is the more current master. See
 
 ---
 
-## 2026-08-22 — About copy: transaction team, and the drive is "hours"
+## 2026-08-22 - Google reviews merged into testimonials, em dash sweep
+
+**Deliverable:** `tenant.testimonials` goes from 46 entries to 57. All 46 Zillow
+reviews stay, plus the 11 Google reviews that are not already on Zillow. The
+carousel design is untouched; only the data and one null guard changed.
+
+**Dedup rule used: match on review text, not on name.** Ten of the 21 Google
+reviews are the same review the person also left on Zillow, in some cases word
+for word. Those are dropped from the Google side and the Zillow entry is kept,
+because the Zillow text is usually the longer one (Jan Pauw's Zillow review runs
+three sentences past the Google version) and the Zillow entry carries the
+transaction summary and city that Google does not publish.
+
+**Nine Zillow entries got their real names.** Zillow published them under
+screen names; the matching Google review had the person's actual name. These
+now read as people instead of usernames and keep `source: "Zillow"`:
+
+| Was (Zillow screen name) | Now |
+| --- | --- |
+| `cleochatra3` | Jamie Van Eaton |
+| `janpauw` | Jan Pauw |
+| `BryannaRaiche` | Bryanna Michele |
+| `Seappudoray` | Sara Appudoray |
+| `HALLALICIAE` | Alicia Torrez |
+| `brendan dudley` | Brendan Dudley |
+| `jcyust` | Julie |
+| `bethie schmidt` | Bethany Schmidt |
+| `Patricia albuquerque` | Patricia Albuquerque |
+
+Four of those nine were not on the brief. They were found by comparing review
+text: Bethany Schmidt, Jan Pauw, Brendan Dudley, and Julie all matched a Zillow
+entry closely enough to be the same review, so adding the Google copy would have
+printed the same testimonial twice under two different names.
+
+**`context` and `location` are now optional.** Google publishes neither a
+transaction summary nor a city. The alternative was inventing a city for eleven
+real clients, which is not a thing to do on a page whose whole job is being
+verifiable. `TestimonialCarousel` drops the separator and the location line when
+they are missing, so a Google card reads "Tory Shelton" over "November 2024"
+with no dangling middot.
+
+**Still open: the Facebook reviews.** The brief named Emily Whipple Ellis and
+Katy Peterson but did not include their review text, and a fifth Facebook review
+was never named. Nothing was added for them, because the only way to add a
+testimonial without its text is to write one, and a made-up testimonial is worse
+than a missing one. Two of the five Facebook reviews are already handled: TW
+Shelton is Tasha Shelton (in as Google) and Jamie Saal VanEaton is Jamie Van
+Eaton (in as Zillow). Paste the text for the other three and they go in.
+
+**Em dash sweep.** 23 tracked files carried em dashes, all in docs and notes
+rather than site copy. Every one is now a regular dash. The site source was
+already clean apart from two in a `src/lib/placeholder.ts` comment.
+
+### Two same-person pairs left as two entries, on purpose
+
+- **`tashat9` (Zillow, 2016) and Tasha Shelton (Google, 2024).** Different
+  reviews eight years apart, so both are real and both are in.
+- **`wineboy1` (Zillow) and Carl (Google), both 2022-08-06.** Same day, entirely
+  different text. Probably the same seller writing twice on two platforms.
+
+Neither is a duplicate under the text rule, so neither was merged. Worth a look
+if seeing the same client twice under two names bothers anyone.
+
+### Files touched
+
+- `src/config/tenant.ts` - `testimonials`, `TenantTestimonial`, header comment
+- `src/components/sections/TestimonialCarousel.tsx` - location null guard
+- 23 files - em dash replacement
+
+`stats` still reads "5.0 Zillow rating / 46 verified reviews". That is still
+true, since it is labelled as the Zillow number specifically. If it should count
+Google too, the honest combined figure is 67 reviews across the two platforms,
+57 of them distinct.
+
+`npm run typecheck` and `npm run build` both clean.
+
+---
+
+## 2026-08-22 - About copy: transaction team, and the drive is "hours"
 
 **Deliverable:** two sentences in the second About paragraph rewritten. Commits
 `ebe908d` and the follow-up.
@@ -34,7 +112,7 @@ the harder number instead.
 
 ### Files touched
 
-- `src/config/tenant.ts` — `agent.storyLong`, second paragraph
+- `src/config/tenant.ts` - `agent.storyLong`, second paragraph
 
 `storyLong` is the single source for this copy. The homepage
 (`src/app/page.tsx`), the About page (`src/app/about/page.tsx`), and
@@ -51,7 +129,7 @@ the harder number instead.
 
 ---
 
-## 2026-08-21 — Fix: the edge-fade mask was clipping the expanded card
+## 2026-08-21 - Fix: the edge-fade mask was clipping the expanded card
 
 **Deliverable:** the hover expansion now actually clears its row. Reported as
 "only expands a little bit and the full review text gets cut off by the panel
@@ -65,7 +143,7 @@ below the row was masked away to nothing. `mask-clip: no-clip` was meant to
 lift that and does in Chrome, which is why this shipped looking fine.
 
 **Forcing `mask-clip: border-box` in Chrome reproduces the reported symptom
-exactly** — the card opens a little way and stops dead at the row's bottom edge,
+exactly** - the card opens a little way and stops dead at the row's bottom edge,
 mid-sentence. That is the whole bug: `no-clip` is a property that silently does
 nothing on an engine that has not shipped it, and when it does nothing there is
 no fallback, only a feature that looks broken.
@@ -85,7 +163,7 @@ Before, the card was stuck at 208px. Now it measures 499px and clears its row by
 
 - **The section lifts on hover, not just the row.** Belt and braces so the
   overhang lands on top of whatever follows the testimonials. Capped at
-  `z-index: 20`, below the sticky header's `z-40` — a review painting over the
+  `z-index: 20`, below the sticky header's `z-40` - a review painting over the
   navigation would be a worse bug than one tucking under it.
 - **The quote cap is a flat 400px** rather than `min(30rem, 44vh)`. The vh term
   resolved to roughly 360px on a laptop and made the opening look timid.
@@ -99,7 +177,7 @@ load-bearing needs a "what if this does nothing" answer.
 
 ---
 
-## 2026-08-21 — Testimonial cards expand on hover
+## 2026-08-21 - Testimonial cards expand on hover
 
 **Deliverable:** hovering a testimonial card opens it to the full review text
 and collapses it again on mouse-out. Pure CSS, no click, no modal. Commit
@@ -154,7 +232,7 @@ and collapses it again on mouse-out. Pure CSS, no click, no modal. Commit
 
 ---
 
-## 2026-08-21 — All 46 Zillow reviews into `tenant.testimonials`
+## 2026-08-21 - All 46 Zillow reviews into `tenant.testimonials`
 
 **Deliverable:** `tenant.testimonials` now carries every review on Becca's
 Zillow agent profile, 46 of them, in place of the five hand-picked excerpts.
@@ -177,7 +255,7 @@ Commit `c090918`, pushed to `origin/main`.
 
 ### One correction to the brief
 
-The reviews were described as all 5.0. **45 are five stars; one is four** —
+The reviews were described as all 5.0. **45 are five stars; one is four** -
 `user7088909`, 4/2/2015, the reviewer who mentions being Becca's sister.
 `rating` records each reviewer's own score, so that entry reads `rating: 4`.
 Zillow itself still publishes the profile average as 5.0, so the
@@ -188,7 +266,7 @@ Zillow shows and was left alone.
 
 Zillow's transaction summaries are inconsistent, so `location` was normalised:
 
-- Neighbourhood prefixes dropped — "West end, Tacoma, WA" became "Tacoma, WA".
+- Neighbourhood prefixes dropped - "West end, Tacoma, WA" became "Tacoma, WA".
 - ZIP-only summaries resolved to their city: 98409 / 98405 / 98466 to Tacoma,
   98374 Puyallup, 98387 Spanaway, 98056 Renton.
 - Two reviews name no place at all and read "Washington".
@@ -213,7 +291,7 @@ Zillow's.
 
 ---
 
-## 2026-08-21 — Testimonial section redesign: two-row auto-scrolling marquee
+## 2026-08-21 - Testimonial section redesign: two-row auto-scrolling marquee
 
 **Deliverable:** the homepage testimonial block is now a pair of continuously
 scrolling marquee rows of compact cards instead of a single wide snap carousel.
@@ -272,7 +350,7 @@ scrolling marquee rows of compact cards instead of a single wide snap carousel.
 
 ---
 
-## 2026-08-21 — Rebrand to Your Next Step Team, real logo, hero tuning
+## 2026-08-21 - Rebrand to Your Next Step Team, real logo, hero tuning
 
 **Deliverable:** the business is now **Your Next Step Team** on
 **yournextstepteam.com**, the real logo artwork is in the repo, and the hero
@@ -353,7 +431,7 @@ which is why the font pack ships no hairline weights.
 
 ---
 
-## 2026-08-21 — Full site copy rewrite (geographic expert positioning)
+## 2026-08-21 - Full site copy rewrite (geographic expert positioning)
 
 **Deliverable:** every visitor-facing string on the site rewritten against a new
 positioning brief. Commit `25a63c6`.
@@ -422,11 +500,11 @@ upsize, downsize, right-size, invest, relocate, luxury). Senior transitions are
 
 ### Files touched
 
-- `src/config/tenant.ts` — bio, storyLong, title, positioning, eyebrow,
+- `src/config/tenant.ts` - bio, storyLong, title, positioning, eyebrow,
   neighborhood priority, stats, all six scenarios, all six FAQs
 - `src/app/page.tsx`, `buyers/`, `sellers/`, `about/`, `contact/`, `quiz/`
 - `src/app/home-value/`, `videos/`, `neighborhoods/[slug]/`,
-  `buyers/questionnaire/` — CTA language and stray "no pressure" lines
+  `buyers/questionnaire/` - CTA language and stray "no pressure" lines
 - `src/components/global/Header.tsx`, `src/components/sections/FinalCtaBlock.tsx`
 
 ### Note on this commit
@@ -447,7 +525,7 @@ pending" below is therefore done.
 
 ---
 
-## 2026-08-21 — Homepage redesign (Becca and Brett review session)
+## 2026-08-21 - Homepage redesign (Becca and Brett review session)
 
 **Deliverable:** full homepage pass off the Becca/Brett review notes.
 
@@ -483,11 +561,11 @@ pending" below is therefore done.
 
 ### Files touched
 
-- `src/config/tenant.ts` — scenario rewrite, `articleSlug` field, positioning copy
-- `src/app/page.tsx` — section order, hero CTAs, video comment, card markup
-- `src/components/sections/TestimonialCarousel.tsx` — client component, auto-scroll, aligned attribution
-- `src/components/ContactBlock.tsx` — matching questionnaire buttons (affects every page using it)
-- `src/components/global/Footer.tsx` — sibling link, address removal, disclosure placement
+- `src/config/tenant.ts` - scenario rewrite, `articleSlug` field, positioning copy
+- `src/app/page.tsx` - section order, hero CTAs, video comment, card markup
+- `src/components/sections/TestimonialCarousel.tsx` - client component, auto-scroll, aligned attribution
+- `src/components/ContactBlock.tsx` - matching questionnaire buttons (affects every page using it)
+- `src/components/global/Footer.tsx` - sibling link, address removal, disclosure placement
 
 ### Still pending
 
@@ -512,7 +590,7 @@ pending" below is therefore done.
 
 ---
 
-## 2026-08-21 (later) — Hero layout alignment + real neighborhood market data
+## 2026-08-21 (later) - Hero layout alignment + real neighborhood market data
 
 **Deliverable:** homepage hero re-aligned to the grid used by the rest of the
 page, and the neighborhood market numbers replaced with Becca's real figures.
@@ -560,10 +638,10 @@ Taglines and descriptions written in Level 2 voice, first person, no em dashes.
 
 ### Files touched
 
-- `src/app/page.tsx` — hero wrapper swapped off `Container`
-- `src/components/HeroVideo.tsx` — bottom gradient removed
-- `src/components/HeroMosaic.tsx` — bottom gradient removed from the fallback
-- `src/config/tenant.ts` — nine neighborhood entries filled in, `Roy` added
+- `src/app/page.tsx` - hero wrapper swapped off `Container`
+- `src/components/HeroVideo.tsx` - bottom gradient removed
+- `src/components/HeroMosaic.tsx` - bottom gradient removed from the fallback
+- `src/config/tenant.ts` - nine neighborhood entries filled in, `Roy` added
 
 ### Still pending
 
