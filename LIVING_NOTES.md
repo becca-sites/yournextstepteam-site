@@ -292,3 +292,21 @@ work done directly in the repo.
 - **Nothing on the page outranks the header.** It is sticky at `z-40`. Hover
   and overlay effects stay at 20 or below, because content painting over the
   navigation is worse than content tucking under it.
+
+## Homepage hero conventions
+
+- **The hero carries the proof, not a separate strip.** The four stats live on
+  the video at the bottom of the hero. There is no "By the numbers" section on
+  the homepage any more, and the about section is the first thing below the fold.
+- **Never label a stat row.** An eyebrow reading "By the numbers" above four
+  numbers, or a heading that restates a stat already rendered at 40px underneath
+  it, is filler. The numbers introduce themselves.
+- **White glass over the hero video needs a dark scrim under it.** `HeroVideo`
+  washes the left side white up to 0.90 so the dark headline reads. Anything
+  white-on-white placed over that footage has to bring its own darkening, kept
+  low enough in the frame that it never reaches the headline.
+- **Glass recipe for this site:** `bg-white/15`, `backdrop-blur-[12px]`,
+  `border border-white/25`, `rounded-2xl`, white type with a soft text-shadow.
+  Reuse these values rather than inventing a second glass treatment.
+- **Stat rows go two up on phones, four across from md.** Values like "SRES" with
+  the registered mark wrap badly in a four-across grid at 375px.

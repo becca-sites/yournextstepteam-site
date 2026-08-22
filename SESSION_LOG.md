@@ -7,6 +7,72 @@ Note: the Google Drive **SESSION_LOG** doc is the more current master. See
 
 ---
 
+## 2026-08-22 - Homepage: the stats move onto the hero video as glass cards
+
+**Deliverable:** `src/app/page.tsx`. The standalone "By the numbers" section is
+deleted; `tenant.stats` now renders as a glassmorphic row pinned to the bottom
+of the hero, over the video. `AboutPreviewSection` is the first thing under the
+fold.
+
+### What was cut, not moved
+
+Two pieces of copy came out entirely rather than following the numbers up into
+the hero: the "By the numbers" eyebrow and the "Becca Pitts: 270 closings across
+Western Washington" heading. A label that says "here are some numbers" above
+four numbers is not carrying meaning, and the heading restated a stat sitting
+two inches below it in 40px type. The hero headline is the only heading the top
+of the page needs.
+
+### The hero is a flex column now
+
+It was `min-h-[85vh]` with a single stacked content div. It is now
+`flex min-h-[85vh] flex-col`, with the text block in a `flex-1` wrapper that
+centers it in whatever space is left and the stat row as the last child. The
+cards sit on the bottom edge at any hero height instead of being positioned
+against it.
+
+### The white wash and the white cards fight, so there is a scrim
+
+`HeroVideo` paints a left-to-right white gradient, up to 0.90 opacity on the far
+left, so the dark-ink headline reads over the footage. White glass cards with
+white type in that same wash would be invisible, and the footage also cuts to
+bright frames (sky, siding) where they would vanish anyway.
+
+So the hero paints its own scrim: `absolute inset-x-0 bottom-0 h-[45%]`,
+`bg-gradient-to-t from-black/60 via-black/25 to-transparent`, at `z-[5]`. That
+is above the video and its wash (`z-0`) and below the content column (`z-10`).
+It is fully transparent by 45% up, well clear of the headline and subhead, which
+still want the light wash under them. Card type also carries
+`text-shadow: 0 1px 12px rgba(0,0,0,0.45)` for the same reason. Tailwind has no
+text-shadow utility, so that one is an inline style.
+
+### Card recipe
+
+`rounded-2xl`, `border border-white/25`, `bg-white/15`, `backdrop-blur-[12px]`,
+`shadow-lg`, white type, detail line at `text-white/80`. Four separate panes
+rather than one wide bar, so the mobile grid reads as deliberate.
+
+`grid-cols-2` on phones and `md:grid-cols-4` above. Measured at 375 x 812 and
+1280 x 720: clean 2x2 at 166px per card on mobile, four 288px cards on desktop,
+no horizontal overflow at either.
+
+### Hero padding came down
+
+`py-24 lg:py-32` to `py-14 lg:py-20`. Padding above the stat row is now padding
+that pushes the cards toward the fold, so it had to pay for itself.
+
+Known tradeoff: the hero measures about 990px tall at 1280 wide, because the
+`md:text-7xl` headline is 229px on its own and the subhead another 170px. On a
+short laptop viewport the cards land just at or below the fold. Shrinking the
+headline would fix it and was out of scope for this pass.
+
+### StatCardRow stays
+
+The component is still imported by `/about` and `/sellers`. Only the homepage's
+use of it was removed, along with the now-unused import.
+
+---
+
 ## 2026-08-22 - Header: demo ribbon out, bar tightened, nav cut to five
 
 **Deliverable:** `src/components/global/Header.tsx` rewritten around a
