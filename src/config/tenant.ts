@@ -45,6 +45,12 @@ export interface TenantAgent {
   brokerage: string;
   brokerageDisclosure: string;
   headshot: string;
+  /**
+   * Second portrait for the homepage scroll crossfade. Optional: when it is
+   * unset the crossfade falls back to running the primary headshot in both
+   * slots, so the mechanism still works and nothing looks broken.
+   */
+  headshotAlt?: string;
   bio: string;
   storyLong: string;
   license: string;
@@ -264,6 +270,9 @@ export const tenant: Tenant = {
     brokerageDisclosure:
       "Rebecca Pitts is a licensed real estate broker in Washington State, affiliated with eXp Realty. MLS #87890. License #107351. eXp Realty is a licensed real estate brokerage. Equal Housing Opportunity.",
     headshot: "/photos/headshots/becca-headshot.webp",
+    // The seated studio portrait crossfades into this one on the homepage as
+    // the about section scrolls through the viewport.
+    headshotAlt: "/photos/headshots/becca-headshot-alt.webp",
     bio: "Here's the thing about 270 closings: they teach you exactly where a deal breaks. So I structure things so they don't. I anticipate problems and have a Plan B ready, sometimes C and D, before anything goes sideways. That kind of experience also teaches you when it's time to walk away and cut losses, and I'll tell you that honestly too.",
     // Becca's own words. Paragraphs are separated by a blank line and split on
     // "\n\n" wherever this renders, so the homepage and the About page stay in
