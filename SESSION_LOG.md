@@ -7,6 +7,88 @@ Note: the Google Drive **SESSION_LOG** doc is the more current master. See
 
 ---
 
+## 2026-08-22 - Hero stat cards restyled to the Living In tile recipe
+
+**Deliverable:** `src/app/page.tsx`. The stat cards from the pass earlier today
+are rebuilt against a design reference Brett pointed at: the category tiles in
+the hero of livingin-platform.vercel.app.
+
+### The recipe, read off the live page
+
+Not eyeballed. `.category-tile` resolves to:
+
+```css
+background: linear-gradient(#fff6 0%, #ffffff8c 45%, #ffffffd9 100%);
+border: 1px solid var(--border);   /* rgb(230,227,220), opaque */
+box-shadow: 0 1px 2px #00000029, 0 8px 18px #00000038;
+border-radius: 16px;
+```
+
+Three things about that were not what "glassmorphic" usually means, and all
+three matter:
+
+1. **It is a gradient, not a flat alpha.** 0.40 at the top opening to 0.85 at
+   the bottom. That is what makes it read as frosted glass rather than as a grey
+   film, and it puts the type on the most opaque part of the card.
+2. **There is no `backdrop-filter` at all.** The frosted impression is entirely
+   the gradient.
+3. **The text is dark**, `rgb(25,42,44)`, not white. Their hero has no scrim
+   under the tiles either. The tiles carry themselves.
+
+### What that changed here
+
+The earlier pass had `bg-white/15` with white type and a black scrim across the
+bottom 45% of the hero. All of that inverted. Cards now use the gradient above
+with ink type, and the scrim came out: light cards with dark text do not need
+it, and a dark band would have fought both the cards and the hero's own
+left-to-right white wash.
+
+Two deliberate departures from the reference, both because this sits on moving
+video rather than a still photo:
+
+- **`backdrop-blur-[12px]` was added.** The reference does not have it and does
+  not need it on a fixed image. Footage that cuts between frames does.
+- **The shadow stays.** It is what separates a light card from a frame that
+  happens to be white.
+
+### Icon chips
+
+Icon over label is the structural half of the reference, so each card now leads
+with a 40px/48px rounded chip in a brand color with a white stroke glyph, and
+the stat number sits between the chip and the label at display weight. The
+reference tiles carry an icon and one label; the number is the reason this row
+exists, so it keeps the size.
+
+Icons are keyed by the stat's label in `tenant.stats` rather than by index, so
+reordering the stats moves the right icon with the right number, and an unknown
+label falls through to the star instead of leaving a hole.
+
+The gold chip takes an ink glyph instead of white. White on `#D99A2B` is about
+2.2:1, which is thin even for decoration; dark on gold is roughly 8:1 and reads
+as a badge on purpose.
+
+### One trap worth remembering
+
+The detail line was first written as `text-[11px]`. That is wrong on this site:
+`globals.css` redefines `--text-xs` to `0.875rem` and calls it "the floor for
+anything on this site". An arbitrary px value walks straight under a documented
+type floor without tripping anything. The line is `text-xs` now, and it
+separates from the label by case and color rather than by size.
+
+### Measurements
+
+375: 2x2, 166px wide, 233px tall, no horizontal overflow.
+1280: four 288px columns, 250px tall, equal height via `h-full`.
+
+Open item: the cards are 250px tall now against 174px before, so the hero
+measures about 1066px at 1280 wide and the row sits below the fold on an 800px
+viewport. The cause is upstream of the cards. The `md:text-7xl` headline is
+229px and the subhead another 170px, so roughly 270px would have to come out of
+the copy or the type scale to lift the row above the fold. Not a card problem
+and not changed here.
+
+---
+
 ## 2026-08-22 - Homepage: the stats move onto the hero video as glass cards
 
 **Deliverable:** `src/app/page.tsx`. The standalone "By the numbers" section is

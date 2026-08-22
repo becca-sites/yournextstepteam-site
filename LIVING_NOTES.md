@@ -310,3 +310,32 @@ work done directly in the repo.
   Reuse these values rather than inventing a second glass treatment.
 - **Stat rows go two up on phones, four across from md.** Values like "SRES" with
   the registered mark wrap badly in a four-across grid at 375px.
+
+## Glassmorphism, as this site does it
+
+Reference: the category tiles in the livingin-platform.vercel.app hero. Brett
+pointed at these; the values below are read off the live page, not approximated.
+
+- **Frosted glass here is a vertical white gradient, not a flat alpha.**
+  `linear-gradient(rgba(255,255,255,.40) 0%, rgba(255,255,255,.55) 45%,
+  rgba(255,255,255,.85) 100%)`. A single flat `bg-white/15` reads as a grey
+  film. The gradient reads as glass and lands the type on the opaque end.
+- **Frosted glass carries dark text, not white.** Ink on the card, and then the
+  background behind it needs no scrim. Reach for white type only when the panel
+  is genuinely dark.
+- **Pair it with:** `rounded-2xl`, a 1px opaque light border, and
+  `box-shadow: 0 1px 2px rgba(0,0,0,.16), 0 8px 18px rgba(0,0,0,.22)`. The
+  shadow is not optional over imagery; it is what separates the card from a
+  white frame.
+- **Add `backdrop-blur-[12px]` over video, skip it over a photo.** The reference
+  has no backdrop filter because a still image does not need one.
+- **Icon chip over label is the structure.** 40px on phones, 48px up, a solid
+  brand color, white stroke glyph at 1.6. On the gold chip use an ink glyph:
+  white on `#D99A2B` is about 2.2:1.
+
+## Type floor
+
+- **`--text-xs` is 14px on this site, and it is a floor.** Never reach for an
+  arbitrary `text-[11px]` or `text-[13px]` to make something fit. Arbitrary px
+  values slide under the floor silently; the utility classes respect it. If a
+  label needs to recede, change case, weight, or color instead of size.
