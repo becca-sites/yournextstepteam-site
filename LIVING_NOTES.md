@@ -163,6 +163,37 @@ work done directly in the repo.
   that array is ordered by priority rather than alphabetically.
 - **`PLACEHOLDER_MODE` stays `true`** until launch is a deliberate decision.
 
+## Header conventions
+
+- **The header is a bar, not a shelf.** 61px on desktop. Vertical padding on
+  the row is `py-2`, the logo runs `h-8 md:h-9`, and nav pills sit at
+  `px-3 py-2`. Anything that pushes the bar back toward 80px is a regression:
+  it is a sticky element, so every pixel is charged against every page.
+- **Five nav items, and that is the ceiling.** Home, Buyers, Sellers,
+  Neighborhoods, About Becca, with Contact as the button on the right. Blog,
+  Quiz, Podcast, and Listings live in the footer and in body copy. A new page
+  does not get a header slot by default; it has to displace one of the five.
+- **The nav button says "Contact," not "Let's talk."** The warmer phrasing is
+  right for in-page CTAs and wrong for a nav control, where the job is to name
+  a destination. "Let's talk" also collided with the CTA in the about section.
+- **`.btn-primary` is for in-page CTAs, never the header.** It is 48px tall by
+  design and it is declared outside any `@layer` in `globals.css`, so unlayered
+  precedence means Tailwind utilities on the element cannot shrink it. The
+  header keeps its own `CTA_CLASS` constant. Same rule applies anywhere else
+  that needs a smaller button: write a local class, do not fight the global one.
+- **Desktop nav may go under 44px, mobile may not.** The `lg:` nav is
+  pointer-only, so the touch-target floor does not apply to it. The mobile sheet
+  and its CTA stay at 44px and up.
+- **Logo and Home are both home links, on purpose.** The logo is the habitual
+  target and Home is the explicit one. Keep `aria-label` on the logo link so the
+  two do not read as a duplicate to a screen reader.
+- **Nav active state: `/` is exact-match, everything else matches its children.**
+  `isActive()` in `Header.tsx` owns this. A bare prefix rule silently breaks on
+  the Home entry, since `"/" + "/"` never matches anything.
+- **No demo ribbon.** The site being pre-launch is not something the page needs
+  to announce. `isNoIndex()` is the real guard and it is untouchable from the
+  UI layer.
+
 ## Hero and layout conventions
 
 - **The hero text sits on the same grid as every section under it.** Left edge of

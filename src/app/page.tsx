@@ -7,7 +7,6 @@ import { SectionIntro } from "@/components/SectionIntro";
 import { HeroMosaicBackground } from "@/components/HeroMosaic";
 import { HeroVideo } from "@/components/HeroVideo";
 import { ContactBlock } from "@/components/ContactBlock";
-import { StatCardRow } from "@/components/sections/StatCardRow";
 import { TestimonialCarousel } from "@/components/sections/TestimonialCarousel";
 import { RealEstateAgentSchema } from "@/components/schema/RealEstateAgentSchema";
 import { HeroVideoSchema } from "@/components/schema/HeroVideoSchema";
@@ -17,16 +16,33 @@ function HeroSection() {
   const video = tenant.media.heroVideo;
 
   return (
-    <section className="relative min-h-[85vh] overflow-hidden bg-white">
+    <section className="relative flex min-h-[85vh] flex-col overflow-hidden bg-white">
       {/* Falls back to the photo mosaic if the video is ever unset. */}
       {video ? <HeroVideo video={video} /> : <HeroMosaicBackground />}
-      <div className="relative z-10 flex min-h-[85vh] items-center">
-        {/* Deliberately not <Container>: its inner `mx-auto max-w-2xl` centers
-            the column below lg, which pushed the hero text out of line with the
-            "By the numbers" strip underneath. This mirrors StatCardRow's own
-            wrapper (max-w-7xl, px-4 lg:px-8) so the eyebrow, H1, paragraph, and
-            CTAs share a left edge with the section below at every breakpoint. */}
-        <div className="mx-auto w-full max-w-7xl px-4 py-24 lg:px-8 lg:py-32">
+
+      {/*
+        Bottom scrim, painted above the video (z-0) and below the content
+        column (z-10). The stat cards below are translucent white glass with
+        white type, and the footage cuts to bright frames (sky, siding, snow)
+        where white on white would vanish. This darkens the bottom band so the
+        cards read against every frame. It fades out well before the headline,
+        which is dark ink and needs the light wash the video already carries.
+      */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-x-0 bottom-0 z-[5] h-[45%] bg-gradient-to-t from-black/60 via-black/25 to-transparent"
+      />
+
+      {/* Deliberately not <Container>: its inner `mx-auto max-w-2xl` centers
+          the column below lg, which pushed the hero text out of line with the
+          stat row underneath. This mirrors the stat row's own wrapper
+          (max-w-7xl, px-4 lg:px-8) so the eyebrow, H1, paragraph, and CTAs
+          share a left edge with the cards at every breakpoint. */}
+      <div className="relative z-10 flex flex-1 items-center">
+        {/* Tighter than the old hero's py-24/py-32. The stat row now lives
+            inside this section, so every pixel of padding here pushes the
+            cards further down the screen. */}
+        <div className="mx-auto w-full max-w-7xl px-4 py-14 lg:px-8 lg:py-20">
           <FadeIn className="max-w-2xl text-left">
             <p className="eyebrow">{tenant.brand.eyebrow}</p>
             <h1 className="mt-5 font-display text-5xl font-semibold leading-[1.05] tracking-tight text-neutral-950 md:text-7xl">
@@ -61,7 +77,47 @@ function HeroSection() {
           </FadeIn>
         </div>
       </div>
+
+      <HeroStatRow />
     </section>
+  );
+}
+
+/**
+ * The four proof points, sitting on the video at the bottom of the hero.
+ *
+ * Two up on phones and four across from md, so the row never squeezes a
+ * value like "SRES®" onto three lines. Each card is its own pane of glass
+ * rather than one wide bar, which keeps the 2x2 mobile grid looking
+ * deliberate instead of like a broken strip.
+ */
+function HeroStatRow() {
+  return (
+    <div className="relative z-10 mx-auto w-full max-w-7xl px-4 pb-8 lg:px-8 lg:pb-12">
+      <FadeIn>
+        <dl className="grid grid-cols-2 gap-3 md:grid-cols-4 md:gap-4">
+          {tenant.stats.map((s) => (
+            <div
+              key={s.label}
+              className="rounded-2xl border border-white/25 bg-white/15 px-4 py-5 text-white shadow-lg backdrop-blur-[12px] md:px-6 md:py-6"
+              // Tailwind has no drop-shadow utility for text, and the type
+              // still has to survive a blown-out frame behind the glass.
+              style={{ textShadow: "0 1px 12px rgba(0,0,0,0.45)" }}
+            >
+              <dt className="display-num text-3xl md:text-4xl">{s.value}</dt>
+              <dd className="mt-2 text-xs font-semibold uppercase tracking-wide md:text-sm">
+                {s.label}
+              </dd>
+              {s.detail && (
+                <p className="mt-1.5 text-xs leading-snug text-white/80">
+                  {s.detail}
+                </p>
+              )}
+            </div>
+          ))}
+        </dl>
+      </FadeIn>
+    </div>
   );
 }
 
@@ -115,8 +171,8 @@ function ScenariosSection() {
 }
 
 function AboutPreviewSection() {
-  // White here so the three stacked sections (stats, about, scenarios) read as
-  // three sections instead of one long warm block.
+  // White here so this reads as its own section against the warm scenarios
+  // block below it, and so it meets the bottom of the hero video cleanly.
   return (
     <section className="bg-white py-20 md:py-24">
       <Container>
@@ -173,11 +229,9 @@ export default function HomePage() {
       <RealEstateAgentSchema />
       <HeroVideoSchema />
       <HeroSection />
-      <StatCardRow
-        stats={tenant.stats}
-        eyebrow="By the numbers"
-        heading="Becca Pitts: 270 closings across Western Washington"
-      />
+      {/* Nothing between these two. The stats used to sit here as their own
+          strip; they now overlay the bottom of the hero, so the about section
+          is the first thing under the fold. */}
       <AboutPreviewSection />
       <ScenariosSection />
       <TestimonialCarousel heading="What clients are saying" />

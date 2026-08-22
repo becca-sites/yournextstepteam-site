@@ -7,6 +7,83 @@ Note: the Google Drive **SESSION_LOG** doc is the more current master. See
 
 ---
 
+## 2026-08-22 - Header: demo ribbon out, bar tightened, nav cut to five
+
+**Deliverable:** `src/components/global/Header.tsx` rewritten around a
+five-item nav, `DemoRibbon` deleted, `tenant.demo.ribbon` retired.
+
+### The demo ribbon is gone, the noindex guard is not
+
+`DemoRibbon` painted a "Demo site" pill fixed to the top right corner of every
+page. It was a reminder, never a protection. The protection is `isNoIndex()` in
+`src/lib/placeholder.ts`, which ORs `tenant.demo.noIndex` with
+`PLACEHOLDER_MODE`, and feeds the meta robots tag, the `X-Robots-Tag` header in
+`next.config.ts`, and `/robots.txt`. None of that was touched. The site is still
+walled off from crawlers; it just no longer says so in the corner.
+
+`tenant.demo.ribbon` had exactly one reader, so the flag came out of the
+`Tenant` interface with the component. `demo` is now `{ noIndex: boolean }`.
+
+### The bar was 80px of mostly nothing, now 61px
+
+Measured in the browser, not eyeballed. What moved:
+
+| | Before | After |
+| --- | --- | --- |
+| Header height (desktop) | 80px | 61px |
+| Logo | `h-11 md:h-12` | `h-8 md:h-9` |
+| Row padding | `py-4` | `py-2` |
+| Nav pills | `px-4 py-3`, `min-h-[44px]` | `px-3 py-2` |
+| Top-right CTA | `.btn-primary`, 48px tall | 92 x 42 |
+
+The CTA needed its own class rather than a couple of override utilities on
+`.btn-primary`. That class lives in `globals.css` outside any `@layer`, and
+unlayered CSS beats layered utilities regardless of what Tailwind emits, so
+`px-4 py-2` on the element does nothing. It is also correctly sized for the
+in-page CTAs everywhere else on the site, so editing it in place was not an
+option either. `CTA_CLASS` at the top of `Header.tsx` is the header's own copy.
+
+Touch targets held: mobile nav rows measure 55px and the mobile CTA keeps
+`min-h-[44px]`. The desktop pills dropped below 44px on purpose, since that
+nav is `hidden lg:block` and only ever sees a pointer.
+
+### Five items, and Contact is the button
+
+Home, Buyers, Sellers, Neighborhoods, About Becca. Blog, Quiz, Podcast, and
+Listings are out of the header. Every one of those pages still exists, still
+builds, and is still reachable from the footer and from body copy; they are
+just no longer competing for space in the top bar. "Contact" replaces "Let's
+talk" as the button, which also means the word no longer appears twice in the
+header.
+
+Home is a new kind of entry for this component, and the old active check would
+have broken on it: `pathname.startsWith(href + "/")` with `href` of `/` tests
+for `//`, so Home would never have lit up, while every other rule stayed fine.
+`isActive()` now special-cases `/` as exact-match and keeps the prefix rule for
+the rest, so `/neighborhoods/tacoma` still marks Neighborhoods as current.
+Desktop nav and the mobile sheet both read `NAV_ITEMS`, so they cannot drift.
+
+### Files touched
+
+- `src/components/global/Header.tsx` - nav list, `isActive`, `CTA_CLASS`, sizing
+- `src/components/global/DemoRibbon.tsx` - deleted
+- `src/app/layout.tsx` - `DemoRibbon` import and render removed
+- `src/config/tenant.ts` - `demo.ribbon` dropped from the type and the value
+
+### Verified
+
+`tsc --noEmit` clean, `next build` clean, `next lint` clean apart from two
+pre-existing `no-img-element` warnings in files not touched here. Header
+rendered and measured at 1280px and at 375px with the mobile sheet open.
+
+### Note for whoever picks this up
+
+`src/app/page.tsx` had uncommitted hero and stat-row changes sitting in the
+working tree during this session, from other work in progress. They were left
+alone and are not part of this commit.
+
+---
+
 ## 2026-08-22 - Hero gradient raised from 0.40 to 0.90 on the left
 
 **Deliverable:** one style change in `src/components/HeroVideo.tsx`. The
