@@ -1,11 +1,11 @@
 import Link from "next/link";
-import Image from "next/image";
 import { tenant } from "@/config/tenant";
 import { Container } from "@/components/Container";
 import { FadeIn, FadeInStagger } from "@/components/FadeIn";
 import { SectionIntro } from "@/components/SectionIntro";
 import { HeroMosaicBackground } from "@/components/HeroMosaic";
 import { HeroVideo } from "@/components/HeroVideo";
+import { ScrollCrossfadePortrait } from "@/components/ScrollCrossfadePortrait";
 import { ContactBlock } from "@/components/ContactBlock";
 import { TestimonialCarousel } from "@/components/sections/TestimonialCarousel";
 import { RealEstateAgentSchema } from "@/components/schema/RealEstateAgentSchema";
@@ -20,18 +20,10 @@ function HeroSection() {
       {/* Falls back to the photo mosaic if the video is ever unset. */}
       {video ? <HeroVideo video={video} /> : <HeroMosaicBackground />}
 
-      {/*
-        Bottom scrim, painted above the video (z-0) and below the content
-        column (z-10). The stat cards below are translucent white glass with
-        white type, and the footage cuts to bright frames (sky, siding, snow)
-        where white on white would vanish. This darkens the bottom band so the
-        cards read against every frame. It fades out well before the headline,
-        which is dark ink and needs the light wash the video already carries.
-      */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-x-0 bottom-0 z-[5] h-[45%] bg-gradient-to-t from-black/60 via-black/25 to-transparent"
-      />
+      {/* There is deliberately no scrim over the video down here. The stat
+          cards are frosted white with dark type, so they carry their own
+          contrast; a dark band behind them would fight both the cards and the
+          hero's own left-to-right white wash. */}
 
       {/* Deliberately not <Container>: its inner `mx-auto max-w-2xl` centers
           the column below lg, which pushed the hero text out of line with the
@@ -84,37 +76,151 @@ function HeroSection() {
 }
 
 /**
+ * Frosted glass, matched to the category tiles in the Living In platform hero.
+ *
+ * The recipe there is a vertical white gradient rather than a flat alpha: 0.40
+ * at the top opening up to 0.85 at the bottom, so the card looks lit from
+ * below and the type at the bottom sits on the most opaque part. That is why
+ * the tiles read as frosted rather than as a grey film.
+ *
+ * Two departures from the reference, both because this sits on moving video
+ * instead of a still photo. It gets a real backdrop blur, which the reference
+ * does not have and does not need on a fixed image. And the shadow is kept, so
+ * the card still separates from a frame that happens to be white.
+ */
+const GLASS_BACKGROUND =
+  "linear-gradient(rgba(255,255,255,0.40) 0%, rgba(255,255,255,0.55) 45%, rgba(255,255,255,0.85) 100%)";
+
+/** Reference shadow, unchanged: a tight contact shadow plus a soft lift. */
+const GLASS_SHADOW =
+  "shadow-[0_1px_2px_rgba(0,0,0,0.16),0_8px_18px_rgba(0,0,0,0.22)]";
+
+interface StatIcon {
+  /** Chip fill. */
+  chip: string;
+  /** Glyph stroke. White on the dark chips, ink on the gold one. */
+  glyph: string;
+  path: React.ReactNode;
+}
+
+/**
+ * One icon per stat, keyed by its label in tenant.stats.
+ *
+ * Keyed rather than indexed so reordering the stats moves the right icon with
+ * the right number, and unknown labels fall through to the star instead of
+ * leaving a hole where the chip should be.
+ *
+ * The gold chip takes an ink glyph. White on #D99A2B is about 2.2:1, which is
+ * thin even for decoration; dark on gold is roughly 8:1 and reads as a badge.
+ */
+const STAT_ICONS: Record<string, StatIcon> = {
+  "Years in real estate": {
+    chip: "var(--color-moss)",
+    glyph: "#FFFFFF",
+    path: (
+      <>
+        <circle cx="12" cy="12" r="9" />
+        <path d="M12 7v5l3 2" />
+      </>
+    ),
+  },
+  Closings: {
+    chip: "var(--color-slate)",
+    glyph: "#FFFFFF",
+    path: (
+      <>
+        <path d="M3 10.5 12 3l9 7.5" />
+        <path d="M5.5 9.5V20a1 1 0 0 0 1 1h11a1 1 0 0 0 1-1V9.5" />
+        <path d="M10 21v-6h4v6" />
+      </>
+    ),
+  },
+  "Senior Real Estate Specialist": {
+    chip: "var(--color-ink-soft)",
+    glyph: "#FFFFFF",
+    path: (
+      <>
+        <circle cx="12" cy="9" r="5.5" />
+        <path d="M8.5 13.5 7 21l5-2.5 5 2.5-1.5-7.5" />
+      </>
+    ),
+  },
+  "eXp Icon Agent": {
+    chip: "var(--color-sunshine-deep)",
+    glyph: "var(--color-ink)",
+    path: <path d="m12 3 2.6 5.6 6.1.8-4.5 4.2 1.2 6.1L12 16.8l-5.4 2.9 1.2-6.1-4.5-4.2 6.1-.8z" />,
+  },
+};
+
+const FALLBACK_ICON: StatIcon = STAT_ICONS["eXp Icon Agent"];
+
+/**
  * The four proof points, sitting on the video at the bottom of the hero.
  *
- * Two up on phones and four across from md, so the row never squeezes a
- * value like "SRES®" onto three lines. Each card is its own pane of glass
- * rather than one wide bar, which keeps the 2x2 mobile grid looking
- * deliberate instead of like a broken strip.
+ * Two up on phones and four across from md, so the row never squeezes a value
+ * like "SRES®" onto three lines. Each card is its own pane rather than one
+ * wide bar, which keeps the 2x2 mobile grid looking deliberate instead of like
+ * a broken strip.
+ *
+ * Icon chip on top, then the number at display weight, then the label. The
+ * reference tiles carry an icon over a single label; the number is the piece
+ * this row exists for, so it gets the size.
  */
 function HeroStatRow() {
   return (
     <div className="relative z-10 mx-auto w-full max-w-7xl px-4 pb-8 lg:px-8 lg:pb-12">
       <FadeIn>
-        <dl className="grid grid-cols-2 gap-3 md:grid-cols-4 md:gap-4">
-          {tenant.stats.map((s) => (
-            <div
-              key={s.label}
-              className="rounded-2xl border border-white/25 bg-white/15 px-4 py-5 text-white shadow-lg backdrop-blur-[12px] md:px-6 md:py-6"
-              // Tailwind has no drop-shadow utility for text, and the type
-              // still has to survive a blown-out frame behind the glass.
-              style={{ textShadow: "0 1px 12px rgba(0,0,0,0.45)" }}
-            >
-              <dt className="display-num text-3xl md:text-4xl">{s.value}</dt>
-              <dd className="mt-2 text-xs font-semibold uppercase tracking-wide md:text-sm">
-                {s.label}
-              </dd>
-              {s.detail && (
-                <p className="mt-1.5 text-xs leading-snug text-white/80">
-                  {s.detail}
-                </p>
-              )}
-            </div>
-          ))}
+        <dl className="grid grid-cols-2 gap-3 sm:gap-4 md:grid-cols-4">
+          {tenant.stats.map((s) => {
+            const icon = STAT_ICONS[s.label] ?? FALLBACK_ICON;
+
+            return (
+              <div
+                key={s.label}
+                className={`flex h-full flex-col items-center justify-center rounded-2xl border border-[color:var(--color-fog)] px-3 py-5 text-center backdrop-blur-[12px] sm:px-4 sm:py-7 ${GLASS_SHADOW}`}
+                style={{ background: GLASS_BACKGROUND }}
+              >
+                <dt className="flex flex-col items-center gap-2 sm:gap-3">
+                  <span
+                    aria-hidden="true"
+                    className="flex h-10 w-10 items-center justify-center rounded-xl shadow-sm sm:h-12 sm:w-12 sm:rounded-2xl"
+                    style={{ background: icon.chip, color: icon.glyph }}
+                  >
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth={1.6}
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      className="h-5 w-5 sm:h-6 sm:w-6"
+                      aria-hidden="true"
+                    >
+                      {icon.path}
+                    </svg>
+                  </span>
+                  <span className="display-num text-3xl text-[color:var(--color-ink)] sm:text-4xl">
+                    {s.value}
+                  </span>
+                </dt>
+                <dd className="mt-2">
+                  <span className="text-xs font-semibold uppercase tracking-wide text-[color:var(--color-ink)] sm:text-sm">
+                    {s.label}
+                  </span>
+                  {/* text-xs, not an arbitrary px value: this site redefines
+                      --text-xs to 14px as its type floor, so anything smaller
+                      would be undercutting that on purpose. The detail line
+                      separates from the label by case and color instead of by
+                      size. */}
+                  {s.detail && (
+                    <p className="mt-1 text-xs leading-snug text-[color:var(--color-muted)]">
+                      {s.detail}
+                    </p>
+                  )}
+                </dd>
+              </div>
+            );
+          })}
         </dl>
       </FadeIn>
     </div>
@@ -201,15 +307,15 @@ function AboutPreviewSection() {
           </FadeIn>
 
           <FadeIn scaleIn className="lg:col-span-5">
-            <div className="relative mx-auto aspect-[4/5] w-full max-w-sm overflow-hidden rounded-3xl bg-white shadow-xl">
-              <Image
-                src={tenant.agent.headshot}
-                alt={`${tenant.agent.name} portrait`}
-                fill
-                sizes="(min-width: 1024px) 33vw, 80vw"
-                className="object-cover"
-              />
-            </div>
+            {/* Two portraits stacked in one frame, crossfading on scroll. The
+                alt photo is optional in the tenant config, so this falls back
+                to the primary headshot in both slots if it is ever unset. */}
+            <ScrollCrossfadePortrait
+              className="mx-auto max-w-sm"
+              primarySrc={tenant.agent.headshot}
+              secondarySrc={tenant.agent.headshotAlt ?? tenant.agent.headshot}
+              alt={`${tenant.agent.name} portrait`}
+            />
             {/* Brokerage identification now lives with the full disclosure at
                 the very bottom of the footer, so it is not repeated here. */}
             <p className="mt-4 text-center text-sm text-neutral-500">
