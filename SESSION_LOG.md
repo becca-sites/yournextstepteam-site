@@ -7,6 +7,98 @@ Note: the Google Drive **SESSION_LOG** doc is the more current master. See
 
 ---
 
+## 2026-08-22 - Hero H1 broadened from Pierce County to Puget Sound
+
+**Deliverable:** `src/app/page.tsx`. The hero headline changes from "I know
+Pierce County street by street." to "Your Puget Sound expert."
+
+### What changed
+
+- The H1 was hardcoded in `page.tsx`, not pulled from `tenant.ts`. Two other
+  "street by street" strings exist in the repo and were deliberately left
+  alone: `tenant.agent.storyLong` (prose) and the Bonney Lake neighborhood
+  tagline (`tenant.neighborhoods`). Neither is the hero.
+- The manual `<br />` came out with it. The old headline needed a forced break
+  to balance across two lines; the new one fits on one line at every breakpoint
+  and a hard break would split it awkwardly.
+
+### Still pending
+
+1. **The hero subhead still reads as Pierce County copy:** "Bonney Lake,
+   Puyallup, North Tacoma, Eatonville. Fifteen years in real estate in
+   Washington and 270 closings behind me..." Those are all Pierce County towns
+   sitting directly under a Puget Sound headline. Not changed here because the
+   ask was scoped to the H1, but the two now claim different territory and the
+   subhead should probably widen to match.
+2. **The geographic H1 was a deliberate SEO decision** logged earlier in this
+   file ("Homepage H1 is now geographic"). Reversing it trades the Pierce County
+   keyword for a broader regional one. Flagged, not re-litigated.
+3. Everything under the following sessions' "Still pending" remains open.
+
+---
+
+## 2026-08-22 - Scroll crossfade on the homepage portrait
+
+**Deliverable:** `src/components/ScrollCrossfadePortrait.tsx`, wired into the
+about preview on `src/app/page.tsx`, plus a new optional
+`tenant.agent.headshotAlt`.
+
+Two portraits stacked in the same 4:5 frame, crossfading as the about section
+travels up the viewport. Reference was the Russ Lagan site.
+
+### What drives it
+
+One number: a 0 to 1 progress value written to a `--crossfade` custom property
+on the wrapper. The top photo reads `calc(1 - var(--crossfade))` for opacity,
+the bottom reads `var(--crossfade)`, and both take a 4% scale off the same
+value so the swap reads as a slow push rather than a light switch.
+
+Progress is measured from the portrait's center expressed in viewport heights:
+the fade opens when the center reaches 0.78vh from the top of the screen and
+closes at 0.34vh, with a smoothstep across the gap. Fractions of the viewport
+rather than pixels, so a phone and a desktop get the same pacing relative to
+what the reader can actually see.
+
+### Why it is built this way and not with framer-motion's useScroll
+
+Three constraints, and the hand-rolled version hits all three:
+
+1. **No React render during the scroll.** The progress value goes straight to
+   the DOM node's style, so there is no reconciliation on any frame.
+2. **Opacity and transform only.** Neither triggers layout or paint, so the
+   compositor owns the whole animation.
+3. **The listener only exists while the photo is on screen.** An
+   IntersectionObserver with a 20% margin attaches the passive scroll and
+   resize handlers on entry and tears them down on exit, so scrolling the other
+   24,000 pixels of the homepage costs nothing. The rect read happens once per
+   animation frame and is never interleaved with a style write, which is what
+   keeps this off the layout thrashing path.
+
+Reduced motion gets the first photo, held still, and no listeners at all.
+
+### The second photo
+
+`becca-headshot-alt.webp` was already in `public/photos/headshots/` and unused:
+the denim dress and hat frame, laughing. It is now referenced through
+`tenant.agent.headshotAlt`. That field is optional, and the homepage falls back
+to running `tenant.agent.headshot` in both slots when it is unset, so the
+mechanism keeps working if the alt is ever pulled.
+
+The second image is `alt=""` and `aria-hidden`. It is the same person as the
+photo above it, and announcing the portrait twice is noise.
+
+### Verified
+
+Measured in Chrome against the dev server, not eyeballed. At a center fraction
+of 0.559 the property read 0.5030 with the two images at 0.497 and 0.503
+opacity, which is the expected midpoint. At 0.80 the seated portrait was clean
+at full opacity. Production build passes.
+
+**Next:** nothing outstanding. Swap `headshotAlt` if Becca prefers a different
+second frame.
+
+---
+
 ## 2026-08-22 - Hero stat cards restyled to the Living In tile recipe
 
 **Deliverable:** `src/app/page.tsx`. The stat cards from the pass earlier today

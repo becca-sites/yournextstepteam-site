@@ -64,6 +64,16 @@ work done directly in the repo.
 - **Weave the place names into H1s, H2s, body copy, and meta descriptions.** Not
   as a keyword dump; as the specific detail that proves she actually knows the
   ground. "Which Bonney Lake streets flood" beats "deep local knowledge."
+- **2026-08-22: the homepage H1 widened to "Your Puget Sound expert."** It was
+  "I know Pierce County street by street." Becca asked for the swap directly.
+  This is logged as an open tension, not a resolved repositioning: the rest of
+  this section still says Pierce County leads, and the hero subhead directly
+  under the new H1 still names four Pierce County towns. If the intent is a
+  genuine widening to the Puget Sound region, the subhead, the featured areas,
+  and the "geographic authority leads" rule above all need a second pass. If
+  the intent was only a punchier headline, the narrower county-level language
+  everywhere else is still correct and this note can be closed as scoped to the
+  H1 alone. Ask before assuming either reading.
 
 ## Voice and copy
 
@@ -339,3 +349,25 @@ pointed at these; the values below are read off the live page, not approximated.
   arbitrary `text-[11px]` or `text-[13px]` to make something fit. Arbitrary px
   values slide under the floor silently; the utility classes respect it. If a
   label needs to recede, change case, weight, or color instead of size.
+
+## Scroll-driven motion
+
+- **Scroll effects are opacity and transform, never anything else.** The
+  homepage portrait crossfade (`ScrollCrossfadePortrait`) is the pattern to
+  copy: a single 0 to 1 progress value written to a CSS custom property, read
+  back by `calc()` in the images' inline styles. Nothing that touches layout,
+  nothing that forces paint.
+- **Never re-render React on a scroll frame.** Write the value to the DOM node
+  directly. `useState` inside a scroll handler is the wrong shape for this.
+- **Attach scroll listeners through an IntersectionObserver, not on mount.**
+  The homepage is roughly 25,000px tall. A listener that runs for the whole
+  page to animate one 460px box is waste. Observe, attach on entry, detach on
+  exit.
+- **Pace scroll effects in viewport fractions, not pixels.** The crossfade runs
+  from the portrait's center at 0.78vh to 0.34vh. Pixel thresholds tuned on a
+  desktop feel wrong on a phone; fractions do not.
+- **Reduced motion means the effect does not run at all.** Not a faster
+  version, not a shorter one. First frame, held still, no listeners.
+- **Becca liked the Russ Lagan real estate site's photo crossfade.** That is
+  the reference for this kind of transition: slow, elegant, driven by scroll
+  position rather than by a timer.
