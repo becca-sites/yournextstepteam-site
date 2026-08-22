@@ -31,11 +31,19 @@ work done directly in the repo.
   peak to 0.40 because the near-solid wash was the whole complaint: it read as a
   white page with a video hiding behind it.
 - **Video runs at 0.75x** for a slower, more cinematic drift.
-- **Open tension:** at 0.40 the hero headline and subhead fail WCAG AA against
-  the current clip (2.34 and 2.52 against thresholds of 3.0 and 4.5). Roughly
-  0.70 is the point where both clear. Readability wins over atmosphere on this
-  site, whose visitors skew older, so this needs a decision: raise the scrim, put
-  a panel behind the text column, or shoot brighter footage. See SESSION_LOG.
+- **Resolved 2026-08-22: the scrim wins on the left, the footage wins on the
+  right.** The 0.40 peak was raised to 0.90 because the text was not popping
+  against the clip. The wash now runs 0.90 at the far left, 0.60 at 35%, and is
+  fully clear by 62%, so the dark ink sits on near-white where it is read and
+  the right side of the frame is untouched. This closes the open WCAG AA tension
+  logged below, since 0.90 clears the 0.70 threshold both stops needed.
+- **The trade is deliberate.** The text column is left-justified, so density on
+  the left costs nothing visually; only a full-width wash read as "a white page
+  with a video hiding behind it," and that is what stays cut.
+- **Superseded tension (kept for history):** at 0.40 the hero headline and
+  subhead failed WCAG AA against the current clip (2.34 and 2.52 against
+  thresholds of 3.0 and 4.5). Roughly 0.70 was the point where both cleared.
+  Readability wins over atmosphere on this site, whose visitors skew older.
 
 ## Positioning (source of truth)
 

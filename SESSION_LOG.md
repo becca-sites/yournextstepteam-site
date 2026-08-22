@@ -7,6 +7,35 @@ Note: the Google Drive **SESSION_LOG** doc is the more current master. See
 
 ---
 
+## 2026-08-22 - Hero gradient raised from 0.40 to 0.90 on the left
+
+**Deliverable:** one style change in `src/components/HeroVideo.tsx`. The
+left-to-right white wash over the hero video now runs:
+
+`rgba(255,255,255,0.90) 0%, 0.80 20%, 0.60 35%, 0.30 50%, 0 62%`
+
+It was `0.40 0%, 0.37 35%, 0.28 55%, 0.10 78%, 0 100%`.
+
+**Why:** the dark hero text was not popping against the footage. The old ramp
+was both too weak at its peak and too long in its tail, so it spread a faint
+haze across the whole frame instead of putting real density where the text
+sits. The new ramp is stronger where it matters and gone entirely by 62%.
+
+**This closes the open WCAG AA item in LIVING_NOTES.** That note put roughly
+0.70 as the point where the h1 (2.34 against a 3.0 threshold) and the subhead
+(2.52 against 4.5) both clear. 0.90 is past it.
+
+**Deliberately unchanged:** no bottom fade was reintroduced, the text stays
+dark, and no copy was touched. The hero text is left-justified, so the gradient
+only needs to be dense on the left.
+
+**Note for the next session:** the working tree had unrelated in-progress edits
+during this session (`layout.tsx`, `page.tsx`, `Header.tsx`, `tenant.ts`, and a
+deleted `DemoRibbon.tsx`). Those were left uncommitted on purpose. Only
+`HeroVideo.tsx` went into commit `f3b1208`.
+
+---
+
 ## 2026-08-22 - Google reviews merged into testimonials, em dash sweep
 
 **Deliverable:** `tenant.testimonials` goes from 46 entries to 57. All 46 Zillow
