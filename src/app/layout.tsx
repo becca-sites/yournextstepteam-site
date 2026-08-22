@@ -7,7 +7,6 @@ import { LocalBusinessSchema } from "@/components/schema/LocalBusinessSchema";
 import { Analytics } from "@/components/telemetry/Analytics";
 import { Header } from "@/components/global/Header";
 import { Footer } from "@/components/global/Footer";
-import { DemoRibbon } from "@/components/global/DemoRibbon";
 import "./globals.css";
 
 /*
@@ -133,7 +132,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         >
           Skip to main content
         </a>
-        <DemoRibbon />
         <Header />
         {/*
           tabIndex={-1} so the skip link actually moves keyboard focus here.

@@ -252,7 +252,7 @@ export interface Tenant {
   neighborhoods: TenantNeighborhood[];
   episodes: TenantEpisode[];
   sibling: TenantSibling;
-  demo: { ribbon: boolean; noIndex: boolean };
+  demo: { noIndex: boolean };
 }
 
 export const tenant: Tenant = {
@@ -1342,7 +1342,7 @@ export const tenant: Tenant = {
     description: "A 6-bed adult family home in Burien, WA providing long-term residential care, memory care, and respite care.",
   },
 
-  demo: { ribbon: true, noIndex: true },
+  demo: { noIndex: true },
 };
 
 /**
