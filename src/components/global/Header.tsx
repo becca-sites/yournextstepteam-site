@@ -75,7 +75,10 @@ export function Header() {
           />
         </Link>
 
-        <nav aria-label="Primary" className="hidden lg:block">
+        {/* ml-auto absorbs the free space to the nav's left, so the links sit
+            flush against the Contact button instead of centering in the bar.
+            The mobile menu below is a separate stacked layout and unaffected. */}
+        <nav aria-label="Primary" className="hidden lg:block lg:ml-auto">
           <ul className="flex items-center gap-1 text-sm font-medium">
             {NAV_ITEMS.map((item) => {
               const active = isActive(pathname, item.href);

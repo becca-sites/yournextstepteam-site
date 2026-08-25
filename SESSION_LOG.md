@@ -7,6 +7,30 @@ Note: the Google Drive **SESSION_LOG** doc is the more current master. See
 
 ---
 
+## 2026-08-25 - Desktop header nav right-justified
+
+**Deliverable:** `src/components/global/Header.tsx`. The five desktop nav items
+(Home, Buyers, Sellers, Neighborhoods, About Becca) now sit against the Contact
+button on the right instead of centering in the bar.
+
+### What changed
+
+- One class: `lg:ml-auto` on the `<nav>`. The auto left margin absorbs the row's
+  free space, so the nav and the Contact group cluster on the right and the logo
+  keeps the left edge.
+- The row's `justify-between` stayed. Below `lg` the nav is `display: none`, and
+  `justify-between` is what still pushes the hamburger group to the right edge
+  there. An auto margin on a hidden element does nothing, so the two rules do
+  not conflict.
+- The mobile sheet is a separate stacked layout and was not touched.
+- `tsc --noEmit` clean.
+
+### Still pending
+
+1. Everything under the following sessions' "Still pending" remains open.
+
+---
+
 ## 2026-08-22 - Hero H1 broadened from Pierce County to Puget Sound
 
 **Deliverable:** `src/app/page.tsx`. The hero headline changes from "I know

@@ -191,6 +191,12 @@ work done directly in the repo.
   precedence means Tailwind utilities on the element cannot shrink it. The
   header keeps its own `CTA_CLASS` constant. Same rule applies anywhere else
   that needs a smaller button: write a local class, do not fight the global one.
+- **Desktop nav is right-justified, not centered.** The links flow toward the
+  Contact button so the bar reads logo left, everything else right. `lg:ml-auto`
+  on the `<nav>` is what does it: the auto margin eats the free space to the
+  nav's left, which makes the row's `justify-between` a no-op on desktop. Do not
+  swap that for a spacer div or for `justify-end` on the row, since the row
+  still needs `justify-between` at the breakpoints where the nav is hidden.
 - **Desktop nav may go under 44px, mobile may not.** The `lg:` nav is
   pointer-only, so the touch-target floor does not apply to it. The mobile sheet
   and its CTA stay at 44px and up.
