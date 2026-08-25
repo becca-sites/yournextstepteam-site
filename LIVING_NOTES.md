@@ -82,6 +82,32 @@ work done directly in the repo.
   North Tacoma, and Eatonville in the line under it. That question is still
   open. The subhead now opens on "Hi, I'm Becca Pitts." so the H1 can stay a
   title and the introduction happens in the sentence below it.
+- **2026-08-25: the tension above resolves toward widening, and the buyers page
+  is the first page to land on the wide side.** Becca asked directly for the
+  buyers page to stop isolating to Pierce County or to specific small towns,
+  because she works a much wider area than the copy implied. Every geographic
+  reference on `/buyers` now reads **"Pierce, King, and the surrounding
+  counties"** or **"the Puget Sound region."** The four-town list is gone from
+  that page entirely.
+  - **Why:** naming four small towns repeatedly on one page reads as a service
+    area boundary. A King County or Thurston County buyer concludes they are
+    out of range and leaves. The list was costing leads rather than earning
+    trust.
+  - **What survives the widening:** street-level specificity. The rule two
+    bullets up still holds, minus the town name. "Which streets flood" and "why
+    two blocks a quarter mile apart price differently" still beat "deep local
+    knowledge." Prove the ground-level knowledge without drawing a boundary
+    around it.
+  - **Client stories keep their real place names.** The Graham land story on
+    `/buyers` is an anecdote, not a service-area claim, and stripping the town
+    would only make it vaguer.
+  - **Still open, and it is a deliberate next pass, not an oversight:**
+    `tenant.ts` was not touched. `market.areasServed`, `market.description`,
+    `hero.eyebrow`, `stats`, `scenarios`, `faqs`, and `neighborhoods` still
+    carry the four-town framing, and they feed the home page, the neighborhood
+    pages, and schema. **The home page and `/sellers` therefore still read
+    narrower than `/buyers` does.** Ask Becca whether to run the same
+    broadening sitewide before doing it.
 
 ## Voice and copy
 

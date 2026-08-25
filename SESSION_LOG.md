@@ -7,6 +7,54 @@ Note: the Google Drive **SESSION_LOG** doc is the more current master. See
 
 ---
 
+## 2026-08-25 - Buyers page broadens from Pierce County to the Puget Sound
+
+**Deliverables:** `src/app/buyers/page.tsx`. Commit `f05d0f7`, pushed to main.
+
+### What changed
+
+- **Eyebrow** went from "For buyers in Pierce County" to "For buyers in the
+  Puget Sound."
+- **H1 ends on an ellipsis now:** "Finding the house might be easy..." The
+  ellipsis is the hook. The subhead picks it up mid-sentence with "...but I
+  know how to get you from finding the house to closing on it," then lands on
+  "I have seen it all and I know how to keep your deal together." The old
+  version closed on "not much surprises me anymore," which is a softer promise
+  and does not name the thing buyers are actually buying, which is a deal that
+  holds together.
+- **Every geographic reference on the page moved off the four-town list.**
+  "Bonney Lake, Puyallup, North Tacoma, and Eatonville" now reads "Pierce,
+  King, and the surrounding counties" or "the Puget Sound region," depending on
+  the sentence. Touched: page metadata title and description, the hero image
+  alt, the escalation-clause and inspection cards, the land and relocation
+  scenario cards, the neighborhoods pillar, the market-knowledge FAQ, the quiz
+  CTA, the FAQ section heading, and the closing contact block.
+
+### Decisions worth keeping
+
+- **The town list was reading as a service-area boundary.** Naming four small
+  towns four separate times on one page tells a King County or Thurston County
+  buyer that they are out of range. Becca closes across a much wider area than
+  the copy implied, so the list was costing leads rather than earning trust.
+- **Specific local detail still earns its place; only the boundary claims got
+  broadened.** The neighborhoods pillar keeps its street-level specifics
+  ("which streets flood," "why two blocks a quarter mile apart price
+  differently") without pinning them to named towns. The Graham client story
+  stays exactly as written: it is one anecdote, not a claim about where she
+  works, and stripping the town name would only make it vaguer.
+- **`src/config/tenant.ts` was left alone.** The buyers page pulls only
+  `listings.buyerQuestionnaireUrl` and `media` from tenant. All of its
+  geographic prose is local to `page.tsx`. Tenant's town lists
+  (`market.areasServed`, `market.description`, `hero.eyebrow`, `stats`,
+  `scenarios`, `faqs`, `neighborhoods`) feed the home page, the neighborhoods
+  pages, and schema, so editing them would have been a sitewide change that
+  nobody asked for. **If the same broadening is wanted sitewide, that is a
+  separate pass and it should be deliberate.**
+
+`npm run build` clean, all 26 routes.
+
+---
+
 ## 2026-08-25 - Hero and stat cards fit above the fold at 1280x800
 
 **Deliverables:** `src/app/page.tsx`.
