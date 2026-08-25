@@ -7,6 +7,62 @@ Note: the Google Drive **SESSION_LOG** doc is the more current master. See
 
 ---
 
+## 2026-08-25 - Hero and stat cards fit above the fold at 1280x800
+
+**Deliverables:** `src/app/page.tsx`.
+
+### What changed
+
+- **Stat cards are landscape panes now.** The icon chip above each number is
+  gone, the number sits beside its label instead of over it, and the per-stat
+  `detail` line is not rendered in the hero. A card is 288x58 at 1280, down
+  from roughly 288x150.
+- **The fold closes.** Measured at 1280x800: header ends at 61px, the headline
+  at 324, the subhead at 514, and the stat row runs 707 to 765. Everything
+  Becca asked to see is visible without scrolling, with the cards pinned to the
+  bottom of the hero. The hero itself went from `min-h-[85vh]` to `90vh` so the
+  video still fills the fold rather than stopping 60px short of it.
+- **Padding came down to buy that room:** the text block from `py-14 lg:py-20`
+  to `py-10 lg:py-12`, the CTA gap from `mt-10` to `mt-7`, the quiz link from
+  `mt-4` to `mt-3`, and the stat row from `pb-8 lg:pb-12` to `pb-6 lg:pb-10`.
+- **H1 is "Puget Sound / Real Estate Expert"** with a hard `<br />`, at
+  `md:text-6xl` rather than `7xl`. "Real Estate Expert" does not fit the 672px
+  text column at 72px, so it would have wrapped to three ragged lines.
+- **Subhead opens on "Hi, I'm Becca Pitts."** and keeps all four town names.
+  It also went a step darker, `neutral-600` to `neutral-700`, with
+  `text-shadow: 0 1px 3px rgba(0,0,0,0.3)` as the safety net for darker video
+  frames.
+- **The frosted glass is untouched:** same white gradient, fog border, 12px
+  blur, and two-part shadow. `tsc --noEmit` clean, `next lint` clean.
+
+### Breakpoints, and why the grid moved to lg
+
+"SRES®" is much wider than "15+", "270", or "Icon", so it is the value that
+decides whether a number can sit beside its label. Below `sm` a card is about
+166px and the pair does not fit, so the two stack inside the card there. Four
+across used to start at `md`, which gives each card about 168px; measured, the
+"Senior Real Estate Specialist" label overflowed its pane by 57px. The
+four-column grid now starts at `lg`, so tablets get a 2x2 of full-width
+landscape cards instead. Verified at 375, 640, 768, 1024, and 1280: no
+horizontal overflow at any of them.
+
+### Note for whoever reads this next
+
+This session ran alongside the compliance-branding session below it, in the
+same working tree. Only `src/app/page.tsx` and these two log entries were
+committed here; `Header.tsx`, `Footer.tsx`, `tenant.ts`, and
+`ComplianceMarks.tsx` were left uncommitted for that session.
+
+### Still pending
+
+1. The Puget Sound versus Pierce County positioning question in LIVING_NOTES is
+   still open, and the new H1 sharpens it rather than settling it.
+2. At 1024 the "Senior Real Estate Specialist" label lands flush against its
+   card's right padding, within a pixel. It does not clip, but it is the one
+   width with no slack, so watch it if that label or the type scale changes.
+
+---
+
 ## 2026-08-25 - eXp Realty compliance branding in the header and footer
 
 **Deliverables:** `src/components/global/ComplianceMarks.tsx` (new),
