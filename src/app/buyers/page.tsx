@@ -10,9 +10,9 @@ import { ServiceSchema } from "@/components/schema/ServiceSchema";
 import { FAQSchema } from "@/components/schema/FAQSchema";
 
 export const metadata: Metadata = {
-  title: "Buy a home in Bonney Lake, Puyallup, North Tacoma, or Eatonville",
+  title: "Buy a home in Pierce, King, and the surrounding counties",
   description:
-    "Buyer representation across Pierce County from Becca Pitts: 270 closings, 15+ years in real estate in Washington, and street-by-street knowledge of Bonney Lake, Puyallup, North Tacoma, and Eatonville.",
+    "Buyer representation across the Puget Sound region from Becca Pitts: 270 closings, 15+ years in real estate in Washington, and street-by-street knowledge of Pierce, King, and the surrounding counties.",
   alternates: { canonical: "/buyers" },
 };
 
@@ -31,7 +31,7 @@ const CREDENTIALS = [
 const ZILLOW_GAPS = [
   {
     title: "Negotiate your offer",
-    body: "An algorithm reads a spreadsheet. I read the other agent, the seller's motivation, and how much room is actually in the deal, then I structure an escalation clause that holds up when three other buyers want the same Puyallup house.",
+    body: "An algorithm reads a spreadsheet. I read the other agent, the seller's motivation, and how much room is actually in the deal, then I structure an escalation clause that holds up when three other buyers want the same house.",
   },
   {
     title: "Read the contract",
@@ -39,7 +39,7 @@ const ZILLOW_GAPS = [
   },
   {
     title: "Spot inspection red flags",
-    body: "A cracked foundation, knob-and-tube wiring, a failing septic system on an Eatonville acre. Listing photos are taken to sell the house. I walk it looking for what the photos left out.",
+    body: "A cracked foundation, knob-and-tube wiring, a failing septic system on a rural acre. Listing photos are taken to sell the house. I walk it looking for what the photos left out.",
   },
   {
     title: "Coordinate the closing",
@@ -50,7 +50,7 @@ const ZILLOW_GAPS = [
 const SCENARIOS = [
   {
     title: "Buying land to build on",
-    body: "Land is a different animal. Higher down payments, different loan programs, construction timelines layered on top. Out in Graham, Eatonville, and Roy I look at the parcel, the septic feasibility, and the setbacks first, so when you sit down with a lender you already know what you are walking into.",
+    body: "Land is a different animal. Higher down payments, different loan programs, construction timelines layered on top. On acreage anywhere in Pierce, King, and the surrounding counties I look at the parcel, the septic feasibility, and the setbacks first, so when you sit down with a lender you already know what you are walking into.",
     link: "/contact",
   },
   {
@@ -59,8 +59,8 @@ const SCENARIOS = [
     link: "/contact",
   },
   {
-    title: "Relocating to Pierce County",
-    body: "Moving to Bonney Lake, Puyallup, or North Tacoma from somewhere else entirely. I match you to the right neighborhoods, run tours on video, and give you the honest version of the commute. If you need to sell where you are now, I have agents in other states I have checked out myself.",
+    title: "Relocating to the Puget Sound",
+    body: "Moving to Pierce, King, or one of the surrounding counties from somewhere else entirely. I match you to the right neighborhoods, run tours on video, and give you the honest version of the commute. If you need to sell where you are now, I have agents in other states I have checked out myself.",
     link: "/contact",
   },
   {
@@ -77,7 +77,7 @@ const PILLARS = [
   },
   {
     title: "I know these neighborhoods street by street",
-    body: "Which Bonney Lake streets flood, what the Puyallup School District boundaries really do to resale, why two North Tacoma blocks a quarter mile apart price differently. Fifteen years here means I can tell you before you write the offer.",
+    body: "Which streets flood, what a school district boundary really does to resale, why two blocks a quarter mile apart price differently. Fifteen years across Pierce, King, and the surrounding counties means I can tell you before you write the offer.",
   },
   {
     title: "I catch what other people miss",
@@ -96,9 +96,9 @@ const BUYER_FAQS = [
       "In Washington State, buyer agent compensation is negotiated as part of the transaction. I walk you through exactly how it works before you sign anything. In most cases the seller covers the buyer agent's commission, and recent industry changes make this worth a clear conversation up front.",
   },
   {
-    question: "How well do you know Bonney Lake, Puyallup, North Tacoma, and Eatonville?",
+    question: "How well do you know the Puget Sound market?",
     answer:
-      "Well enough to talk you out of a house. I grew up in Eatonville, I am based in Bonney Lake, and 270 closings across Pierce County means I have walked these neighborhoods through every market this county has had in fifteen years. I can tell you which Puyallup pockets hold value, what the Tehaleh HOA actually covers, and how far a dollar goes in North Tacoma versus Sumner.",
+      "Well enough to talk you out of a house. I grew up here, I am based here, and 270 closings across Pierce, King, and the surrounding counties means I have walked these neighborhoods through every market the region has had in fifteen years. I can tell you which pockets hold value, what an HOA actually covers, and how far a dollar goes from one town to the next.",
   },
   {
     question: "What happens if the appraisal comes in low?",
@@ -133,15 +133,15 @@ export default function BuyersPage() {
         <Container className="pt-16 pb-12 lg:pt-24 lg:pb-20">
           <div className="grid max-w-7xl gap-12 lg:grid-cols-12 lg:gap-12">
             <FadeIn className="lg:col-span-7">
-              <p className="eyebrow">For buyers in Pierce County</p>
+              <p className="eyebrow">For buyers in the Puget Sound</p>
               <h1 className="mt-5 font-display text-4xl font-semibold leading-[1.05] tracking-tight md:text-6xl">
-                Finding the house is the easy part.
+                Finding the house might be easy...
               </h1>
               <p className="mt-6 max-w-xl text-lg text-neutral-600 md:text-xl">
-                I know how to get you from finding the house to closing on the
-                house. Inspections, appraisals, contracts, financing. After 270
-                closings across Bonney Lake, Puyallup, North Tacoma, and
-                Eatonville, not much surprises me anymore.
+                ...but I know how to get you from finding the house to closing
+                on it. Inspections, appraisals, contracts, financing. After 270
+                closings across Pierce, King, and the surrounding counties, I
+                have seen it all and I know how to keep your deal together.
               </p>
               <div className="mt-9 flex flex-wrap gap-3">
                 <a
@@ -164,7 +164,7 @@ export default function BuyersPage() {
               <div className="relative aspect-[4/5] w-full overflow-hidden rounded-3xl bg-neutral-200 shadow-xl">
                 <Image
                   src={tenant.media.lifestyle[0] ?? tenant.media.heroPrimary}
-                  alt="Home exterior in Pierce County, Washington"
+                  alt="Home exterior in the Puget Sound region of Washington"
                   fill
                   priority
                   sizes="(min-width: 1024px) 40vw, 100vw"
@@ -219,7 +219,7 @@ export default function BuyersPage() {
           >
             <p>
               Every move is different. Here are four paths I run regularly across
-              Bonney Lake, Puyallup, North Tacoma, and Eatonville.
+              Pierce, King, and the surrounding counties.
             </p>
           </SectionIntro>
           <FadeInStagger className="mt-12 grid gap-6 md:grid-cols-2">
@@ -287,8 +287,8 @@ export default function BuyersPage() {
               Still in the research phase? Perfect.
             </h2>
             <p className="mt-4 text-lg text-neutral-600">
-              Take the Real Estate IQ Quiz. Six real scenarios out of the Pierce
-              County market, and you will see how you would handle pricing,
+              Take the Real Estate IQ Quiz. Six real scenarios out of the Puget
+              Sound market, and you will see how you would handle pricing,
               inspections, and negotiation. It takes about four minutes.
             </p>
             <div className="mt-8">
@@ -335,7 +335,7 @@ export default function BuyersPage() {
           <FadeIn className="mx-auto max-w-4xl">
             <p className="eyebrow">Buyer FAQ</p>
             <h2 className="mt-3 font-display text-3xl font-semibold md:text-4xl">
-              Questions Pierce County buyers ask me first.
+              Questions buyers ask me first.
             </h2>
             <div className="mt-10 divide-y divide-black/10 rounded-2xl border border-black/5 bg-[var(--color-surface)]">
               {BUYER_FAQS.map((faq) => (
@@ -362,8 +362,8 @@ export default function BuyersPage() {
       <ContactBlock heading="Ready to find your home?">
         <p>
           Tell me what you are looking for and where you want to be. I will tell
-          you what the Bonney Lake, Puyallup, North Tacoma, and Eatonville
-          markets are actually doing this month. Let&apos;s talk.
+          you what that market is actually doing this month, anywhere in Pierce,
+          King, and the surrounding counties. Let&apos;s talk.
         </p>
       </ContactBlock>
     </>
