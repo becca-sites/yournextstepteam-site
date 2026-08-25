@@ -7,6 +7,60 @@ Note: the Google Drive **SESSION_LOG** doc is the more current master. See
 
 ---
 
+## 2026-08-25 - eXp Realty compliance branding in the header and footer
+
+**Deliverables:** `src/components/global/ComplianceMarks.tsx` (new),
+`src/components/global/Header.tsx`, `src/components/global/Footer.tsx`,
+`src/config/tenant.ts`.
+
+### What changed
+
+- **Header carries the brokerage above the fold.** A two-line "Brokered by /
+  eXp Realty" block sits beside the logo behind a hairline divider, at 9px on
+  narrow screens and 10px from `sm` up. It clears 24px against the 32px logo,
+  so Becca's own branding stays larger than the brokered-by line, which is what
+  eXp's policy asks for. Measured at 320, 375, and 1280: no horizontal overflow
+  at any of them.
+- **New compliance strip at the bottom of the footer**, on `--color-ink` rather
+  than the slate the rest of the footer uses, so it reads as a legal band and
+  not as more footer. It carries the brokerage lockup, the REALTOR block R, the
+  MLS notice with Becca's MLS ID, and the Equal Housing Opportunity mark, then
+  the licensing statement, the personal-opinion disclaimer, the NAR collective
+  mark notice, the service area, and the copyright.
+- **The strip renders outside the `FadeIn`.** Everything above it is decoration
+  and can wait on a viewport observer. Brokerage identification and the
+  licensing statement cannot, so they are not behind an animation gate.
+- **Footer columns tightened.** Four columns on `lg` (brand, Working with
+  Becca, Learn more, Get in touch), two on `md`. Contact gained the email
+  address and the mailing address, which were missing. The two nav blocks were
+  identical apart from their data, so they collapsed into one `FooterNav`.
+- **Marks are inline SVG in `currentColor`**, drawn here rather than shipped as
+  four image requests, so one component reads correctly on ink and on any light
+  surface.
+- **`tenant.agent` gained `opinionDisclaimer`** plus four optional
+  `brokerageLogo*` fields. `tsc --noEmit` clean, `next lint` clean.
+
+### The eXp logo is deliberately not in this commit
+
+eXp's brand guidelines say the logo must never be recreated or typeset and that
+only official artwork may be used. The files are behind a login on the eXp
+brand toolkit and Canva brand kits, so nothing here approximates the mark: the
+lockup renders "eXp Realty" as a plain identification line in the site's own
+type. Drop the official light and dark PNGs into `public/images/brand`, fill in
+`brokerageLogo`, `brokerageLogoLight`, `brokerageLogoWidth`, and
+`brokerageLogoHeight` together, and `BrokeredBy` switches to the artwork with
+no other change. It already pins a 60px minimum width, which is the floor in
+the guidelines.
+
+### Still pending
+
+1. Drop in the official eXp logo files, per the section above.
+2. Confirm the exact WA DOL and NWMLS firm-identification wording before
+   launch. The old Footer TODO said this and it is still open.
+3. Everything under the following sessions' "Still pending" remains open.
+
+---
+
 ## 2026-08-25 - Desktop header nav right-justified
 
 **Deliverable:** `src/components/global/Header.tsx`. The five desktop nav items

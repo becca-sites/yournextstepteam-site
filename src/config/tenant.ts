@@ -51,6 +51,27 @@ export interface TenantAgent {
    * slots, so the mechanism still works and nothing looks broken.
    */
   headshotAlt?: string;
+  /**
+   * Official eXp Realty artwork, two files: the full-colour lockup for light
+   * surfaces and the white knockout for dark ones. Both are optional and both
+   * are empty until the real files are pulled from the eXp brand toolkit.
+   *
+   * eXp's guidelines say the logo must never be recreated or typeset and that
+   * only official files may be used, so nothing here approximates the mark.
+   * While these are empty the compliance lockup renders the brokerage as a
+   * plain-text identification line instead. Fill all four fields together;
+   * `BrokeredBy` only switches to the artwork when it has a path and both
+   * intrinsic dimensions.
+   */
+  brokerageLogo?: string;
+  brokerageLogoLight?: string;
+  brokerageLogoWidth?: number;
+  brokerageLogoHeight?: number;
+  /**
+   * The personal-opinion disclaimer eXp expects on an agent-run site. Kept
+   * separate from `brokerageDisclosure`, which is the licensing statement.
+   */
+  opinionDisclaimer: string;
   bio: string;
   storyLong: string;
   license: string;
@@ -269,6 +290,13 @@ export const tenant: Tenant = {
     brokerage: "eXp Realty",
     brokerageDisclosure:
       "Rebecca Pitts is a licensed real estate broker in Washington State, affiliated with eXp Realty. MLS #87890. License #107351. eXp Realty is a licensed real estate brokerage. Equal Housing Opportunity.",
+    // Empty on purpose. See the field docs above: the eXp logo cannot be
+    // recreated, so these stay blank until the official artwork is dropped into
+    // public/images/brand and the four fields are filled in together.
+    brokerageLogo: "",
+    brokerageLogoLight: "",
+    opinionDisclaimer:
+      "Opinions expressed are my own and not the views of eXp Realty.",
     headshot: "/photos/headshots/becca-headshot.webp",
     // The seated studio portrait crossfades into this one on the homepage as
     // the about section scrolls through the viewport.

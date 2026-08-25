@@ -74,6 +74,14 @@ work done directly in the repo.
   the intent was only a punchier headline, the narrower county-level language
   everywhere else is still correct and this note can be closed as scoped to the
   H1 alone. Ask before assuming either reading.
+- **2026-08-25: the H1 is now "Puget Sound / Real Estate Expert",** broken onto
+  two lines with a hard `<br />` rather than left to wrap. Becca asked for it
+  directly and for that exact break. It reads as a title rather than a claim,
+  which sharpens the tension logged in the note above instead of resolving it:
+  the page still says Puget Sound in the headline and Bonney Lake, Puyallup,
+  North Tacoma, and Eatonville in the line under it. That question is still
+  open. The subhead now opens on "Hi, I'm Becca Pitts." so the H1 can stay a
+  title and the introduction happens in the sentence below it.
 
 ## Voice and copy
 
@@ -129,6 +137,24 @@ work done directly in the repo.
   questionnaire buttons in the CTA block.
 - **No decorative numbering on the scenario cards.** The numbers implied a sequence
   that does not exist; these are six parallel doors, not six steps.
+- **The whole hero clears an 800px-tall desktop viewport.** Header, headline,
+  subhead, both CTAs, the quiz link, and all four stat cards are visible at
+  1280x800 without scrolling. That is the constraint any future hero edit has to
+  hold: adding a line of copy or a taller card puts the proof points below the
+  fold, which is where they stop working.
+- **Hero stat cards are landscape panes, not portrait tiles.** Number on the
+  left at display weight, label beside it, roughly 288x58 at 1280. No icon chip
+  above the number; it was decoration that cost vertical space the fold could
+  not spare. The per-stat `detail` line is not rendered in the hero either. The
+  About page still shows all four stats with their details.
+- **The frosted glass recipe stays.** White vertical gradient (0.40 to 0.85),
+  hairline fog border, 12px backdrop blur, contact shadow plus soft lift,
+  matched to the Living In Duvall category tiles. Compacting the cards changed
+  their shape, not their surface. Do not flatten it to a single alpha.
+- **"SRES®" is what sizes that row.** It is far wider than the other three
+  values, so it decides when the number can sit beside its label. Below `sm`
+  the two stack inside the card, and the four-across grid starts at `lg`, not
+  `md`: at `md` each card is about 168px, which is too narrow for the pair.
 - **Meet Becca before the self-select.** About sits above the scenario cards so a
   stranger knows who is talking before being asked to pick a path.
 - **Alternate section backgrounds.** Stats, About, and Scenarios were all warm and
@@ -206,6 +232,15 @@ work done directly in the repo.
 - **Nav active state: `/` is exact-match, everything else matches its children.**
   `isActive()` in `Header.tsx` owns this. A bare prefix rule silently breaks on
   the Home entry, since `"/" + "/"` never matches anything.
+- **The header carries the brokerage, above the fold, on every page.** "Brokered
+  by / eXp Realty" sits beside the logo behind a hairline divider, two lines at
+  9px, 10px from `sm` up. This is a compliance requirement, not a design choice,
+  so it does not get dropped at a breakpoint and it does not get hidden behind a
+  menu. It survived the 61px bar: the block clears 24px against a 32px logo.
+- **Becca's branding is always at least as large as the brokered-by line.** eXp
+  requires it, and the whole point of the small type is that the site is hers
+  and the brokerage is the qualifier. If the header logo ever shrinks, that line
+  shrinks with it.
 - **No demo ribbon.** The site being pre-launch is not something the page needs
   to announce. `isNoIndex()` is the real guard and it is untouchable from the
   UI layer.
@@ -377,3 +412,39 @@ pointed at these; the values below are read off the live page, not approximated.
 - **Becca liked the Russ Lagan real estate site's photo crossfade.** That is
   the reference for this kind of transition: slow, elegant, driven by scroll
   position rather than by a timer.
+
+## Compliance furniture (source of truth)
+
+- **The eXp Realty logo is never drawn, traced, or typeset.** eXp's guidelines
+  say only official artwork may be used and that the mark must never be
+  recreated. So the site does not ship an approximation of it. Until the real
+  files land, `BrokeredBy` renders "eXp Realty" as a plain identification line
+  in Azo Sans, which is a brokerage disclosure and not a fake logo. Anyone
+  tempted to "just make an SVG of it" should stop.
+- **How to drop the real logo in.** Put the full-colour and white-knockout files
+  in `public/images/brand`, then fill `brokerageLogo`, `brokerageLogoLight`,
+  `brokerageLogoWidth`, and `brokerageLogoHeight` in `tenant.agent` together.
+  The component only switches to artwork when it has a path and both intrinsic
+  dimensions, so a half-filled config keeps the text fallback instead of
+  rendering a broken image. The 60px minimum width from the guidelines is
+  already enforced in the component; do not remove it.
+- **Never recolour the eXp logo.** The light and dark files are two separate
+  approved lockups. That is why the component picks a file by `tone` rather than
+  filtering or inverting one file.
+- **The other three marks are ours to draw.** REALTOR block R, the MLS chip, and
+  the Equal Housing Opportunity house are inline SVG in `currentColor` in
+  `ComplianceMarks.tsx`. They inherit the surrounding colour, which is what lets
+  one component sit on the ink strip and on a light surface without a second
+  asset. The equal sign is knocked out with `fillRule="evenodd"` rather than
+  painted, for the same reason.
+- **The compliance strip is ink, the footer above it is slate.** Two tones, so
+  the legal band reads as a legal band. It is the one place on the site where
+  `--color-ink` is used as a large background.
+- **Compliance content renders outside `FadeIn`.** Decoration can wait on a
+  viewport observer. Brokerage identification and the licensing statement
+  cannot. Do not wrap the strip to "make it consistent" with the rest.
+- **Two disclosure fields, two jobs.** `brokerageDisclosure` is the licensing
+  statement. `opinionDisclaimer` is "Opinions expressed are my own and not the
+  views of eXp Realty." They stay separate because the
+  disclaimer belongs on this site specifically, as an agent-run site under a
+  brokerage. Both live in `tenant.agent`, typed once, never retyped into a page.

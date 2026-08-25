@@ -55,25 +55,45 @@ export function Header() {
   return (
     <header className="sticky top-0 z-40 border-b border-black/5 bg-white/90 backdrop-blur-md">
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-2 lg:px-8">
-        <Link
-          href="/"
-          aria-label={`${tenant.brand.name} home`}
-          className="flex items-center py-1"
-        >
-          {/* Intrinsic size is the file's own 640x312 so next/image reserves
-              the right box; the height class is what actually sizes it. */}
-          <Image
-            src={tenant.brand.logo}
-            alt=""
-            width={tenant.brand.logoWidth}
-            height={tenant.brand.logoHeight}
-            priority
-            // Fixed display size, so pin `sizes`. Without it next/image has no
-            // width to reason about and requests its largest candidate.
-            sizes="80px"
-            className="h-8 w-auto md:h-9"
-          />
-        </Link>
+        <div className="flex items-center gap-2.5 sm:gap-3">
+          <Link
+            href="/"
+            aria-label={`${tenant.brand.name} home`}
+            className="flex items-center py-1"
+          >
+            {/* Intrinsic size is the file's own 640x312 so next/image reserves
+                the right box; the height class is what actually sizes it. */}
+            <Image
+              src={tenant.brand.logo}
+              alt=""
+              width={tenant.brand.logoWidth}
+              height={tenant.brand.logoHeight}
+              priority
+              // Fixed display size, so pin `sizes`. Without it next/image has no
+              // width to reason about and requests its largest candidate.
+              sizes="80px"
+              className="h-8 w-auto md:h-9"
+            />
+          </Link>
+
+          {/*
+            Brokerage identification, above the fold on every page, which is
+            what eXp's policy asks for. It is stacked over two lines at 10px so
+            the whole block clears roughly 26px, comfortably under the 32px
+            logo beside it: eXp requires the agent's own branding to be at
+            least as large as the brokered-by line, never smaller.
+
+            It is not the eXp logo and does not try to look like one. eXp's
+            guidelines forbid recreating or typesetting the mark, so this is a
+            plain identification line in the site's own type.
+          */}
+          <span className="whitespace-nowrap border-l border-black/10 pl-2.5 text-[9px] font-medium uppercase leading-[1.35] tracking-[0.1em] text-[var(--color-ink-soft)] sm:pl-3 sm:text-[10px] sm:tracking-[0.12em]">
+            Brokered by
+            <span className="block font-bold tracking-[0.06em] text-[var(--color-ink)]">
+              {tenant.agent.brokerage}
+            </span>
+          </span>
+        </div>
 
         {/* ml-auto absorbs the free space to the nav's left, so the links sit
             flush against the Contact button instead of centering in the bar.
