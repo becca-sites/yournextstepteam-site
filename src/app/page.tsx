@@ -16,7 +16,7 @@ function HeroSection() {
   const video = tenant.media.heroVideo;
 
   return (
-    <section className="relative flex min-h-[85vh] flex-col overflow-hidden bg-white">
+    <section className="relative flex min-h-[90vh] flex-col overflow-hidden bg-white">
       {/* Falls back to the photo mosaic if the video is ever unset. */}
       {video ? <HeroVideo video={video} /> : <HeroMosaicBackground />}
 
@@ -33,25 +33,39 @@ function HeroSection() {
       <div className="relative z-10 flex flex-1 items-center">
         {/* Tighter than the old hero's py-24/py-32. The stat row now lives
             inside this section, so every pixel of padding here pushes the
-            cards further down the screen. */}
-        <div className="mx-auto w-full max-w-7xl px-4 py-14 lg:px-8 lg:py-20">
+            cards further down the screen, and the whole stack has to clear an
+            800px-tall desktop viewport with the header above it. */}
+        <div className="mx-auto w-full max-w-7xl px-4 py-10 lg:px-8 lg:py-12">
           <FadeIn className="max-w-2xl text-left">
             <p className="eyebrow">{tenant.brand.eyebrow}</p>
-            <h1 className="mt-5 font-display text-5xl font-semibold leading-[1.05] tracking-tight text-neutral-950 md:text-7xl">
-              Your Puget Sound expert.
+            {/* Hard break rather than a width constraint: "Puget Sound" over
+                "Real Estate Expert" is the intended reading, and letting it
+                wrap on its own would put "Real" up on line one at 6xl. */}
+            <h1 className="mt-4 font-display text-5xl font-semibold leading-[1.05] tracking-tight text-neutral-950 md:text-6xl">
+              Puget Sound
+              <br />
+              Real Estate Expert
             </h1>
             {/* Hero subhead is written for this page rather than pulled from
                 tenant.agent.bio, so the headline and the copy under it read as
-                one thought. The bio still carries the About page hero. */}
-            <p className="mt-6 max-w-xl text-lg text-neutral-600 md:text-xl">
-              Bonney Lake, Puyallup, North Tacoma, Eatonville. Fifteen years in
-              real estate in Washington and 270 closings behind me, so I can
-              tell you what your street is doing, what that house is really
-              worth, and what it takes to get you into it.
+                one thought. The bio still carries the About page hero.
+
+                neutral-700 plus a soft text-shadow: the video's white wash
+                keeps this readable on most frames, but the shadow is the
+                safety net for the darker ones. */}
+            <p
+              className="mt-5 max-w-xl text-lg text-neutral-700 md:text-xl"
+              style={{ textShadow: "0 1px 3px rgba(0,0,0,0.3)" }}
+            >
+              Hi, I&apos;m Becca Pitts. Bonney Lake, Puyallup, North Tacoma,
+              Eatonville. Fifteen years in real estate in Washington and 270
+              closings behind me, so I can tell you what your street is doing,
+              what that house is really worth, and what it takes to get you
+              into it.
             </p>
             {/* Buying and selling carry equal weight, so both CTAs use the
                 same button treatment. */}
-            <div className="mt-10 flex flex-wrap gap-4">
+            <div className="mt-7 flex flex-wrap gap-4">
               <Link href="/buyers" className="btn-primary">
                 Buying a Home
               </Link>
@@ -59,7 +73,7 @@ function HeroSection() {
                 Selling a Home
               </Link>
             </div>
-            <div className="mt-4">
+            <div className="mt-3">
               <Link href="/quiz" className="text-sm font-medium text-[var(--color-moss)] hover:underline">
                 Or take YOUR Real Estate IQ Quiz &rarr;
               </Link>
@@ -93,132 +107,55 @@ const GLASS_BACKGROUND =
 const GLASS_SHADOW =
   "shadow-[0_1px_2px_rgba(0,0,0,0.16),0_8px_18px_rgba(0,0,0,0.22)]";
 
-interface StatIcon {
-  /** Chip fill. */
-  chip: string;
-  /** Glyph stroke. White on the dark chips, ink on the gold one. */
-  glyph: string;
-  path: React.ReactNode;
-}
-
-/**
- * One icon per stat, keyed by its label in tenant.stats.
- *
- * Keyed rather than indexed so reordering the stats moves the right icon with
- * the right number, and unknown labels fall through to the star instead of
- * leaving a hole where the chip should be.
- *
- * The gold chip takes an ink glyph. White on #D99A2B is about 2.2:1, which is
- * thin even for decoration; dark on gold is roughly 8:1 and reads as a badge.
- */
-const STAT_ICONS: Record<string, StatIcon> = {
-  "Years in real estate": {
-    chip: "var(--color-moss)",
-    glyph: "#FFFFFF",
-    path: (
-      <>
-        <circle cx="12" cy="12" r="9" />
-        <path d="M12 7v5l3 2" />
-      </>
-    ),
-  },
-  Closings: {
-    chip: "var(--color-slate)",
-    glyph: "#FFFFFF",
-    path: (
-      <>
-        <path d="M3 10.5 12 3l9 7.5" />
-        <path d="M5.5 9.5V20a1 1 0 0 0 1 1h11a1 1 0 0 0 1-1V9.5" />
-        <path d="M10 21v-6h4v6" />
-      </>
-    ),
-  },
-  "Senior Real Estate Specialist": {
-    chip: "var(--color-ink-soft)",
-    glyph: "#FFFFFF",
-    path: (
-      <>
-        <circle cx="12" cy="9" r="5.5" />
-        <path d="M8.5 13.5 7 21l5-2.5 5 2.5-1.5-7.5" />
-      </>
-    ),
-  },
-  "eXp Icon Agent": {
-    chip: "var(--color-sunshine-deep)",
-    glyph: "var(--color-ink)",
-    path: <path d="m12 3 2.6 5.6 6.1.8-4.5 4.2 1.2 6.1L12 16.8l-5.4 2.9 1.2-6.1-4.5-4.2 6.1-.8z" />,
-  },
-};
-
-const FALLBACK_ICON: StatIcon = STAT_ICONS["eXp Icon Agent"];
-
 /**
  * The four proof points, sitting on the video at the bottom of the hero.
  *
- * Two up on phones and four across from md, so the row never squeezes a value
- * like "SRES®" onto three lines. Each card is its own pane rather than one
- * wide bar, which keeps the 2x2 mobile grid looking deliberate instead of like
- * a broken strip.
+ * Landscape panes, not portrait tiles: the number sits on the left and the
+ * label runs beside it, so a card is roughly 16:9 or wider instead of a tall
+ * stack. That shape is what lets the header, headline, subhead, CTAs, and all
+ * four cards clear an 800px-tall desktop viewport without scrolling.
  *
- * Icon chip on top, then the number at display weight, then the label. The
- * reference tiles carry an icon over a single label; the number is the piece
- * this row exists for, so it gets the size.
+ * Two up until lg, four across above it. Four across at md would leave each
+ * card about 168px, which is narrower than "SRES®" and its label side by side,
+ * so tablets get the 2x2 instead. Each card is its own pane rather than one
+ * wide bar, which keeps the 2x2 grid looking deliberate instead of like a
+ * broken strip.
+ *
+ * The `detail` line each stat carries is deliberately not rendered here. It is
+ * the piece that forced these cards tall, and the About page already shows all
+ * four stats with their details in StatCardRow.
  */
 function HeroStatRow() {
   return (
-    <div className="relative z-10 mx-auto w-full max-w-7xl px-4 pb-8 lg:px-8 lg:pb-12">
+    <div className="relative z-10 mx-auto w-full max-w-7xl px-4 pb-6 lg:px-8 lg:pb-10">
       <FadeIn>
-        <dl className="grid grid-cols-2 gap-3 sm:gap-4 md:grid-cols-4">
-          {tenant.stats.map((s) => {
-            const icon = STAT_ICONS[s.label] ?? FALLBACK_ICON;
-
-            return (
-              <div
-                key={s.label}
-                className={`flex h-full flex-col items-center justify-center rounded-2xl border border-[color:var(--color-fog)] px-3 py-5 text-center backdrop-blur-[12px] sm:px-4 sm:py-7 ${GLASS_SHADOW}`}
-                style={{ background: GLASS_BACKGROUND }}
-              >
-                <dt className="flex flex-col items-center gap-2 sm:gap-3">
-                  <span
-                    aria-hidden="true"
-                    className="flex h-10 w-10 items-center justify-center rounded-xl shadow-sm sm:h-12 sm:w-12 sm:rounded-2xl"
-                    style={{ background: icon.chip, color: icon.glyph }}
-                  >
-                    <svg
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth={1.6}
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      className="h-5 w-5 sm:h-6 sm:w-6"
-                      aria-hidden="true"
-                    >
-                      {icon.path}
-                    </svg>
-                  </span>
-                  <span className="display-num text-3xl text-[color:var(--color-ink)] sm:text-4xl">
-                    {s.value}
-                  </span>
-                </dt>
-                <dd className="mt-2">
-                  <span className="text-xs font-semibold uppercase tracking-wide text-[color:var(--color-ink)] sm:text-sm">
-                    {s.label}
-                  </span>
-                  {/* text-xs, not an arbitrary px value: this site redefines
-                      --text-xs to 14px as its type floor, so anything smaller
-                      would be undercutting that on purpose. The detail line
-                      separates from the label by case and color instead of by
-                      size. */}
-                  {s.detail && (
-                    <p className="mt-1 text-xs leading-snug text-[color:var(--color-muted)]">
-                      {s.detail}
-                    </p>
-                  )}
-                </dd>
-              </div>
-            );
-          })}
+        <dl className="grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4">
+          {tenant.stats.map((s) => (
+            <div
+              key={s.label}
+              // Number beside the label from sm up. Below that a card is about
+              // 166px wide, and "SRES®" next to "Senior Real Estate Specialist"
+              // does not fit on one line at any size worth reading, so the two
+              // stack instead of overflowing the pane.
+              className={`flex h-full flex-col items-start gap-1 rounded-2xl border border-[color:var(--color-fog)] px-4 py-3 backdrop-blur-[12px] sm:flex-row sm:items-center sm:gap-4 sm:px-5 ${GLASS_SHADOW}`}
+              style={{ background: GLASS_BACKGROUND }}
+            >
+              {/* shrink-0 so a wrapping label never squeezes the numeral, and
+                  the numeral is the thing the row exists for. One size at every
+                  breakpoint: the values are not all short numerals, and at 4xl
+                  "SRES®" ate enough of a 288px card to wrap its label onto four
+                  lines, which set the height of the whole row. */}
+              <dt className="display-num shrink-0 text-3xl text-[color:var(--color-ink)]">
+                {s.value}
+              </dt>
+              {/* text-xs, not an arbitrary px value: this site redefines
+                  --text-xs to 14px as its type floor, so anything smaller
+                  would be undercutting that on purpose. */}
+              <dd className="text-xs font-semibold uppercase leading-tight tracking-wide text-[color:var(--color-ink)]">
+                {s.label}
+              </dd>
+            </div>
+          ))}
         </dl>
       </FadeIn>
     </div>
