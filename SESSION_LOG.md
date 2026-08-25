@@ -7,6 +7,56 @@ Note: the Google Drive **SESSION_LOG** doc is the more current master. See
 
 ---
 
+## 2026-08-25 - Buyers page stripped down to face, trust, and one CTA
+
+**Deliverables:** `src/app/buyers/page.tsx`, rewritten.
+
+### Direction
+
+The page had too much invented copywriting. The real conversion drivers are
+Becca's face, the reviews, and a clear path to the buyer questionnaire, so
+everything that was not one of those three came out.
+
+### What the page is now
+
+1. **Hero.** Becca's headshot (was a stock house exterior), the ellipsis
+   headline, one paragraph on the five percent / ninety-five percent reality,
+   and the questionnaire button.
+2. **Senior transitions.** Its own band with the gold border and gold badge,
+   sitting directly under the hero instead of buried inside a scenario grid.
+3. **Testimonials.** Three buyer-side reviews pulled from `tenant.testimonials`
+   by name, so the quotes stay verbatim and stay in sync with the review set.
+4. **Quiz.** The soft funnel for anyone not ready to fill out a form.
+5. **Neighborhoods.** One line and a link to `/neighborhoods`.
+6. **ContactBlock.** The fallback CTA.
+
+### What came out
+
+- The "truth about online listings" myth-busting grid (four cards inventing how
+  Becca negotiates, reads contracts, and spots inspection issues).
+- The four scenario cards and the four "how I work" pillars, both of which
+  described a system nobody had confirmed.
+- The Graham raw-land client story and the six-question buyer FAQ, along with
+  its `FAQSchema`. `ServiceSchema` stayed.
+- The section that used to render on the dark primary token before it was
+  patched to grey. It is gone rather than recoloured.
+
+### Copy and geography
+
+- Sales figures now read "12 sales in the last 12 months across the Puget Sound
+  region" and "270 career total across Western Washington" in the hero
+  credential line.
+- No individual town names anywhere on the page. Counties and "the Puget Sound
+  region" only. Town names belong on the neighborhood pages and the blog.
+- Testimonial cards deliberately drop the reviewer's city for the same reason,
+  even though `tenant.testimonials` carries it.
+
+### Still open
+
+- `tenant.resultsStats` still labels the review stat "Zillow rating". The
+  wording should become "online reviews" wherever that row renders, which is
+  not this page, so it was left for a pass that owns those pages.
+
 ## 2026-08-25 - Buyers page broadens from Pierce County to the Puget Sound
 
 **Deliverables:** `src/app/buyers/page.tsx`. Commit `f05d0f7`, pushed to main.

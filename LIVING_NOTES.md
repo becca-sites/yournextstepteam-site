@@ -474,3 +474,35 @@ pointed at these; the values below are read off the live page, not approximated.
   views of eXp Realty." They stay separate because the
   disclaimer belongs on this site specifically, as an agent-run site under a
   brokerage. Both live in `tenant.agent`, typed once, never retyped into a page.
+
+## Page structure: keep the conversion pages lean
+
+- **Three things convert on a service page: Becca's face, the reviews, and one
+  clear CTA.** The buyers page was rebuilt around exactly that on 2026-08-25.
+  Hero with the headshot and the questionnaire button, the senior transitions
+  callout, buyer testimonials, the quiz as a soft funnel, a neighborhoods link,
+  and the contact block. Nothing else.
+- **Do not invent how Becca works.** Numbered systems, "old way versus new way"
+  comparisons, pillar grids, and detailed scenario breakdowns were all written
+  without her confirming any of it, and they read as filler. If a claim about
+  her process did not come from her, it does not go on the page.
+- **A hero image on a page about Becca should be Becca.** The buyers hero was a
+  stock house exterior. The headshot is the asset that builds trust.
+- **Senior transitions gets its own band, not a slot in a grid.** It is the
+  specialty, so it sits directly under the hero with the gold border, the gold
+  badge fill, and dark type. Gold is used for ranking exactly one thing per
+  page, and this is it.
+- **Testimonials get selected by name from `tenant.testimonials`.** Never paste
+  a review into a page file. Selecting by name keeps the quote verbatim and
+  keeps one review set as the source of truth.
+- **No town names on the buyers page.** Geography there is "the Puget Sound
+  region" or "Pierce, King, and the surrounding counties." Individual towns are
+  the subject of the neighborhood pages and blog posts, so that is where they
+  earn their keep. This includes the reviewer cities on testimonial cards.
+- **Standing numbers.** "12 sales in the last 12 months across the Puget Sound
+  region" and "270 career total across Western Washington," one line each. Say
+  "online reviews" rather than "Zillow ratings" wherever the review count is
+  quoted as a stat.
+- **If a section only works after being recoloured to stay readable, cut it.**
+  The dark myth-busting band on the buyers page was patched to grey once and
+  then deleted, because the patch was keeping a section nobody needed.
