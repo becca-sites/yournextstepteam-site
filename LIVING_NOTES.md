@@ -529,3 +529,40 @@ pointed at these; the values below are read off the live page, not approximated.
 - **If a section only works after being recoloured to stay readable, cut it.**
   The dark myth-busting band on the buyers page was patched to grey once and
   then deleted, because the patch was keeping a section nobody needed.
+- **No town names on the sellers page either,** same rule as buyers, confirmed
+  on 2026-08-27. Counties and the Puget Sound region only, in the metadata and
+  the case study tags as well as the body copy.
+
+## Seller messaging (source of truth)
+
+- **Every home can sell, whatever condition it is in.** This is the spine of the
+  sellers page and it outranks everything else on it. A seller who cannot afford
+  to fix anything should finish the hero paragraph feeling like calling is a
+  reasonable thing to do.
+- **Price and positioning sell a house.** Improvements are optional; those two
+  are not. Say it plainly. The gold band on the sellers page exists to carry
+  exactly this sentence, and gold still ranks only one thing per page.
+- **Prep is a spectrum, and the seller picks the spot.** One end is paint on the
+  front door and a pressure wash. The other end is a full remodel. Where someone
+  lands depends on three things and only three things: **budget, time, and
+  bandwidth.** Use those three words; they are Becca's.
+- **Never imply a seller should have done more.** Not everyone has cash to put
+  into a house before listing it, and the copy treats that as normal rather than
+  as a problem to apologise for.
+- **Only recommend what returns more than it costs.** Becca's value here is
+  knowing which improvements move the needle and which quietly waste money, and
+  helping a seller decide **how many worms to let out of the can.** That phrase
+  is hers and it is worth keeping in the copy.
+- **Promise strategy and honesty, never ease.** "I can't promise selling a home
+  is easy. Some of them are really, really hard." That is closer to how she
+  actually talks than any reassurance about a smooth process would be.
+- **No X-not-Y framing anywhere in her voice.** This is why the "old way versus
+  the way I list a home" grid was deleted rather than rewritten. State the thing
+  that is true; do not set it against a strawman.
+- **Seller proof comes from seller reviews.** Pick them by name out of
+  `tenant.testimonials`, never paste. Liw2's review is the one that proves the
+  pricing claim, so it holds its spot even though the Zillow handle is not a real
+  name.
+- **`tenant.faqs` is the sellers page FAQ.** It renders nowhere else and it feeds
+  the FAQ schema on `/sellers`, so every question in it is a seller question.
+  Adding a buyer question there puts a buyer question in seller structured data.

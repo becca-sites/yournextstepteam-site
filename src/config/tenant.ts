@@ -1043,8 +1043,8 @@ export const tenant: Tenant = {
   resultsStats: [
     { value: "270", label: "Total closings", detail: "Career total across Western Washington" },
     { value: "$516K", label: "Average sale price", detail: "$165K to $1M price range" },
-    { value: "5.0", label: "Zillow rating", detail: "46 verified reviews" },
-    { value: "12", label: "Sales in the last 12 months", detail: "Pierce and South King County" },
+    { value: "5.0", label: "Average rating", detail: "46 verified online reviews" },
+    { value: "12", label: "Sales in the last 12 months", detail: "Across the Puget Sound region" },
   ],
 
   // Written for cold traffic: someone who found this page and has never met
@@ -1095,16 +1095,35 @@ export const tenant: Tenant = {
     },
   ],
 
+  // Seller-facing FAQ. These render on /sellers only, and they feed the FAQ
+  // schema on that page, so they answer seller questions and nothing else.
+  // Geography stays at the county and region level here; town names live on the
+  // neighborhood pages.
   faqs: [
     {
-      question: "What areas do you actually work?",
+      question: "My house needs work. Can I still sell it?",
       answer:
-        "Bonney Lake, Puyallup, North Tacoma, and Eatonville are home turf. I grew up in Eatonville and I have worked this county for fifteen years. I also list and sell in Sumner, Graham, Orting, Roy, Gig Harbor, and out into King, Thurston, and Mason counties. If you are wondering whether your address is in my range, call and ask. It usually is.",
+        "Yes. Every home can sell, whatever shape it is in. I have listed homes fresh off a remodel and homes that had not been touched in decades, and both of them sold. Condition changes the number and it changes who I market the house to, and I handle both of those. It is not a reason to keep waiting.",
+    },
+    {
+      question: "What should I fix before listing?",
+      answer:
+        "Usually far less than people expect. There is a short list of improvements that reliably return more than they cost, and a much longer list that quietly does not. I walk the home, look at what a buyer will actually react to, and tell you honestly where your money is better off staying in your pocket. Sometimes the answer really is paint the front door, pressure wash the driveway, and let me go sell it.",
+    },
+    {
+      question: "What if I have no budget for repairs at all?",
+      answer:
+        "Then we build the plan around that, and it is completely okay. Not everyone has cash sitting there to put into a house they are about to leave. That is where pricing and positioning do the heavy lifting: the right number and the right marketing bring the buyer who wants this house in this condition. I would rather list it as it sits and price it correctly than have you borrow money to chase a return that is not there.",
     },
     {
       question: "How do you decide what my home should list for?",
       answer:
-        "I walk the home first, then I build a full CMA from closed sales within a mile or so of you, adjusted for condition, layout, lot, and what is moving right now. Bonney Lake and North Tacoma can behave like two different markets in the same month, so a countywide average tells you very little. You get the comps and the reasoning behind them, and then we pick the number together.",
+        "I walk the home first, then I build a full CMA from closed sales within a mile or so of you, adjusted for condition, layout, lot, and what is moving right now. Two pockets a few miles apart in the Puget Sound region can behave like different markets in the same month, so a countywide average tells you very little. You get the comps and the reasoning behind them, and then we pick the number together.",
+    },
+    {
+      question: "What areas do you work?",
+      answer:
+        "Pierce, King, and the surrounding counties, and I have closed deals well outside that when the right one came along. I have lived in this region my whole life and I have sold homes from Everett to Morton. If you are wondering whether your address is in my range, call and ask. It usually is.",
     },
     {
       question: "What does SRES certified mean?",
@@ -1122,9 +1141,9 @@ export const tenant: Tenant = {
         "It is one of the most complex transactions in residential real estate: bridge loans, contingency timelines, two agents, two closings. I manage the lender relationship, hold the other agent to your timeline, and coordinate both sides so the two closings land where they should. I have done this enough times to know the three places it usually breaks, and I plan around them.",
     },
     {
-      question: "Do you work with first-time buyers too?",
+      question: "How long is this going to take?",
       answer:
-        "Absolutely, and honestly it is some of my favorite work. Ask all the questions; that is how I work. We move at your pace, every question gets a real answer, and I would rather over-explain than leave you guessing. On average, my buyers are under contract within 45 days of starting their search.",
+        "That depends on the price, the positioning, and how much prep you decide to take on, which is exactly why we talk about all three before anything goes live. Days on market swing quite a bit across the region and by season. What I will not do is guess at a timeline to make you feel good in the first meeting. I will give you a real range based on what is actually closing near you, and I will tell you the day it needs adjusting.",
     },
   ],
 

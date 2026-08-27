@@ -7,6 +7,81 @@ Note: the Google Drive **SESSION_LOG** doc is the more current master. See
 
 ---
 
+## 2026-08-27 - Sellers page rewritten around price and positioning
+
+**Deliverables:** `src/app/sellers/page.tsx`, `src/config/tenant.ts`.
+
+### Direction
+
+From Becca: the core message on the sellers page is that every home can sell no
+matter its condition, because price and positioning are what move a house.
+Getting ready to list is a spectrum, anywhere from paint on the front door and a
+pressure wash up to a full remodel, and where a seller lands on it depends on
+budget, time, and bandwidth. Not everyone has money to put in ahead of listing,
+and the page has to make those sellers feel confident calling rather than
+embarrassed. The promise is that Becca will be strategic and honest about what
+matters, not that any of it will be easy.
+
+### What changed
+
+- **Hero.** New headline: "Your home can sell exactly the way it sits today."
+  The old one was about comps within a mile. The hero image is now the headshot
+  rather than a stock house exterior, matching the buyers page.
+- **Cut the invented process.** The five-item seller fear list, the "old way
+  versus the way I list a home" comparison grid, and the six numbered system
+  cards are gone. None of it came from Becca, and the comparison grid was X-not-Y
+  framing, which she does not use.
+- **New gold band: "Price and positioning."** Gold ranks exactly one thing per
+  page. On the buyers page that is senior transitions; here it is the core
+  message.
+- **New section: prep is a spectrum.** Three cards, Budget / Time / Bandwidth,
+  in Becca's own framing, closing on "every one of those is workable, and none of
+  them is a reason to wait."
+- **New section: how I work a listing.** Four steps that came directly from
+  Becca: walk it first, put the real constraints on the table, recommend only
+  what earns its money back, then price it and position it. Keeps her "how many
+  worms to let out of the can" line.
+- **Seller testimonials added,** selected by name from `tenant.testimonials` the
+  same way the buyers page selects buyer reviews: Liw2, Jen Schumacher, Carl,
+  Autumn Starr. Liw2 is a Zillow handle rather than a real name and stays anyway,
+  because that review ("competitive, yet priced to move ... offer within three
+  days ... higher than asking") is the best proof on the site of the page's
+  central claim.
+- **Case studies kept, geography stripped.** "Tacoma green belt listing" is now
+  "Positioning: a first home ringed by green belt," and the Tehaleh seller is now
+  just "a seller." The first study is retagged to read as a positioning story,
+  which is what it always was.
+- **Geography broadened** to "the Puget Sound region" and "Pierce, King, and the
+  surrounding counties" throughout, including the metadata title and description.
+  No town names remain on the page.
+- **Credential line** now matches the buyers page wording exactly.
+
+### tenant.ts
+
+- **`faqs` rewritten for sellers.** These render on `/sellers` only and feed that
+  page's FAQ schema, so they are now seller questions end to end. Three new ones
+  carry the message: "My house needs work. Can I still sell it?", "What should I
+  fix before listing?", and "What if I have no budget for repairs at all?". "Do
+  you work with first-time buyers too?" was replaced with "How long is this going
+  to take?". The pricing and service-area answers lost their town lists.
+- **`resultsStats`**: "Zillow rating / 46 verified reviews" became "Average
+  rating / 46 verified online reviews", per the standing note to say online
+  reviews rather than naming Zillow in a stat. The twelve-month sales detail now
+  reads "Across the Puget Sound region."
+
+### Verified
+
+`npx tsc --noEmit` clean, `next lint` clean on the page, `npm run build` succeeds.
+
+### Still pending
+
+- The homepage `scenarios` list has no entry for selling a home that needs work,
+  which is now the strongest seller message on the site. Worth adding once Becca
+  confirms the wording.
+- Everything under the previous sessions' "Still pending" remains open.
+
+---
+
 ## 2026-08-27 - Home page geography widens to Pierce, King, and surrounding counties
 
 **Deliverables:** `src/app/page.tsx`, `src/config/tenant.ts`.
