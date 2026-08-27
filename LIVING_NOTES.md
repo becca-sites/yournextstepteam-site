@@ -539,13 +539,17 @@ pointed at these; the values below are read off the live page, not approximated.
   sellers page and it outranks everything else on it. A seller who cannot afford
   to fix anything should finish the hero paragraph feeling like calling is a
   reasonable thing to do.
-- **Price and positioning sell a house.** Improvements are optional; those two
-  are not. Say it plainly. The gold band on the sellers page exists to carry
-  exactly this sentence, and gold still ranks only one thing per page.
+- **Price, positioning, and marketing sell a house.** Improvements are optional;
+  those are not. Say it plainly, in the hero paragraph, in one paragraph. It does
+  not need its own section. Gold on the sellers page belongs to senior
+  transitions, same as the buyers page.
 - **Prep is a spectrum, and the seller picks the spot.** One end is paint on the
   front door and a pressure wash. The other end is a full remodel. Where someone
   lands depends on three things and only three things: **budget, time, and
-  bandwidth.** Use those three words; they are Becca's.
+  bandwidth.** Use those three words; they are Becca's. This belongs in
+  conversation, in a blog post, or in a questionnaire follow-up. It had its own
+  three-card section on the sellers page for about an hour on 2026-08-27 and was
+  cut for length.
 - **Never imply a seller should have done more.** Not everyone has cash to put
   into a house before listing it, and the copy treats that as normal rather than
   as a problem to apologise for.
@@ -563,6 +567,51 @@ pointed at these; the values below are read off the live page, not approximated.
   `tenant.testimonials`, never paste. Liw2's review is the one that proves the
   pricing claim, so it holds its spot even though the Zillow handle is not a real
   name.
-- **`tenant.faqs` is the sellers page FAQ.** It renders nowhere else and it feeds
-  the FAQ schema on `/sellers`, so every question in it is a seller question.
-  Adding a buyer question there puts a buyer question in seller structured data.
+- **`tenant.faqs` renders nowhere right now.** It was the sellers page FAQ until
+  that accordion was cut on 2026-08-27. The copy is seller questions end to end
+  and is kept for reuse. Putting it back on a page also puts FAQ structured data
+  back on that page, which is the main thing lost by removing it.
+- **The seller fear list is the standing example of copy to never write again.**
+  It claimed nobody says those worries out loud (sellers say them constantly),
+  that every seller thinks them (they do not), and that each one has an answer
+  (some of these decisions are emotional and do not have one). Dramatic framing
+  that overstates its case reads as false, and Becca will catch it.
+
+## The sellers page is six sections, and that is the whole page
+
+Set with Brett and Becca on 2026-08-27, after two passes in one day.
+
+1. **Hero** with the headshot, a headline about selling, one paragraph on price
+   and positioning, and the JotForm **seller questionnaire** as the primary
+   button. `tenant.listings.sellerQuestionnaireUrl`, which existed in config and
+   had never been linked from anywhere.
+2. **Stat bar**, small, three stats.
+3. **Senior transitions** in the gold band.
+4. **Seller testimonials.**
+5. **Quiz** as the soft funnel for anyone not ready to fill out a form.
+6. **Contact block.**
+
+- **The goal is the questionnaire.** See Becca, build trust through the reviews,
+  fill out the form. A section that does not serve that path is fluff sitting in
+  front of the conversion, however good the writing is.
+- **This is the same shape as the buyers page,** deliberately. Hero with the face
+  and the questionnaire, the gold specialty band, reviews, quiz, contact. Two
+  service pages, one pattern.
+- **Numbered steps are the tell.** Every version of this page that got too long
+  did it by adding a numbered process grid under a new name: "the system", then
+  "how I work a listing". If a new section has 01 / 02 / 03 in it, that section
+  is coming back.
+
+## Standing numbers (2026-08-27)
+
+- **"12 sales in the last 12 months across Puget Sound."** Not "Pierce and South
+  King County", which was inaccurate.
+- **"5.0 online reviews", never "Zillow rating".** There are Google and Facebook
+  reviews now too. A single testimonial card can still name its own source,
+  because that is a fact about that one review.
+- **"270 career total across Western Washington."**
+- **The $516K average sale price stat is retired.** It invited a price comparison
+  that does nothing for a seller reading the page.
+- **`StatCardRow` sizes its grid from `stats.length`.** Three stats render as
+  three columns, four as four. Keep every label and detail short enough to hold
+  one line.

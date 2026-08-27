@@ -1040,11 +1040,15 @@ export const tenant: Tenant = {
     { value: "Icon", label: "eXp Icon Agent", detail: "Awarded 2022" },
   ],
 
+  // Three stats, in the order Becca wants them read: recent work, reputation,
+  // career. Each label and detail is short enough to hold one line at three
+  // columns. "Online reviews" rather than "Zillow", because the review set now
+  // spans Google and Facebook too. The average sale price stat came out on
+  // 2026-08-27; it invited a price comparison that does not help a seller.
   resultsStats: [
-    { value: "270", label: "Total closings", detail: "Career total across Western Washington" },
-    { value: "$516K", label: "Average sale price", detail: "$165K to $1M price range" },
-    { value: "5.0", label: "Average rating", detail: "46 verified online reviews" },
-    { value: "12", label: "Sales in the last 12 months", detail: "Across the Puget Sound region" },
+    { value: "12", label: "Sales in the last 12 months", detail: "Across Puget Sound" },
+    { value: "5.0", label: "Online reviews", detail: "46 verified reviews" },
+    { value: "270", label: "Career total", detail: "Across Western Washington" },
   ],
 
   // Written for cold traffic: someone who found this page and has never met
@@ -1095,8 +1099,13 @@ export const tenant: Tenant = {
     },
   ],
 
-  // Seller-facing FAQ. These render on /sellers only, and they feed the FAQ
-  // schema on that page, so they answer seller questions and nothing else.
+  // Seller-facing FAQ. NOT RENDERED ANYWHERE right now: the sellers page was
+  // stripped to hero, stats, senior transitions, reviews, quiz, and contact on
+  // 2026-08-27, and the FAQ accordion went with the rest. The copy is kept
+  // because the answers are good and the questions are the ones sellers
+  // actually ask, so it is ready if a seller FAQ earns a spot again, most
+  // likely on a blog post rather than back on the conversion page. Note that
+  // removing it also removed FAQ structured data from /sellers.
   // Geography stays at the county and region level here; town names live on the
   // neighborhood pages.
   faqs: [

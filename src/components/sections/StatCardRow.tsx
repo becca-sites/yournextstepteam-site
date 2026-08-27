@@ -21,6 +21,16 @@ export function StatCardRow({
 
   const isDark = variant === "dark";
 
+  /*
+   * Column count follows the number of stats so a three-stat bar does not
+   * render an empty fourth cell. Written as whole class strings because
+   * Tailwind scans for literals and would drop a name built by interpolation.
+   */
+  const columns =
+    stats.length === 3
+      ? "grid-cols-1 sm:grid-cols-3"
+      : "grid-cols-2 md:grid-cols-4";
+
   return (
     <section
       aria-label={heading || "By the numbers"}
@@ -56,7 +66,9 @@ export function StatCardRow({
           </div>
         )}
 
-        <dl className="grid grid-cols-2 gap-px overflow-hidden rounded-2xl bg-black/5 md:grid-cols-4">
+        <dl
+          className={`grid ${columns} gap-px overflow-hidden rounded-2xl bg-black/5`}
+        >
           {stats.map((s) => (
             <div
               key={s.label}

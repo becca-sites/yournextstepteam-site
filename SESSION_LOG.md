@@ -7,6 +7,77 @@ Note: the Google Drive **SESSION_LOG** doc is the more current master. See
 
 ---
 
+## 2026-08-27 - Sellers page stripped to six sections
+
+**Deliverables:** `src/app/sellers/page.tsx`, `src/config/tenant.ts`,
+`src/components/sections/StatCardRow.tsx`.
+
+### Direction
+
+Direction change from Brett and Becca, straight after the rewrite logged below.
+The page was still too long. It gets stripped to the path to conversion and
+nothing else: see Becca, read the message, see the numbers, see the specialty,
+read the reviews, fill out the seller questionnaire. Everything else was getting
+in the way.
+
+### The six sections
+
+1. Hero: headshot, headline, one paragraph on price and positioning, the
+   JotForm seller questionnaire as the primary button.
+2. Stats: three of them, small.
+3. Senior transitions, in the gold band.
+4. Seller testimonials.
+5. Quiz as the soft funnel.
+6. Contact block.
+
+### Deleted
+
+- **The prep-is-a-spectrum grid** and **the four-step "how I work a listing"
+  cards.** Both were added earlier the same day. Both are invented structure,
+  and the four steps are the numbered system section under a new name.
+- **The "price and positioning" gold band.** The message stays; it lives in the
+  hero paragraph now, and the gold band goes back to senior transitions, which
+  is the specialty and the one thing on the page worth ranking.
+- **Both case studies.** The reviews carry the proof.
+- **The FAQ accordion and its FAQ schema.** Noted below.
+- Already gone in the previous commit, listed here because Becca called them out
+  by name: the seller fear list, the old-way-versus-how-I-list grid, and the six
+  numbered system cards. Her reasons for the fear list are worth keeping on
+  record, because they are a standing test for this kind of copy: it claimed
+  nobody says those worries out loud (sellers say them constantly), that every
+  seller thinks them (they do not), and that each one has an answer (some of
+  these decisions are emotional and do not have one).
+- **"The Truth About Online Listings"** was also called out. It does not exist
+  anywhere in `src`, so there was nothing to remove. It may be on a page outside
+  this repo.
+
+### Stats
+
+`resultsStats` is now three entries: "12 / Sales in the last 12 months / Across
+Puget Sound", "5.0 / Online reviews / 46 verified reviews", and "270 / Career
+total / Across Western Washington". The average sale price stat was dropped; it
+invited a price comparison that does not help a seller. "Pierce and South King
+County" was inaccurate and is gone. Label and detail are split so each holds one
+line, verified in the browser at 1280px.
+
+`StatCardRow` now picks its column count from `stats.length`, so three stats
+render as three columns rather than four columns with an empty cell. Four-stat
+callers, which is the about page, are untouched. Verified both in the browser.
+
+### The FAQ tradeoff
+
+Removing the accordion also removed FAQ structured data from `/sellers`, which
+was a rich-result surface in search. The copy is kept in `tenant.faqs` with a
+comment saying it renders nowhere, so it is ready if it earns a spot again,
+most likely on a blog post rather than back on the conversion page.
+
+### Verified
+
+`npx tsc --noEmit` clean, `next lint` clean, `npm run build` succeeds, and both
+`/sellers` and `/about` checked in the browser against a production server.
+
+---
+
 ## 2026-08-27 - Sellers page rewritten around price and positioning
 
 **Deliverables:** `src/app/sellers/page.tsx`, `src/config/tenant.ts`.
