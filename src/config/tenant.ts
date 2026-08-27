@@ -309,7 +309,7 @@ export const tenant: Tenant = {
     storyLong: [
       "Here's the thing about 270 closings: they teach you exactly where a deal breaks. So I structure things so they don't. I anticipate problems and have a Plan B ready, sometimes C and D, before anything goes sideways. That kind of experience also teaches you when it's time to walk away and cut losses, and I'll tell you that honestly too.",
       "I'm a cooperative agent. I look for the win-win because, let's be honest, at the end of the day everyone at the table has the same goal. I'm also solution-oriented. If there's a way to pull something off with integrity, I'm going to find it. I've sat in driveways at 9 PM helping clients think through a tough call. I've driven hours to track down a signature that saved a deal everyone else had written off. You get me, plus my transaction team keeping every deadline and detail on track behind the scenes. And I will give you a real answer to every question, even when the real answer is 'I don't know yet, but I'm going to find out.'",
-      "I've lived in the Puget Sound my whole life. I grew up in the small town of Eatonville, lived in Puyallup and Tacoma for about fifteen years, had a short stint in King County, and now I live in Bonney Lake. I've helped buyers and sellers from Everett to Morton and from Grays Harbor to Roslyn. I've never had a house come to me, so I'll go wherever the right deal is. But generally speaking, I focus my efforts in Pierce and South King Counties, which means I know these neighborhoods street by street. First house or tenth, upsizing, downsizing, investing, relocating: the questions change, the way I work them stays the same.",
+      "I've lived in the Puget Sound my whole life. I grew up in the small town of Eatonville, lived in Puyallup and Tacoma for about fifteen years, had a short stint in King County, and now I live in Bonney Lake. I've helped buyers and sellers from Everett to Morton and from Grays Harbor to Roslyn. I've never had a house come to me, so I'll go wherever the right deal is. But generally speaking, I focus my efforts in Pierce and South King Counties, which means I know these neighborhoods well. First house or tenth, upsizing, downsizing, investing, relocating: the questions change, the way I work them stays the same.",
     ].join("\n\n"),
     license: "WA #107351",
     mlsId: "87890",
@@ -369,7 +369,11 @@ export const tenant: Tenant = {
     logoWidth: 640,
     logoHeight: 312,
     tagline: "Your next step starts here.",
-    eyebrow: "Bonney Lake · Puyallup · North Tacoma · Eatonville",
+    // Counties rather than the old four-town list. Naming four small towns in
+    // the first line of the homepage told a King or Thurston County buyer they
+    // were out of range, and they are not. Town names belong on the
+    // neighbourhood pages and in blog posts, where they are the subject.
+    eyebrow: "Pierce County · King County · Surrounding Areas",
     headingFont: "DM Serif Display",
     bodyFont: "Inter",
   },
@@ -1048,7 +1052,7 @@ export const tenant: Tenant = {
   // lands; until then it falls back to `href`.
   scenarios: [
     {
-      title: "Buying your first home in Pierce County",
+      title: "Buying your first home in the Puget Sound",
       description:
         "Ask me anything, including the questions you think sound dumb. Those are usually the good ones. I'll walk you through financing, offers, and inspections at your pace, and you'll understand what you're signing before you sign it.",
       href: "/buyers",
@@ -1076,9 +1080,9 @@ export const tenant: Tenant = {
       articleSlug: "buying-land-to-build-pierce-county",
     },
     {
-      title: "Relocating to Pierce County",
+      title: "Relocating to Western Washington",
       description:
-        "You're moving to Washington from somewhere else entirely, so you need someone standing on the ground here. I'll tour homes on video with you, tell you the truth about the commute out of Bonney Lake, and hand you off to an agent I trust to sell where you are now.",
+        "You're moving to Washington from somewhere else entirely, so you need someone standing on the ground here. I'll tour homes on video with you, tell you the truth about the commute from wherever you're considering, and hand you off to an agent I trust to sell where you are now.",
       href: "/contact",
       articleSlug: "relocating-to-pierce-county-from-out-of-state",
     },

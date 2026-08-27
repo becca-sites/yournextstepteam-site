@@ -108,6 +108,29 @@ work done directly in the repo.
     pages, and schema. **The home page and `/sellers` therefore still read
     narrower than `/buyers` does.** Ask Becca whether to run the same
     broadening sitewide before doing it.
+- **2026-08-27: asked and answered. The broadening is sitewide, and the home
+  page has now landed on the wide side too.** Becca and Brett reviewed the home
+  page together and gave the rule directly: stop isolating to Bonney Lake,
+  Puyallup, North Tacoma, and Eatonville. Main page sections use **"Pierce,
+  King, and surrounding counties"** or **"the Puget Sound region."** Specific
+  town names belong in blog posts and on neighborhood pages, where the town is
+  the subject, and nowhere else.
+  - **What moved:** the home page hero subhead, the scenarios section intro,
+    `brand.eyebrow` (now "Pierce County / King County / Surrounding Areas"),
+    and two `tenant.scenarios` titles: "Buying your first home in Pierce
+    County" became "in the Puget Sound," and "Relocating to Pierce County"
+    became "Relocating to Western Washington."
+  - **"Street by street" is retired as a phrase.** It came out of
+    `agent.storyLong`, which renders on both the home page and About. Becca has
+    now asked for it to go twice, so treat it as dead rather than as a phrasing
+    preference.
+  - **Still narrower on purpose, and still worth a pass:** `market.primaryArea`
+    is the string "Pierce County" and it interpolates into roughly a dozen
+    pages (`/blog`, `/case-studies`, `/listings`, `/neighborhoods`, `/stories`,
+    `/search`, and several section components). Widening it is a one-line
+    change with a sitewide blast radius, so it wants its own review rather than
+    riding along on a home page pass. `/sellers` and `tenant.faqs` also still
+    carry the four-town framing.
 
 ## Voice and copy
 

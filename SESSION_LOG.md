@@ -7,6 +7,58 @@ Note: the Google Drive **SESSION_LOG** doc is the more current master. See
 
 ---
 
+## 2026-08-27 - Home page geography widens to Pierce, King, and surrounding counties
+
+**Deliverables:** `src/app/page.tsx`, `src/config/tenant.ts`.
+
+### Direction
+
+From a home page review Becca and Brett did together: stop isolating the copy
+to Bonney Lake, Puyallup, North Tacoma, and Eatonville. Main page sections
+speak in counties and regions. Town names belong in blog posts and on
+neighborhood pages, where the town is the subject.
+
+### What changed
+
+- **Hero subhead** opened on the four-town list. It now reads "Hi, I'm Becca
+  Pitts. Pierce, King, and the surrounding counties."
+- **`brand.eyebrow`**, the first line on the page, went from
+  "Bonney Lake / Puyallup / North Tacoma / Eatonville" to
+  "Pierce County / King County / Surrounding Areas". Same dot-separated shape,
+  county scope.
+- **Scenarios section intro** now reads "across the Puget Sound region."
+- **`tenant.scenarios`**: "Buying your first home in Pierce County" became
+  "in the Puget Sound"; "Relocating to Pierce County" became "Relocating to
+  Western Washington"; and the commute line stopped naming Bonney Lake.
+- **`agent.storyLong`** dropped "which means I know these neighborhoods street
+  by street" in favour of "well." Becca has asked for that phrase to go twice
+  now. Her biography keeps its real town names: growing up in Eatonville is
+  personal history, not a service-area claim.
+
+### Decisions worth keeping
+
+- **`market.primaryArea` was left as "Pierce County" on purpose.** It
+  interpolates into about a dozen pages and section components, so widening it
+  is a one-line change with a sitewide blast radius. It wants its own review,
+  not a ride-along on a home page pass. `/sellers` and `tenant.faqs` are in the
+  same bucket.
+- **The open question logged in LIVING_NOTES on 2026-08-25 is now closed** for
+  the home page: the widening is genuine and sitewide, not scoped to the H1.
+
+### Note for whoever picks this up next
+
+This session was also asked to revise four sections that turned out to live on
+`/buyers` rather than the home page: the scenario cards, the "four things that
+keep your deal together" pillars, the dark "truth about online listings" band,
+and the client story. A parallel session deleted all four in `c5e768f` while
+this work was in flight. That conflict went back to Becca rather than being
+resolved here, because re-adding the sections would have reverted a pushed
+decision.
+
+`npm run build` clean, all 26 routes.
+
+---
+
 ## 2026-08-25 - Buyers page stripped down to face, trust, and one CTA
 
 **Deliverables:** `src/app/buyers/page.tsx`, rewritten.

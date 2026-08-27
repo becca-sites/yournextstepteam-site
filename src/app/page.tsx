@@ -57,8 +57,8 @@ function HeroSection() {
               className="mt-5 max-w-xl text-lg text-neutral-700 md:text-xl"
               style={{ textShadow: "0 1px 3px rgba(0,0,0,0.3)" }}
             >
-              Hi, I&apos;m Becca Pitts. Bonney Lake, Puyallup, North Tacoma,
-              Eatonville. Fifteen years in real estate in Washington and 270
+              Hi, I&apos;m Becca Pitts. Pierce, King, and the surrounding
+              counties. Fifteen years in real estate in Washington and 270
               closings behind me, so I can tell you what your street is doing,
               what that house is really worth, and what it takes to get you
               into it.
@@ -176,8 +176,8 @@ function ScenariosSection() {
           title="What does your next step look like?"
         >
           <p>
-            Real scenarios from buyers and sellers across Bonney Lake, Puyallup,
-            North Tacoma, and Eatonville. Find the one that sounds like yours.
+            Real scenarios from buyers and sellers across the Puget Sound
+            region. Find the one that sounds like yours.
           </p>
         </SectionIntro>
 
