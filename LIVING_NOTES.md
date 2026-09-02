@@ -9,6 +9,32 @@ work done directly in the repo.
 
 ---
 
+## The closing crawl (home page)
+
+- **Humor is allowed to be big here, and it is the only place on the site that
+  is.** The crawl is a straight Star Wars parody: gold #FFE81F on near-black,
+  justified copy, tilted away from the reader, "Episode 270: The Closing". The
+  bet is that the five percent / ninety-five percent argument does not land as a
+  paragraph and does land as something you have to sit through.
+- **Star Wars gold and blue are crawl-only.** #FFE81F and #4BD5EE do not enter
+  the site palette. Everything outside the crawl stays on Ink/Moss/Bone/Sunshine.
+- **Justified text is allowed only inside the crawl.** It is most of what makes
+  the thing read as a crawl rather than as a dark section with yellow text. This
+  site otherwise avoids justification, because it is hard on older readers, so
+  the crawl earns the exception by shipping Skip alongside it.
+- **Any motion that starts on its own ships with a way out.** Skip does not just
+  freeze the crawl, it hands over the same words as a still, left-aligned column.
+  Reduced motion gets that view automatically, in CSS as well as JS, so it holds
+  with JavaScript off. Apply the same rule to anything animated added later.
+- **Effects must not eat the content.** The crawl is real HTML that Google can
+  read, not a video. If a future effect can only be done as a video or a canvas,
+  the words have to exist somewhere else on the page too.
+- **There is a live easter egg in the copy.** "the sarlacc pit has better
+  escrow", texted to Becca, wins a coffee or a $25 gift card, first person each
+  month. It is deliberately styled a half step smaller and a shade warmer so it
+  blends into the task list. Do not "fix" that contrast, and do not remove the
+  line without telling Becca, because people may be playing.
+
 ## Brand identity (source of truth)
 
 - **The business is Your Next Step Team on yournextstepteam.com.** It was Your

@@ -7,6 +7,53 @@ Note: the Google Drive **SESSION_LOG** doc is the more current master. See
 
 ---
 
+## 2026-09-02 - The closing crawl replaces the dark "online listings" band
+
+**Deliverables:** `src/components/sections/ClosingCrawl.tsx` (new), the "The
+closing crawl" block appended to `src/app/globals.css`, and the section wired
+into the home page between `AboutPreviewSection` and `ScenariosSection`.
+
+### What was asked
+
+Replace the dark "The Truth About Online Listings" section with a Star Wars
+opening crawl listing everything that happens between mutual acceptance and
+keys, so the five percent / ninety-five percent argument is felt rather than
+asserted.
+
+### What was found first
+
+The section named in the request was on `/buyers`, not the home page, and it had
+already been deleted earlier the same day by "Strip the buyers page down to
+face, trust, and one CTA". Confirmed with Becca that the crawl belongs on the
+home page and that the buyers page stays lean. Nothing was put back on
+`/buyers`.
+
+### Decisions
+
+- **The crawl is the only black band on the home page.** It sits between "who I
+  am" and "which of these sounds like you" because it answers the question the
+  about section leaves open: fine, but what do you actually do all day. It also
+  separates the white about section from the warm scenarios section.
+- **Every word is real HTML.** No video, no canvas, no image. Verified in the
+  prerendered `index.html`, so the whole task list is indexable without running
+  JavaScript. That was the point of the section, not a nicety.
+- **Duration is measured, not hard-coded.** The component measures stage height
+  plus track height and derives the duration from a fixed 30px/sec, so the crawl
+  reads at the same words-per-minute on a phone (about 85s) and on a desktop
+  (about 116s). A fixed duration would have made one of the two wrong.
+- **Skip is a reading view, not a stop button.** It flattens the same words into
+  a still, left-aligned column. Reduced motion gets that same view, by CSS as
+  well as by JS, so it holds with JavaScript off.
+- **The easter egg is live.** Texting `the sarlacc pit has better escrow` to
+  Becca's number wins a coffee or a $25 gift card, first person each month.
+  Someone has to actually watch for those texts for the joke to pay off.
+
+### Next steps
+
+- Becca to watch for easter-egg texts and decide the monthly prize cadence.
+- Worth checking analytics later for how many people hit Skip. A high rate means
+  the crawl is too long; a low one means the joke is landing.
+
 ## 2026-09-02 - Two Facebook reviews checked, both already in the array
 
 **Deliverables:** none. No code change. This is a duplicate finding.
