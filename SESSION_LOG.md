@@ -7,6 +7,38 @@ Note: the Google Drive **SESSION_LOG** doc is the more current master. See
 
 ---
 
+## 2026-09-02 - Two Facebook reviews checked, both already in the array
+
+**Deliverables:** none. No code change. This is a duplicate finding.
+
+### What was asked
+
+Add two Facebook reviews to `tenant.testimonials`: Emily Whipple Ellis
+(2021-07-30) and Katy Peterson (2020-01-13), both 5 stars, with a duplicate
+check against existing entries including Zillow cross-references.
+
+### What was found
+
+Both quotes are already in the array, character for character, as Zillow
+entries under Zillow's anonymized display names:
+
+- Emily Whipple Ellis = `vdn4yf8ct2`, Zillow, `2021-07-30`, Bought Single
+  Family, Puyallup WA. Same date as the Facebook post.
+- Katy Peterson = `user2186870`, Zillow, `2020-01-13`, Bought Single Family,
+  Tacoma WA. Same date as the Facebook post.
+
+Same client posted the same text to both platforms. Adding the Facebook
+versions would have printed each review twice in the marquee.
+
+### Open question for Becca
+
+The two entries currently display Zillow's junk usernames. The real names are
+now known. Renaming them to "Emily Whipple Ellis" and "Katy Peterson" while
+keeping `source: "Zillow"` would read better, but it attaches a name to a
+review the Zillow profile shows anonymously. Not done without a decision.
+
+---
+
 ## 2026-08-27 - Sellers page stripped to six sections
 
 **Deliverables:** `src/app/sellers/page.tsx`, `src/config/tenant.ts`,
