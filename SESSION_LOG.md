@@ -1634,3 +1634,67 @@ the photo itself is not the problem.
 Note: `src/app/globals.css`, `src/app/page.tsx`, `src/config/tenant.ts`, and an
 untracked `src/components/sections/ClosingCrawl.tsx` were already modified in
 the working tree at the start of this session and were left untouched.
+
+## 2026-09-02: Remove pill boxes from the home page, retitle the senior eyebrow
+
+Two changes to `src/app/page.tsx`, both in the senior transitions card in
+`ScenariosSection`.
+
+### 1. The pill came off
+
+The card's eyebrow was a filled gold pill:
+`inline-flex w-fit items-center rounded-full bg-[var(--color-sunshine)] px-3 py-1`.
+It is now plain text at the same size, weight, tracking, and case, in ink:
+`text-xs font-semibold uppercase tracking-widest text-[var(--color-ink)]`.
+
+The reason is that a pill reads as a button. This one was inside a `<Link>`, so
+the whole card was clickable but the pill was the part that looked clickable,
+which is exactly the confusion the rule exists to prevent. The new site-wide
+rule is written up in LIVING_NOTES.
+
+The card keeps its gold ranking. That was never the pill's job. The gold lives
+in the `border-2` and the `#FEF9EF` wash, and the code comment above the card
+now says so and records the rule.
+
+### 2. Eyebrow copy
+
+"Where I specialize" is now **"Senior Real Estate Specialist"**, the SRES
+certification title. It positions the credential without implying senior work is
+the only thing she does. Same wording the hero stat row already uses for `SRES®`.
+
+### Audit: the rest of the page
+
+Swept `src/app/page.tsx`, `src/config/tenant.ts`, and every component the home
+page imports for pill and chip styling.
+
+- **`tenant.ts` has no styling in it at all.** No classes, no `rounded`, nothing
+  to remove.
+- **One pill on the whole home page,** the one above. The other `rounded-full`
+  hits in the repo are on other routes (buyers, sellers, podcast, quiz, your
+  best season, `FeaturedListings`), none of which render here.
+- **Verified in the browser, not just in the source.** Walked every rendered
+  element under `main`, `header`, and `footer` looking for anything with text, a
+  background or border, and a radius at or above half its own height. Zero
+  matches. The card's eyebrow computes to `background: rgba(0,0,0,0)`,
+  `border-radius: 0px`, `padding: 0px`, colour `rgb(26,32,40)`.
+- `ContactBlock`'s `rounded-full` is the circular headshot and stays.
+- `tsc --noEmit` clean.
+
+### Committed narrowly, on purpose
+
+`src/app/globals.css`, `src/components/sections/ClosingCrawl.tsx`, and a third
+hunk in `src/app/page.tsx` (a rewritten comment about the closing crawl) were
+being edited by another session while this one ran. All three files changed on
+disk mid-session. Only the senior transitions hunk was staged and pushed. That
+in-flight work was left in the working tree untouched, the same way the previous
+session left it.
+
+Also left untracked: `.claude/launch.json`, added to run the dev server for
+verification. Commit it if the dev server config is worth keeping.
+
+### Next steps
+
+- Apply the no-pill rule to the other routes when each is next touched. Known
+  pills: `src/app/buyers/page.tsx:120`, `src/app/sellers/page.tsx:135`, and
+  `src/components/sections/FeaturedListings.tsx:61`. All three are the same
+  filled gold eyebrow pattern that just came off the home page.

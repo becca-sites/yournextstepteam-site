@@ -694,3 +694,38 @@ Set with Brett and Becca on 2026-08-27, after two passes in one day.
 - **`StatCardRow` sizes its grid from `stats.length`.** Three stats render as
   three columns, four as four. Keep every label and detail short enough to hold
   one line.
+
+## No pill boxes, anywhere (2026-09-02)
+
+**Site-wide rule, not a page-level preference.** No eyebrow, label, badge, tag,
+or chip gets a rounded filled container around it. A pill reads as a button.
+Users try to click it, nothing happens, and they lose a little trust in the rest
+of the page. Only actual controls get to look like controls.
+
+- **What an eyebrow looks like instead:** plain text. Uppercase, small,
+  letterspaced, coloured is all still fine. What comes off is the background
+  fill, the padding, and the border radius. The `.eyebrow` utility in
+  `globals.css` is already the correct pattern and always was.
+- **`rounded-full` is not banned outright.** It is correct on circular photos
+  (the `ContactBlock` headshot) and on real interactive elements (header nav
+  links, the skip link). The rule is about **non-interactive text** wearing a
+  filled rounded container.
+- **The senior transitions card was the last one on the home page.** Its eyebrow
+  was a filled gold pill. It is now plain uppercase ink text on the same gold
+  card. The gold still ranks the card, through the border and the wash, which is
+  where the colour already did the work.
+- **If gold type looks too light at eyebrow size, do not reach for a gold fill.**
+  Darken the type to ink and let the border carry the colour.
+
+## Senior transitions eyebrow says the credential (2026-09-02)
+
+The home page senior transitions card is labelled **"Senior Real Estate
+Specialist"**, which is Becca's actual SRES certification title. It replaced
+"Where I specialize".
+
+- **It states a credential rather than a boundary.** "Where I specialize" implies
+  senior work is the thing she does, which undersells a business built on
+  first-time buyers, move-up buyers, and sellers. The certification name is a
+  qualification she holds, sitting alongside everything else.
+- **It matches the hero stat row,** which already carries `SRES®` with "Senior
+  Real Estate Specialist" as its label. Same words in both places.

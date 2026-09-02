@@ -193,19 +193,21 @@ function ScenariosSection() {
           </p>
         </SectionIntro>
 
-        {/* Senior transitions, full width above the grid. Gold border, soft
-            gold wash, and a filled badge rather than gold type: the deep gold
-            is too light to read at eyebrow size, so the colour lives in the
-            border and the badge fill and the words stay dark. This is the only
-            card on the page that gold ranks. */}
+        {/* Senior transitions, full width above the grid. Gold border and soft
+            gold wash carry the emphasis: the deep gold is too light to read at
+            eyebrow size, so the colour lives in the border and the words stay
+            dark. This is the only card on the page that gold ranks. The
+            eyebrow is plain text, never a filled pill. Site-wide rule: a
+            rounded, filled container around a label reads as a button, and
+            nothing that is not a control should look like one. */}
         {featured && (
           <FadeIn className="mt-12">
             <Link
               href={hrefFor(featured)}
               className="group flex flex-col rounded-2xl border-2 border-[var(--color-sunshine)] bg-[#FEF9EF] p-7 shadow-[0_2px_18px_rgba(217,154,43,0.18)] transition duration-300 hover:-translate-y-0.5 hover:shadow-xl md:p-10"
             >
-              <span className="inline-flex w-fit items-center rounded-full bg-[var(--color-sunshine)] px-3 py-1 text-xs font-semibold uppercase tracking-widest text-[var(--color-ink)]">
-                Where I specialize
+              <span className="text-xs font-semibold uppercase tracking-widest text-[var(--color-ink)]">
+                Senior Real Estate Specialist
               </span>
               <h3 className="mt-4 font-display text-2xl font-semibold md:text-3xl">
                 {featured.title}
