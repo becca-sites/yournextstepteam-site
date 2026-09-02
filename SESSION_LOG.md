@@ -1555,3 +1555,35 @@ Taglines and descriptions written in Level 2 voice, first person, no em dashes.
    Graham, and Gig Harbor. The district needs to move onto `TenantNeighborhood`
    as a per-area field. Pre-existing, not touched here.
 4. Everything under the previous session's "Still pending" remains open.
+
+## Alt headshot verification (2026-09-02)
+
+**Outcome: no change. The file already in the repo is correct.**
+
+Checked whether the newly uploaded `Headshot_4.jpg` (4000x6000, denim dress and
+hat, laughing) was a quality upgrade over
+`public/photos/headshots/becca-headshot-alt.webp`, the second image in the
+homepage `ScrollCrossfadePortrait`.
+
+- The upload is **byte-identical** to the one from Aug 21 and to the April
+  `becca39.jpg`. All three share SHA-256 `df275e0e21d36a77...`. There is no new
+  source file here, just the same original re-uploaded.
+- The committed `becca-headshot-alt.webp` is **800x1200**, an exact 2:3 match to
+  the 4000x6000 original, so it is a clean full-frame resize with no crop.
+  Greyscale pixel diff against a resample of the source is a mean absolute
+  difference of 1.10 out of 255, which is resize and compression noise only.
+- Working tree for `public/photos/headshots/` was clean. Nothing committed,
+  nothing pushed.
+
+### Open item, not acted on
+
+The alt headshot is 800px wide. The container is `aspect-[4/5]` with
+`sizes="(min-width: 1024px) 33vw, 80vw"`, so on a ~1400px desktop it renders
+around 460px wide, which is roughly 920px on a 2x display. 800px is slightly
+under that. Regenerating at 1200px wide from the original would remove the
+shortfall for a modest file-size increase. Deferred pending Becca's call, since
+the photo itself is not the problem.
+
+Note: `src/app/globals.css`, `src/app/page.tsx`, `src/config/tenant.ts`, and an
+untracked `src/components/sections/ClosingCrawl.tsx` were already modified in
+the working tree at the start of this session and were left untouched.
