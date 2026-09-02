@@ -278,11 +278,12 @@ const PILLARS = [
 
 /*
  * There is deliberately no separate "the truth about online listings" section
- * here. <ClosingCrawl> above already carries that argument, in Becca's exact
- * framing: "You might find the house yourself. Most of my buyers do," the
- * search is five percent, the other ninety-five is the crawl. A second section
- * making the same point in the same words read as a duplicate. If the crawl
- * ever comes off the page, this is the section that has to replace it.
+ * here. <ClosingCrawl> above already carries that argument, by demonstration
+ * rather than by assertion: the list is so long that the point about the search
+ * being the small part makes itself, and the crawl lands it out loud on the way
+ * out with "THIS is the other 95%." A second section making the same point in
+ * prose read as a duplicate. If the crawl ever comes off the page, this is the
+ * section that has to replace it.
  */
 function DealTogetherSection() {
   return (

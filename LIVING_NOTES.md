@@ -16,16 +16,33 @@ work done directly in the repo.
   justified copy, tilted away from the reader, "Episode 270: The Closing". The
   bet is that the five percent / ninety-five percent argument does not land as a
   paragraph and does land as something you have to sit through.
-- **Star Wars gold and blue are crawl-only.** #FFE81F and #4BD5EE do not enter
-  the site palette. Everything outside the crawl stays on Ink/Moss/Bone/Sunshine.
+- **Star Wars gold is crawl-only.** #FFE81F does not enter the site palette.
+  Everything outside the crawl stays on Ink/Moss/Bone/Sunshine. The blue
+  #4BD5EE came out with the title card on 2026-09-02 and is no longer in use.
+- **Longer is the point. Becca's call, 2026-09-02.** The list roughly doubled to
+  35 lines, and the instruction was explicit that more is better: the volume is
+  what makes the job look epic rather than tidy. Do not trim the crawl for
+  length. New material gets woven through the middle, in transaction order, not
+  stacked on the end.
+- **No preamble, no Skip. Becca's call, 2026-09-02.** The section opens straight
+  on the crawl. The eyebrow, the "you might find the house yourself" headline,
+  the 5%/95% setup, and the blue "A long time ago in a housing market not so far
+  away..." title card all came out, along with the Skip button. The argument now
+  lands only at the end, on "THIS is the other 95%." Reverting any of it is a
+  `git revert` away if it reads thin on the live site.
 - **Justified text is allowed only inside the crawl.** It is most of what makes
   the thing read as a crawl rather than as a dark section with yellow text. This
-  site otherwise avoids justification, because it is hard on older readers, so
-  the crawl earns the exception by shipping Skip alongside it.
-- **Any motion that starts on its own ships with a way out.** Skip does not just
-  freeze the crawl, it hands over the same words as a still, left-aligned column.
-  Reduced motion gets that view automatically, in CSS as well as JS, so it holds
-  with JavaScript off. Apply the same rule to anything animated added later.
+  site otherwise avoids justification, because it is hard on older readers.
+- **Reduced motion is now the only way out of the crawl, and it has to keep
+  working.** With Skip gone it is the sole escape hatch, so it stays wired in two
+  places on purpose: the component flips to the flat list when it detects the
+  preference, and globals.css carries the same flattening as a media query so it
+  holds with JavaScript off. Anything animated added later still ships a way out;
+  the crawl is the exception Becca chose, not the new rule.
+  - Worth knowing: WCAG 2.2.2 wants an in-page pause for motion that starts on
+    its own and runs past five seconds, and without Skip there is not one. This
+    is a deliberate, informed trade, not an oversight. If it ever needs undoing,
+    the smallest fix is a pause control rather than the full Skip.
 - **Effects must not eat the content.** The crawl is real HTML that Google can
   read, not a video. If a future effect can only be done as a video or a canvas,
   the words have to exist somewhere else on the page too.

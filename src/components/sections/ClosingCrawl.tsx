@@ -2,7 +2,6 @@
 
 import { Fragment, useEffect, useRef, useState } from "react";
 import { tenant } from "@/config/tenant";
-import { Container } from "@/components/Container";
 import { cn } from "@/lib/cn";
 
 /**
@@ -14,6 +13,11 @@ import { cn } from "@/lib/cn";
  * only honest way to show how much of it there is turned out to be to make the
  * reader sit through it.
  *
+ * There is no preamble and no Skip. The section is the crawl: it starts the
+ * moment it scrolls into view and the sheer length of the list is the argument.
+ * Reduced motion is the one escape hatch, and it hands over the same words as a
+ * still, left-aligned list.
+ *
  * Every word is real text in the DOM. Nothing here is a video, a canvas, or an
  * image, so the whole list is indexable, selectable, translatable, and readable
  * by a screen reader in document order. The 3D effect is a single CSS transform
@@ -21,9 +25,9 @@ import { cn } from "@/lib/cn";
  * it is.
  *
  * The mechanics live in globals.css under "The closing crawl". This file owns
- * the copy, the two escape hatches (Skip, and reduced motion), and the one thing
- * CSS cannot work out on its own: how far the track has to travel, and therefore
- * how long the animation should last.
+ * the copy, the reduced-motion escape hatch, and the one thing CSS cannot work
+ * out on its own: how far the track has to travel, and therefore how long the
+ * animation should last.
  */
 
 /**
@@ -47,8 +51,8 @@ type CrawlLine = {
   id: string;
   text: string;
   /**
-   * `aside` is one of the two "are you still reading" beats, set slightly
-   * smaller and dimmer so it reads as a stage whisper rather than another task.
+   * `aside` is one of the "are you still reading" beats, set slightly smaller
+   * and dimmer so it reads as a stage whisper rather than another task.
    * `finale` is the payoff line. `signature` is the sign-off.
    */
   variant?: "aside" | "finale" | "signature";
@@ -62,6 +66,9 @@ type CrawlLine = {
  * adding one line here. The easter egg is the single exception and is rendered
  * separately below, since it is the only entry that changes shape between the
  * two presentations.
+ *
+ * The asides are spaced deliberately. They are the only thing telling a reader
+ * who is three minutes in that the length is the joke and not a bug.
  */
 const CRAWL_LINES: CrawlLine[] = [
   {
@@ -69,8 +76,20 @@ const CRAWL_LINES: CrawlLine[] = [
     text: "Negotiate the initial offer. Counter-offer. Counter the counter-offer. Try not to take it personally when they counter your counter-offer.",
   },
   {
+    id: "breakdown",
+    text: "Counsel the buyer through their third emotional breakdown this week. Therapist hat: on.",
+  },
+  {
     id: "inspection",
     text: "Schedule the home inspection. Review 40 pages of findings. Decide which ones actually matter and which ones are just the inspector justifying their fee.",
+  },
+  {
+    id: "dad-tape-measure",
+    text: "The buyer’s dad shows up to the inspection with a tape measure and opinions. The inspector is thrilled.",
+  },
+  {
+    id: "uncle-foundation",
+    text: "Buyer’s uncle is pointing at the foundation, shaking his head. He once poured a patio. He is now a structural engineer.",
   },
   {
     id: "aside-appraisal",
@@ -82,22 +101,84 @@ const CRAWL_LINES: CrawlLine[] = [
     text: "Order the appraisal. Hope the appraiser had coffee. Negotiate repairs based on the inspection results. Get three contractor bids, because the first one was ridiculous.",
   },
   {
+    id: "appraisal-gap",
+    text: "The appraiser values the house $15K under contract price. Everyone’s day is ruined. Fix it.",
+  },
+  {
     id: "lender",
     text: "Coordinate with the lender. Then coordinate again. Then one more time, because they need that same document in a slightly different format.",
+  },
+  {
+    id: "one-more-document",
+    text: "The lender needs “just one more document.” For the fourth time. This week.",
+  },
+  {
+    id: "no-new-car",
+    text: "Remind the buyer that no, they absolutely cannot buy a new car before closing. Yes, even if it’s a really good deal.",
+  },
+  {
+    id: "aside-third",
+    variant: "aside",
+    text: "Still with me? We are maybe a third of the way down the list.",
+  },
+  {
+    id: "lockbox-rain",
+    text: "The lockbox won’t open. The code changed. Nobody told you. The buyers are standing in the rain.",
+  },
+  {
+    id: "boat-in-driveway",
+    text: "Get a call at 9 PM because the buyer drove by the house and “the neighbors have a boat in the driveway - is that permanent?”",
   },
   {
     id: "title",
     text: "Review the title report. Resolve any title issues. Explain what a title issue even is.",
   },
-  // The easter egg sits here, between the title report and the financing
+  {
+    id: "lien-2003",
+    text: "The title company finds a lien from 2003 that nobody knew about. Track down the original party. They moved to Florida.",
+  },
+  // The easter egg sits here, between the title work and the financing
   // contingency. See EGG below.
   {
     id: "financing",
     text: "Navigate the financing contingency. Monitor the interest rate lock. Pray to the mortgage gods.",
   },
   {
+    id: "four-schedules",
+    text: "Coordinate four people’s schedules to get one signature on one page.",
+  },
+  {
+    id: "youtube-crash",
+    text: "Talk the buyer off the ledge after they watched a “housing market crash incoming” video on YouTube at 2 AM.",
+  },
+  {
+    id: "aside-impressed",
+    variant: "aside",
+    text: "Are you still reading? I am genuinely impressed. There is more.",
+  },
+  {
+    id: "mom-kitchen",
+    text: "The buyer’s mom has opinions about the kitchen. So does the buyer’s dad. They disagree. Mediate.",
+  },
+  {
+    id: "home-warranty",
+    text: "Explain that the home warranty does not, in fact, cover “everything.” Read the fine print together.",
+  },
+  {
+    id: "lockbox-again",
+    text: "Getting locked out of the showing because the lockbox code changed and nobody told you. Again.",
+  },
+  {
     id: "walkthrough",
     text: "Schedule the final walkthrough. Make sure the sellers actually moved out. Yes, that chandelier was supposed to stay.",
+  },
+  {
+    id: "cat",
+    text: "The seller’s cat is still in the house during the final walkthrough. The seller says the cat “comes with the house.” The buyer is allergic.",
+  },
+  {
+    id: "curtain-rods",
+    text: "Explain to the buyer why the sellers took the nice curtain rods but left the ugly curtains.",
   },
   {
     id: "aside-gave-up",
@@ -111,6 +192,10 @@ const CRAWL_LINES: CrawlLine[] = [
   {
     id: "signing",
     text: "Arrange the final signing. Track the wire transfer. Wait. Wait some more. Get the keys.",
+  },
+  {
+    id: "key-doesnt-work",
+    text: "The key doesn’t work on closing day. Call the locksmith. Call the listing agent. Call the locksmith again.",
   },
   {
     id: "more",
@@ -154,24 +239,21 @@ export function ClosingCrawl() {
   const trackRef = useRef<HTMLDivElement>(null);
 
   /**
-   * Flat means "no tilt, no motion, just the list": the Skip destination, and
-   * also what reduced-motion readers get. Reduced motion is resolved in an
-   * effect rather than during render so the server and the first client render
-   * agree; globals.css carries the same flattening as a media query, which is
-   * what covers the reader who has JavaScript off.
+   * Flat means "no tilt, no motion, just the list", and it is what
+   * reduced-motion readers get. It is resolved in an effect rather than during
+   * render so the server and the first client render agree; globals.css carries
+   * the same flattening as a media query, which is what covers the reader who
+   * has JavaScript off.
    */
-  const [flat, setFlat] = useState(false);
-  const [reduced, setReduced] = useState(false);
+  const [isFlat, setIsFlat] = useState(false);
 
   useEffect(() => {
     const query = window.matchMedia("(prefers-reduced-motion: reduce)");
-    const sync = () => setReduced(query.matches);
+    const sync = () => setIsFlat(query.matches);
     sync();
     query.addEventListener("change", sync);
     return () => query.removeEventListener("change", sync);
   }, []);
-
-  const isFlat = flat || reduced;
 
   /*
    * Travel distance and duration.
@@ -253,42 +335,18 @@ export function ClosingCrawl() {
         {/* Stars sit behind everything and cost nothing but a background. */}
         <div className="crawl__sky" aria-hidden="true" />
 
-        {/* The static hook, before the crawl starts. */}
-        <Container className="relative z-10 pt-16 pb-10 lg:pt-24 lg:pb-12">
-          <div className="mx-auto max-w-3xl text-center">
-            <p className="text-xs font-semibold uppercase tracking-widest text-white/50">
-              The other 95 percent
-            </p>
-            <h2
-              id="closing-crawl-heading"
-              className="mt-4 font-display text-3xl font-semibold leading-tight text-white md:text-4xl"
-            >
-              You might find the house yourself. Most of my buyers do.
-            </h2>
-            <p className="mt-5 text-lg text-white/75">
-              But the search is about 5% of the home-buying process.
-            </p>
-            <p className="mt-2 text-lg text-white/75">
-              The other 95%? Scroll down.
-            </p>
-
-            {/*
-              The blue title card. In the films this is a static line that sits
-              on black before the logo hits, and it is the single most
-              recognisable half-second of the whole sequence, so it is static
-              here too rather than riding up with the crawl.
-            */}
-            <p className="crawl__prologue mt-12">
-              A long time ago in a housing market not so far away...
-            </p>
-          </div>
-        </Container>
-
-        {/* The crawl itself. */}
+        {/* The crawl itself. No hook, no title card, no preamble: the section
+            opens on the crawl and the crawl opens on the logo. */}
         <div className="crawl__viewport relative z-10">
           <div ref={stageRef} className="crawl__stage">
             <div ref={trackRef} className="crawl__track">
-              <h3 className="crawl__logo">{tenant.brand.name}</h3>
+              {/* The section's accessible name, and the only heading in here.
+                  It rides up with the crawl exactly as the logo does in the
+                  films; being inside the animated track changes nothing about
+                  how it is announced or indexed. */}
+              <h2 id="closing-crawl-heading" className="crawl__logo">
+                {tenant.brand.name}
+              </h2>
               <p className="crawl__episode">Episode 270: The Closing</p>
 
               {CRAWL_LINES.map((line) => {
@@ -304,7 +362,7 @@ export function ClosingCrawl() {
                   </p>
                 );
 
-                // The egg is spliced in after the title report rather than
+                // The egg is spliced in after the title work rather than
                 // living in CRAWL_LINES, because it is the one entry whose
                 // markup differs between the crawl and the flat view.
                 if (line.id !== "financing") return node;
@@ -336,20 +394,6 @@ export function ClosingCrawl() {
               than a mask-image, matching the marquee: an overlay cannot
               silently do nothing on an engine that has not shipped it. */}
           <div className="crawl__fade" aria-hidden="true" />
-
-          {/*
-            WCAG 2.2.2. The crawl starts on its own and runs well past five
-            seconds, so there has to be a control that stops it. This one does
-            not just stop the motion, it hands over the same words as an
-            ordinary, left-aligned, fully scrollable list.
-          */}
-          <button
-            type="button"
-            onClick={() => setFlat((value) => !value)}
-            className="crawl__skip"
-          >
-            {flat ? "Play the crawl" : "Skip the crawl"}
-          </button>
         </div>
       </div>
     </section>

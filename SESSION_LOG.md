@@ -7,6 +7,81 @@ Note: the Google Drive **SESSION_LOG** doc is the more current master. See
 
 ---
 
+## 2026-09-02 - The crawl loses its preamble and its Skip, and roughly doubles
+
+**Deliverables:** `src/components/sections/ClosingCrawl.tsx` rewritten,
+`src/app/globals.css` crawl block trimmed, one stale comment corrected in
+`src/app/page.tsx`.
+
+### What was asked
+
+Three changes from Becca, in her words: remove the Skip button entirely, remove
+the static intro text so the crawl starts the moment the section comes into
+view, and add seventeen new lines woven through the existing list rather than
+stacked at the end. The brief was explicit that more is better, because the
+volume is what makes the job look daunting.
+
+### Decisions
+
+- **The whole static header came out, including the blue title card.** Becca
+  named the 5%/95% intro text, then said "No preamble." The eyebrow, the "You
+  might find the house yourself" headline, both setup paragraphs, and the "A
+  long time ago in a housing market not so far away..." card all went. Read as
+  the broader instruction rather than the narrower one; the title card is the
+  one line where that reading could have gone the other way, and putting it back
+  is a one-line change. Flagged to Becca on delivery.
+- **The section's accessible name moved to the crawl logo.** The `<h2>` that
+  `aria-labelledby` pointed at was in the deleted block. "Your Next Step Team"
+  inside the track is now the `<h2>` and carries the id, so the section keeps a
+  real name and the heading order stays sane. It rides up with the crawl exactly
+  as the logo does in the films.
+- **New lines are woven in transaction order.** Family at the inspection sits
+  with the inspection, the appraisal gap sits with the appraisal, the 2003 lien
+  sits with the title work. The two lockbox lines are deliberately far apart:
+  the second one ends "Again", and the callback only works if the first has
+  scrolled well out of sight.
+- **Two more fourth-wall asides, five total.** "Still with me? We are maybe a
+  third of the way down the list" and "Are you still reading? I am genuinely
+  impressed." A list this long needs the reader told, more than twice, that the
+  length is the joke.
+- **WCAG 2.2.2 is knowingly not met now.** Removing Skip removes the only
+  in-page pause for motion that starts on its own and runs past five seconds.
+  Reduced motion still flattens the crawl to a still, left-aligned list, in the
+  component and again in CSS for JavaScript-off readers, so that escape hatch is
+  intact. Raised with Becca, who asked for the removal anyway. Recorded in
+  LIVING_NOTES so it is not "fixed" later without knowing it was a choice.
+
+### Cleanup that came with it
+
+- `.crawl__skip`, `.crawl--flat .crawl__skip`, the reduced-motion `.crawl__skip`
+  override, `.crawl__prologue`, and the now-unused `--crawl-blue` token are all
+  gone rather than left dead.
+- The no-JavaScript fallbacks `--crawl-distance` and `--crawl-duration` went
+  from 3400px/100s to 6800px/227s, since the track is about twice as tall. The
+  measured values on a 1280x720 viewport come out at 5482px and 182.7s.
+- The comment above `DealTogetherSection` in `page.tsx` claimed the crawl
+  carries the argument "in Becca's exact framing" and then quoted the headline
+  that no longer exists. Rewritten to say the crawl now makes the point by
+  demonstration and lands it on the way out.
+
+### Verified
+
+`npm run typecheck` and `npm run lint` clean (two pre-existing `<img>` warnings
+elsewhere, untouched). In the browser: 35 crawl lines, zero `.crawl__skip`,
+zero `.crawl__prologue`, the crawl's first child is the viewport, the
+IntersectionObserver flips `data-playing` to true on scroll-in, the track's
+transform actually advances, gold is rgb(255,232,31), the stage still carries
+its perspective matrix, the nine-layer star field is intact, all five asides are
+present, and the sarlacc pit egg still reads.
+
+### Next steps
+
+- Look at it on the live site and decide whether losing the 5%/95% setup costs
+  more than the tighter open buys. That framing is now stated nowhere on the
+  home page until the finale.
+
+---
+
 ## 2026-09-02 - The closing crawl replaces the dark "online listings" band
 
 **Deliverables:** `src/components/sections/ClosingCrawl.tsx` (new), the "The

@@ -749,9 +749,8 @@ summary,
 }
 
 .crawl {
-  /* The two screen colours from the films. Gold on near-black is about 16:1. */
+  /* The screen colours from the films. Gold on near-black is about 16:1. */
   --crawl-gold: #ffe81f;
-  --crawl-blue: #4bd5ee;
   --crawl-void: #05060a;
 
   /*
@@ -760,8 +759,8 @@ summary,
    * markup animates plausibly rather than not at all, which is also what a
    * reader with JavaScript off gets.
    */
-  --crawl-distance: 3400px;
-  --crawl-duration: 100s;
+  --crawl-distance: 6800px;
+  --crawl-duration: 227s;
 
   position: relative;
   padding-bottom: 3rem;
@@ -795,15 +794,6 @@ summary,
   background-size:
     404px 286px, 404px 286px, 404px 286px, 404px 286px, 404px 286px, 404px 286px,
     263px 197px, 263px 197px, 263px 197px;
-}
-
-/* The static blue title card that runs before the logo hits. */
-.crawl__prologue {
-  color: var(--crawl-blue);
-  font-size: var(--text-lg);
-  font-weight: 500;
-  letter-spacing: 0.02em;
-  text-shadow: 0 0 24px rgba(75, 213, 238, 0.35);
 }
 
 .crawl__viewport {
@@ -880,9 +870,9 @@ summary,
 /*
  * Justified, which is the signature of the thing and most of the reason it
  * reads as a crawl rather than as a dark section with yellow text in it. It is
- * also the one place on this site where justified copy is allowed: the reader
- * who does not want to fight it has Skip, and everything after Skip is
- * left-aligned.
+ * also the one place on this site where justified copy is allowed: a reader who
+ * does not want to fight it gets the left-aligned flat view under reduced
+ * motion.
  *
  * Only from 640px up. Below that the measure is too narrow for justification to
  * do anything but tear holes in the lines.
@@ -957,44 +947,11 @@ summary,
 }
 
 /*
- * Skip.
- *
- * WCAG 2.2.2: the crawl starts on its own and runs well past five seconds, so
- * something has to be able to stop it. This does more than stop it. It hands
- * over the same words as a still, left-aligned, ordinary list, which is also
- * exactly what reduced motion gets.
- */
-.crawl__skip {
-  position: absolute;
-  top: 0.75rem;
-  right: 0.75rem;
-  z-index: 3;
-  display: inline-flex;
-  align-items: center;
-  padding: 0.5rem 1.1rem;
-  border: 1px solid rgba(255, 232, 31, 0.45);
-  border-radius: 999px;
-  background: rgba(5, 6, 10, 0.7);
-  color: var(--crawl-gold);
-  font-size: var(--text-xs);
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  backdrop-filter: blur(4px);
-  transition: border-color 0.2s ease, background 0.2s ease;
-}
-
-.crawl__skip:hover {
-  border-color: var(--crawl-gold);
-  background: rgba(5, 6, 10, 0.9);
-}
-
-/*
  * Flat: the reading view.
  *
  * No tilt, no motion, no clipping. The window grows to fit its content and the
- * track becomes an ordinary centered column of gold text on black. Reached by
- * the Skip button, and forced below for reduced motion.
+ * track becomes an ordinary centered column of gold text on black. Reached only
+ * by reduced motion, both from the component and from the media query below.
  */
 .crawl--flat .crawl__viewport {
   height: auto;
@@ -1024,12 +981,6 @@ summary,
 
 .crawl--flat .crawl__fade {
   display: none;
-}
-
-/* Above the list rather than floating over it, now that there is no frame. */
-.crawl--flat .crawl__skip {
-  position: static;
-  margin: 0 auto 2rem;
 }
 
 /*
@@ -1094,11 +1045,6 @@ summary,
   }
 
   .crawl__fade {
-    display: none;
-  }
-
-  /* Nothing to skip, and nothing to play. */
-  .crawl__skip {
     display: none;
   }
 }
