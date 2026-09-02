@@ -498,6 +498,59 @@ pointed at these; the values below are read off the live page, not approximated.
   disclaimer belongs on this site specifically, as an agent-run site under a
   brokerage. Both live in `tenant.agent`, typed once, never retyped into a page.
 
+## Home page structure
+
+- **2026-08-27: the sections Becca and Brett reviewed live on the home page,
+  not on `/buyers`.** Their review named four sections that were physically on
+  the buyers page at the time. `/buyers` has since been stripped to face,
+  trust, and one CTA and Becca confirmed that is final, so the review items
+  were built on the home page instead. When she says "the home page," check
+  which file the section is actually in before editing.
+- **The lean rule above is a conversion-page rule, not a sitewide one.** The
+  buyers page earns its way with Becca's face, the reviews, and one CTA. The
+  home page is allowed to carry the longer argument: who she is, what the job
+  actually involves, how she works, and one story.
+- **"Do not invent how Becca works" still holds, and this is how these
+  sections clear it.** The four items in "How to keep your deal together" are
+  the four Becca named in the review, in her words: Education and
+  Communication, I Know These Neighborhoods, A Network I've Personally Vetted,
+  and the tenacity to figure out a deal others would walk away from. The five
+  scenario labels are hers too. They are on the page because she said them,
+  which is the whole test.
+- **Senior transitions gets the gold treatment on the home page as well**: full
+  width above the scenario grid, 2px `--color-sunshine` border, `#FEF9EF` wash,
+  and a filled gold badge with dark type. **The badge is filled rather than set
+  in gold type on purpose.** `--color-sunshine-deep` on a cream ground is about
+  2.4:1, which fails at eyebrow size, so the colour lives in the border and the
+  badge fill and the words stay ink. Gold still ranks exactly one thing per
+  page.
+- **The senior card absorbed "Helping a parent move" and "Ready to downsize or
+  right-size."** Two doors into the same conversation, and splitting them
+  buried the specialty in a grid of equals.
+- **One card per page may set `featured` on `TenantScenario`.** That flag is
+  what lifts a scenario out of the grid; it is not a styling hook to reuse.
+- **Card headings are title case, section H2s are sentence case.** The scenario
+  and pillar names came from the review as labels, so they read as names. The
+  H2 above them is still a sentence.
+- **Equal-height cards with two-line headlines is a recipe, not a coincidence.**
+  `h-full` on the card against the grid's default stretch, `min-h-[2.75em]` on
+  the h3 at `leading-snug` to reserve two lines at every breakpoint, and
+  `text-balance` so the two lines split evenly. A title longer than about four
+  short words per line pushes a card to three lines and breaks the row.
+- **Static cards hover at `scale-[1.02]`, links do not.** The pillar cards are
+  not clickable, so the lift acknowledges the cursor rather than promising a
+  click. Always pair it with `motion-reduce:hover:scale-100`; the global
+  reduced-motion block kills the duration but not the transform.
+- **No "details changed for privacy" on client stories.** It reads as a hedge
+  on a true story and undercuts the story. Removed from the Graham land story.
+- **There is deliberately no second "truth about online listings" section.**
+  `ClosingCrawl` already carries the five percent / ninety-five percent
+  argument in Becca's framing. One page, one version of that point. **Open
+  question:** the crawl is a black band with white type, and the review
+  complained about type disappearing into a dark background. If that complaint
+  was about the crawl rather than the old buyers band, it has not been
+  addressed.
+
 ## Page structure: keep the conversion pages lean
 
 - **Three things convert on a service page: Becca's face, the reviews, and one

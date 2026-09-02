@@ -7,6 +7,7 @@ import { HeroMosaicBackground } from "@/components/HeroMosaic";
 import { HeroVideo } from "@/components/HeroVideo";
 import { ScrollCrossfadePortrait } from "@/components/ScrollCrossfadePortrait";
 import { ContactBlock } from "@/components/ContactBlock";
+import { ClosingCrawl } from "@/components/sections/ClosingCrawl";
 import { TestimonialCarousel } from "@/components/sections/TestimonialCarousel";
 import { RealEstateAgentSchema } from "@/components/schema/RealEstateAgentSchema";
 import { HeroVideoSchema } from "@/components/schema/HeroVideoSchema";
@@ -167,6 +168,17 @@ function ScenariosSection() {
   // exists in content/blog, the card falls back to its hub page so nothing on
   // the homepage ever links to a 404.
   const publishedSlugs = new Set(getAllPosts().map((p) => p.slug));
+  const hrefFor = (card: (typeof tenant.scenarios)[number]) =>
+    publishedSlugs.has(card.articleSlug)
+      ? `/blog/${card.articleSlug}`
+      : card.href;
+  const ctaFor = (card: (typeof tenant.scenarios)[number]) =>
+    publishedSlugs.has(card.articleSlug) ? "Read the full guide" : "Start here";
+
+  // Exactly one scenario is flagged featured in tenant.ts. It comes out of the
+  // grid and runs full width above it; the rest stay two across.
+  const featured = tenant.scenarios.find((c) => c.featured);
+  const rest = tenant.scenarios.filter((c) => !c.featured);
 
   return (
     <section className="surface-warm py-20 md:py-28">
@@ -181,31 +193,153 @@ function ScenariosSection() {
           </p>
         </SectionIntro>
 
-        <FadeInStagger className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {tenant.scenarios.map((card) => {
-            const hasArticle = publishedSlugs.has(card.articleSlug);
-            const href = hasArticle ? `/blog/${card.articleSlug}` : card.href;
+        {/* Senior transitions, full width above the grid. Gold border, soft
+            gold wash, and a filled badge rather than gold type: the deep gold
+            is too light to read at eyebrow size, so the colour lives in the
+            border and the badge fill and the words stay dark. This is the only
+            card on the page that gold ranks. */}
+        {featured && (
+          <FadeIn className="mt-12">
+            <Link
+              href={hrefFor(featured)}
+              className="group flex flex-col rounded-2xl border-2 border-[var(--color-sunshine)] bg-[#FEF9EF] p-7 shadow-[0_2px_18px_rgba(217,154,43,0.18)] transition duration-300 hover:-translate-y-0.5 hover:shadow-xl md:p-10"
+            >
+              <span className="inline-flex w-fit items-center rounded-full bg-[var(--color-sunshine)] px-3 py-1 text-xs font-semibold uppercase tracking-widest text-[var(--color-ink)]">
+                Where I specialize
+              </span>
+              <h3 className="mt-4 font-display text-2xl font-semibold md:text-3xl">
+                {featured.title}
+              </h3>
+              <p className="mt-3 max-w-4xl text-base leading-relaxed text-neutral-700 md:text-lg">
+                {featured.description}
+              </p>
+              <p className="mt-6 text-sm font-medium text-[var(--color-primary)] group-hover:underline">
+                {ctaFor(featured)} &rarr;
+              </p>
+            </Link>
+          </FadeIn>
+        )}
 
-            return (
-              <FadeIn key={card.title}>
-                <Link
-                  href={href}
-                  className="group flex h-full flex-col rounded-2xl border border-black/5 bg-white p-7 transition hover:-translate-y-0.5 hover:border-[var(--color-primary)] hover:shadow-xl"
-                >
-                  <h3 className="font-display text-xl font-semibold">
-                    {card.title}
-                  </h3>
-                  <p className="mt-3 text-sm leading-relaxed text-neutral-600">
-                    {card.description}
-                  </p>
-                  <p className="mt-auto pt-6 text-sm font-medium text-[var(--color-primary)] group-hover:underline">
-                    {hasArticle ? "Read the full guide" : "Start here"} &rarr;
-                  </p>
-                </Link>
-              </FadeIn>
-            );
-          })}
+        <FadeInStagger className="mt-6 grid gap-6 md:grid-cols-2">
+          {rest.map((card) => (
+            <FadeIn key={card.title}>
+              <Link
+                href={hrefFor(card)}
+                className="group flex h-full flex-col rounded-2xl border border-black/5 bg-white p-7 transition hover:-translate-y-0.5 hover:border-[var(--color-primary)] hover:shadow-xl"
+              >
+                <h3 className="font-display text-xl font-semibold">
+                  {card.title}
+                </h3>
+                <p className="mt-3 text-base leading-relaxed text-neutral-600">
+                  {card.description}
+                </p>
+                <p className="mt-auto pt-6 text-sm font-medium text-[var(--color-primary)] group-hover:underline">
+                  {ctaFor(card)} &rarr;
+                </p>
+              </Link>
+            </FadeIn>
+          ))}
         </FadeInStagger>
+      </Container>
+    </section>
+  );
+}
+
+/*
+ * The four things Becca named when she and Brett reviewed this page, so these
+ * are her words about her own process rather than a system invented for her.
+ *
+ * Titles are written to break onto two lines at the four-across desktop
+ * layout, and the h3 is held to two lines' worth of height at every
+ * breakpoint, so all four cards line up. Anything longer than about four short
+ * words per line pushes a card to three lines and breaks the row, so keep new
+ * titles inside that budget.
+ */
+const PILLARS = [
+  {
+    title: "Education and Communication",
+    body: "I move at your pace, and you will know what each step means before you take it. I would rather give you too much information than leave you guessing, and you can always tell me to get to the point.",
+  },
+  {
+    title: "I Know These Neighborhoods",
+    body: "Which streets flood, what a school district boundary really does to resale, why two blocks a quarter mile apart price differently. Fifteen years across Pierce, King, and the surrounding counties means I can tell you before you write the offer.",
+  },
+  {
+    title: "A Network I've Personally Vetted",
+    body: "Lenders, inspectors, contractors, attorneys. I check in with them first, confirm they are still active and still good, and then I make the introduction. If something is outside my lane, I know exactly who to hand you to.",
+  },
+  {
+    title: "The Tenacity to Figure It Out",
+    body: "I have driven hours to track down a signature on a deal everyone else had written off. When a file gets complicated, that is usually the point where I get useful, and I keep working the problem until there is a real answer.",
+  },
+];
+
+/*
+ * There is deliberately no separate "the truth about online listings" section
+ * here. <ClosingCrawl> above already carries that argument, in Becca's exact
+ * framing: "You might find the house yourself. Most of my buyers do," the
+ * search is five percent, the other ninety-five is the crawl. A second section
+ * making the same point in the same words read as a duplicate. If the crawl
+ * ever comes off the page, this is the section that has to replace it.
+ */
+function DealTogetherSection() {
+  return (
+    <section className="bg-white py-20 md:py-24">
+      <SectionIntro eyebrow="How I work" title="How to keep your deal together." />
+      <Container>
+        <FadeInStagger className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+          {PILLARS.map((card) => (
+            <FadeIn key={card.title}>
+              {/* h-full against the grid's default stretch is what makes the
+                  four cards the same height. The hover scale is small on
+                  purpose: these are static cards, not links, so the lift
+                  acknowledges the cursor rather than promising a click.
+                  Reduced-motion users get the border and shadow without it. */}
+              <div className="flex h-full flex-col rounded-2xl border border-black/5 bg-white p-7 transition duration-300 hover:scale-[1.02] hover:border-[var(--color-moss)] hover:shadow-lg motion-reduce:hover:scale-100">
+                {/* Two lines' worth of height at leading-snug (1.375), held at
+                    every breakpoint so a one-line title on tablet does not
+                    shorten its card. text-balance splits the two lines evenly
+                    instead of leaving one orphan word. */}
+                <h3 className="min-h-[2.75em] font-display text-lg font-semibold leading-snug text-balance">
+                  {card.title}
+                </h3>
+                <p className="mt-3 text-sm leading-relaxed text-neutral-600">
+                  {card.body}
+                </p>
+              </div>
+            </FadeIn>
+          ))}
+        </FadeInStagger>
+      </Container>
+    </section>
+  );
+}
+
+function ClientStorySection() {
+  return (
+    <section className="surface-warm py-20 md:py-24">
+      <Container>
+        <FadeIn className="mx-auto max-w-3xl">
+          <div className="rounded-2xl border border-black/5 bg-white p-8 md:p-10">
+            <div className="border-l-4 border-[var(--color-moss)] pl-6">
+              <p className="text-xs font-semibold uppercase tracking-widest text-[var(--color-moss)]">
+                Client story
+              </p>
+              <p className="mt-4 text-lg leading-relaxed text-neutral-700">
+                A young couple wanted to buy raw land in Graham and build on it.
+                Different loan, different down payment, different timeline.
+                Before I connected them with a lender, I researched the programs
+                myself: what the down payment would run, how a construction loan
+                layers on top, whether a family member&apos;s veteran status
+                could help. Then I was straight with them about the piece I did
+                not know and sent them to someone who did. Getting you a real
+                answer from the right person is the whole job.
+              </p>
+              {/* No "details changed for privacy" line. It read as a hedge on a
+                  true story, which undercut the story. */}
+            </div>
+          </div>
+        </FadeIn>
       </Container>
     </section>
   );
@@ -274,7 +408,17 @@ export default function HomePage() {
           strip; they now overlay the bottom of the hero, so the about section
           is the first thing under the fold. */}
       <AboutPreviewSection />
+      {/* The closing crawl. Sits here, between "who I am" and "which of these
+          sounds like you", because it is the answer to the question the about
+          section leaves open: fine, but what do you actually do all day. It is
+          also the only black band on the page, which is what stops the white
+          about section and the warm scenarios section running together. */}
+      <ClosingCrawl />
       <ScenariosSection />
+      {/* Then how I work, then one story that shows it. Warm, white, warm: no
+          two adjacent sections share a background. */}
+      <DealTogetherSection />
+      <ClientStorySection />
       <TestimonialCarousel heading="What clients are saying" />
       <ContactBlock heading="Ready to talk about your next step?">
         <p>

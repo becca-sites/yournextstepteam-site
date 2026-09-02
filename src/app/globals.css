@@ -702,3 +702,403 @@ summary,
 .prose a[aria-hidden="true"] {
   text-decoration: none;
 }
+
+/* ==========================================================================
+ * The closing crawl (buyers page).
+ *
+ * A Star Wars opening crawl. The section's job is to make the list of things
+ * that happen between mutual acceptance and keys feel as long as it actually
+ * is, so the reader is meant to sit in it for a while. Everything in it is
+ * ordinary text in the DOM; the effect is paint, not content.
+ *
+ * The geometry, because it is not obvious and it is easy to break:
+ *
+ *   .crawl__viewport  the window. Fixed height, clips everything.
+ *   .crawl__stage     a much taller box anchored to the bottom of the window,
+ *                     carrying the whole 3D transform. Because the perspective
+ *                     is written into the stage's own transform rather than as
+ *                     a `perspective` property on the window, the track inside
+ *                     it moves in flat 2D and the stage projects the result.
+ *                     That is far more stable than translating a child through
+ *                     a perspective origin, which inverts and clips in ugly
+ *                     ways once the child passes the vanishing point.
+ *   .crawl__track     the text, parked at top:100% (the stage's bottom edge)
+ *                     and translated upward.
+ *
+ * The stage is taller than the window on purpose. Perspective puts a horizon at
+ * roughly perspective/tan(angle) above the stage's bottom edge, and text
+ * approaches it without ever reaching it, so a stage only as tall as the window
+ * would draw a trapezoid filling about half the frame with dead black above it.
+ * At 220% the trapezoid reaches the top fade, and what is left above it is sky,
+ * which is what the films look like anyway.
+ *
+ * Travel distance is stage height plus track height, and neither is knowable in
+ * CSS: one is a percentage of the viewport, the other is content-driven.
+ * ClosingCrawl.tsx measures both and writes --crawl-distance and
+ * --crawl-duration back here, deriving the duration from a fixed px/sec so the
+ * crawl reads at the same speed on a phone and on a desktop.
+ * ========================================================================== */
+
+@keyframes ynst-crawl {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(0, calc(-1 * var(--crawl-distance)), 0);
+  }
+}
+
+.crawl {
+  /* The two screen colours from the films. Gold on near-black is about 16:1. */
+  --crawl-gold: #ffe81f;
+  --crawl-blue: #4bd5ee;
+  --crawl-void: #05060a;
+
+  /*
+   * Fallbacks only. The component overwrites both after its first measurement,
+   * which lands within a frame of mount. They exist so the server-rendered
+   * markup animates plausibly rather than not at all, which is also what a
+   * reader with JavaScript off gets.
+   */
+  --crawl-distance: 3400px;
+  --crawl-duration: 100s;
+
+  position: relative;
+  padding-bottom: 3rem;
+  background-color: var(--crawl-void);
+}
+
+/*
+ * Star field.
+ *
+ * Two tiles of hand-placed dots at deliberately mismatched sizes, so the repeat
+ * of one never lands on the repeat of the other and the sky reads as random
+ * rather than as wallpaper. Costs no elements and no requests. rgba(...,0)
+ * rather than `transparent` as the end stop, because `transparent` interpolates
+ * through premultiplied black on some engines and leaves each dot a grey smudge.
+ */
+.crawl__sky {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image:
+    radial-gradient(1.4px 1.4px at 34px 42px, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0)),
+    radial-gradient(1px 1px at 148px 96px, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0)),
+    radial-gradient(1px 1px at 262px 28px, rgba(255, 255, 255, 0.42), rgba(255, 255, 255, 0)),
+    radial-gradient(1.6px 1.6px at 96px 210px, rgba(255, 255, 255, 0.72), rgba(255, 255, 255, 0)),
+    radial-gradient(1px 1px at 330px 176px, rgba(255, 255, 255, 0.46), rgba(255, 255, 255, 0)),
+    radial-gradient(1.2px 1.2px at 58px 132px, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0)),
+    radial-gradient(1px 1px at 196px 58px, rgba(255, 255, 255, 0.38), rgba(255, 255, 255, 0)),
+    radial-gradient(1.4px 1.4px at 22px 172px, rgba(255, 255, 255, 0.55), rgba(255, 255, 255, 0)),
+    radial-gradient(1px 1px at 124px 20px, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0));
+  background-size:
+    404px 286px, 404px 286px, 404px 286px, 404px 286px, 404px 286px, 404px 286px,
+    263px 197px, 263px 197px, 263px 197px;
+}
+
+/* The static blue title card that runs before the logo hits. */
+.crawl__prologue {
+  color: var(--crawl-blue);
+  font-size: var(--text-lg);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  text-shadow: 0 0 24px rgba(75, 213, 238, 0.35);
+}
+
+.crawl__viewport {
+  position: relative;
+  height: clamp(460px, 72vh, 760px);
+  overflow: hidden;
+}
+
+.crawl__stage {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 220%;
+  overflow: hidden;
+  transform-origin: 50% 100%;
+  transform: perspective(340px) rotateX(26deg);
+}
+
+.crawl__track {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  left: 0;
+  width: min(88%, 44rem);
+  margin: 0 auto;
+  color: var(--crawl-gold);
+  font-family: var(--font-body);
+  font-size: clamp(1.15rem, 2.4vw, 1.75rem);
+  font-weight: 700;
+  line-height: 1.35;
+  text-shadow: 0 0 20px rgba(255, 232, 31, 0.25);
+  animation: ynst-crawl var(--crawl-duration) linear infinite;
+  will-change: transform;
+}
+
+/*
+ * Running by default, paused by the component.
+ *
+ * The wrong way round on paper, and deliberate. ClosingCrawl.tsx pauses the
+ * track from an effect the moment it mounts and hands it back when the section
+ * scrolls into view, so a reader with JavaScript sees the crawl start from the
+ * top when they arrive. A reader without JavaScript sees a crawl that started
+ * at page load, which is a worse experience than the intended one and a much
+ * better one than a black box holding a track parked below the fold forever.
+ */
+.crawl[data-playing="false"] .crawl__track {
+  animation-play-state: paused;
+}
+
+.crawl__logo {
+  margin: 0;
+  color: var(--crawl-gold);
+  font-size: 2.1em;
+  font-weight: 700;
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.crawl__episode {
+  margin-top: 0.6em;
+  font-size: 1.05em;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.crawl__line {
+  margin-top: 1.15em;
+}
+
+/*
+ * Justified, which is the signature of the thing and most of the reason it
+ * reads as a crawl rather than as a dark section with yellow text in it. It is
+ * also the one place on this site where justified copy is allowed: the reader
+ * who does not want to fight it has Skip, and everything after Skip is
+ * left-aligned.
+ *
+ * Only from 640px up. Below that the measure is too narrow for justification to
+ * do anything but tear holes in the lines.
+ */
+@media (min-width: 640px) {
+  .crawl__line {
+    text-align: justify;
+  }
+}
+
+/* The "are you still reading" beats, pitched as a stage whisper. */
+.crawl__line--aside {
+  color: #f5d97a;
+  font-size: 0.92em;
+  font-style: italic;
+  font-weight: 500;
+}
+
+/*
+ * The easter egg. Dropped half a step in size and warmed a shade off the gold
+ * so it sits in the run of tasks rather than announcing itself, while staying
+ * comfortably readable for anyone who is actually reading.
+ */
+.crawl__line--egg {
+  color: #f0d55c;
+  font-size: 0.9em;
+  font-weight: 500;
+}
+
+.crawl__egg-link {
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.crawl__line--finale {
+  margin-top: 1.6em;
+  font-size: 1.25em;
+  text-align: center;
+}
+
+.crawl__line--signature {
+  margin-top: 0.6em;
+  font-size: 0.95em;
+  font-weight: 500;
+  text-align: center;
+}
+
+/*
+ * Paints the receding text back into the sky.
+ *
+ * An overlay rather than a mask-image, for the same reason the testimonial
+ * marquee uses overlays: a mask that an engine has not shipped fails to
+ * nothing, with no fallback. This fails to a plain gradient. It only reaches
+ * full opacity in its top fifth, so most of the star field survives underneath
+ * it and the text dissolves into stars instead of into a black bar.
+ */
+.crawl__fade {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 2;
+  height: 34%;
+  pointer-events: none;
+  background: linear-gradient(
+    to bottom,
+    var(--crawl-void) 0%,
+    rgba(5, 6, 10, 0.92) 18%,
+    rgba(5, 6, 10, 0.55) 52%,
+    rgba(5, 6, 10, 0) 100%
+  );
+}
+
+/*
+ * Skip.
+ *
+ * WCAG 2.2.2: the crawl starts on its own and runs well past five seconds, so
+ * something has to be able to stop it. This does more than stop it. It hands
+ * over the same words as a still, left-aligned, ordinary list, which is also
+ * exactly what reduced motion gets.
+ */
+.crawl__skip {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  z-index: 3;
+  display: inline-flex;
+  align-items: center;
+  padding: 0.5rem 1.1rem;
+  border: 1px solid rgba(255, 232, 31, 0.45);
+  border-radius: 999px;
+  background: rgba(5, 6, 10, 0.7);
+  color: var(--crawl-gold);
+  font-size: var(--text-xs);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  backdrop-filter: blur(4px);
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.crawl__skip:hover {
+  border-color: var(--crawl-gold);
+  background: rgba(5, 6, 10, 0.9);
+}
+
+/*
+ * Flat: the reading view.
+ *
+ * No tilt, no motion, no clipping. The window grows to fit its content and the
+ * track becomes an ordinary centered column of gold text on black. Reached by
+ * the Skip button, and forced below for reduced motion.
+ */
+.crawl--flat .crawl__viewport {
+  height: auto;
+  padding-bottom: 1rem;
+  overflow: visible;
+}
+
+.crawl--flat .crawl__stage {
+  position: static;
+  height: auto;
+  overflow: visible;
+  transform: none;
+}
+
+.crawl--flat .crawl__track {
+  position: static;
+  width: min(100%, 44rem);
+  font-size: clamp(1.05rem, 1.6vw, 1.3rem);
+  line-height: 1.5;
+  text-shadow: none;
+  animation: none;
+}
+
+.crawl--flat .crawl__line {
+  text-align: left;
+}
+
+.crawl--flat .crawl__fade {
+  display: none;
+}
+
+/* Above the list rather than floating over it, now that there is no frame. */
+.crawl--flat .crawl__skip {
+  position: static;
+  margin: 0 auto 2rem;
+}
+
+/*
+ * Mobile: the same crawl with the distortion pulled back.
+ *
+ * A 26deg tilt at 340px of perspective squeezes a 20rem measure into something
+ * genuinely hard to read. A longer perspective and a shallower angle keep the
+ * receding-into-space read while leaving the type close to its real size. The
+ * stage comes down to match, because a lower horizon needs less runway before
+ * the text has left the frame.
+ */
+@media (max-width: 640px) {
+  .crawl__viewport {
+    height: clamp(400px, 64vh, 560px);
+  }
+
+  .crawl__stage {
+    height: 150%;
+    transform: perspective(520px) rotateX(16deg);
+  }
+
+  .crawl__track {
+    width: 90%;
+  }
+}
+
+/*
+ * Reduced motion.
+ *
+ * The component already flips to the flat view when it detects this, so these
+ * rules are the net for a reader who has JavaScript off: without them the track
+ * would sit still at top:100%, below the bottom of a clipped box, and the
+ * section would render as an empty black rectangle. `animation: none` clears
+ * the name outright, so the global reduced-motion block's !important duration
+ * has nothing left to run and cannot snap the crawl to its end frame.
+ */
+@media (prefers-reduced-motion: reduce) {
+  .crawl__viewport {
+    height: auto;
+    padding-bottom: 1rem;
+    overflow: visible;
+  }
+
+  .crawl__stage {
+    position: static;
+    height: auto;
+    overflow: visible;
+    transform: none;
+  }
+
+  .crawl__track {
+    position: static;
+    width: min(100%, 44rem);
+    font-size: clamp(1.05rem, 1.6vw, 1.3rem);
+    line-height: 1.5;
+    text-shadow: none;
+    animation: none;
+  }
+
+  .crawl__line {
+    text-align: left;
+  }
+
+  .crawl__fade {
+    display: none;
+  }
+
+  /* Nothing to skip, and nothing to play. */
+  .crawl__skip {
+    display: none;
+  }
+}

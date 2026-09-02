@@ -227,6 +227,13 @@ export interface TenantScenario {
    * point at a 404 while the articles are still being written.
    */
   articleSlug: string;
+  /**
+   * Exactly one scenario carries this. The homepage pulls it out of the grid
+   * and renders it full width above the others with the gold border, because
+   * senior transitions is the specialty rather than one option among equals.
+   * Gold ranks one thing per page, so do not set this on a second card.
+   */
+  featured?: boolean;
 }
 
 export interface TenantFaq {
@@ -1055,33 +1062,34 @@ export const tenant: Tenant = {
   // Becca. Each card opens a full article once content/blog/<articleSlug>.mdx
   // lands; until then it falls back to `href`.
   scenarios: [
+    /*
+     * Senior transitions leads and renders full width. It absorbed the two
+     * cards that used to sit in the grid separately, "Helping a parent move"
+     * and "Ready to downsize or right-size", because they were two doors into
+     * the same conversation and splitting them buried the specialty in a grid
+     * of equals. It is the one card pointing at a published article.
+     */
     {
-      title: "Buying your first home in the Puget Sound",
+      title: "Senior Transitions",
       description:
-        "Ask me anything, including the questions you think sound dumb. Those are usually the good ones. I'll walk you through financing, offers, and inspections at your pace, and you'll understand what you're signing before you sign it.",
-      href: "/buyers",
-      articleSlug: "first-time-home-buyer-guide-pierce-county",
+        "Should we age in place, or is it time to make a move to a smaller house or an adult living facility? It is one of the hardest conversations a family has, and it usually shows up with a deadline attached. I'm SRES certified, and this is the work I care about most. I'll lay out what each option really costs and really takes, bring in the people who handle the pieces I don't, and give your whole family the room to make a decision this big.",
+      href: "/contact",
+      articleSlug: "sres-agent-senior-transitions",
+      featured: true,
     },
     {
-      title: "Selling one home to buy the next",
+      title: "First-Time Buyer With a Lot of Questions",
+      description:
+        "Good. Ask all of them, including the ones you think sound dumb. Those are usually the good ones. I'll walk you through financing, offers, and inspections at your pace, and you'll understand what you're signing before you sign it.",
+      href: "/buyers",
+      articleSlug: "first-time-buyer-pierce-county",
+    },
+    {
+      title: "Selling One Home to Buy the Next",
       description:
         "Two transactions, one timeline, and a dozen moving pieces. I coordinate the sale, the purchase, and the financing in between so the two closings land where they should and you move once.",
       href: "/sellers",
       articleSlug: "selling-and-buying-at-the-same-time-washington",
-    },
-    {
-      title: "Helping a parent move",
-      description:
-        "You're the adult child sorting out a move for mom or dad, and it's a lot to carry. I'm SRES certified, so I know how to work with the whole family, the timeline, and the attorney, and I give your parent the room to make a decision this big.",
-      href: "/contact",
-      articleSlug: "helping-a-parent-move-senior-real-estate-washington",
-    },
-    {
-      title: "Buying land to build on",
-      description:
-        "Land works differently than houses. Bigger down payments, different loan programs, and a build timeline that has to line up with everything else. I do the homework on the parcel, the septic, and the setbacks before you fall in love with it.",
-      href: "/buyers",
-      articleSlug: "buying-land-to-build-pierce-county",
     },
     {
       title: "Relocating to Western Washington",
@@ -1091,11 +1099,11 @@ export const tenant: Tenant = {
       articleSlug: "relocating-to-pierce-county-from-out-of-state",
     },
     {
-      title: "Ready to downsize or right-size",
+      title: "Developing Raw Land",
       description:
-        "Decades in one house, and now it's more house than you need. I'll help you sell well and land somewhere that fits the life you have today, with all the time you need to say goodbye to a place full of memories.",
-      href: "/sellers",
-      articleSlug: "downsizing-guide-pierce-county",
+        "Land works differently than houses. Bigger down payments, different loan programs, and a build timeline that has to line up with everything else. I do the homework on the parcel, the septic, and the setbacks before you fall in love with it.",
+      href: "/buyers",
+      articleSlug: "buying-land-to-build-pierce-county",
     },
   ],
 

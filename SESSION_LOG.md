@@ -185,6 +185,99 @@ matters, not that any of it will be easy.
 
 ---
 
+## 2026-08-27 - Home page gets the scenario, pillar, and story sections from Becca and Brett's review
+
+**Deliverables:** `src/app/page.tsx`, `src/config/tenant.ts`.
+
+### Where the review actually applied
+
+Becca and Brett reviewed "the home page," but four of the sections they named
+were living on `/buyers`: the scenario cards, the four "things that keep your
+deal together," the dark "truth about online listings" band, and the client
+story. A parallel session then stripped `/buyers` down to face, trust, and one
+CTA (`c5e768f`), and Becca confirmed that rewrite is final. So the review items
+were built on the home page, which is where she wanted them, and `/buyers` was
+left alone.
+
+### Scenario cards: five boxes, senior transitions ranked
+
+- **`TenantScenario` gained an optional `featured` flag.** Exactly one scenario
+  sets it. `ScenariosSection` pulls that card out of the grid, renders it full
+  width above the others with the gold border, the gold badge fill, and dark
+  type, and leaves the rest two across.
+- **Senior transitions is that card**, and it absorbed the two cards that used
+  to sit in the grid separately, "Helping a parent move" and "Ready to downsize
+  or right-size." They were two doors into the same conversation, and splitting
+  them buried the specialty among equals. Copy is the age-in-place question
+  Becca asked for: smaller house, adult living facility, or stay put.
+- **It is the one card pointing at a published article**,
+  `content/blog/sres-agent-senior-transitions.mdx`. The other four fall back to
+  their hub pages until their articles land.
+- **The remaining four, in this order:** First-Time Buyer With a Lot of
+  Questions, Selling One Home to Buy the Next, Relocating to Western
+  Washington, Developing Raw Land. Title case is deliberate: these are the
+  labels from the review, and card headings on this page now read as names
+  while section H2s stay sentence case.
+- **The 01/02/03 numerals are gone** from every card.
+
+### "How to keep your deal together"
+
+- Heading was "Four things that keep your deal together." The count came out
+  along with the numerals.
+- **Four items, renamed:** Education and Communication; I Know These
+  Neighborhoods; A Network I've Personally Vetted; The Tenacity to Figure It
+  Out. The last one replaces "I catch what other people miss" and keeps the
+  detail-catching in its body copy, angled toward working a deal others would
+  walk away from.
+- **All four cards are the same height and all four headlines are exactly two
+  lines.** `h-full` against the grid's default stretch equalises the cards;
+  `min-h-[2.75em]` on the h3 reserves two lines at `leading-snug` so a
+  one-line title on tablet cannot shorten its card; `text-balance` splits the
+  two lines evenly. Verified in the browser at 1280: four cards at 370px, four
+  headlines at two visual lines each.
+- **Hover is `scale-[1.02]` plus a moss border and a lifted shadow**, 300ms.
+  These are static cards rather than links, so the lift acknowledges the cursor
+  instead of promising a click. `motion-reduce:hover:scale-100` drops the scale
+  and keeps the border.
+- **"We" is gone and so is "street by street."**
+
+### The dark band, and why there is no new section for it
+
+The review asked for the dark "truth about online listings" band to become a
+light one. On `/buyers` that section is gone entirely. On the home page,
+`ClosingCrawl` already makes exactly that argument in Becca's framing: "You
+might find the house yourself. Most of my buyers do," the search is five
+percent, the other ninety-five is the crawl. A light section repeating it in
+almost the same sentences was written and then deleted, because two adjacent
+sections making one point read as a duplicate. A comment in `page.tsx` records
+that if the crawl ever comes off the page, that section is what replaces it.
+
+**Worth knowing:** the crawl is itself a black band with white type, and the
+original complaint was about type disappearing into a dark background. It is a
+deliberate homage and it was not touched here, but if the invisible-text note
+was about the crawl rather than the buyers band, that is still open.
+
+### Client story
+
+The Graham raw-land story moved to the home page without the "Details changed
+for privacy" line. It read as a hedge on a true story, which undercut the
+story.
+
+### Section order and backgrounds
+
+Hero, about, crawl (black), scenarios (warm), how-to-keep-your-deal-together
+(white), client story (warm), testimonials (white), contact (moss). No two
+adjacent sections share a background.
+
+### Note on this commit
+
+`ClosingCrawl.tsx` and the crawl's `globals.css` block came from a parallel
+session and were still uncommitted. They are in this commit because
+`page.tsx` imports the component, so committing the page without them would
+have left `main` unbuildable. `npm run build` clean, all 26 routes.
+
+---
+
 ## 2026-08-27 - Home page geography widens to Pierce, King, and surrounding counties
 
 **Deliverables:** `src/app/page.tsx`, `src/config/tenant.ts`.
