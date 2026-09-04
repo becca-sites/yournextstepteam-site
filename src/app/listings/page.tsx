@@ -4,6 +4,7 @@ import { Container } from "@/components/Container";
 import { FadeIn } from "@/components/FadeIn";
 import { Border } from "@/components/Border";
 import { ContactBlock } from "@/components/ContactBlock";
+import { BreadcrumbListSchema } from "@/components/schema/BreadcrumbListSchema";
 
 export const metadata: Metadata = {
   title: "Listings",
@@ -16,6 +17,12 @@ export default function ListingsPage() {
 
   return (
     <>
+      <BreadcrumbListSchema
+        items={[
+          { name: "Home", url: "/" },
+          { name: "Listings", url: "/listings" },
+        ]}
+      />
       <section className="bg-[var(--color-surface)] py-20 md:py-28">
         <Container>
           <FadeIn className="mx-auto max-w-3xl text-center">
@@ -75,8 +82,8 @@ export default function ListingsPage() {
 
       <ContactBlock heading="Not sure where to start?">
         <p>
-          Tell us what you are looking for and we will send you a short list
-          that fits.
+          Tell me what you&apos;re looking for and I&apos;ll send you a
+          short list that actually fits, plus the honest read on each one.
         </p>
       </ContactBlock>
     </>

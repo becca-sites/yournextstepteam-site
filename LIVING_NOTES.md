@@ -9,6 +9,84 @@ work done directly in the repo.
 
 ---
 
+## Becca's story, and how it gets told (from her interview, 2026-09-04)
+
+- **Eatonville is the hook, and it is allowed to lead.** One blinking light, a
+  town founded by the Van Eaton family, Dr. Tom Van Eaton delivered her, and her
+  childhood best friend Gloria Van Eaton is now Dr. Gloria Low practising in that
+  same town. The point Becca draws from it is that in a town that small your
+  reputation is the whole thing, and everybody knows how you treated the last
+  person. That is the thesis of the About page. Do not bury it under
+  credentials.
+- **The geography is a list and the list is the credential.** Eatonville, then
+  Western Washington University in Bellingham (BA, Business Administration), then
+  Puyallup, then Tacoma in Westgate for about ten years, a short stretch in
+  Renton, and Bonney Lake since 2017. She has lived in Pierce, King, and Whatcom
+  counties. She is on her second Bonney Lake house and bought this one because it
+  has an ADU her mom lives in. Naming the actual places is what separates her
+  from an agent who says "I know the area."
+- **Broad geography still holds.** Towns belong on the About page and the
+  neighbourhood pages, where they are the subject. Conversion pages stay at the
+  county and region level so a King or Thurston County reader does not feel out
+  of range. She has closed from Everett to Morton and Grays Harbor to Roslyn.
+- **The 2008 licence is the credibility story, not a liability.** Eight years in
+  event production, laid off in the Great Recession, licensed at the bottom of
+  the market, and the first years were short sales, foreclosures, and REOs. The
+  line to keep making: she learned the business on the hardest files it produces,
+  so an ordinary transaction does not rattle her. Steve Hiatt at Keller Williams
+  gave her the start, then Best Choice, then eXp for the last six years.
+- **State the licence year, not a year count.** "15+ years" was rounded down and
+  went stale. Everything in the app now says "licensed since 2008", which is
+  precise, carries the story, and never needs editing. The blog posts still say
+  15+; align them when they are next touched.
+- **"It's a conversation, not a script" is the line.** No listing presentation
+  run at anybody. This is the one place the site is allowed to use X-not-Y
+  framing, because it is Becca's own phrase about her own process rather than a
+  comparison to other agents. The general no-X-not-Y rule still applies
+  everywhere else.
+- **The questionnaire asks about snacks and toast drinks, and that detail earns
+  its place on the site.** It is the clearest proof of the way she works: she is
+  going to be in your life for a few months, sometimes on a hard day, and she
+  wants to show up with the right coffee. Do not cut it for being unserious.
+- **The hard conversation happens in week one.** Price, roof, timeline, whatever
+  it is. Her framing: it is so much easier in week one than in week six, while
+  there is still room to do something about it.
+- **Plan A, Plan B, usually Plan C.** Her words. The client does not have to
+  carry all three plans; they just need to know somebody has them. This is what
+  270 closings buys.
+- **Other agents call her for advice, and she takes those calls.** Partly because
+  it is how she would want to be treated, partly because the agent she helps this
+  week is the one reading her client's offer next spring.
+- **Tequila and Sour Patch Kids is the closing gift.** Sour, then sweet, worth it
+  at the end. It stays on the About page. It is the kind of specific that no
+  competitor's site can copy without looking like they copied it.
+- **Allbree Warner is introduced by name, never absorbed into a "we".** Becca's
+  line, kept verbatim: "When you hear from Allbree, you're hearing from me." The
+  About page gives her a portrait frame and her own section. The site voice stays
+  first person for Becca; Allbree is a named person the client will actually deal
+  with, not a reason to switch to "our team".
+- **"Your Next Step Team" is the business name and "I" is the voice.** Those are
+  not in conflict. The brand names the business, Becca speaks as herself, and
+  Allbree is introduced as a person.
+- **The Alzheimer's story is Becca's to write.** Her dad had Alzheimer's and it
+  is where the SRES certification came from. The About page names it in one short
+  paragraph, connects it to the certification, and says outright that the full
+  story is coming. Nobody else expands that section. There is a comment in
+  `src/app/about/page.tsx` saying so.
+- **"Let's have a conversation" is the CTA, sitewide.** It replaced "Let's talk".
+  It is the same promise as the first-meeting line, and it says what actually
+  happens next, which is a conversation and not a pitch. Three ContactBlock
+  headings repeat it on purpose.
+- **The no-pill rule is now fully applied.** The last three came off on
+  2026-09-04: the filled gold "Where I specialize" eyebrow on buyers and sellers,
+  and the `FeaturedListings` status badge. Nothing that is not a control looks
+  like one anywhere on the site.
+- **ADU, never "mother-in-law suite", even when Becca says it that way about her
+  own house.** Fair housing rule, applied to public copy regardless of whose
+  house is being described.
+
+---
+
 ## The closing crawl (home page)
 
 - **Humor is allowed to be big here, and it is the only place on the site that

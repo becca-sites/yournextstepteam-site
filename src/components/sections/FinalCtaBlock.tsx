@@ -4,7 +4,7 @@ import { tenant } from "@/config/tenant";
 
 export function FinalCtaBlock({
   heading = "Every home has a story. Ready to write yours?",
-  subhead = "Fifteen minutes on the phone with me and we will know what your next step is.",
+  subhead = "Fifteen minutes on the phone and you will know what your next step actually is. No presentation, no pressure, nothing to sign.",
 }: {
   heading?: string;
   subhead?: string;
@@ -28,7 +28,7 @@ export function FinalCtaBlock({
         <p className="mt-5 text-lg text-white/80">{subhead}</p>
         <div className="mt-9 flex flex-wrap justify-center gap-3">
           <Link href="/contact" className="btn-on-dark">
-            Let&apos;s talk
+            Let&apos;s have a conversation
           </Link>
           <a href={`tel:${tenant.agent.phone}`} className="btn-ghost-on-dark">
             Call {tenant.agent.firstName}

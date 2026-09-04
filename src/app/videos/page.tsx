@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { tenant } from "@/config/tenant";
 import { FinalCtaBlock } from "@/components/sections/FinalCtaBlock";
+import { BreadcrumbListSchema } from "@/components/schema/BreadcrumbListSchema";
 
 export const metadata: Metadata = {
   title: "Videos",
@@ -14,6 +15,12 @@ export default function VideosPage() {
 
   return (
     <>
+      <BreadcrumbListSchema
+        items={[
+          { name: "Home", url: "/" },
+          { name: "Videos", url: "/videos" },
+        ]}
+      />
       <section className="bg-[var(--color-surface)] py-16 md:py-20">
         <div className="mx-auto max-w-3xl px-4 lg:px-8">
           <p className="eyebrow">Senior living education</p>
@@ -67,7 +74,7 @@ export default function VideosPage() {
 
       <FinalCtaBlock
         heading="Have a question the videos did not cover?"
-        subhead="Let's talk. One short call to walk through your situation and figure out the right next step."
+        subhead="One short call to walk through your situation and work out the right next step. Ask me anything."
       />
     </>
   );

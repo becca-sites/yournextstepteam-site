@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { tenant } from "@/config/tenant";
+import { BreadcrumbListSchema } from "@/components/schema/BreadcrumbListSchema";
 
 export const metadata: Metadata = {
   title: "Neighborhoods",
@@ -27,6 +28,12 @@ export default function NeighborhoodsIndex() {
 
   return (
     <>
+      <BreadcrumbListSchema
+        items={[
+          { name: "Home", url: "/" },
+          { name: "Neighborhoods", url: "/neighborhoods" },
+        ]}
+      />
       <section className="bg-[var(--color-surface)] py-16 md:py-20">
         <div className="mx-auto max-w-7xl px-4 lg:px-8">
           <p className="eyebrow">Local knowledge</p>

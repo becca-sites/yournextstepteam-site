@@ -6,12 +6,13 @@ import { Container } from "@/components/Container";
 import { FadeIn, FadeInStagger } from "@/components/FadeIn";
 import { ContactBlock } from "@/components/ContactBlock";
 import { ServiceSchema } from "@/components/schema/ServiceSchema";
+import { BreadcrumbListSchema } from "@/components/schema/BreadcrumbListSchema";
 import { StatCardRow } from "@/components/sections/StatCardRow";
 
 export const metadata: Metadata = {
   title: "Sell your home in the Puget Sound region",
   description:
-    "Every home can sell, whatever shape it is in. Price, positioning, and marketing are what move a house. Becca Pitts: 270 closings across Western Washington and 15+ years in real estate in Washington.",
+    "Your home can sell exactly the way it sits today. Price, positioning, and marketing are what move a house. Becca Pitts: licensed in Washington since 2008, 270 closings across Western Washington, SRES® certified.",
   alternates: { canonical: "/sellers" },
 };
 
@@ -43,7 +44,7 @@ export const metadata: Metadata = {
  */
 const CREDENTIALS = [
   "SRES® Certified",
-  "15+ years in real estate in Washington",
+  "Licensed in Washington since 2008",
   "12 sales in the last 12 months across Puget Sound",
   "270 career total across Western Washington",
 ];
@@ -64,7 +65,17 @@ const SELLER_REVIEWS = SELLER_REVIEW_NAMES.map((name) =>
 export default function SellersPage() {
   return (
     <>
-      <ServiceSchema name="Seller representation" serviceType="Real estate seller's agent" />
+      <ServiceSchema
+        name="Seller representation"
+        serviceType="Real estate seller's agent"
+        description="Listing and seller representation across Pierce, King, and the surrounding Washington counties. Pricing, positioning, marketing, and negotiation from an agent licensed since 2008 with 270 closings and SRES® certification for senior and estate sales."
+      />
+      <BreadcrumbListSchema
+        items={[
+          { name: "Home", url: "/" },
+          { name: "Sellers", url: "/sellers" },
+        ]}
+      />
 
       {/* Hero. Becca's face, the message, one paragraph, the questionnaire. */}
       <section className="bg-[var(--color-surface)]">
@@ -83,7 +94,8 @@ export default function SellersPage() {
                 and marketing: the right number, aimed at the right buyer, told
                 the right way. Improvements are a choice you get to make based on
                 what you can actually spend, and I&apos;ll be honest with you
-                about which ones earn their money back.
+                about which ones earn their money back. That&apos;s the whole
+                first conversation, and it costs you nothing.
               </p>
               <div className="mt-9 flex flex-wrap gap-3">
                 <a
@@ -96,7 +108,7 @@ export default function SellersPage() {
                   <span className="sr-only"> (opens in a new tab)</span>
                 </a>
                 <Link href="/contact" className="btn-ghost">
-                  Let&apos;s talk
+                  Let&apos;s have a conversation
                 </Link>
               </div>
               <p className="mt-6 max-w-xl text-sm leading-relaxed text-neutral-500">
@@ -124,34 +136,36 @@ export default function SellersPage() {
       <StatCardRow stats={tenant.resultsStats} eyebrow="The receipts" />
 
       {/* Senior transitions. Becca's specialty, so it gets its own band, a gold
-          border, and a soft gold wash. The badge is filled rather than gold
-          type: the deep gold is too light to read at eyebrow size, so the
-          colour lives in the border and the fill and the words stay dark. Gold
-          ranks exactly one thing per page, and this is it. */}
+          border, and a soft gold wash. The label is plain uppercase text on the
+          wash rather than a filled rounded badge: site-wide rule, a rounded
+          filled container around a label reads as a button and nothing that is
+          not a control should look like one. Gold ranks exactly one thing per
+          page, and this is it. */}
       <section className="bg-white py-16 md:py-20">
         <Container>
           <FadeIn>
             <div className="rounded-2xl border-2 border-[var(--color-sunshine)] bg-[#FEF9EF] p-8 shadow-[0_2px_18px_rgba(217,154,43,0.18)] md:p-12">
-              <span className="inline-flex w-fit items-center rounded-full bg-[var(--color-sunshine)] px-3 py-1 text-xs font-semibold uppercase tracking-widest text-[var(--color-ink)]">
+              <span className="block text-xs font-semibold uppercase tracking-widest text-[var(--color-ink)]">
                 Where I specialize
               </span>
               <h2 className="mt-5 font-display text-3xl font-semibold md:text-4xl">
                 Senior transitions
               </h2>
               <p className="mt-4 max-w-3xl text-base leading-relaxed text-neutral-700 md:text-lg">
-                Should we age in place, or is it time to move to a smaller house
-                or an adult living facility? It is one of the hardest
-                conversations a family has, and it usually shows up with a
-                deadline attached. I am SRES certified, and this is the work I
-                care about most. I will lay out what each option really costs
-                and really takes, tell you honestly what the house would bring
-                today and what it would bring with work, bring in the people who
-                handle the pieces I do not, and give your whole family the room
-                to make a decision this big.
+                Should Mom stay in the house, or is it time for something
+                smaller, or time for care? It is one of the hardest
+                conversations a family has, and it almost always shows up with a
+                deadline attached. I am SRES® certified, and this is the work I
+                care about most, for reasons that go back to my own family. I
+                will tell you what each option really costs and really takes,
+                tell you honestly what the house would bring today and what it
+                would bring with work, bring in the people who handle the pieces
+                I do not, and give everybody at the table the room to make a
+                decision this big.
               </p>
               <div className="mt-8">
                 <Link href="/contact" className="btn-primary">
-                  Talk through the options
+                  Let&apos;s have a conversation
                 </Link>
               </div>
             </div>
@@ -216,11 +230,12 @@ export default function SellersPage() {
         </Container>
       </section>
 
-      <ContactBlock heading="Curious what your home would bring right now?">
+      <ContactBlock heading="Let's have a conversation.">
         <p>
           Twenty minutes on the phone and I&apos;ll walk you through your comps,
           your timeline, and what it would take to sell this house in the shape
-          it&apos;s in today. Nothing to fix before that call.
+          it&apos;s in today. Nothing to fix before that call, and nothing to
+          sign at the end of it.
         </p>
       </ContactBlock>
     </>

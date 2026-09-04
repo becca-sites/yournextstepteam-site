@@ -4,6 +4,7 @@ import Image from "next/image";
 import { tenant } from "@/config/tenant";
 import { FinalCtaBlock } from "@/components/sections/FinalCtaBlock";
 import { ValuationWidget } from "@/components/valuation/ValuationWidget";
+import { BreadcrumbListSchema } from "@/components/schema/BreadcrumbListSchema";
 
 export const metadata: Metadata = {
   title: "What is my home worth",
@@ -30,6 +31,12 @@ const STEPS = [
 export default function HomeValuePage() {
   return (
     <>
+      <BreadcrumbListSchema
+        items={[
+          { name: "Home", url: "/" },
+          { name: "What Is My Home Worth", url: "/home-value" },
+        ]}
+      />
       <section className="bg-[var(--color-surface)]">
         <div className="mx-auto grid max-w-7xl gap-12 px-4 pt-16 pb-12 lg:grid-cols-12 lg:gap-16 lg:px-8 lg:pt-24 lg:pb-20">
           <div className="lg:col-span-7">
@@ -47,7 +54,7 @@ export default function HomeValuePage() {
                 Get my estimate
               </Link>
               <Link href="/contact" className="btn-ghost">
-                Let&apos;s talk first
+                Let&apos;s have a conversation
               </Link>
             </div>
           </div>

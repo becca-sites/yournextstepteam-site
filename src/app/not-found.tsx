@@ -8,8 +8,8 @@ export default function NotFound() {
         That page is not here.
       </h1>
       <p className="mt-4 text-lg text-[color:var(--color-muted)]">
-        It may have moved or been retired. Try the homepage, or get in touch and
-        we will point you in the right direction.
+        It may have moved or been retired. Try the homepage, or get in touch
+        and I&apos;ll point you in the right direction.
       </p>
       <div className="mt-9 flex justify-center gap-3">
         <Link href="/" className="btn-primary">Home</Link>

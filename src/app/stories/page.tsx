@@ -4,6 +4,7 @@ import Image from "next/image";
 import { getAllStories } from "@/lib/content";
 import { tenant } from "@/config/tenant";
 import { FinalCtaBlock } from "@/components/sections/FinalCtaBlock";
+import { BreadcrumbListSchema } from "@/components/schema/BreadcrumbListSchema";
 
 export const metadata: Metadata = {
   title: "Client stories",
@@ -17,6 +18,12 @@ export default function StoriesIndexPage() {
 
   return (
     <>
+      <BreadcrumbListSchema
+        items={[
+          { name: "Home", url: "/" },
+          { name: "Stories", url: "/stories" },
+        ]}
+      />
       <section className="bg-[var(--color-surface)] py-16 md:py-24">
         <div className="mx-auto max-w-7xl px-4 lg:px-8">
           <p className="eyebrow">Sold stories</p>

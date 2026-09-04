@@ -58,7 +58,12 @@ export function FeaturedListings() {
                   sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
                   className="object-cover transition duration-500 group-hover:scale-[1.03]"
                 />
-                <span className="absolute left-4 top-4 rounded-full bg-white/95 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-[color:var(--color-ink)]">
+                {/* Squared label, not a pill. Site-wide rule: a rounded filled
+                    container around a label reads as a button, and nothing
+                    that is not a control should look like one. It keeps the
+                    white plate, because this sits on a photograph and needs
+                    the contrast to stay readable. */}
+                <span className="absolute left-4 top-4 rounded-sm bg-white/95 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-[color:var(--color-ink)]">
                   {card.tag}
                 </span>
               </div>

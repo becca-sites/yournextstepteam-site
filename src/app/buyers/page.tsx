@@ -6,11 +6,12 @@ import { Container } from "@/components/Container";
 import { FadeIn, FadeInStagger } from "@/components/FadeIn";
 import { ContactBlock } from "@/components/ContactBlock";
 import { ServiceSchema } from "@/components/schema/ServiceSchema";
+import { BreadcrumbListSchema } from "@/components/schema/BreadcrumbListSchema";
 
 export const metadata: Metadata = {
   title: "Buy a home in the Puget Sound region",
   description:
-    "Buyer representation across Pierce, King, and the surrounding counties from Becca Pitts: 270 closings, 15+ years in real estate in Washington, and SRES certification for senior moves.",
+    "Finding the house is about five percent of it. Buyer representation across Pierce, King, and the surrounding counties from Becca Pitts: licensed in Washington since 2008, 270 closings, SRES® certified.",
   alternates: { canonical: "/buyers" },
 };
 
@@ -32,7 +33,7 @@ export const metadata: Metadata = {
  */
 const CREDENTIALS = [
   "SRES® Certified",
-  "15+ years in real estate in Washington",
+  "Licensed in Washington since 2008",
   "12 sales in the last 12 months across the Puget Sound region",
   "270 career total across Western Washington",
 ];
@@ -53,7 +54,17 @@ const BUYER_REVIEWS = BUYER_REVIEW_NAMES.map((name) =>
 export default function BuyersPage() {
   return (
     <>
-      <ServiceSchema name="Buyer representation" serviceType="Real estate buyer's agent" />
+      <ServiceSchema
+        name="Buyer representation"
+        serviceType="Real estate buyer's agent"
+        description="Buyer representation across Pierce, King, and the surrounding Washington counties. Financing, offers, inspections, appraisals, and everything between mutual acceptance and keys, from an agent licensed since 2008 with 270 closings and SRES® certification for senior moves."
+      />
+      <BreadcrumbListSchema
+        items={[
+          { name: "Home", url: "/" },
+          { name: "Buyers", url: "/buyers" },
+        ]}
+      />
 
       {/* Hero. Becca's face, the hook headline, one paragraph, one button. */}
       <section className="bg-[var(--color-surface)]">
@@ -68,11 +79,12 @@ export default function BuyersPage() {
                 ...and honestly, the search is about five percent of this. Most
                 of my buyers find the house themselves. The other ninety-five
                 percent happens between mutual acceptance and the day you get
-                keys: inspections, appraisals, contracts, financing, and a
-                dozen moving pieces that all have to land inside the same two
-                weeks. That part is why you hire me. After 270 closings across
-                Western Washington, I know where a deal breaks and how to keep
-                yours together.
+                keys: inspections, appraisals, contracts, financing, and a dozen
+                moving pieces that all have to land inside the same two weeks.
+                That part is why you hire me. I got my license in 2008 and
+                learned this business on short sales and foreclosures, so after
+                270 closings I know exactly where a deal breaks, and I&apos;ve
+                already got a Plan B for yours before we write the offer.
               </p>
               <div className="mt-9 flex flex-wrap gap-3">
                 <a
@@ -85,7 +97,7 @@ export default function BuyersPage() {
                   <span className="sr-only"> (opens in a new tab)</span>
                 </a>
                 <Link href="/contact" className="btn-ghost">
-                  Let&apos;s talk
+                  Let&apos;s have a conversation
                 </Link>
               </div>
               <p className="mt-6 max-w-xl text-sm leading-relaxed text-neutral-500">
@@ -110,32 +122,34 @@ export default function BuyersPage() {
       </section>
 
       {/* Senior transitions. Becca's specialty, so it gets its own band, a gold
-          border, and a soft gold wash. The badge is filled rather than gold
-          type: the deep gold is too light to read at eyebrow size, so the
-          colour lives in the border and the fill and the words stay dark. */}
+          border, and a soft gold wash. The label is plain uppercase text on the
+          wash rather than a filled rounded badge: site-wide rule, a rounded
+          filled container around a label reads as a button and nothing that is
+          not a control should look like one. The colour ranks the section from
+          the border, and the words stay dark so they are readable. */}
       <section className="bg-white py-16 md:py-20">
         <Container>
           <FadeIn>
             <div className="rounded-2xl border-2 border-[var(--color-sunshine)] bg-[#FEF9EF] p-8 shadow-[0_2px_18px_rgba(217,154,43,0.18)] md:p-12">
-              <span className="inline-flex w-fit items-center rounded-full bg-[var(--color-sunshine)] px-3 py-1 text-xs font-semibold uppercase tracking-widest text-[var(--color-ink)]">
+              <span className="block text-xs font-semibold uppercase tracking-widest text-[var(--color-ink)]">
                 Where I specialize
               </span>
               <h2 className="mt-5 font-display text-3xl font-semibold md:text-4xl">
                 Senior transitions
               </h2>
               <p className="mt-4 max-w-3xl text-base leading-relaxed text-neutral-700 md:text-lg">
-                Should we age in place, or is it time to move to a smaller house
-                or an adult living facility? It is one of the hardest
-                conversations a family has, and it usually shows up with a
-                deadline attached. I am SRES certified, and this is the work I
-                care about most. I will lay out what each option really costs
-                and really takes, bring in the people who handle the pieces I do
-                not, and give your whole family the room to make a decision this
-                big.
+                Should Mom stay in the house, or is it time for something
+                smaller, or time for care? It is one of the hardest
+                conversations a family has, and it almost always shows up with a
+                deadline attached. I am SRES® certified, and this is the work I
+                care about most, for reasons that go back to my own family. I
+                will tell you what each option really costs and really takes,
+                bring in the people who handle the pieces I do not, and give
+                everybody at the table the room to make a decision this big.
               </p>
               <div className="mt-8">
                 <Link href="/contact" className="btn-primary">
-                  Talk through the options
+                  Let&apos;s have a conversation
                 </Link>
               </div>
             </div>
@@ -220,11 +234,12 @@ export default function BuyersPage() {
         </Container>
       </section>
 
-      <ContactBlock heading="Ready to find your home?">
+      <ContactBlock heading="Let's have a conversation.">
         <p>
-          Tell me what you are looking for and where you want to be. I will tell
-          you what that market is actually doing this month, anywhere in Pierce,
-          King, and the surrounding counties.
+          Tell me what you&apos;re looking for and where you want to be, and
+          I&apos;ll tell you what that market is actually doing this month,
+          anywhere in Pierce, King, and the surrounding counties. Ask me
+          anything, including the questions you think sound dumb.
         </p>
       </ContactBlock>
     </>

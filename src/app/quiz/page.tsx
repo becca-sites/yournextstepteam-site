@@ -352,7 +352,7 @@ export default function QuizPage() {
               </p>
               <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
                 <Link href="/contact" className="btn-primary min-h-[44px]">
-                  Let&apos;s talk
+                  Let&apos;s have a conversation
                 </Link>
                 <a
                   href={tenant.listings.buyerQuestionnaireUrl}

@@ -4,6 +4,7 @@ import { tenant } from "@/config/tenant";
 import { Container } from "@/components/Container";
 import { FadeIn, FadeInStagger } from "@/components/FadeIn";
 import { ContactBlock } from "@/components/ContactBlock";
+import { BreadcrumbListSchema } from "@/components/schema/BreadcrumbListSchema";
 
 export const metadata: Metadata = {
   title: tenant.videos.seriesTitle,
@@ -14,6 +15,12 @@ export const metadata: Metadata = {
 export default function YourBestSeasonPage() {
   return (
     <>
+      <BreadcrumbListSchema
+        items={[
+          { name: "Home", url: "/" },
+          { name: "Your Best Season", url: "/your-best-season" },
+        ]}
+      />
       <section className="bg-[var(--color-surface)] py-16 md:py-24">
         <Container>
           <FadeIn className="max-w-3xl">

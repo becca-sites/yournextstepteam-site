@@ -1,5 +1,7 @@
+import { tenant } from "@/config/tenant";
 import { siteConfig, resolveSiteUrl } from "@/site.config";
 import { isPlaceholderMode } from "@/lib/placeholder";
+import { SERVICE_COUNTIES } from "./RealEstateAgentSchema";
 
 /**
  * Sitewide LocalBusiness JSON-LD. Rendered in the root layout so every page
@@ -32,10 +34,20 @@ export function LocalBusinessSchema() {
       addressRegion: siteConfig.stateAbbreviation,
       addressCountry: "US",
     },
-    areaServed: siteConfig.serviceArea.map((city) => ({
-      "@type": "City",
-      name: city,
-    })),
+    description: tenant.agent.bio,
+    knowsAbout: tenant.agent.knowsAbout,
+    // Counties and towns together, shared with the RealEstateAgent node on the
+    // homepage and About page so both describe the same footprint.
+    areaServed: [
+      ...SERVICE_COUNTIES.map((county) => ({
+        "@type": "AdministrativeArea",
+        name: county,
+      })),
+      ...siteConfig.serviceArea.map((city) => ({
+        "@type": "City",
+        name: city,
+      })),
+    ],
     parentOrganization: {
       "@type": "Organization",
       name: siteConfig.brokerage,
@@ -43,15 +55,29 @@ export function LocalBusinessSchema() {
     },
     knowsLanguage: ["en-US"],
     sameAs,
-    hasCredential: {
-      "@type": "EducationalOccupationalCredential",
-      credentialCategory: "license",
-      recognizedBy: {
-        "@type": "Organization",
-        name: `${siteConfig.state} Department of Licensing`,
+    // License plus every designation, so SRES® is present in structured data on
+    // every page of the site rather than only where the Person node renders.
+    hasCredential: [
+      {
+        "@type": "EducationalOccupationalCredential",
+        credentialCategory: "license",
+        name: `Washington real estate broker license ${siteConfig.licenseNumber}`,
+        recognizedBy: {
+          "@type": "Organization",
+          name: `${siteConfig.state} Department of Licensing`,
+        },
+        identifier: siteConfig.licenseNumber,
+        validFrom: `${tenant.agent.licensedSince}-01-01`,
       },
-      identifier: siteConfig.licenseNumber,
-    },
+      ...tenant.agent.certifications.map((c) => ({
+        "@type": "EducationalOccupationalCredential",
+        credentialCategory: "certification",
+        name: c.name,
+        alternateName: c.abbreviation,
+        description: c.description,
+        recognizedBy: { "@type": "Organization", name: c.issuedBy },
+      })),
+    ],
   };
 
   return (

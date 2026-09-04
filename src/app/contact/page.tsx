@@ -4,6 +4,7 @@ import { Container } from "@/components/Container";
 import { FadeIn } from "@/components/FadeIn";
 import { Border } from "@/components/Border";
 import { ContactForm } from "@/components/forms/ContactForm";
+import { BreadcrumbListSchema } from "@/components/schema/BreadcrumbListSchema";
 
 export const metadata: Metadata = {
   title: "Contact Becca Pitts",
@@ -15,18 +16,25 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   return (
     <>
+      <BreadcrumbListSchema
+        items={[
+          { name: "Home", url: "/" },
+          { name: "Contact", url: "/contact" },
+        ]}
+      />
       <section className="bg-[var(--color-surface)] py-16 md:py-20">
         <Container>
           <FadeIn>
             <p className="eyebrow">Contact</p>
             <h1 className="mt-4 font-display text-4xl font-semibold leading-tight md:text-6xl">
-              Let&apos;s talk.
+              Let&apos;s have a conversation.
             </h1>
             <p className="mt-5 max-w-2xl text-lg text-neutral-600 md:text-xl">
               Call the number below and I pick it up. Every message comes
-              straight to me and I answer it myself. Buying, selling, or just
-              wondering what your Bonney Lake or Puyallup house would bring right
-              now: ask all the questions. That is how I work.
+              straight to me, or to Allbree, and one of us answers it. Buying,
+              selling, or just wondering what your house would bring right now:
+              ask all the questions, including the ones you think sound dumb.
+              There&apos;s no presentation and nothing to sign.
             </p>
           </FadeIn>
         </Container>

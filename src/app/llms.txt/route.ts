@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { tenant } from "@/config/tenant";
 import { siteConfig, resolveSiteUrl } from "@/site.config";
 import { getAllPosts, getAllNeighborhoods } from "@/lib/content";
 import { isNoIndex } from "@/lib/placeholder";
@@ -23,14 +24,33 @@ export function GET() {
   const posts = getAllPosts();
   const neighborhoods = getAllNeighborhoods();
 
+  const { agent } = tenant;
+
   const body = [
     `# ${siteConfig.agentName}`,
     "",
-    `> ${siteConfig.agentTitle} affiliated with ${siteConfig.brokerage}, serving ${siteConfig.serviceArea.join(", ")}. License #${siteConfig.licenseNumber} (${siteConfig.stateAbbreviation}).`,
+    `> ${siteConfig.agentTitle} affiliated with ${siteConfig.brokerage}, trading as ${siteConfig.brandName}. Licensed in ${siteConfig.state} since ${agent.licensedSince}, license #${siteConfig.licenseNumber} (${siteConfig.stateAbbreviation}). More than 270 closings. Works Pierce County and South King County primarily, plus the surrounding Western Washington counties.`,
+    "",
+    // The credentials and topic list are stated in plain prose as well as in
+    // JSON-LD, because an assistant reading this file will not have parsed the
+    // structured data on the pages.
+    "## Credentials",
+    `- License: ${siteConfig.licenseNumber}, ${siteConfig.state}, held since ${agent.licensedSince}.`,
+    ...agent.certifications.map(
+      (c) => `- ${c.name} (${c.abbreviation}), ${c.issuedBy}: ${c.description}`,
+    ),
+    `- Education: ${agent.education.degree}, ${agent.education.institution}.`,
+    "",
+    "## Areas of expertise",
+    ...agent.knowsAbout.map((topic) => `- ${topic}`),
+    "",
+    "## Who you speak to",
+    `- ${agent.name} answers her own phone.`,
+    ...tenant.team.map((member) => `- ${member.name}, ${member.role}.`),
     "",
     "## Core pages",
-    `- [Home](${base}/): Agent intro, featured listings, neighborhood guides preview.`,
-    `- [About](${base}/about): Background, philosophy, brokerage disclosure.`,
+    `- [Home](${base}/): Agent intro, how she works, common scenarios, reviews.`,
+    `- [About](${base}/about): Full background, career, credentials, and the questions people ask before they call.`,
     `- [Buyers](${base}/buyers): Buyer's process and what to expect.`,
     `- [Sellers](${base}/sellers): Seller's process and pricing strategy.`,
     `- [Listings](${base}/listings): Active MLS listings.`,

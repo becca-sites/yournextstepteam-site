@@ -14,6 +14,18 @@
  * hard-coding the string. The logo wordmark reads "Your Next Step" with no
  * suffix, which is intentional.
  *
+ * INTERVIEW COPY PASS (2026-09-04). Rewritten from Becca's own interview. The
+ * About page became a full biography (Eatonville, WWU, the 2008 licence, Steve
+ * Hiatt to Best Choice to eXp) and now carries its own copy rather than
+ * reusing `storyLong`, which is the short homepage version. New facts landed
+ * here: `licensedSince`, `certifications`, `education`, `knowsAbout`, and the
+ * `team` array introducing Allbree Warner. Every "15+ years" claim in the app
+ * became "licensed since 2008"; the blog posts still say 15+, which is true
+ * and was out of scope. Scenario cards and the homepage pillars now describe
+ * how Becca actually works: a conversation rather than a presentation, the
+ * questionnaire, the hard conversation in week one, Plan A/B/C, and the
+ * tequila and Sour Patch Kids at closing.
+ *
  * COPY PASS (2026-08-21). Full first-person rewrite positioning Becca as the
  * geographic expert for Bonney Lake, Puyallup, North Tacoma, and Eatonville,
  * with range of expertise second and senior transitions as one strength rather
@@ -81,7 +93,52 @@ export interface TenantAgent {
   brandEmail: string;
   address: string;
   yearsOfExperience: number;
+  /** Year Becca was first licensed in Washington. Feeds schema and About copy. */
+  licensedSince: number;
   expProfileUrl: string;
+  /**
+   * Professional designations beyond the license itself. Rendered as plain
+   * text and emitted as EducationalOccupationalCredential nodes in schema, so
+   * an answer engine asked "is she SRES certified" has a machine-readable yes.
+   */
+  certifications: TenantCredential[];
+  /** Degree and institution, for the Person node's `alumniOf`. */
+  education: {
+    institution: string;
+    url: string;
+    degree: string;
+  };
+  /**
+   * Topic list for the Person node's `knowsAbout`. These are the subjects
+   * Becca actually gets asked about, written as the phrases people search,
+   * so they are useful to an answer engine rather than keyword stuffing.
+   */
+  knowsAbout: string[];
+}
+
+/** One professional designation. `abbreviation` is what the site prints. */
+export interface TenantCredential {
+  name: string;
+  abbreviation: string;
+  issuedBy: string;
+  description: string;
+}
+
+/**
+ * Someone who works alongside Becca and whom a client will actually hear from.
+ * Not a roster: this exists so the About page can introduce Allbree properly
+ * instead of a client wondering who just emailed them.
+ */
+export interface TenantTeamMember {
+  name: string;
+  role: string;
+  /**
+   * Empty until the real photo lands in public/photos/headshots. The About page
+   * checks for it and renders a labelled placeholder frame rather than pointing
+   * next/image at a file that does not exist.
+   */
+  photo: string;
+  bio: string;
 }
 
 export interface TenantMarket {
@@ -271,6 +328,7 @@ export interface TenantSibling {
 
 export interface Tenant {
   agent: TenantAgent;
+  team: TenantTeamMember[];
   market: TenantMarket;
   brand: TenantBrand;
   social: TenantSocial;
@@ -308,15 +366,19 @@ export const tenant: Tenant = {
     // The seated studio portrait crossfades into this one on the homepage as
     // the about section scrolls through the viewport.
     headshotAlt: "/photos/headshots/becca-headshot-alt.webp",
-    bio: "Here's the thing about 270 closings: they teach you exactly where a deal breaks. So I structure things so they don't. I anticipate problems and have a Plan B ready, sometimes C and D, before anything goes sideways. That kind of experience also teaches you when it's time to walk away and cut losses, and I'll tell you that honestly too.",
+    // The one-paragraph version. Renders as the About page hero subhead and as
+    // the first paragraph of storyLong on the homepage, so it has to work as a
+    // standalone introduction and as the opening of a longer story.
+    bio: "Here's the thing about 270 closings: they teach you exactly where a deal breaks. So I structure things so they don't. Before we start, I've already worked out Plan A, Plan B, and usually Plan C, and I bring up the hard parts in week one while there's still room to do something about them. You don't need to carry all three plans around. You just need to know somebody has them.",
     // Becca's own words. Paragraphs are separated by a blank line and split on
-    // "\n\n" wherever this renders, so the homepage and the About page stay in
-    // sync from this one source. Keep it em dash free: her voice uses periods
-    // and commas, not dashes.
+    // "\n\n" wherever this renders. The homepage about section renders all
+    // three; the About page tells the long version in its own words instead of
+    // reusing these, so this is now the short story and /about is the full one.
+    // Keep it em dash free: her voice uses periods and commas, not dashes.
     storyLong: [
-      "Here's the thing about 270 closings: they teach you exactly where a deal breaks. So I structure things so they don't. I anticipate problems and have a Plan B ready, sometimes C and D, before anything goes sideways. That kind of experience also teaches you when it's time to walk away and cut losses, and I'll tell you that honestly too.",
-      "I'm a cooperative agent. I look for the win-win because, let's be honest, at the end of the day everyone at the table has the same goal. I'm also solution-oriented. If there's a way to pull something off with integrity, I'm going to find it. I've sat in driveways at 9 PM helping clients think through a tough call. I've driven hours to track down a signature that saved a deal everyone else had written off. You get me, plus my transaction team keeping every deadline and detail on track behind the scenes. And I will give you a real answer to every question, even when the real answer is 'I don't know yet, but I'm going to find out.'",
-      "I've lived in the Puget Sound my whole life. I grew up in the small town of Eatonville, lived in Puyallup and Tacoma for about fifteen years, had a short stint in King County, and now I live in Bonney Lake. I've helped buyers and sellers from Everett to Morton and from Grays Harbor to Roslyn. I've never had a house come to me, so I'll go wherever the right deal is. But generally speaking, I focus my efforts in Pierce and South King Counties, which means I know these neighborhoods well. First house or tenth, upsizing, downsizing, investing, relocating: the questions change, the way I work them stays the same.",
+      "Here's the thing about 270 closings: they teach you exactly where a deal breaks. So I structure things so they don't. Before we start, I've already worked out Plan A, Plan B, and usually Plan C, and I bring up the hard parts in week one while there's still room to do something about them. You don't need to carry all three plans around. You just need to know somebody has them.",
+      "The first meeting is a conversation, not a script. I'm not going to run a presentation at you. I want to hear what you actually want out of this, and you should ask me anything, including the questions you think sound dumb. Those are usually the good ones. I got my license in 2008, at the absolute bottom of the market, and I learned this business on short sales, foreclosures, and bank-owned files. Ordinary transactions have never scared me since.",
+      "I grew up in Eatonville, went to Western Washington University in Bellingham, and lived in Puyallup, Tacoma, and Renton before landing in Bonney Lake in 2017. I've helped buyers and sellers from Everett to Morton and from Grays Harbor to Roslyn, and I've lived in Pierce, King, and Whatcom counties myself. First house or tenth, upsizing, downsizing, investing, relocating: the questions change, the way I work them stays the same.",
     ].join("\n\n"),
     license: "WA #107351",
     mlsId: "87890",
@@ -324,9 +386,68 @@ export const tenant: Tenant = {
     email: "becca@yournextstepteam.com",
     brandEmail: "becca@yournextstepteam.com",
     address: "1002 N Meridian St, PMB 165, Puyallup, WA 98371",
+    // Legacy field, no longer rendered anywhere on this site: the copy pass of
+    // 2026-09-04 replaced every "15+ years" claim with the licence year, which
+    // is the precise fact and does not need editing every January. It stays
+    // because the persona templates in src/personas still interpolate it. Kept
+    // at 15 rather than raised, because bumping a years-of-experience claim is
+    // Becca's call and `licensedSince` already says the true thing.
     yearsOfExperience: 15,
+    licensedSince: 2008,
     expProfileUrl: "https://rebeccapitts.exprealty.com/",
+    certifications: [
+      {
+        name: "Seniors Real Estate Specialist",
+        abbreviation: "SRES®",
+        issuedBy: "National Association of REALTORS®",
+        description:
+          "Additional training in reverse mortgages, aging in place, care placement timelines, and the tax side of selling a home someone has lived in for decades.",
+      },
+      {
+        name: "eXp Icon Agent",
+        abbreviation: "Icon Agent",
+        issuedBy: "eXp Realty",
+        description:
+          "Awarded in 2022 for production and for contribution to other agents in the brokerage.",
+      },
+    ],
+    education: {
+      institution: "Western Washington University",
+      url: "https://www.wwu.edu/",
+      degree: "BA, Business Administration",
+    },
+    // Written as the phrases people actually type and ask out loud, because
+    // this is what an answer engine reads to decide what Becca is an authority
+    // on. Senior transitions lead; distressed sales are the training story.
+    knowsAbout: [
+      "Senior transitions and downsizing",
+      "Aging in place planning",
+      "Selling a parent's home",
+      "Estate and probate home sales in Washington",
+      "First-time home buying in Pierce County",
+      "Selling one home while buying the next",
+      "Relocating to Western Washington",
+      "Buying raw land and building",
+      "Short sales, foreclosures, and bank-owned property",
+      "Pierce County and South King County housing market",
+    ],
   },
+
+  /*
+   * Allbree is on the About page because clients hear from her early and often,
+   * and "who is this person emailing me" is a worse first impression than a
+   * proper introduction. `photo` stays empty until the real headshot lands in
+   * public/photos/headshots; the About page renders a labelled frame in the
+   * meantime rather than a broken image.
+   */
+  team: [
+    {
+      name: "Allbree Warner",
+      role: "Client care and transaction support",
+      photo: "",
+      bio: "Allbree is my right-hand person. When you hear from Allbree, you're hearing from me. She knows where your file stands, she has the same answers I do, and she is very often the reason a deadline gets caught before it turns into a problem. You'll meet her early, and you'll be glad you did.",
+    },
+  ],
 
   market: {
     city: "Bonney Lake",
@@ -1041,7 +1162,11 @@ export const tenant: Tenant = {
   ],
 
   stats: [
-    { value: "15+", label: "Years in real estate", detail: "Licensed in Washington" },
+    // The year rather than a count. "15+" was a rounded-down legacy figure and
+    // it sat awkwardly next to About copy that says she got her license in
+    // 2008. The year is the precise fact, it carries the story (she started at
+    // the bottom of that market), and it never needs editing again.
+    { value: "2008", label: "Licensed in Washington", detail: "Started at the bottom of that market" },
     { value: "270", label: "Closings", detail: "Bonney Lake to Eatonville and beyond" },
     { value: "SRES®", label: "Senior Real Estate Specialist", detail: "Certified for 55+ moves" },
     { value: "Icon", label: "eXp Icon Agent", detail: "Awarded 2022" },
@@ -1072,7 +1197,7 @@ export const tenant: Tenant = {
     {
       title: "Senior Transitions",
       description:
-        "Should we age in place, or is it time to make a move to a smaller house or an adult living facility? It is one of the hardest conversations a family has, and it usually shows up with a deadline attached. I'm SRES certified, and this is the work I care about most. I'll lay out what each option really costs and really takes, bring in the people who handle the pieces I don't, and give your whole family the room to make a decision this big.",
+        "Should Mom stay in the house, or is it time for something smaller, or time for care? It is one of the hardest conversations a family has, and it almost always shows up with a deadline attached. I'm SRES certified, and this is the work I care about most, for reasons that go back to my own family. I'll tell you what each option really costs and really takes, bring in the people who handle the pieces I don't, and give everybody at the table the room to make a decision this big.",
       href: "/contact",
       articleSlug: "sres-agent-senior-transitions",
       featured: true,
@@ -1080,28 +1205,28 @@ export const tenant: Tenant = {
     {
       title: "First-Time Buyer With a Lot of Questions",
       description:
-        "Good. Ask all of them, including the ones you think sound dumb. Those are usually the good ones. I'll walk you through financing, offers, and inspections at your pace, and you'll understand what you're signing before you sign it.",
+        "Good. Ask all of them, including the ones you think sound dumb. Those are usually the good ones. This is a conversation, not a presentation, and we go at whatever pace you need. You'll understand what you're signing before you sign it, and you'll know what happens next before it happens.",
       href: "/buyers",
       articleSlug: "first-time-buyer-pierce-county",
     },
     {
       title: "Selling One Home to Buy the Next",
       description:
-        "Two transactions, one timeline, and a dozen moving pieces. I coordinate the sale, the purchase, and the financing in between so the two closings land where they should and you move once.",
+        "Two transactions, one timeline, and a dozen pieces that all have to land inside the same couple of weeks. This is exactly the situation Plan B exists for, and I'll walk you through what happens if one side slips before we ever list. Then I coordinate the sale, the purchase, and the financing in between so you move once.",
       href: "/sellers",
       articleSlug: "selling-and-buying-at-the-same-time-washington",
     },
     {
       title: "Relocating to Western Washington",
       description:
-        "You're moving to Washington from somewhere else entirely, so you need someone standing on the ground here. I'll tour homes on video with you, tell you the truth about the commute from wherever you're considering, and hand you off to an agent I trust to sell where you are now.",
+        "You're moving here from somewhere else entirely, so you need somebody standing on the ground. I've lived in Pierce, King, and Whatcom counties, so I can tell you the truth about the commute, the weather on that side of the hill, and what you actually get for your money in one town versus the next one over. I'll tour homes on video with you and hand you to an agent I trust to sell where you are now.",
       href: "/contact",
       articleSlug: "relocating-to-pierce-county-from-out-of-state",
     },
     {
       title: "Developing Raw Land",
       description:
-        "Land works differently than houses. Bigger down payments, different loan programs, and a build timeline that has to line up with everything else. I do the homework on the parcel, the septic, and the setbacks before you fall in love with it.",
+        "Land works differently than houses. Bigger down payments, different loan programs, and a build timeline that has to line up with everything else in your life. I do the homework on the parcel, the septic, and the setbacks before you fall in love with it, and I'll tell you straight when a question is outside my lane and who should answer it instead.",
       href: "/buyers",
       articleSlug: "buying-land-to-build-pierce-county",
     },

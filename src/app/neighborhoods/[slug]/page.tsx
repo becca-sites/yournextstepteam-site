@@ -72,7 +72,7 @@ export default async function NeighborhoodDetail({ params }: Props) {
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Link href="/contact" className="btn-primary">
-                Let&apos;s talk
+                Let&apos;s have a conversation
               </Link>
               <a href={`tel:${tenant.agent.phone}`} className="btn-ghost">
                 {tenant.agent.phone}

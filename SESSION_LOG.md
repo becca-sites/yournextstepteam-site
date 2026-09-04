@@ -7,6 +7,142 @@ Note: the Google Drive **SESSION_LOG** doc is the more current master. See
 
 ---
 
+## 2026-09-04 - Full copy rewrite from Becca's interview, and the About page becomes a biography
+
+**Deliverables:** `src/app/about/page.tsx` rewritten end to end,
+`src/config/tenant.ts` extended and re-voiced, homepage pillars and scenario
+cards rewritten, `src/components/schema/ProfilePageSchema.tsx` added, schema and
+meta pass across every route, "Let's have a conversation" adopted as the CTA.
+
+### What was asked
+
+A comprehensive copy rewrite based on Becca's interview. Keep the homepage hero
+mostly as it stands, rewrite the About page completely around her geographic
+story and her career, introduce Allbree Warner, update the rest of the homepage
+copy, voice-check buyers and sellers, and do an SEO/AEO pass. Standing rules
+restated for this pass: no em dashes, no pills, first person, no X-not-Y, "Your
+Next Step Team", broad geography, voice Level 2, no invented systems, no naming
+lenders.
+
+### Decisions
+
+- **The About page stopped sharing copy with the homepage.** It used to render
+  `tenant.agent.storyLong` minus the first paragraph, which meant both pages
+  told the same three-paragraph story. `storyLong` is now the short homepage
+  version and `/about` carries its own long-form biography. The two no longer
+  compete for the same reader.
+- **Geography leads the About page, not credentials.** Eatonville first: the one
+  blinking light, the town founded by the Van Eaton family, Dr. Tom Van Eaton
+  delivering her, Gloria Van Eaton now practising there as Dr. Gloria Low. Then
+  Bellingham and Western, Puyallup, Westgate, Renton, Bonney Lake since 2017.
+  The bet is that a reader who recognises one of those places has decided
+  something about Becca before they reach the numbers.
+- **"Mother-in-law suite" is written as ADU.** Becca's own house, described in
+  her own words in the interview, but the site's fair housing rule applies to
+  public copy regardless of whose house it is.
+- **The Alzheimer's paragraph is deliberately short and says so.** It names what
+  happened, connects it to the SRES certification, and states outright that the
+  full story is Becca's to write. There is a comment in the file telling the next
+  person not to expand it.
+- **Allbree gets a real introduction with a placeholder frame.** New `team` array
+  in `tenant.ts`. While `photo` is empty the About page renders a dashed frame
+  reading "Photo of Allbree Warner coming soon" rather than pointing next/image
+  at a file that does not exist. Drop the headshot into
+  `public/photos/headshots`, fill in `photo`, and it appears with no other edit.
+  She is also in structured data, as `colleague` on the Person node and
+  `employee` on the RealEstateAgent node.
+- **Every "15+ years" claim in the app became "licensed since 2008."** The
+  interview puts her licence at the bottom of the 2008 market, which makes the
+  true figure higher than 15 and made "15+" sit oddly next to About copy that
+  names the year. The year is the precise fact, it carries the story, and it
+  never needs editing again. The first stat card is now `2008 / Licensed in
+  Washington / Started at the bottom of that market`.
+  `tenant.agent.yearsOfExperience` stays at 15 and is no longer rendered
+  anywhere; the persona templates still interpolate it. **Flagged for Becca:** if
+  the licence year is not 2008, this is the one fact to correct.
+- **The hero was touched in exactly one place.** "Fifteen years in real estate in
+  Washington" became "Licensed in Washington since 2008", because the stat row
+  directly beneath it now leads with 2008 and the two had to agree. Nothing else
+  in the hero changed.
+- **Homepage pillars now describe how Becca actually works.** The four cards
+  became: a conversation rather than a presentation, the hard thing raised in
+  week one, Plan A/B/C, and the vetted network. The old "Education and
+  Communication" and "I Know These Neighborhoods" cards were folded into those.
+  All four are things Becca named in the interview, so nothing here is a system
+  invented for her.
+- **The About page's six "how I work" cards carry the material the homepage
+  cannot.** The questionnaire that asks about snacks and toast drinks, other
+  agents calling her for advice, and the tequila and Sour Patch Kids closing
+  gift. Those are the details that make the voice specific, and they need more
+  room than a four-across grid gives.
+- **"Let's have a conversation" replaced "Let's talk" everywhere.** Home, about,
+  buyers, sellers, contact H1, home-value, quiz, neighbourhood detail,
+  `FinalCtaBlock`. Three ContactBlock headings became the same line, which is
+  repetition on purpose: it is the offer.
+- **The last three pills came off.** The filled gold "Where I specialize" eyebrow
+  on buyers and sellers is now plain uppercase text, and the `FeaturedListings`
+  status badge went from `rounded-full` to `rounded-sm`. That closes out the
+  no-pill sweep the 2026-09-02 session left as a next step.
+- **Three "we will" slips went first person.** `case-studies`, `listings`, and
+  `not-found`. Solo-agent voice, even with Allbree on the About page: Allbree is
+  introduced by name rather than absorbed into a "we".
+
+### SEO and AEO
+
+- **New `ProfilePageSchema`** on `/about`. Points at the existing Person node by
+  `@id` rather than restating it, and adds `birthPlace` (Eatonville),
+  `homeLocation`, `alumniOf` (Western Washington University), `knowsAbout`, and
+  every credential.
+- **SRES is now a discrete credential node, not a word in a job title.**
+  `tenant.agent.certifications` drives `hasCredential` arrays in
+  `RealEstateAgentSchema`, `LocalBusinessSchema`, and `ProfilePageSchema`, so
+  SRES appears in structured data on every page of the site rather than only
+  where the Person node renders.
+- **`areaServed` gained counties.** `SERVICE_COUNTIES` is exported from
+  `RealEstateAgentSchema` and shared with `LocalBusinessSchema`, so the two nodes
+  describing the same business cannot claim different footprints. A town list
+  alone told a King or Thurston County searcher they were out of range.
+- **Breadcrumbs added to thirteen routes** that had none: about, buyers, sellers,
+  contact, home-value, blog, case-studies, neighborhoods, stories, videos,
+  listings, your-best-season, quiz. The quiz breadcrumb lives in
+  `quiz/layout.tsx`, because `quiz/page.tsx` is a client component and the
+  placeholder guard reads a server-only env var.
+- **A six-question FAQ on the About page**, rendered as text and emitted as
+  `FAQPage` from the same array so the two cannot drift. Written answer-first,
+  which is the shape an answer engine can lift: where she works, how long, what
+  SRES means, what a first meeting is like, who Allbree is, and whether she only
+  works with seniors.
+- **`llms.txt` gained a credentials block, an expertise block, and a "who you
+  speak to" block.** An assistant reading that file has not parsed the JSON-LD on
+  the pages, so the same facts are stated in prose.
+- **Meta descriptions rewritten** for about, buyers, sellers, and quiz, each
+  leading with the page's actual hook rather than a credential list.
+
+### Verified
+
+- `tsc --noEmit` clean. `next build` clean, 26 pages.
+- `next lint` clean apart from two pre-existing `<img>` warnings in
+  `podcast/page.tsx` and `MetaPixelLoader.tsx`.
+- Built with `PLACEHOLDER_MODE=false` and parsed every JSON-LD block out of the
+  static HTML. All 17 prerendered pages emit valid JSON; `/about` carries five
+  blocks (LocalBusiness, the Person + RealEstateAgent graph, ProfilePage,
+  BreadcrumbList, FAQPage) and every page carries the SRES credential.
+- Zero em dashes anywhere in `src/` or `content/`.
+- About page read end to end in the browser against a production build.
+
+### Next steps
+
+- **Allbree's headshot.** `public/photos/headshots`, then set `photo` on the
+  `team` entry in `tenant.ts`.
+- **Becca's Alzheimer's story.** The About page holds the place and says it is
+  coming.
+- **Confirm the 2008 licence year.** Everything in the app now states it.
+- **The blog posts still say "15+ years"** in fourteen places, which is true and
+  was out of scope for this pass. Worth aligning to the licence year the next
+  time the blog set is touched.
+
+---
+
 ## 2026-09-02 - The crawl loses its preamble and its Skip, and roughly doubles
 
 **Deliverables:** `src/components/sections/ClosingCrawl.tsx` rewritten,

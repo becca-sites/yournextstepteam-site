@@ -4,6 +4,7 @@ import { tenant } from "@/config/tenant";
 import { Container } from "@/components/Container";
 import { FadeIn } from "@/components/FadeIn";
 import { ContactBlock } from "@/components/ContactBlock";
+import { BreadcrumbListSchema } from "@/components/schema/BreadcrumbListSchema";
 
 export const metadata: Metadata = {
   title: "Client Stories",
@@ -14,6 +15,12 @@ export const metadata: Metadata = {
 export default function CaseStudiesPage() {
   return (
     <>
+      <BreadcrumbListSchema
+        items={[
+          { name: "Home", url: "/" },
+          { name: "Case Studies", url: "/case-studies" },
+        ]}
+      />
       <section className="bg-[var(--color-surface)] py-16 md:py-24">
         <Container>
           <FadeIn className="max-w-3xl">
@@ -39,9 +46,9 @@ export default function CaseStudiesPage() {
                 Client success stories coming soon.
               </p>
               <p className="mt-4 text-base text-neutral-600">
-                We are documenting the real transitions we have helped families
-                navigate. Leave your email and we will let you know when the
-                first stories are published.
+                I&apos;m writing up the real transitions I&apos;ve helped
+                families navigate. Leave your email and I&apos;ll let you know
+                when the first stories are published.
               </p>
               <div className="mt-8 flex flex-wrap justify-center gap-3">
                 <Link href="/contact" className="btn-primary">

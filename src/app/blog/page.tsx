@@ -3,6 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { tenant } from "@/config/tenant";
 import { getAllPosts } from "@/lib/content";
+import { BreadcrumbListSchema } from "@/components/schema/BreadcrumbListSchema";
 
 export const metadata: Metadata = {
   title: "Blog",
@@ -16,6 +17,12 @@ export default function BlogIndex() {
 
   return (
     <>
+      <BreadcrumbListSchema
+        items={[
+          { name: "Home", url: "/" },
+          { name: "Blog", url: "/blog" },
+        ]}
+      />
       <section className="bg-[var(--color-surface)] py-16 md:py-20">
         <div className="mx-auto max-w-7xl px-4 lg:px-8">
           <p className="eyebrow">From the blog</p>

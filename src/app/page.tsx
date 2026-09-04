@@ -59,10 +59,9 @@ function HeroSection() {
               style={{ textShadow: "0 1px 3px rgba(0,0,0,0.3)" }}
             >
               Hi, I&apos;m Becca Pitts. Pierce, King, and the surrounding
-              counties. Fifteen years in real estate in Washington and 270
-              closings behind me, so I can tell you what your street is doing,
-              what that house is really worth, and what it takes to get you
-              into it.
+              counties. Licensed in Washington since 2008 and 270 closings
+              behind me, so I can tell you what your street is doing, what that
+              house is really worth, and what it takes to get you into it.
             </p>
             {/* Buying and selling carry equal weight, so both CTAs use the
                 same button treatment. */}
@@ -188,8 +187,9 @@ function ScenariosSection() {
           title="What does your next step look like?"
         >
           <p>
-            Real scenarios from buyers and sellers across the Puget Sound
-            region. Find the one that sounds like yours.
+            These are the conversations I have most often with buyers and
+            sellers across the Puget Sound region. Find the one that sounds like
+            yours and start there.
           </p>
         </SectionIntro>
 
@@ -259,20 +259,20 @@ function ScenariosSection() {
  */
 const PILLARS = [
   {
-    title: "Education and Communication",
-    body: "I move at your pace, and you will know what each step means before you take it. I would rather give you too much information than leave you guessing, and you can always tell me to get to the point.",
+    title: "A Conversation, Not a Script",
+    body: "I don't have a presentation I run at people. I want to hear what you're actually trying to do and why now, and I want you asking me anything, including the questions you think sound dumb. Those are usually the good ones.",
   },
   {
-    title: "I Know These Neighborhoods",
-    body: "Which streets flood, what a school district boundary really does to resale, why two blocks a quarter mile apart price differently. Fifteen years across Pierce, King, and the surrounding counties means I can tell you before you write the offer.",
+    title: "The Hard Thing Comes Up First",
+    body: "The uncomfortable conversation is so much easier in week one than in week six. If the price is off, if the roof is going to come up on inspection, if your timeline doesn't match the calendar, I'll say it while there's still room to do something about it.",
+  },
+  {
+    title: "Plan A, Plan B, Usually C",
+    body: "270 closings teach you exactly where deals break. Before we start, I've thought through the low appraisal, the wobbly financing, the week the other side goes quiet. You don't have to carry all three plans. You just need to know somebody has them.",
   },
   {
     title: "A Network I've Personally Vetted",
-    body: "Lenders, inspectors, contractors, attorneys. I check in with them first, confirm they are still active and still good, and then I make the introduction. If something is outside my lane, I know exactly who to hand you to.",
-  },
-  {
-    title: "The Tenacity to Figure It Out",
-    body: "I have driven hours to track down a signature on a deal everyone else had written off. When a file gets complicated, that is usually the point where I get useful, and I keep working the problem until there is a real answer.",
+    body: "Inspectors, contractors, attorneys, movers, estate sale people. I check in with them first, confirm they're still active and still good, then I make the introduction. And when something is outside my lane, I'll tell you that and hand you to the person whose lane it is.",
   },
 ];
 
@@ -330,13 +330,14 @@ function ClientStorySection() {
               </p>
               <p className="mt-4 text-lg leading-relaxed text-neutral-700">
                 A young couple wanted to buy raw land in Graham and build on it.
-                Different loan, different down payment, different timeline.
-                Before I connected them with a lender, I researched the programs
-                myself: what the down payment would run, how a construction loan
-                layers on top, whether a family member&apos;s veteran status
-                could help. Then I was straight with them about the piece I did
-                not know and sent them to someone who did. Getting you a real
-                answer from the right person is the whole job.
+                Different loan, different down payment, different timeline. So
+                before I sent them to anybody, I did the homework myself: what
+                the down payment would actually run, how a construction loan
+                layers on top of it, whether a family member&apos;s veteran
+                status could help. Then I was straight with them about the piece
+                I didn&apos;t know and put them in front of somebody who did.
+                Getting you a real answer from the right person is the whole
+                job.
               </p>
               {/* No "details changed for privacy" line. It read as a hedge on a
                   true story, which undercut the story. */}
@@ -357,9 +358,13 @@ function AboutPreviewSection() {
         <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-16">
           <FadeIn className="lg:col-span-7">
             <p className="eyebrow">Nice to meet you</p>
+            {/* Licensed since 2008 rather than a year count: it is the precise
+                fact from the interview, it does not need editing every January,
+                and it carries the story the number does not, which is that she
+                started at the bottom of that market. */}
             <h2 className="mt-4 font-display text-3xl font-semibold leading-tight md:text-4xl">
-              {tenant.agent.yearsOfExperience} years. 270 closings. And I still
-              answer my own phone.
+              Licensed since {tenant.agent.licensedSince}. 270 closings. And I
+              still answer my own phone.
             </h2>
             {/* All of the about copy comes from tenant.agent.storyLong so the
                 homepage and the About page never drift apart. */}
@@ -373,7 +378,7 @@ function AboutPreviewSection() {
                 Read the full story
               </Link>
               <Link href="/contact" className="btn-ghost">
-                Let&apos;s talk
+                Let&apos;s have a conversation
               </Link>
             </div>
           </FadeIn>
@@ -391,8 +396,8 @@ function AboutPreviewSection() {
             {/* Brokerage identification now lives with the full disclosure at
                 the very bottom of the footer, so it is not repeated here. */}
             <p className="mt-4 text-center text-sm text-neutral-500">
-              {tenant.agent.name} &middot; {tenant.agent.yearsOfExperience}+
-              years in real estate in {tenant.market.state}
+              {tenant.agent.name} &middot; Licensed in {tenant.market.state}{" "}
+              since {tenant.agent.licensedSince}
             </p>
           </FadeIn>
         </div>
@@ -423,10 +428,10 @@ export default function HomePage() {
       <DealTogetherSection />
       <ClientStorySection />
       <TestimonialCarousel heading="What clients are saying" />
-      <ContactBlock heading="Ready to talk about your next step?">
+      <ContactBlock heading="Let's have a conversation.">
         <p>
-          Five minutes or an hour, whatever it takes to figure out what your next
-          step actually is. Let&apos;s talk.
+          Five minutes or an hour, whatever it takes to work out what your next
+          step actually is. No presentation, no pressure, and nothing to sign.
         </p>
       </ContactBlock>
     </>
