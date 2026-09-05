@@ -12,7 +12,7 @@ import { StatCardRow } from "@/components/sections/StatCardRow";
 export const metadata: Metadata = {
   title: "Sell your home in the Puget Sound region",
   description:
-    "Your home can sell exactly the way it sits today. Price, positioning, and marketing are what move a house. Becca Pitts: licensed in Washington since 2008, 270 closings across Western Washington, SRES® certified.",
+    "Your home can sell exactly the way it sits today. Price, positioning, and marketing are what move a house. Becca Pitts: licensed in Washington since 2010, 270 closings across Western Washington, SRES® certified.",
   alternates: { canonical: "/sellers" },
 };
 
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
  */
 const CREDENTIALS = [
   "SRES® Certified",
-  "Licensed in Washington since 2008",
+  "Licensed in Washington since 2010",
   "12 sales in the last 12 months across Puget Sound",
   "270 career total across Western Washington",
 ];
@@ -68,7 +68,7 @@ export default function SellersPage() {
       <ServiceSchema
         name="Seller representation"
         serviceType="Real estate seller's agent"
-        description="Listing and seller representation across Pierce, King, and the surrounding Washington counties. Pricing, positioning, marketing, and negotiation from an agent licensed since 2008 with 270 closings and SRES® certification for senior and estate sales."
+        description="Listing and seller representation across Pierce, King, and the surrounding Washington counties. Pricing, positioning, marketing, and negotiation from an agent licensed since 2010 with 270 closings and SRES® certification for senior and estate sales."
       />
       <BreadcrumbListSchema
         items={[

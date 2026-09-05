@@ -29,16 +29,25 @@ work done directly in the repo.
   neighbourhood pages, where they are the subject. Conversion pages stay at the
   county and region level so a King or Thurston County reader does not feel out
   of range. She has closed from Everett to Morton and Grays Harbor to Roslyn.
-- **The 2008 licence is the credibility story, not a liability.** Eight years in
-  event production, laid off in the Great Recession, licensed at the bottom of
-  the market, and the first years were short sales, foreclosures, and REOs. The
-  line to keep making: she learned the business on the hardest files it produces,
-  so an ordinary transaction does not rattle her. Steve Hiatt at Keller Williams
-  gave her the start, then Best Choice, then eXp for the last six years.
+- **The licence year is 2010. Becca confirmed it on 2026-09-05.** It shipped as
+  2008 for one day and that was wrong. She was not licensed at the bottom of the
+  market; she was laid off in the Great Recession and was **recruited** into real
+  estate in 2010, in the aftermath. Do not write "I got my license in 2008" or
+  any version of "at the absolute bottom of the market" again.
+- **The recruitment is the credibility story, not a liability.** Eight years in
+  event production, laid off in the Great Recession, recruited into real estate
+  in 2010, and the work that was actually there in 2010 was short sales,
+  foreclosures, and REOs. The line to keep making: she learned the business on
+  the hardest files it produces, so an ordinary transaction does not rattle her.
+  Steve Hiatt at Keller Williams gave her the start, then Best Choice, then eXp
+  for the last six years. Steve is not who recruited her, as far as the interview
+  says, so do not merge those two beats.
 - **State the licence year, not a year count.** "15+ years" was rounded down and
-  went stale. Everything in the app now says "licensed since 2008", which is
-  precise, carries the story, and never needs editing. The blog posts still say
-  15+; align them when they are next touched.
+  went stale. Everything in the app now says "licensed since 2010", which is
+  precise, carries the story, and never needs editing. The year is a literal in
+  exactly one place, `tenant.agent.licensedSince`; everything else interpolates
+  it or spells it in prose. The blog posts still say 15+, which stays true; align
+  them when they are next touched.
 - **"It's a conversation, not a script" is the line.** No listing presentation
   run at anybody. This is the one place the site is allowed to use X-not-Y
   framing, because it is Becca's own phrase about her own process rather than a

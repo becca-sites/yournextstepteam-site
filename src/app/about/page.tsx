@@ -38,12 +38,12 @@ import { StatCardRow } from "@/components/sections/StatCardRow";
 export const metadata: Metadata = {
   title: "About Becca Pitts",
   description:
-    "Becca Pitts grew up in Eatonville, went to Western Washington University, and has been a licensed Washington real estate broker since 2008. 270 closings, SRES® certified, eXp Icon Agent, working Pierce, King, and the surrounding counties from Bonney Lake.",
+    "Becca Pitts grew up in Eatonville, went to Western Washington University, and has been a licensed Washington real estate broker since 2010. 270 closings, SRES® certified, eXp Icon Agent, working Pierce, King, and the surrounding counties from Bonney Lake.",
   alternates: { canonical: "/about" },
   openGraph: {
     title: "About Becca Pitts",
     description:
-      "One blinking light in Eatonville, a business degree from Western, a license earned at the bottom of the 2008 market, and 270 closings since. Here is the whole story.",
+      "One blinking light in Eatonville, a business degree from Western, a real estate license earned in the wreckage the recession left behind, and 270 closings since. Here is the whole story.",
     url: "/about",
     type: "profile",
   },
@@ -100,7 +100,7 @@ const FAQS = [
   {
     question: "How long has Becca Pitts been a real estate agent?",
     answer:
-      "I've been a licensed real estate broker in Washington since 2008 and I've closed more than 270 transactions. Before real estate I spent eight years in event production doing sales, project management, and creative work. I'm currently with eXp Realty and I was named an eXp Icon Agent in 2022.",
+      "I've been a licensed real estate broker in Washington since 2010 and I've closed more than 270 transactions. Before that I spent eight years in event production doing sales, project management, and creative work, until the Great Recession ended that and somebody recruited me into real estate. I'm currently with eXp Realty and I was named an eXp Icon Agent in 2022.",
   },
   {
     question: "What does SRES® certification mean?",
@@ -224,14 +224,16 @@ export default function AboutPage() {
         </Container>
       </section>
 
-      {/* Career. The 2008 story is the credibility argument on this whole site:
-          she did not learn the business in an easy market. */}
+      {/* Career. The 2010 story is the credibility argument on this whole site:
+          she did not learn the business in an easy market. Note the year is
+          2010, not 2008; she was laid off in the recession and came into real
+          estate in the aftermath, not at the bottom. Corrected 2026-09-05. */}
       <section className="surface-warm py-20 md:py-24">
         <Container>
           <FadeIn className="mx-auto max-w-3xl">
             <p className="eyebrow">How I got here</p>
             <h2 className="mt-3 font-display text-3xl font-semibold leading-tight md:text-4xl">
-              I got my license in 2008. Everyone told me that was insane.
+              Real estate was never the plan. Somebody recruited me in 2010.
             </h2>
             <div className="mt-8 space-y-5 text-lg text-neutral-700">
               <p>
@@ -244,20 +246,21 @@ export default function AboutPage() {
                 see it.
               </p>
               <p>
-                Then the Great Recession showed up and I got laid off. So I got
-                my real estate license in 2008, at the absolute bottom of the
-                market. On paper it was a terrible idea.
+                Then the Great Recession showed up and I got laid off. Somebody
+                saw something in me and recruited me into real estate in 2010,
+                while the market was still climbing out of the wreckage. On
+                paper it looked like the worst possible time to start.
               </p>
               <p>
-                It turned out to be the best training I could have gotten. My
-                first years were short sales, foreclosures, and REOs, which is
-                to say the files nobody wanted. The seller is a bank, the
-                paperwork is punishing, the timelines belong to somebody in
-                another state, and nothing closes unless a human being keeps
-                pushing on it every single day. I learned this business on the
-                hardest version of it. A normal transaction has never rattled me
-                since, and when a file gets complicated is usually the point
-                where I get useful.
+                It turned out to be the best training I could have gotten. In
+                2010 the work that was actually there was short sales,
+                foreclosures, and REOs, which is to say the files nobody wanted.
+                The seller is a bank, the paperwork is punishing, the timelines
+                belong to somebody in another state, and nothing closes unless a
+                human being keeps pushing on it every single day. I learned this
+                business on the hardest version of it. A normal transaction has
+                never rattled me since, and when a file gets complicated is
+                usually the point where I get useful.
               </p>
               <p>
                 Steve Hiatt at Keller Williams gave me my start and my first

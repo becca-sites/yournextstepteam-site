@@ -7,6 +7,82 @@ Note: the Google Drive **SESSION_LOG** doc is the more current master. See
 
 ---
 
+## 2026-09-05 - The licence year is 2010, not 2008, and the career arc changes with it
+
+**Deliverables:** `licensedSince` corrected in `src/config/tenant.ts`, the About
+page career section rewritten around the recruitment rather than the crash, and
+every "since 2008" line on the site updated.
+
+### What was asked
+
+Becca corrected yesterday's pass: her real estate licence year is 2010, not
+2008. She was not licensed at the bottom of the market. She was laid off in the
+Great Recession and was recruited into real estate in 2010, in the aftermath.
+Find every "2008" that refers to her licence or career start, update it, and fix
+the About page narrative to match.
+
+### Decisions
+
+- **The year is a literal in exactly one place now:
+  `tenant.agent.licensedSince`.** The hero, the homepage portrait caption, and
+  the `validFrom` on the licence credential in all three schema components
+  already interpolated it, so those changed by themselves. Everything else spells
+  it in prose and was updated by hand. If it is ever wrong again, it is a
+  one-line fix plus the prose.
+- **The About page H2 changed, not just the number.** "I got my license in 2008.
+  Everyone told me that was insane." became "Real estate was never the plan.
+  Somebody recruited me in 2010." The old headline was built on the joke that she
+  started at the very bottom, and that joke is not true. The recruitment is a
+  better hook anyway: somebody saw something in her, and she said yes to a
+  business that looked like a terrible bet at the time.
+- **The distressed-files paragraph survived intact, with one clause added.** It
+  now says the work that was actually there in 2010 was short sales,
+  foreclosures, and REOs, which is accurate for 2010 to 2013 and keeps the whole
+  credibility argument standing. That argument was never about the calendar year,
+  it was about what she cut her teeth on.
+- **Steve Hiatt was left where he is.** The interview puts him after the
+  distressed period, and nothing says he is the person who recruited her, so the
+  recruitment is written without a name attached rather than guessing.
+- **"At the absolute bottom of the market" is gone everywhere.** It appeared in
+  the About page, `storyLong`, and the buyers hero. All three now say she came
+  into the business in 2010, while the market was still climbing out.
+- **The stat card detail changed too.** `2008 / Licensed in Washington / Started
+  at the bottom of that market` became `2010 / Licensed in Washington / Learned
+  it on short sales and foreclosures`. The old detail was the same false claim in
+  miniature; the new one says the thing that is actually true and actually sells.
+- **One blog post was in scope after all.**
+  `content/blog/trusted-real-estate-agent-pierce-county.mdx` had "I remember what
+  happened during the 2008 correction" inside a list of market cycles she has
+  worked through, which now implied she was licensed for it. Rewritten to "I came
+  into this business in 2010, cleaning up what the 2008 correction left behind."
+  That is both true and a stronger line. The other 2008 references in that
+  sentence's neighbourhood are market history, not licence claims, and stayed.
+- **Yesterday's SESSION_LOG entry was marked corrected, not rewritten.** The log
+  is a record. The wrong claim stays visible with a pointer to this entry, and
+  the "confirm the 2008 licence year" next-step is struck through with the
+  answer. LIVING_NOTES is standing direction rather than history, so the bullets
+  there were corrected outright and now say explicitly not to write "licensed in
+  2008" or "at the bottom of the market" again.
+
+### Verified
+
+- `grep -rn "2008" src/` returns two hits, both explanatory comments that name
+  the correction on purpose. No user-facing 2008 remains anywhere in the app.
+- `tsc --noEmit` clean. `next build` clean, 26 pages.
+- Built with `PLACEHOLDER_MODE=false` and confirmed the licence credential's
+  `validFrom` now reads `2010-01-01` in the JSON-LD on every page.
+
+### Next steps
+
+- **Allbree's headshot** is still the open item. `public/photos/headshots`, then
+  set `photo` on the `team` entry in `tenant.ts`.
+- **Becca's Alzheimer's story.** The About page still holds the place for it.
+- **The blog posts still say "15+ years"** in fourteen places. Licensed in 2010
+  makes that true, so there is no urgency, but the licence year is the better
+  line and they are worth aligning next time the blog set is touched.
+
+---
+
 ## 2026-09-04 - Full copy rewrite from Becca's interview, and the About page becomes a biography
 
 **Deliverables:** `src/app/about/page.tsx` rewritten end to end,
@@ -60,6 +136,8 @@ lenders.
   `tenant.agent.yearsOfExperience` stays at 15 and is no longer rendered
   anywhere; the persona templates still interpolate it. **Flagged for Becca:** if
   the licence year is not 2008, this is the one fact to correct.
+  **Corrected 2026-09-05: it was not 2008. The licence year is 2010, and the
+  career arc was rewritten to match. See the 2026-09-05 entry above.**
 - **The hero was touched in exactly one place.** "Fifteen years in real estate in
   Washington" became "Licensed in Washington since 2008", because the stat row
   directly beneath it now leads with 2008 and the two had to agree. Nothing else
@@ -136,7 +214,8 @@ lenders.
   `team` entry in `tenant.ts`.
 - **Becca's Alzheimer's story.** The About page holds the place and says it is
   coming.
-- **Confirm the 2008 licence year.** Everything in the app now states it.
+- ~~**Confirm the 2008 licence year.**~~ Done on 2026-09-05, and it was wrong.
+  The licence year is 2010.
 - **The blog posts still say "15+ years"** in fourteen places, which is true and
   was out of scope for this pass. Worth aligning to the licence year the next
   time the blog set is touched.

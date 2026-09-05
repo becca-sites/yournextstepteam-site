@@ -59,7 +59,7 @@ function HeroSection() {
               style={{ textShadow: "0 1px 3px rgba(0,0,0,0.3)" }}
             >
               Hi, I&apos;m Becca Pitts. Pierce, King, and the surrounding
-              counties. Licensed in Washington since 2008 and 270 closings
+              counties. Licensed in Washington since 2010 and 270 closings
               behind me, so I can tell you what your street is doing, what that
               house is really worth, and what it takes to get you into it.
             </p>
@@ -358,10 +358,12 @@ function AboutPreviewSection() {
         <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-16">
           <FadeIn className="lg:col-span-7">
             <p className="eyebrow">Nice to meet you</p>
-            {/* Licensed since 2008 rather than a year count: it is the precise
-                fact from the interview, it does not need editing every January,
-                and it carries the story the number does not, which is that she
-                started at the bottom of that market. */}
+            {/* The licence year rather than a year count: it is the precise
+                fact, it does not need editing every January, and it carries the
+                story the number does not, which is that she came into the
+                business on the recession's wreckage. The year itself lives in
+                tenant.agent.licensedSince and is stated nowhere else as a
+                literal. */}
             <h2 className="mt-4 font-display text-3xl font-semibold leading-tight md:text-4xl">
               Licensed since {tenant.agent.licensedSince}. 270 closings. And I
               still answer my own phone.

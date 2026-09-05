@@ -11,7 +11,7 @@ import { BreadcrumbListSchema } from "@/components/schema/BreadcrumbListSchema";
 export const metadata: Metadata = {
   title: "Buy a home in the Puget Sound region",
   description:
-    "Finding the house is about five percent of it. Buyer representation across Pierce, King, and the surrounding counties from Becca Pitts: licensed in Washington since 2008, 270 closings, SRES® certified.",
+    "Finding the house is about five percent of it. Buyer representation across Pierce, King, and the surrounding counties from Becca Pitts: licensed in Washington since 2010, 270 closings, SRES® certified.",
   alternates: { canonical: "/buyers" },
 };
 
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
  */
 const CREDENTIALS = [
   "SRES® Certified",
-  "Licensed in Washington since 2008",
+  "Licensed in Washington since 2010",
   "12 sales in the last 12 months across the Puget Sound region",
   "270 career total across Western Washington",
 ];
@@ -57,7 +57,7 @@ export default function BuyersPage() {
       <ServiceSchema
         name="Buyer representation"
         serviceType="Real estate buyer's agent"
-        description="Buyer representation across Pierce, King, and the surrounding Washington counties. Financing, offers, inspections, appraisals, and everything between mutual acceptance and keys, from an agent licensed since 2008 with 270 closings and SRES® certification for senior moves."
+        description="Buyer representation across Pierce, King, and the surrounding Washington counties. Financing, offers, inspections, appraisals, and everything between mutual acceptance and keys, from an agent licensed since 2010 with 270 closings and SRES® certification for senior moves."
       />
       <BreadcrumbListSchema
         items={[
@@ -81,9 +81,9 @@ export default function BuyersPage() {
                 percent happens between mutual acceptance and the day you get
                 keys: inspections, appraisals, contracts, financing, and a dozen
                 moving pieces that all have to land inside the same two weeks.
-                That part is why you hire me. I got my license in 2008 and
-                learned this business on short sales and foreclosures, so after
-                270 closings I know exactly where a deal breaks, and I&apos;ve
+                That part is why you hire me. I came into this business in 2010
+                and learned it on short sales and foreclosures, so after 270
+                closings I know exactly where a deal breaks, and I&apos;ve
                 already got a Plan B for yours before we write the offer.
               </p>
               <div className="mt-9 flex flex-wrap gap-3">

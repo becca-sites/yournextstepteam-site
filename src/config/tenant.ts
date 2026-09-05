@@ -14,13 +14,19 @@
  * hard-coding the string. The logo wordmark reads "Your Next Step" with no
  * suffix, which is intentional.
  *
+ * LICENCE YEAR CORRECTED (2026-09-05). Becca was licensed in 2010, not 2008.
+ * The copy pass below shipped 2008 for one day. The career arc reads correctly
+ * now: laid off in the Great Recession, recruited into real estate in 2010 in
+ * the aftermath, and the distressed files were simply what there was to sell
+ * at that point. `licensedSince` is the single place the year is a number.
+ *
  * INTERVIEW COPY PASS (2026-09-04). Rewritten from Becca's own interview. The
- * About page became a full biography (Eatonville, WWU, the 2008 licence, Steve
+ * About page became a full biography (Eatonville, WWU, the licence, Steve
  * Hiatt to Best Choice to eXp) and now carries its own copy rather than
  * reusing `storyLong`, which is the short homepage version. New facts landed
  * here: `licensedSince`, `certifications`, `education`, `knowsAbout`, and the
  * `team` array introducing Allbree Warner. Every "15+ years" claim in the app
- * became "licensed since 2008"; the blog posts still say 15+, which is true
+ * became a "licensed since" line; the blog posts still say 15+, which is true
  * and was out of scope. Scenario cards and the homepage pillars now describe
  * how Becca actually works: a conversation rather than a presentation, the
  * questionnaire, the hard conversation in week one, Plan A/B/C, and the
@@ -377,7 +383,7 @@ export const tenant: Tenant = {
     // Keep it em dash free: her voice uses periods and commas, not dashes.
     storyLong: [
       "Here's the thing about 270 closings: they teach you exactly where a deal breaks. So I structure things so they don't. Before we start, I've already worked out Plan A, Plan B, and usually Plan C, and I bring up the hard parts in week one while there's still room to do something about them. You don't need to carry all three plans around. You just need to know somebody has them.",
-      "The first meeting is a conversation, not a script. I'm not going to run a presentation at you. I want to hear what you actually want out of this, and you should ask me anything, including the questions you think sound dumb. Those are usually the good ones. I got my license in 2008, at the absolute bottom of the market, and I learned this business on short sales, foreclosures, and bank-owned files. Ordinary transactions have never scared me since.",
+      "The first meeting is a conversation, not a script. I'm not going to run a presentation at you. I want to hear what you actually want out of this, and you should ask me anything, including the questions you think sound dumb. Those are usually the good ones. I came into real estate in 2010, while the market was still climbing out of the recession, so I learned this business on short sales, foreclosures, and bank-owned files. Ordinary transactions have never scared me since.",
       "I grew up in Eatonville, went to Western Washington University in Bellingham, and lived in Puyallup, Tacoma, and Renton before landing in Bonney Lake in 2017. I've helped buyers and sellers from Everett to Morton and from Grays Harbor to Roslyn, and I've lived in Pierce, King, and Whatcom counties myself. First house or tenth, upsizing, downsizing, investing, relocating: the questions change, the way I work them stays the same.",
     ].join("\n\n"),
     license: "WA #107351",
@@ -389,11 +395,15 @@ export const tenant: Tenant = {
     // Legacy field, no longer rendered anywhere on this site: the copy pass of
     // 2026-09-04 replaced every "15+ years" claim with the licence year, which
     // is the precise fact and does not need editing every January. It stays
-    // because the persona templates in src/personas still interpolate it. Kept
-    // at 15 rather than raised, because bumping a years-of-experience claim is
-    // Becca's call and `licensedSince` already says the true thing.
+    // because the persona templates in src/personas still interpolate it.
     yearsOfExperience: 15,
-    licensedSince: 2008,
+    // 2010, confirmed by Becca on 2026-09-05. This shipped as 2008 for one day
+    // and was wrong: she was laid off in the recession and was recruited into
+    // real estate in the aftermath, not at the bottom of the market. Every
+    // "licensed since" line on the site and the `validFrom` on the licence
+    // credential in schema read from here, so this is the only place the year
+    // is stated as a number.
+    licensedSince: 2010,
     expProfileUrl: "https://rebeccapitts.exprealty.com/",
     certifications: [
       {
@@ -1163,10 +1173,11 @@ export const tenant: Tenant = {
 
   stats: [
     // The year rather than a count. "15+" was a rounded-down legacy figure and
-    // it sat awkwardly next to About copy that says she got her license in
-    // 2008. The year is the precise fact, it carries the story (she started at
-    // the bottom of that market), and it never needs editing again.
-    { value: "2008", label: "Licensed in Washington", detail: "Started at the bottom of that market" },
+    // it sat awkwardly next to About copy that names the year she was licensed.
+    // The year is the precise fact, it carries the story (she came in on the
+    // recession's wreckage and learned the job on distressed files), and it
+    // never needs editing again.
+    { value: "2010", label: "Licensed in Washington", detail: "Learned it on short sales and foreclosures" },
     { value: "270", label: "Closings", detail: "Bonney Lake to Eatonville and beyond" },
     { value: "SRES®", label: "Senior Real Estate Specialist", detail: "Certified for 55+ moves" },
     { value: "Icon", label: "eXp Icon Agent", detail: "Awarded 2022" },
