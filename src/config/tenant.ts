@@ -664,7 +664,7 @@ export const tenant: Tenant = {
     {
       quote:
         "Becca was incredible every step of the process in selling our house. She was always there when we had a question as we were getting the house ready to put on the market. And she always offered easy to follow advice as it came time to list. We got a lot of quick action on our house once it was on the market and her expertise brought things to a quick closing! Use Becca when buying or selling your home, you will not regret it!!",
-      name: "coderunfun",
+      name: "T Shelton",
       context: "Sold Single Family",
       location: "Puyallup, WA",
       rating: 5,
@@ -710,7 +710,7 @@ export const tenant: Tenant = {
     {
       quote:
         "Becca is truly an outstanding real estate agent and I highly recommend her services without any hesitation. I'd give her 6 stars if that was an option. Professional, knowledgeable, thorough and simply got the job done!",
-      name: "wineboy1",
+      name: "K Carlsteen",
       context: "Sold Single Family",
       location: "Spanaway, WA",
       rating: 5,
@@ -720,7 +720,7 @@ export const tenant: Tenant = {
     {
       quote:
         "Becca sold my father's home under some very trying circumstances. She professionally handled unexpected adversity, delays which she had no control over and a drawn out exchange of ownership. She went well above and beyond what my expectations were. I wholeheartedly recommend her expertise with no hesitation.",
-      name: "Carl",
+      name: "C Carlsteen",
       rating: 5,
       date: "2022-08-06",
       source: "Google",
@@ -756,7 +756,7 @@ export const tenant: Tenant = {
     {
       quote:
         "Becca went ABOVE AND BEYOND to help us into our home. We have had other agents in the past and no one has come close to the level of Becca!! She made the process easy for us and was always available to answer our questions. We would 1,000 percent recommend Becca to not only our nearest and dearest but to complete strangers. Thanks Becca for making our dreams a reality!!",
-      name: "vdn4yf8ct2",
+      name: "D Saint",
       context: "Bought Single Family",
       location: "Puyallup, WA",
       rating: 5,
@@ -812,7 +812,7 @@ export const tenant: Tenant = {
     {
       quote:
         "She answered all my questions, made all the time in the world to make sure I understood the process as well as the how’s and why’s - she was with me every step of the way and I couldn’t imagine having anyone better in my side through this process.",
-      name: "Julie",
+      name: "J Yust",
       context: "Bought Single Family",
       location: "Tacoma, WA",
       rating: 5,
@@ -822,7 +822,7 @@ export const tenant: Tenant = {
     {
       quote:
         "A chain of friends referred us to Becca, and for that I'm thankful. She was an amazing person to have in our corner when buying our first home. She was with us every step of the way and made herself available at a moment's notice when time was of the essence. She never skipped beat with all of our paperwork requirements, and was thorough with communicating all of our requests and needs to both the seller and lender. We greatly valued her opinion because she can foresee possible outcomes of big decisions and help zero in on the best strategy. On top of all that, she was a joy to work with and very approachable. I will recommend Becca to anyone I know buying a house in the region.",
-      name: "joose206",
+      name: "J Peterson",
       context: "Bought Single Family",
       location: "Tacoma, WA",
       rating: 5,
@@ -842,7 +842,7 @@ export const tenant: Tenant = {
     {
       quote:
         "We had an exceptional experience working with Becca purchasing our first home. She was responsive, proactive, professional and a joy to work with. I recommend her to my own friends and family!",
-      name: "user2186870",
+      name: "K Peterson",
       context: "Bought Single Family",
       location: "Tacoma, WA",
       rating: 5,
@@ -852,7 +852,7 @@ export const tenant: Tenant = {
     {
       quote:
         "We were first time home buyers and Becca was truly wonderful to work with. She was so patient with us and explained things every step of the way. She made the process of buying our first home SO much less stressful. Becca did a great job of listening to our wants, needs, concerns, etc., and made sure to help us find exactly the type of home we were looking for. She was also incredibly responsive and was always just a phone call or text message away. Becca is awesome at what she does!",
-      name: "zuser20150105142216044",
+      name: "L Patterson",
       context: "Bought Single Family",
       location: "Graham, WA",
       rating: 5,
@@ -862,7 +862,7 @@ export const tenant: Tenant = {
     {
       quote:
         "I highly recommend Becca for the selling or buying of your home. She assisted us with both the sale of our old home and the purchase of our new home (new construction). Becca is very honest, detailed, and informed about the process of buying and selling. She took care of, or informed us on many things that were outside our scope of knowledge. This was our first time selling a home, and our first time buying a newly constructed home, so we had many questions/concerns, but she was always there to answer questions, give advice, and offer reassurance/support. A+++!",
-      name: "zuser20170428073515293",
+      name: "C Mann",
       context: "Sold Single Family",
       location: "Puyallup, WA",
       rating: 5,
@@ -872,7 +872,7 @@ export const tenant: Tenant = {
     {
       quote:
         "My husband and I were first-time homebuyers this year and had a million questions about the home purchasing process. Becca was phenomenal to work with and seamlessly guided us through it all! She was quick, efficient, and returned calls and emails promptly. For future home sale or purchase, we will absolutely work with Becca again! Thank you, thank you!",
-      name: "zuser20150207111443494",
+      name: "N Angiuli",
       context: "Bought Condo",
       location: "Bothell, WA",
       rating: 5,
@@ -882,7 +882,7 @@ export const tenant: Tenant = {
     {
       quote:
         "Becca Iverson is wonderful!!! I would recommend her for all your needs on buying a home. I am a first-time home buyer and she was there every time we needed to look at a house. When we finally got our home we love! The house appraised under. Becca played Hardball and got previous owner to drop the price ALOT!!!! It would be in your best interest to work with Becca. I will always have Becca work with us! Thank you Becca from the bottom of our heart !!",
-      name: "symakk",
+      name: "G Akker",
       context: "Bought Single Family",
       location: "Puyallup, WA",
       rating: 5,
@@ -902,7 +902,7 @@ export const tenant: Tenant = {
     {
       quote:
         "We had received Becca's name from a very good friend at church, not knowing that she was the niece of this friend. I am so glad that I had asked my friend to recommend someone. Becca was absolutely fabulous. She responded immediately to every question we had. She was very informative on the processes that we had to go through. We used her talents with both selling our log home, and then purchasing our new home in town. When you are selling one home, and buying another home at the same time, the details can get complicated. But Becca kept us straight, and we couldn't have done it without her.",
-      name: "user17717706",
+      name: "D Bennet",
       context: "Bought and sold Single Family",
       location: "Puyallup, WA",
       rating: 5,
@@ -912,7 +912,7 @@ export const tenant: Tenant = {
     {
       quote:
         "Becca is amazing! She is very skilled in her field and gets things done quickly and professionally. She sold our last home and helped us buy our new home. I would recommend her to everyone I know who is looking for a great home buying experience!!",
-      name: "firefightress3",
+      name: "C Reagan",
       context: "Bought and sold Single Family",
       location: "Roslyn, WA",
       rating: 5,
@@ -922,7 +922,7 @@ export const tenant: Tenant = {
     {
       quote:
         "If you want a real estate agent that will go above and beyond expectations, Becca is the agent for you! When we were finally ready to buy, my wife and I were overwhelmed with emotions and a little fear. Becca put all those fears to rest immediately, and made us feel more like family than buyers. She was always on top of the ball, and really quick to respond to any questions we had, or houses that we wanted to go see! She is BEYOND amazing and I highly recommend her when your considering buying or selling! She is the only one we will ever use!",
-      name: "girardy23",
+      name: "R Deitz",
       context: "Bought home",
       location: "Gig Harbor, WA",
       rating: 5,
@@ -932,7 +932,7 @@ export const tenant: Tenant = {
     {
       quote:
         "Very responsive, patient and always made time for last minute scheduling. Becca was very easy to work with and I hope to continue to work with her for future purchases.",
-      name: "jojoyoung21",
+      name: "J Young",
       context: "Bought and sold Single Family",
       location: "Tacoma, WA",
       rating: 5,
@@ -952,7 +952,7 @@ export const tenant: Tenant = {
     {
       quote:
         "Becca is one of the hardest working people I have ever met. She goes the extra mile for you and will not rest until every detail is taken care of. Becca also helped my sister buy her first house and did a great job finding the perfect home and making the process as seamless as possible.",
-      name: "tashat9",
+      name: "T Tupper",
       context: "Showed home",
       location: "Puyallup, WA",
       rating: 5,
@@ -972,7 +972,7 @@ export const tenant: Tenant = {
     {
       quote:
         "Becca did a wonderful job helping prepare and sell mother's house. She had many suggestions on what to improve and what would not matter when selling our parents house. Couldn't have done it without her",
-      name: "pgc76359",
+      name: "C Pitts",
       context: "Sold home",
       location: "Shoreline, WA",
       rating: 5,
@@ -992,7 +992,7 @@ export const tenant: Tenant = {
     {
       quote:
         "I was impressed with Beeca from our very first meeting. Initially, I hired her because she actually answered her phone on a Saturday afternoon. We scheduled a meeting right away and she came prepared with research and facts about the housing market in my area. I was new to the selling process and would soon be relocating. From the beginning, she gave me solid advice for getting my home on the market quickly at a price that was competitive, yet priced to move. Move it did. I had a fantastic offer within three days of listing the property. The offer was even higher than asking price. Becca was responsive and available whenever I had a question. She is a straight-shooter whose word I came to trust as well as rely upon. Due to my change of circumstances, most of our interactions took place online. However, the quality of the experience was never compromised. No doubt I will work with Becca again when I am ready to purchase another property.",
-      name: "Liw2",
+      name: "G Lund",
       context: "Sold home",
       location: "Spanaway, WA",
       rating: 5,
@@ -1002,7 +1002,7 @@ export const tenant: Tenant = {
     {
       quote:
         "I have used other agents in the past and never really had the experience I was hoping for. Becca was amazingly refreshing from the start. I buy and sell multiple properties in a year and she gets back to me ridiculously quick on everything I request. In a market changing as quickly as the greater Seattle area it is important to have an agent as competent as Becca is. You will be happy you chose her because she is a true professional!",
-      name: "championsand12",
+      name: "C Sands",
       context: "Bought and sold Single Family",
       location: "Kent, WA",
       rating: 5,
@@ -1012,7 +1012,7 @@ export const tenant: Tenant = {
     {
       quote:
         "Becca, is amazing at what she does, she is easy to get a hold of, friendly, knowledgeable, great follow through. You feel like you are the only client she is working with, she gives you all the time you need. she is very professional and I will be using her in the future and you should too!",
-      name: "Rachel030",
+      name: "R Essenburg",
       context: "Bought Single Family",
       location: "Puyallup, WA",
       rating: 5,
@@ -1032,7 +1032,7 @@ export const tenant: Tenant = {
     {
       quote:
         "Becca was great to work with. Very knowledgeable and great at explaining things. She worked with my schedule to show me houses as soon as possible. She was very patient and never pressured me. When I liked a house she was great about going after it quickly and fiercely. I love my new home, and without her fast response time I might not have it.",
-      name: "petra 67",
+      name: "C Tupper",
       context: "Bought Single Family",
       location: "Tacoma, WA",
       rating: 5,
@@ -1052,7 +1052,7 @@ export const tenant: Tenant = {
     {
       quote:
         "Becca was amazing. Always there when I needed her and did her best to meet me when I wanted to see a house on super short notice! Gave a lot if great insights, walked me through the whole process, and helped me find a great house that is perfect for me.",
-      name: "user1496408",
+      name: "K Carter",
       context: "Bought Single Family",
       location: "Puyallup, WA",
       rating: 5,
@@ -1082,7 +1082,7 @@ export const tenant: Tenant = {
     {
       quote:
         "Becca is such a go-getter! We were very impressed with her on all levels. She is a very knowledgeable real estate agent and we highly recommend her to anyone. She saw our family through a very difficult home buying transaction and throughout the entire process she was an effective leader, never gave up, and sucessfully saw us through to the end. She was fantastic to work with!",
-      name: "user6601231",
+      name: "L Sprinkel",
       context: "Bought Single Family",
       location: "Gig Harbor, WA",
       rating: 5,
@@ -1092,7 +1092,7 @@ export const tenant: Tenant = {
     {
       quote:
         "My home buying process was pretty easy. From others I’ve talked to, I think a big portion of that was due to the agent I used. She linked me up with a great lender that got me pre-approved within a day and then when we went out to look at homes, every single one of them were within my criteria I sent forth. I found ‘the house’ the first day out. I have been in it for almost a year now; and I am loving my new home. Granted Becca IS my sister, but…she knows her stuff. -Iverson",
-      name: "user7088909",
+      name: "D Iverson",
       context: "Bought Single Family",
       location: "Tacoma, WA",
       rating: 4,
@@ -1122,7 +1122,7 @@ export const tenant: Tenant = {
     {
       quote:
         "We purchased our home from out of state and made initial contact with Becca via the internet. She was really helpful and accommodating before we had committed to anything. Once we travelled to the area to view homes, she had everything set up and organized and made the trip(s) both enjoyable and productive. She was responsive and very knowledgeable and we were thoroughly pleased. She was a pleasure to work with and made a stressful process a lot easier. We'll definitely work with her in the future.",
-      name: "denise t m",
+      name: "D Monet",
       context: "Bought home",
       location: "Washington",
       rating: 5,
@@ -1152,7 +1152,7 @@ export const tenant: Tenant = {
     {
       quote:
         "Becca was so helpful in helping me purchase my first home. She was able to meet me at times that were convenient to my schedule and was always available by phone when I needed her. She was even able to recommend a lending agency that was way more helpful and expedient than the one I originally started with. I would highly recommend Becca if you are planning on purchasing a home any time soon, she is so personable and caring and really makes the buying experience a great one.",
-      name: "adidas 769",
+      name: "A Hill",
       context: "Bought Single Family",
       location: "Carbonado, WA",
       rating: 5,
@@ -1162,7 +1162,7 @@ export const tenant: Tenant = {
     {
       quote:
         "My husband and I used Becca as our buying agent to purchase our home in Gig Harbor. We started our home search in July and looked at house after house not finding the right one. Becca was super patient with us, very flexible, and was always available to show us the next batch of new listings. After 5 months of searching we found our dream home. Becca found it and encouraged us to check it out. We made an offer and our offer was accepted. We were thrilled. We found Becca to be very a diligent, hardworking, and confident agent. She maintained a good relationship with the seller's agent and advised us in negotiating and even got a riding lawn mower out of the deal! Becca was an essential role in finding us the home of our dreams.",
-      name: "henuno",
+      name: "J Schumacher",
       context: "Bought Single Family",
       location: "Gig Harbor, WA",
       rating: 5,
