@@ -247,6 +247,7 @@ export function ClosingCrawl() {
   const rootRef = useRef<HTMLDivElement>(null);
   const stageRef = useRef<HTMLDivElement>(null);
   const trackRef = useRef<HTMLDivElement>(null);
+  const titleRef = useRef<HTMLDivElement>(null);
 
   /**
    * Flat means "no tilt, no motion, just the list", and it is what
@@ -303,6 +304,42 @@ export function ClosingCrawl() {
   }, [isFlat]);
 
   /*
+   * Where the pinned title ends.
+   *
+   * The mask that dissolves the crawl has to start where the title block
+   * stops, and those two are measured in different units: the block is close to
+   * a fixed pixel height (logo, episode line, hook), while the window it sits in
+   * runs from about 430px to 760px tall. The percentage in globals.css is right
+   * at one window height and wrong at every other; on a 1280x720 laptop the
+   * title filled half the window against a 38% zone, so lines were still
+   * visible behind the hook. Measuring the block and handing the result back in
+   * pixels makes the fade start under the title at every size. The percentage
+   * stays as the fallback for a reader with JavaScript off.
+   */
+  useEffect(() => {
+    const root = rootRef.current;
+    const title = titleRef.current;
+    if (!root || !title || isFlat) return;
+
+    const measure = () => {
+      // A little air under the hook before the ramp begins.
+      const bottom = title.offsetTop + title.offsetHeight + 8;
+      root.style.setProperty("--crawl-title-zone", `${bottom}px`);
+    };
+
+    measure();
+
+    const observer = new ResizeObserver(measure);
+    observer.observe(title);
+    if (title.parentElement) observer.observe(title.parentElement);
+
+    return () => {
+      observer.disconnect();
+      root.style.removeProperty("--crawl-title-zone");
+    };
+  }, [isFlat]);
+
+  /*
    * Start the crawl when the reader gets here, not when the page loads.
    *
    * The paused state is written to the DOM from an effect rather than rendered
@@ -351,7 +388,7 @@ export function ClosingCrawl() {
               outline want; it is lifted over the crawl by z-index rather than
               by source order. Flat and untilted on purpose: it is a section
               header now, not part of the receding text. */}
-          <div className="crawl__title">
+          <div ref={titleRef} className="crawl__title">
             <h2 id="closing-crawl-heading" className="crawl__logo">
               <Image
                 className="crawl__logo-img"
@@ -363,6 +400,12 @@ export function ClosingCrawl() {
               />
             </h2>
             <p className="crawl__episode">Episode 270: The Closing</p>
+            {/* The hook. It repeats three words of the wordmark directly
+                above it, so it is set to read as a separate editorial beat
+                rather than an echo of the mark: sentence case, italic, lighter
+                weight and a softer gold, below the episode line in the
+                hierarchy and held apart from it. */}
+            <p className="crawl__hook">{tenant.brand.crawlHook}</p>
           </div>
 
           {/* Everything that moves, in one box. The box exists so the fade can

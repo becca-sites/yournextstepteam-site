@@ -179,6 +179,11 @@ export interface TenantBrand {
   logoHeight: number;
   tagline: string;
   eyebrow: string;
+  /**
+   * The editorial line under the pinned title of the closing crawl, after the
+   * logo and the episode line. Brett's copy; change it here, nowhere else.
+   */
+  crawlHook: string;
   headingFont: string;
   bodyFont: string;
 }
@@ -512,6 +517,7 @@ export const tenant: Tenant = {
     // were out of range, and they are not. Town names belong on the
     // neighbourhood pages and in blog posts, where they are the subject.
     eyebrow: "Pierce County · King County · Surrounding Areas",
+    crawlHook: "Your Next Step Begins.",
     headingFont: "DM Serif Display",
     bodyFont: "Inter",
   },

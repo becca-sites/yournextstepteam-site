@@ -714,7 +714,7 @@ summary,
  * The geometry, because it is not obvious and it is easy to break:
  *
  *   .crawl__viewport  the window. Fixed height, clips everything.
- *   .crawl__title     the pinned header: logo and episode line, flat and still
+ *   .crawl__title     the pinned header: logo, episode line and hook, flat and still
  *                     in the upper part of the window, painted over everything
  *                     else. It is deliberately outside the stage, so it never
  *                     picks up the perspective and never moves.
@@ -780,7 +780,7 @@ summary,
    * of the window at every size, and the mobile block below trims it because
    * the window there is shorter and every line of crawl counts.
    */
-  --crawl-title-zone: 34%;
+  --crawl-title-zone: 38%;
 
   position: relative;
   padding-bottom: 3rem;
@@ -979,6 +979,28 @@ summary,
   text-shadow: 0 0 20px rgba(255, 232, 31, 0.3);
 }
 
+/*
+ * The hook line, third in the title block and third in its hierarchy.
+ *
+ * It shares three words with the wordmark above it ("Your Next Step"), so every
+ * property that could make it look like a second copy of the mark goes the other
+ * way: the mark is an image in bold caps, this is live text in sentence case;
+ * the episode line is gold, bold and tracked, this is italic, medium and set in
+ * the softer gold the crawl already uses for its asides. The extra top margin
+ * on top of the block's gap is what separates it as its own beat.
+ *
+ * #f5d97a on the void is about 14:1.
+ */
+.crawl__hook {
+  margin: 0.45rem 0 0;
+  color: #f5d97a;
+  font-family: var(--font-body);
+  font-size: clamp(1rem, 1.35vw, 1.15rem);
+  font-style: italic;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+}
+
 .crawl__line {
   margin-top: 1.15em;
 }
@@ -1136,10 +1158,10 @@ summary,
   .crawl {
     /*
      * A shorter window, so the title has to take less of it or there is no
-     * crawl left to read. Trimmed to match the smaller logo below: roughly
-     * 130px of title in a 520px window.
+     * crawl left to read. Trimmed to match the smaller logo below: the logo,
+     * episode line and hook come to roughly a third of a 520px window.
      */
-    --crawl-title-zone: 29%;
+    --crawl-title-zone: 33%;
   }
 
   .crawl__viewport {
