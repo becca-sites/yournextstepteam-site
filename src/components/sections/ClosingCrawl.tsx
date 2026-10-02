@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { Fragment, useEffect, useRef, useState } from "react";
 import { tenant } from "@/config/tenant";
 import { cn } from "@/lib/cn";
@@ -17,6 +18,15 @@ import { cn } from "@/lib/cn";
  * moment it scrolls into view and the sheer length of the list is the argument.
  * Reduced motion is the one escape hatch, and it hands over the same words as a
  * still, left-aligned list.
+ *
+ * The title block is pinned. The logo and the episode line used to ride up with
+ * everything else, which meant the one thing naming what the reader is looking
+ * at was gone fifteen seconds in. They now sit flat and still in the upper part
+ * of the window while the list scrolls beneath them: the fixed words are the
+ * hook, the moving words are the payoff. The lines do not collide with the
+ * title, because the whole scrolling layer is masked to nothing before it
+ * reaches it, so the text dissolves into the star field rather than sliding
+ * under a bar.
  *
  * Every word is real text in the DOM. Nothing here is a video, a canvas, or an
  * image, so the whole list is indexable, selectable, translatable, and readable
@@ -335,64 +345,79 @@ export function ClosingCrawl() {
         {/* Stars sit behind everything and cost nothing but a background. */}
         <div className="crawl__sky" aria-hidden="true" />
 
-        {/* The crawl itself. No hook, no title card, no preamble: the section
-            opens on the crawl and the crawl opens on the logo. */}
         <div className="crawl__viewport relative z-10">
-          <div ref={stageRef} className="crawl__stage">
-            <div ref={trackRef} className="crawl__track">
-              {/* The section's accessible name, and the only heading in here.
-                  It rides up with the crawl exactly as the logo does in the
-                  films; being inside the animated track changes nothing about
-                  how it is announced or indexed. */}
-              <h2 id="closing-crawl-heading" className="crawl__logo">
-                {tenant.brand.name}
-              </h2>
-              <p className="crawl__episode">Episode 270: The Closing</p>
+          {/* The pinned title. First in the DOM so the section's heading comes
+              before the body it heads, which is what a screen reader and an
+              outline want; it is lifted over the crawl by z-index rather than
+              by source order. Flat and untilted on purpose: it is a section
+              header now, not part of the receding text. */}
+          <div className="crawl__title">
+            <h2 id="closing-crawl-heading" className="crawl__logo">
+              <Image
+                className="crawl__logo-img"
+                src={tenant.brand.logoLight}
+                alt={tenant.brand.name}
+                width={tenant.brand.logoWidth}
+                height={tenant.brand.logoHeight}
+                sizes="(max-width: 640px) 60vw, 300px"
+              />
+            </h2>
+            <p className="crawl__episode">Episode 270: The Closing</p>
+          </div>
 
-              {CRAWL_LINES.map((line) => {
-                const node = (
-                  <p
-                    key={line.id}
-                    className={cn(
-                      "crawl__line",
-                      line.variant && `crawl__line--${line.variant}`,
-                    )}
-                  >
-                    {line.text}
-                  </p>
-                );
-
-                // The egg is spliced in after the title work rather than
-                // living in CRAWL_LINES, because it is the one entry whose
-                // markup differs between the crawl and the flat view.
-                if (line.id !== "financing") return node;
-
-                return (
-                  <Fragment key="financing-group">
-                    <p className="crawl__line crawl__line--egg">
-                      {EGG.lead}
-                      {isFlat ? (
-                        <a
-                          className="crawl__egg-link"
-                          href={`sms:${phone.replace(/[^+\d]/g, "")}`}
-                        >
-                          {phone}
-                        </a>
-                      ) : (
-                        phone
+          {/* Everything that moves, in one box. The box exists so the fade can
+              be a mask in the window's own flat coordinates: masking the stage
+              directly would put the gradient through the perspective transform
+              and bend it. */}
+          <div className="crawl__beneath">
+            <div ref={stageRef} className="crawl__stage">
+              <div ref={trackRef} className="crawl__track">
+                {CRAWL_LINES.map((line) => {
+                  const node = (
+                    <p
+                      key={line.id}
+                      className={cn(
+                        "crawl__line",
+                        line.variant && `crawl__line--${line.variant}`,
                       )}
-                      {EGG.tail}
+                    >
+                      {line.text}
                     </p>
-                    {node}
-                  </Fragment>
-                );
-              })}
+                  );
+
+                  // The egg is spliced in after the title work rather than
+                  // living in CRAWL_LINES, because it is the one entry whose
+                  // markup differs between the crawl and the flat view.
+                  if (line.id !== "financing") return node;
+
+                  return (
+                    <Fragment key="financing-group">
+                      <p className="crawl__line crawl__line--egg">
+                        {EGG.lead}
+                        {isFlat ? (
+                          <a
+                            className="crawl__egg-link"
+                            href={`sms:${phone.replace(/[^+\d]/g, "")}`}
+                          >
+                            {phone}
+                          </a>
+                        ) : (
+                          phone
+                        )}
+                        {EGG.tail}
+                      </p>
+                      {node}
+                    </Fragment>
+                  );
+                })}
+              </div>
             </div>
           </div>
 
-          {/* Paints the receding text back into the sky. An overlay rather
-              than a mask-image, matching the marquee: an overlay cannot
-              silently do nothing on an engine that has not shipped it. */}
+          {/* The no-mask fallback. On an engine that never shipped mask-image
+              this overlay still dissolves the receding text, just against the
+              void colour instead of against the stars. Where masks exist,
+              globals.css hides it and the mask does the work. */}
           <div className="crawl__fade" aria-hidden="true" />
         </div>
       </div>

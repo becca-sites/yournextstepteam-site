@@ -714,6 +714,15 @@ summary,
  * The geometry, because it is not obvious and it is easy to break:
  *
  *   .crawl__viewport  the window. Fixed height, clips everything.
+ *   .crawl__title     the pinned header: logo and episode line, flat and still
+ *                     in the upper part of the window, painted over everything
+ *                     else. It is deliberately outside the stage, so it never
+ *                     picks up the perspective and never moves.
+ *   .crawl__beneath   everything that scrolls, in one untransformed box filling
+ *                     the window. It exists to carry the fade as a mask in the
+ *                     window's own flat coordinates. A mask on the stage itself
+ *                     would be projected through the perspective along with the
+ *                     text and would not line up with the pinned title.
  *   .crawl__stage     a much taller box anchored to the bottom of the window,
  *                     carrying the whole 3D transform. Because the perspective
  *                     is written into the stage's own transform rather than as
@@ -762,6 +771,17 @@ summary,
   --crawl-distance: 6800px;
   --crawl-duration: 227s;
 
+  /*
+   * How much of the window the pinned title owns, as a fraction of the window
+   * height. The crawl is masked to nothing across this band and ramps back to
+   * full opacity below it, so a line has already dissolved into the stars by
+   * the time it reaches the title. Measured from the rendered block rather than
+   * guessed: title padding plus logo plus episode line comes to roughly a third
+   * of the window at every size, and the mobile block below trims it because
+   * the window there is shorter and every line of crawl counts.
+   */
+  --crawl-title-zone: 34%;
+
   position: relative;
   padding-bottom: 3rem;
   background-color: var(--crawl-void);
@@ -800,6 +820,61 @@ summary,
   position: relative;
   height: clamp(460px, 72vh, 760px);
   overflow: hidden;
+}
+
+/*
+ * The scrolling layer.
+ *
+ * Untransformed and the full size of the window, which is the whole point: the
+ * mask below is a plain vertical gradient in window coordinates, so its stops
+ * can be stated as a percentage of the window and line up with the pinned title
+ * without anyone having to invert a perspective projection to find out where a
+ * given screen row lives in the stage's own space.
+ */
+.crawl__beneath {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+/*
+ * The fade, done properly.
+ *
+ * A mask rather than an overlay, because an overlay can only paint the text out
+ * against a flat colour and this section has a star field behind it: the old
+ * overlay dissolved the crawl into a black bar and took the top of the sky with
+ * it. A mask takes the alpha out of the text instead, so the lines thin away
+ * and the stars stay put, and there is no seam where the band ends.
+ *
+ * The reason the marquee uses an overlay is that a mask an engine has not
+ * shipped fails to nothing with no fallback. That is answered here by keeping
+ * the overlay as the fallback and only switching it off where masks exist.
+ *
+ * rgba(0, 0, 0, 0) rather than `transparent` for the same reason as the star
+ * field: some engines interpolate `transparent` through premultiplied black.
+ */
+@supports (mask-image: linear-gradient(#000, #0000)) or
+  (-webkit-mask-image: linear-gradient(#000, #0000)) {
+  .crawl__beneath {
+    -webkit-mask-image: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0) 0%,
+      rgba(0, 0, 0, 0) var(--crawl-title-zone),
+      rgba(0, 0, 0, 0.25) calc(var(--crawl-title-zone) + 6%),
+      rgba(0, 0, 0, 1) calc(var(--crawl-title-zone) + 16%)
+    );
+    mask-image: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0) 0%,
+      rgba(0, 0, 0, 0) var(--crawl-title-zone),
+      rgba(0, 0, 0, 0.25) calc(var(--crawl-title-zone) + 6%),
+      rgba(0, 0, 0, 1) calc(var(--crawl-title-zone) + 16%)
+    );
+  }
+
+  .crawl__fade {
+    display: none;
+  }
 }
 
 .crawl__stage {
@@ -844,23 +919,64 @@ summary,
   animation-play-state: paused;
 }
 
-.crawl__logo {
-  margin: 0;
-  color: var(--crawl-gold);
-  font-size: 2.1em;
-  font-weight: 700;
-  line-height: 1.02;
-  letter-spacing: -0.02em;
+/*
+ * The pinned title.
+ *
+ * Sits above the crawl in z-order and never moves. Sized in the window's own
+ * space rather than in the track's em scale, because it is no longer part of
+ * the text being projected: it is the section header, and it should read at the
+ * same size whether the crawl behind it is at the top of its run or the bottom.
+ *
+ * pointer-events: none so a reader can still select the crawl text that passes
+ * below it. There is nothing interactive in here to lose.
+ */
+.crawl__title {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.7rem;
+  padding: clamp(1.5rem, 4vh, 2.5rem) 1.25rem 0;
+  pointer-events: none;
   text-align: center;
-  text-transform: uppercase;
 }
 
+/*
+ * Becca's own mark, the white knockout that already exists for dark surfaces.
+ * Not recoloured and not stretched: the width is fluid, the height follows the
+ * file's own 640x312, and next/image reserves the box so the title does not
+ * jump into place after the crawl has started.
+ */
+.crawl__logo {
+  display: block;
+  width: clamp(190px, 26%, 280px);
+  max-width: 72vw;
+  margin: 0;
+}
+
+.crawl__logo-img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/*
+ * Set rather than inherited now. It used to pick up colour, family and weight
+ * from .crawl__track; outside the track it has to say so itself.
+ */
 .crawl__episode {
-  margin-top: 0.6em;
-  font-size: 1.05em;
-  text-align: center;
+  margin: 0;
+  color: var(--crawl-gold);
+  font-family: var(--font-body);
+  font-size: clamp(0.95rem, 1.5vw, 1.2rem);
+  font-weight: 700;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  letter-spacing: 0.06em;
+  text-shadow: 0 0 20px rgba(255, 232, 31, 0.3);
 }
 
 .crawl__line {
@@ -959,6 +1075,30 @@ summary,
   overflow: visible;
 }
 
+/*
+ * Flat: the title stops being pinned and becomes an ordinary heading at the top
+ * of the list, left-aligned to the same column as the text it heads, with the
+ * mask off so nothing is faded out of a page that is not moving.
+ */
+.crawl--flat .crawl__title {
+  position: static;
+  align-items: flex-start;
+  width: min(100%, 44rem);
+  margin: 0 auto;
+  padding: 0 0 1.75rem;
+  text-align: left;
+}
+
+.crawl--flat .crawl__logo {
+  width: clamp(180px, 40%, 260px);
+}
+
+.crawl--flat .crawl__beneath {
+  position: static;
+  -webkit-mask-image: none;
+  mask-image: none;
+}
+
 .crawl--flat .crawl__stage {
   position: static;
   height: auto;
@@ -993,8 +1133,26 @@ summary,
  * the text has left the frame.
  */
 @media (max-width: 640px) {
+  .crawl {
+    /*
+     * A shorter window, so the title has to take less of it or there is no
+     * crawl left to read. Trimmed to match the smaller logo below: roughly
+     * 130px of title in a 520px window.
+     */
+    --crawl-title-zone: 29%;
+  }
+
   .crawl__viewport {
     height: clamp(400px, 64vh, 560px);
+  }
+
+  .crawl__title {
+    gap: 0.5rem;
+    padding-top: 1.25rem;
+  }
+
+  .crawl__logo {
+    width: clamp(150px, 46%, 200px);
   }
 
   .crawl__stage {
@@ -1022,6 +1180,25 @@ summary,
     height: auto;
     padding-bottom: 1rem;
     overflow: visible;
+  }
+
+  .crawl__title {
+    position: static;
+    align-items: flex-start;
+    width: min(100%, 44rem);
+    margin: 0 auto;
+    padding: 0 0 1.75rem;
+    text-align: left;
+  }
+
+  .crawl__logo {
+    width: clamp(180px, 40%, 260px);
+  }
+
+  .crawl__beneath {
+    position: static;
+    -webkit-mask-image: none;
+    mask-image: none;
   }
 
   .crawl__stage {
