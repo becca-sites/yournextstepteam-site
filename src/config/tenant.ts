@@ -56,12 +56,32 @@
  * `src/lib/placeholder.ts`.
  */
 
+/**
+ * The firm's name exactly as licensed with the Washington Department of
+ * Licensing. The one hard advertising requirement in Washington: RCW
+ * 18.85.361(8) and WAC 308-124B-210(1) require it, as text, clear and
+ * conspicuous, on every page. A logo does not count.
+ *
+ * UNVERIFIED. "eXp Realty LLC" is the most likely licensed string but it has
+ * not been confirmed against the DOL record. Becca must get the exact string
+ * from her designated broker at eXp. When she does, change it here: every
+ * page, every disclosure line, and the structured data read this one value.
+ */
+export const FIRM_LICENSED_NAME = "eXp Realty LLC";
+
 export interface TenantAgent {
   name: string;
   firstName: string;
   title: string;
+  /** Always FIRM_LICENSED_NAME. Kept as a field so existing reads keep working. */
   brokerage: string;
   brokerageDisclosure: string;
+  /**
+   * The team-brand disclosure WAC 308-124B-210(2) asks for: the team name
+   * shown in conjunction with the licensed firm name, and an explicit
+   * statement that the team is not a separate brokerage or legal entity.
+   */
+  teamDisclosure: string;
   headshot: string;
   /**
    * Second portrait for the homepage scroll crossfade. Optional: when it is
@@ -93,7 +113,6 @@ export interface TenantAgent {
   bio: string;
   storyLong: string;
   license: string;
-  mlsId: string;
   phone: string;
   email: string;
   brandEmail: string;
@@ -363,16 +382,19 @@ export const tenant: Tenant = {
     name: 'Rebecca "Becca" Pitts',
     firstName: "Becca",
     title: "REALTOR®, SRES®",
-    brokerage: "eXp Realty",
-    brokerageDisclosure:
-      "Rebecca Pitts is a licensed real estate broker in Washington State, affiliated with eXp Realty. MLS #87890. License #107351. eXp Realty is a licensed real estate brokerage. Equal Housing Opportunity.",
+    brokerage: FIRM_LICENSED_NAME,
+    // No MLS number. The site displays no MLS listing data, so an MLS mark or
+    // number next to the licence line is capable of misleading a reader into
+    // reading it as a licence (RCW 18.85.361(2), (3)). Removed 2026-10-02.
+    brokerageDisclosure: `Rebecca Pitts is a licensed real estate broker in Washington State, affiliated with ${FIRM_LICENSED_NAME}. License #107351. ${FIRM_LICENSED_NAME} is a licensed Washington real estate firm. Equal Housing Opportunity.`,
+    teamDisclosure: `Your Next Step Team is the team name used by Rebecca Pitts, a real estate broker at ${FIRM_LICENSED_NAME}, a licensed Washington real estate firm. Your Next Step Team is not a separate brokerage or legal entity.`,
     // Empty on purpose. See the field docs above: the eXp logo cannot be
     // recreated, so these stay blank until the official artwork is dropped into
     // public/images/brand and the four fields are filled in together.
     brokerageLogo: "",
     brokerageLogoLight: "",
     opinionDisclaimer:
-      "Opinions expressed are my own and not the views of eXp Realty.",
+      `Opinions expressed are my own and not the views of ${FIRM_LICENSED_NAME}.`,
     headshot: "/photos/headshots/becca-headshot.webp",
     // The seated studio portrait crossfades into this one on the homepage as
     // the about section scrolls through the viewport.
@@ -392,7 +414,6 @@ export const tenant: Tenant = {
       "I grew up in Eatonville, went to Western Washington University in Bellingham, and lived in Puyallup, Tacoma, and Renton before landing in Bonney Lake in 2017. I've helped buyers and sellers from Everett to Morton and from Grays Harbor to Roslyn, and I've lived in Pierce, King, and Whatcom counties myself. First house or tenth, upsizing, downsizing, investing, relocating: the questions change, the way I work them stays the same.",
     ].join("\n\n"),
     license: "WA #107351",
-    mlsId: "87890",
     phone: "253.678.7089",
     email: "becca@yournextstepteam.com",
     brandEmail: "becca@yournextstepteam.com",
@@ -1570,9 +1591,13 @@ export const tenant: Tenant = {
  * Canonical https origin for the brand, with no trailing slash.
  * `resolveSiteUrl()` in site.config.ts falls back to this when
  * NEXT_PUBLIC_SITE_URL is unset, so previews and production agree on one host.
+ *
+ * The www host, because that is the one the site is served from: Vercel
+ * answers the bare domain with a 308 to www. A canonical, og:url, or JSON-LD
+ * @id on the bare domain points every search engine at a redirect.
  */
 export function brandUrl() {
-  return `https://${tenant.brand.domain}`;
+  return `https://www.${tenant.brand.domain}`;
 }
 
 export function resolveListings() {

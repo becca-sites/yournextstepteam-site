@@ -6,7 +6,6 @@ import {
   BrokeredBy,
   ComplianceBadge,
   EqualHousingMark,
-  MlsMark,
   RealtorMark,
 } from "@/components/global/ComplianceMarks";
 
@@ -22,9 +21,18 @@ const NAV_WORKING = [
 const NAV_LEARN = [
   { href: "/podcast", label: "Next Step Conversations" },
   { href: "/your-best-season", label: "Your Best Season" },
+  { href: "/areas", label: "Areas I serve" },
   { href: "/about", label: "About Becca" },
   { href: tenant.sibling.url, label: tenant.sibling.name, external: true },
   { href: "/contact", label: "Contact" },
+];
+
+const POLICY_LINKS = [
+  { href: "/privacy", label: "Privacy Policy" },
+  { href: "/consumer-health-data", label: "Consumer Health Data Privacy" },
+  { href: "/accessibility", label: "Accessibility" },
+  { href: "/terms", label: "Terms of Use" },
+  { href: "/fair-housing", label: "Fair Housing" },
 ];
 
 type NavItem = { href: string; label: string; external?: boolean };
@@ -83,7 +91,7 @@ export function Footer() {
                 {/* White knockout, because the footer sits on slate. */}
                 <Image
                   src={tenant.brand.logoLight}
-                  alt=""
+                  alt={tenant.brand.name}
                   width={tenant.brand.logoWidth}
                   height={tenant.brand.logoHeight}
                   sizes="110px"
@@ -192,16 +200,19 @@ export function Footer() {
 
             <div className="flex flex-wrap items-center gap-x-8 gap-y-4 text-white/80">
               <ComplianceBadge mark={<RealtorMark />} label="REALTOR®" />
-              <ComplianceBadge
-                mark={<MlsMark />}
-                label="MLS"
-                detail={`#${tenant.agent.mlsId}`}
-              />
-              <ComplianceBadge
-                mark={<EqualHousingMark />}
-                label="Equal Housing"
-                detail="Opportunity"
-              />
+              {/* No MLS badge. The site displays no MLS listing data, so an
+                  MLS mark and number here could mislead a reader (RCW
+                  18.85.361(2), (3)). Removed 2026-10-02. */}
+              <Link
+                href="/fair-housing"
+                className="inline-flex min-h-[44px] items-center rounded transition hover:text-white"
+              >
+                <ComplianceBadge
+                  mark={<EqualHousingMark />}
+                  label="Equal Housing"
+                  detail="Opportunity"
+                />
+              </Link>
             </div>
           </div>
 
@@ -209,9 +220,24 @@ export function Footer() {
             <div className="space-y-2">
               <p>
                 {tenant.agent.name}, {tenant.agent.title}. Washington broker
-                license {tenant.agent.license}. MLS #{tenant.agent.mlsId}.
+                license {tenant.agent.license}.
               </p>
               <p>{tenant.agent.brokerageDisclosure}</p>
+              {/* WAC 308-124B-210(2): the team name in conjunction with the
+                  licensed firm name, and not a separate entity. */}
+              <p>{tenant.agent.teamDisclosure}</p>
+              <p>
+                Equal Housing Opportunity. I do business in accordance with
+                the federal Fair Housing Act and the Washington Law Against
+                Discrimination.{" "}
+                <Link
+                  href="/fair-housing"
+                  className="underline underline-offset-2 hover:text-white"
+                >
+                  Read my fair housing statement
+                </Link>
+                .
+              </p>
             </div>
             <div className="space-y-2 lg:text-right">
               <p>{tenant.agent.opinionDisclaimer}</p>
@@ -232,6 +258,27 @@ export function Footer() {
               </p>
             </div>
           </div>
+
+          {/*
+            Policy links. Consumer Health Data is its own link, next to and
+            not nested under the general privacy policy: Washington's My Health
+            My Data Act requires it to be separately and prominently linked
+            from the homepage, and this footer renders on the homepage.
+          */}
+          <nav aria-label="Policies" className="mt-6 border-t border-white/10 pt-4">
+            <ul className="flex flex-wrap gap-x-6 text-sm">
+              {POLICY_LINKS.map((item) => (
+                <li key={item.href}>
+                  <Link
+                    href={item.href}
+                    className="inline-flex min-h-[44px] items-center underline-offset-4 transition hover:text-white hover:underline"
+                  >
+                    {item.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
         </div>
       </div>
     </footer>

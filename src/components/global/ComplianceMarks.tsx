@@ -5,12 +5,13 @@ import { tenant } from "@/config/tenant";
  * ComplianceMarks
  *
  * The regulatory furniture a licensed agent's site has to carry: the brokerage
- * identification, the REALTOR® block R, the MLS notice, and the Equal Housing
- * Opportunity mark.
+ * identification, the REALTOR® block R, and the Equal Housing Opportunity
+ * mark. There is deliberately no MLS mark: the site displays no MLS listing
+ * data, so an MLS logo and number would be capable of misleading a reader.
  *
- * The three trade marks below are drawn as inline SVG in `currentColor`, so one
+ * The two trade marks below are drawn as inline SVG in `currentColor`, so one
  * component reads correctly on the ink compliance strip and on any light
- * surface, and there is no image request in the critical path for four small
+ * surface, and there is no image request in the critical path for these small
  * marks. They inherit the surrounding colour rather than carrying their own.
  *
  * The eXp Realty logo is the exception and is deliberately NOT drawn here. eXp's
@@ -51,36 +52,6 @@ export function RealtorMark({ className = "h-5 w-5" }: { className?: string }) {
         fillRule="evenodd"
         d="M7 5h7.2a4.3 4.3 0 0 1 0 8.6h-.6L18.2 19H14l-3.3-5.4h-.3V19H7V5zm3.4 3.4v2.8H14a1.4 1.4 0 0 0 0-2.8h-3.6z"
       />
-    </svg>
-  );
-}
-
-/** MLS mark. A bordered chip, which is how the notice reads in print. */
-export function MlsMark({ className = "h-5 w-8" }: { className?: string }) {
-  return (
-    <svg viewBox="0 0 38 24" className={className} aria-hidden="true" focusable="false">
-      <rect
-        x="0.9"
-        y="0.9"
-        width="36.2"
-        height="22.2"
-        rx="2.6"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="1.6"
-      />
-      <text
-        x="19"
-        y="16.4"
-        textAnchor="middle"
-        fill="currentColor"
-        fontSize="10"
-        fontWeight="700"
-        letterSpacing="0.6"
-        fontFamily="inherit"
-      >
-        MLS
-      </text>
     </svg>
   );
 }
