@@ -8,6 +8,8 @@ import { ContactBlock } from "@/components/ContactBlock";
 import { BreadcrumbListSchema } from "@/components/schema/BreadcrumbListSchema";
 
 export const metadata: Metadata = {
+  // Page-level noindex, independent of the site-wide switch: it holds no case studies yet ("coming soon"). Lift when it has real ones.
+  robots: { index: false, follow: true },
   title: "Client Stories",
   description: `Real transitions from real families across the ${tenant.market.primaryArea}. Senior downsizing, estate sales, aging-in-place evaluations, and first-time purchases.`,
   alternates: { canonical: "/case-studies" },

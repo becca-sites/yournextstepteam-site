@@ -4,18 +4,19 @@ import createMDX from "@next/mdx";
 import { tenant } from "./src/config/tenant";
 
 /**
- * Mirror of isNoIndex() in src/lib/placeholder.ts.
+ * Mirror of isNoIndexHeader() in src/lib/placeholder.ts: the header is lifted at
+ * search stage 2, after robots.txt (stage 1) and before the meta tag (stage 3).
  *
  * next.config.ts is evaluated outside the app's module graph, so it imports the
  * tenant data by relative path and restates the env rule rather than importing
  * the helper. Same logic, same fail-safe: noindex is ON unless PLACEHOLDER_MODE
- * is the exact string "false" AND tenant.demo.noIndex is false.
+ * is the exact string "false" AND tenant.demo.searchStage is 2 or more.
  *
  * This is resolved at build time, which is what we want. The header ships baked
  * into the deployment and does not depend on a runtime env var surviving in a
  * Vercel project nobody can see.
  */
-const NO_INDEX = tenant.demo.noIndex || process.env.PLACEHOLDER_MODE !== "false";
+const NO_INDEX = process.env.PLACEHOLDER_MODE !== "false" || tenant.demo.searchStage < 2;
 
 const withMDX = createMDX({
   options: {

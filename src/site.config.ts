@@ -183,7 +183,7 @@ export function resolveSiteUrl() {
   // Falls back to the tenant's own domain rather than example.com, so canonical
   // URLs, the sitemap, llms.txt, and every JSON-LD @id resolve to the real host
   // even on a deploy that forgets NEXT_PUBLIC_SITE_URL. Indexing is gated by
-  // PLACEHOLDER_MODE / tenant.demo.noIndex, not by this value.
+  // PLACEHOLDER_MODE / tenant.demo.searchStage, not by this value.
   const url = (process.env.NEXT_PUBLIC_SITE_URL || brandUrl()).replace(/\/+$/, "");
   // An env var set to the bare domain would put every canonical on a host that
   // 308s to www. Normalise it rather than trust a dashboard nobody can see.

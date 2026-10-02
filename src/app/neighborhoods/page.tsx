@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { baseOpenGraph } from "@/lib/metadata";
 import Link from "next/link";
 import Image from "next/image";
-import { tenant } from "@/config/tenant";
+import { tenant, readyNeighborhoods } from "@/config/tenant";
 import { BreadcrumbListSchema } from "@/components/schema/BreadcrumbListSchema";
 
 export const metadata: Metadata = {
@@ -24,7 +24,7 @@ const REGION_HEADINGS: Record<string, string> = {
 };
 
 export default function NeighborhoodsIndex() {
-  const grouped = tenant.neighborhoods.reduce<Record<string, typeof tenant.neighborhoods>>(
+  const grouped = readyNeighborhoods().reduce<Record<string, typeof tenant.neighborhoods>>(
     (acc, n) => {
       (acc[n.region] = acc[n.region] || []).push(n);
       return acc;

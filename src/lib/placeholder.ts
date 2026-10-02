@@ -10,11 +10,11 @@
  *    Service, Article, FAQ, breadcrumbs, listings) out of the crawlable output so
  *    none of it can be indexed or attributed as the real agent's identity.
  *
- * 2. isNoIndex() - the single source of truth for whether the site should be
- *    walled off from crawlers. Every noindex surface reads from this one function:
- *    the <meta name="robots"> tag (src/app/layout.tsx), the X-Robots-Tag response
- *    header (next.config.ts, which inlines the same rule), and /robots.txt
- *    (src/app/robots.ts).
+ * 2. The search go-live stage (tenant.demo.searchStage), which lifts the three
+ *    crawler blocks one at a time in the required order: isCrawlBlocked() for
+ *    /robots.txt (src/app/robots.ts), isNoIndexHeader() for the X-Robots-Tag
+ *    header (next.config.ts restates it), and isNoIndex() for the meta tag
+ *    (src/app/layout.tsx) and the sitemap.
  *
  * FAIL-SAFE DEFAULT: both are ON unless PLACEHOLDER_MODE is explicitly set to the
  * exact string "false". A deploy that forgets the env var, sets it wrong, or loses
@@ -22,9 +22,9 @@
  * correctly in a Vercel dashboard for the site to be safe. Going public is a
  * deliberate act.
  *
- * To go live: set PLACEHOLDER_MODE=false AND flip tenant.demo.noIndex to false in
- * src/config/tenant.ts. Both must agree, so an accidental env var change alone
- * cannot expose the site.
+ * To go live: set PLACEHOLDER_MODE=false, then step tenant.demo.searchStage
+ * from 0 to 3 one deploy at a time. Both must agree, so an accidental env var
+ * change alone cannot expose the site.
  *
  * Read server-side only (no NEXT_PUBLIC prefix). All consumers are Server
  * Components or build-time config, so the value resolves on the server.
@@ -35,10 +35,30 @@ export function isPlaceholderMode(): boolean {
   return process.env.PLACEHOLDER_MODE !== "false";
 }
 
+function stage(): number {
+  // Fail-safe: placeholder mode overrides any stage and keeps everything shut.
+  return isPlaceholderMode() ? 0 : tenant.demo.searchStage;
+}
+
+/** robots.txt disallows all crawling. Lifted first, at stage 1. */
+export function isCrawlBlocked(): boolean {
+  return stage() < 1;
+}
+
 /**
- * True when the site must not be indexed. Deliberately ORs the two guards so
- * turning off one is not enough to expose the site.
+ * The X-Robots-Tag response header is sent. Lifted at stage 2. next.config.ts
+ * restates this rule because it is evaluated outside the app's module graph.
+ */
+export function isNoIndexHeader(): boolean {
+  return stage() < 2;
+}
+
+/**
+ * The page-level <meta name="robots" content="noindex"> is rendered and the
+ * sitemap is empty. Lifted last, at stage 3. Pages that must stay out of the
+ * index on their own (thin or unpublished ones) set their own noindex and are
+ * not affected by this.
  */
 export function isNoIndex(): boolean {
-  return tenant.demo.noIndex || isPlaceholderMode();
+  return stage() < 3;
 }

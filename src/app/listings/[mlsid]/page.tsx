@@ -11,11 +11,16 @@ interface Props {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { mlsid } = await params;
-  return pageMetadata({
-    title: `Listing ${mlsid}`,
-    description: `Property details for listing ${mlsid}, represented by ${tenant.agent.name}.`,
-    path: `/listings/${mlsid}`,
-  });
+  return {
+    ...pageMetadata({
+      title: `Listing ${mlsid}`,
+      description: `Property details for listing ${mlsid}, represented by ${tenant.agent.name}.`,
+      path: `/listings/${mlsid}`,
+    }),
+    // Any id renders here, and the listing widget is not configured, so every
+    // URL would be a thin page. Listings live on the eXp agent site.
+    robots: { index: false, follow: true },
+  };
 }
 
 export default async function ListingDetailPage({ params }: Props) {

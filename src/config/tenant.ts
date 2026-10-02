@@ -203,6 +203,11 @@ export interface TenantBrand {
    * logo and the episode line. Brett's copy; change it here, nowhere else.
    */
   crawlHook: string;
+  /**
+   * The episode number on the crawl's title card. Becca's verified career
+   * transaction count, so it goes up as she closes. Change it here only.
+   */
+  crawlEpisode: number;
   headingFont: string;
   bodyFont: string;
 }
@@ -374,7 +379,22 @@ export interface Tenant {
   neighborhoods: TenantNeighborhood[];
   episodes: TenantEpisode[];
   sibling: TenantSibling;
-  demo: { noIndex: boolean };
+  /**
+   * Search go-live stage, 0 to 3. Each stage lifts one block, in the order the
+   * SEO plan (section 5.9) requires, because the order is what matters:
+   *
+   *   0  everything blocked: robots.txt disallow, X-Robots-Tag, meta noindex
+   *   1  robots.txt allows crawling; X-Robots-Tag and meta noindex stay ON,
+   *      so Google can fetch pages and read a live noindex
+   *   2  X-Robots-Tag removed; meta noindex stays ON
+   *   3  meta noindex removed and the sitemap populated: indexable
+   *
+   * Never skip ahead. Lifting noindex while robots.txt still disallows
+   * crawling leaves Google unable to see that noindex is gone, and the site
+   * stays out of the index. PLACEHOLDER_MODE remains the master switch on top
+   * of this: unless it is exactly "false", every block stays on at any stage.
+   */
+  demo: { searchStage: 0 | 1 | 2 | 3 };
 }
 
 export const tenant: Tenant = {
@@ -539,6 +559,7 @@ export const tenant: Tenant = {
     // neighbourhood pages and in blog posts, where they are the subject.
     eyebrow: "Pierce County · King County · Surrounding Areas",
     crawlHook: "Your Next Step Begins.",
+    crawlEpisode: 263,
     // Descriptive only: nothing reads these to load a font. The faces are
     // self-hosted and wired up in src/app/layout.tsx and globals.css.
     headingFont: "Playfair Display",
@@ -1584,7 +1605,7 @@ export const tenant: Tenant = {
     description: "A 6-bed adult family home in Burien, WA providing long-term residential care, memory care, and respite care.",
   },
 
-  demo: { noIndex: true },
+  demo: { searchStage: 0 },
 };
 
 /**
@@ -1596,6 +1617,22 @@ export const tenant: Tenant = {
  * answers the bare domain with a 308 to www. A canonical, og:url, or JSON-LD
  * @id on the bare domain points every search engine at a redirect.
  */
+/**
+ * A neighbourhood entry is publishable only when it carries no "TODO"
+ * placeholder anywhere. Unready entries are left out of the /neighborhoods hub,
+ * the homepage preview, and the sitemap, and their pages 404, so a "Median
+ * $TODO" card can never be shown or indexed. Fill the fields in to publish one.
+ */
+export function isNeighborhoodReady(n: TenantNeighborhood): boolean {
+  return !/TODO/.test(
+    [n.median, n.zip, n.commute, n.tagline, n.description, ...n.highlights].join(" "),
+  );
+}
+
+export function readyNeighborhoods(): TenantNeighborhood[] {
+  return tenant.neighborhoods.filter(isNeighborhoodReady);
+}
+
 export function brandUrl() {
   return `https://www.${tenant.brand.domain}`;
 }

@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 import { resolveSiteUrl } from "@/site.config";
-import { tenant } from "@/config/tenant";
+import { tenant, readyNeighborhoods } from "@/config/tenant";
 import { getAllPosts } from "@/lib/content";
 import { getPublishedAreas } from "@/lib/areas";
 import { isNoIndex } from "@/lib/placeholder";
@@ -26,7 +26,6 @@ const STATIC_DATES: Record<string, string | undefined> = {
   "/sellers": undefined,
   "/your-best-season": undefined,
   "/podcast": undefined,
-  "/case-studies": undefined,
   "/contact": undefined,
   "/neighborhoods": undefined,
   "/blog": undefined,
@@ -61,7 +60,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     entry(`/blog/${p.slug}`, p.updatedAt ?? p.publishedAt),
   );
 
-  const neighborhoods = tenant.neighborhoods.map((n) => entry(`/neighborhoods/${n.slug}`));
+  const neighborhoods = readyNeighborhoods().map((n) => entry(`/neighborhoods/${n.slug}`));
   const episodes = tenant.episodes.map((ep) => entry(`/your-best-season/${ep.slug}`));
 
   return [...staticEntries, ...areas, ...posts, ...neighborhoods, ...episodes];

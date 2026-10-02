@@ -76,8 +76,13 @@ export function getAllPosts(): PostMeta[] {
   }));
 }
 
+/**
+ * Stories marked `draft: true` are never listed or rendered. The template's
+ * sample story is one: it is not a real transaction and must not be indexed.
+ */
 export function getAllStories(): StoryMeta[] {
-  return readMarkdownDir<StoryMeta>("stories", (slug, data) => ({
+  return readMarkdownDir<StoryMeta & { draft?: boolean }>("stories", (slug, data) => ({
+    draft: data.draft === true,
     slug,
     title: String(data.title ?? slug),
     summary: String(data.summary ?? ""),
@@ -86,7 +91,7 @@ export function getAllStories(): StoryMeta[] {
     updatedAt: data.updatedAt as string | undefined,
     heroImage: data.heroImage as string | undefined,
     tags: data.tags as string[] | undefined,
-  }));
+  })).filter((s) => !s.draft);
 }
 
 export function getAllNeighborhoods(): NeighborhoodMeta[] {

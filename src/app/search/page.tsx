@@ -4,6 +4,8 @@ import { tenant } from "@/config/tenant";
 import { BoldTrailWidget } from "@/components/idx/BoldTrailWidget";
 
 export const metadata: Metadata = {
+  // Page-level noindex, independent of the site-wide switch: until the BoldTrail search widget is configured this page shows a setup message.
+  robots: { index: false, follow: true },
   title: "Search homes",
   description: `Search homes across the ${tenant.market.primaryArea} and the Eastside.`,
   alternates: { canonical: "/search" },

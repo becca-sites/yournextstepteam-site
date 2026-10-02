@@ -8,6 +8,8 @@ import { FinalCtaBlock } from "@/components/sections/FinalCtaBlock";
 import { BreadcrumbListSchema } from "@/components/schema/BreadcrumbListSchema";
 
 export const metadata: Metadata = {
+  // Page-level noindex, independent of the site-wide switch: no published stories yet (the template sample is a draft). Lift when real ones exist.
+  robots: { index: false, follow: true },
   title: "Client stories",
   description: `Sold stories and case studies from buyers and sellers across the ${tenant.market.primaryArea}.`,
   alternates: { canonical: "/stories" },

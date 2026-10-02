@@ -25,6 +25,8 @@ function readStory(slug: string) {
     if (fs.existsSync(p)) {
       const raw = fs.readFileSync(p, "utf8");
       const { content, data } = matter(raw);
+      // Draft stories (the template sample) are never rendered.
+      if (data.draft === true) return null;
       return { raw: content, data };
     }
   }

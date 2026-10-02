@@ -3,7 +3,7 @@ import { pageMetadata } from "@/lib/metadata";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
-import { tenant } from "@/config/tenant";
+import { tenant, readyNeighborhoods } from "@/config/tenant";
 import { BreadcrumbListSchema } from "@/components/schema/BreadcrumbListSchema";
 import { FinalCtaBlock } from "@/components/sections/FinalCtaBlock";
 
@@ -12,7 +12,8 @@ interface Props {
 }
 
 function findNeighborhood(slug: string) {
-  return tenant.neighborhoods.find((n) => n.slug === slug);
+  // Entries still carrying TODO placeholders are not published (404).
+  return readyNeighborhoods().find((n) => n.slug === slug);
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -33,7 +34,7 @@ export default async function NeighborhoodDetail({ params }: Props) {
 
   const photos = tenant.media.aerial;
   const heroIdx = Math.abs(slug.length) % photos.length;
-  const nearby = tenant.neighborhoods.filter((x) => x.slug !== n.slug).slice(0, 3);
+  const nearby = readyNeighborhoods().filter((x) => x.slug !== n.slug).slice(0, 3);
 
   return (
     <>

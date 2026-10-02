@@ -1,9 +1,9 @@
 import Link from "next/link";
 import Image from "next/image";
-import { tenant } from "@/config/tenant";
+import { tenant, readyNeighborhoods } from "@/config/tenant";
 
 export function NeighborhoodPreview() {
-  const neighborhoods = tenant.neighborhoods?.filter((n) => n.region === "primary").slice(0, 6) ?? [];
+  const neighborhoods = readyNeighborhoods().filter((n) => n.region === "primary").slice(0, 6);
   if (!neighborhoods.length) return null;
 
   const photos = tenant.media.aerial;
