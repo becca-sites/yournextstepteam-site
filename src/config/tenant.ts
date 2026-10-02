@@ -518,8 +518,10 @@ export const tenant: Tenant = {
     // neighbourhood pages and in blog posts, where they are the subject.
     eyebrow: "Pierce County · King County · Surrounding Areas",
     crawlHook: "Your Next Step Begins.",
-    headingFont: "DM Serif Display",
-    bodyFont: "Inter",
+    // Descriptive only: nothing reads these to load a font. The faces are
+    // self-hosted and wired up in src/app/layout.tsx and globals.css.
+    headingFont: "Playfair Display",
+    bodyFont: "Geist",
   },
 
   social: {

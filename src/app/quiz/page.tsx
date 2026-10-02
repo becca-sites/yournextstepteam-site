@@ -169,16 +169,16 @@ export default function QuizPage() {
   return (
     <>
       {/* Hero bar */}
-      <section className="bg-[var(--color-surface)] py-12 md:py-16">
+      <section className="bg-[var(--color-surface)] section-y">
         <Container>
           <div className="mx-auto max-w-2xl text-center">
-            <p className="text-xs font-semibold uppercase tracking-widest text-[var(--color-moss)]">
+            <p className="eyebrow text-muted">
               Real Estate IQ Quiz
             </p>
-            <h1 className="mt-3 font-display text-3xl font-semibold leading-tight tracking-tight md:text-5xl">
+            <h1 className="mt-3 font-display text-3xl md:text-5xl">
               Test your real estate IQ
             </h1>
-            <p className="mt-4 text-lg text-neutral-600">
+            <p className="mt-4 text-lg text-muted">
               Six scenarios pulled straight out of Bonney Lake, Puyallup, North
               Tacoma, and Eatonville transactions. See how you would handle them.
               About four minutes.
@@ -199,14 +199,14 @@ export default function QuizPage() {
 
       {/* Lead Gate */}
       {phase === "gate" && (
-        <section className="bg-white py-16 md:py-24">
+        <section className="bg-white section-y">
           <Container>
             <div className="mx-auto max-w-md">
-              <form onSubmit={handleLeadSubmit} className="space-y-5">
+              <form onSubmit={handleLeadSubmit} className="space-y-6">
                 <div>
                   <label
                     htmlFor="quiz-first-name"
-                    className="block text-sm font-medium text-neutral-700"
+                    className="block text-sm font-medium text-muted"
                   >
                     First name
                   </label>
@@ -216,14 +216,14 @@ export default function QuizPage() {
                     required
                     value={firstName}
                     onChange={(e) => setFirstName(e.target.value)}
-                    className="mt-1.5 block w-full min-h-[44px] rounded-xl border border-black/10 bg-[var(--color-surface)] px-4 py-3 text-base text-neutral-900 outline-none transition focus:border-[var(--color-moss)] focus:ring-2 focus:ring-[var(--color-moss)]/20"
+                    className="mt-1.5 block w-full min-h-[44px] rounded-xl border border-black/10 bg-[var(--color-surface)] px-4 py-3 text-base text-ink outline-none transition focus:border-[var(--color-moss)] focus:ring-2 focus:ring-[var(--color-moss)]/20"
                     placeholder="Your first name"
                   />
                 </div>
                 <div>
                   <label
                     htmlFor="quiz-email"
-                    className="block text-sm font-medium text-neutral-700"
+                    className="block text-sm font-medium text-muted"
                   >
                     Email
                   </label>
@@ -233,7 +233,7 @@ export default function QuizPage() {
                     required
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    className="mt-1.5 block w-full min-h-[44px] rounded-xl border border-black/10 bg-[var(--color-surface)] px-4 py-3 text-base text-neutral-900 outline-none transition focus:border-[var(--color-moss)] focus:ring-2 focus:ring-[var(--color-moss)]/20"
+                    className="mt-1.5 block w-full min-h-[44px] rounded-xl border border-black/10 bg-[var(--color-surface)] px-4 py-3 text-base text-ink outline-none transition focus:border-[var(--color-moss)] focus:ring-2 focus:ring-[var(--color-moss)]/20"
                     placeholder="you@example.com"
                   />
                 </div>
@@ -244,7 +244,7 @@ export default function QuizPage() {
                 >
                   {submitting ? "Starting..." : "Start the quiz"}
                 </button>
-                <p className="text-center text-xs text-neutral-400">
+                <p className="text-center text-sm text-muted">
                   Your score comes to me and nowhere else. I just want to know
                   who aced it.
                 </p>
@@ -256,13 +256,13 @@ export default function QuizPage() {
 
       {/* Quiz */}
       {phase === "quiz" && (
-        <section className="bg-white py-16 md:py-24">
+        <section className="bg-white section-y">
           <Container>
             <div className="mx-auto max-w-2xl">
-              <p className="font-mono text-xs tracking-widest text-[var(--color-moss)]">
+              <p className="font-mono text-xs tracking-widest text-muted">
                 Question {currentQ + 1} of {QUESTIONS.length}
               </p>
-              <h2 className="mt-4 font-display text-xl font-semibold leading-snug md:text-2xl">
+              <h2 className="mt-4 text-xl font-semibold leading-snug md:text-2xl">
                 {QUESTIONS[currentQ].scenario}
               </h2>
               <div className="mt-8 space-y-3">
@@ -277,13 +277,13 @@ export default function QuizPage() {
                   if (showExplanation) {
                     if (isCorrect) {
                       choiceClasses +=
-                        " border-[var(--color-moss)] bg-[var(--color-moss)]/10 text-neutral-900";
+                        " border-[var(--color-moss)] bg-[var(--color-moss)]/10 text-ink";
                     } else if (isSelected && !isCorrect) {
                       choiceClasses +=
-                        " border-red-300 bg-red-50 text-neutral-900";
+                        " border-red-300 bg-red-50 text-ink";
                     } else {
                       choiceClasses +=
-                        " border-black/5 bg-neutral-50 text-neutral-400";
+                        " border-black/5 bg-neutral-50 text-muted";
                     }
                   } else {
                     choiceClasses +=
@@ -298,7 +298,7 @@ export default function QuizPage() {
                       disabled={showExplanation}
                       className={choiceClasses}
                     >
-                      <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full border border-current text-xs font-semibold">
+                      <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full border border-current text-sm font-semibold">
                         {choice.label}
                       </span>
                       <span>{choice.text}</span>
@@ -309,18 +309,18 @@ export default function QuizPage() {
 
               {showExplanation && (
                 <div className="mt-6 rounded-2xl border border-[var(--color-moss)]/20 bg-[var(--color-moss)]/5 p-6">
-                  <p className="text-sm font-semibold text-[var(--color-moss)]">
+                  <p className="text-sm font-semibold text-ink">
                     {selectedAnswer === QUESTIONS[currentQ].correctIndex
                       ? "Correct."
                       : "Not quite."}
                   </p>
-                  <p className="mt-2 text-sm leading-relaxed text-neutral-700">
+                  <p className="mt-2 text-sm leading-relaxed text-muted">
                     {QUESTIONS[currentQ].explanation}
                   </p>
                   <button
                     type="button"
                     onClick={handleNext}
-                    className="btn-primary mt-5 min-h-[44px]"
+                    className="btn-primary mt-6 min-h-[44px]"
                   >
                     {currentQ < QUESTIONS.length - 1
                       ? "Next question"
@@ -335,16 +335,16 @@ export default function QuizPage() {
 
       {/* Results */}
       {phase === "results" && (
-        <section className="bg-white py-16 md:py-24">
+        <section className="bg-white section-y">
           <Container>
             <div className="mx-auto max-w-2xl text-center">
               <p className="display-num text-6xl font-bold text-[var(--color-moss)] md:text-8xl">
                 {score}/{QUESTIONS.length}
               </p>
-              <h2 className="mt-6 font-display text-2xl font-semibold md:text-3xl">
+              <h2 className="mt-6 font-display text-2xl md:text-3xl">
                 {getResultMessage()}
               </h2>
-              <p className="mt-4 text-lg text-neutral-600">
+              <p className="mt-4 text-lg text-muted">
                 {firstName ? `Nice work, ${firstName}. ` : ""}Every one of these
                 came out of a real Pierce County transaction I worked. The gap
                 between a good outcome and a great one usually comes down to the

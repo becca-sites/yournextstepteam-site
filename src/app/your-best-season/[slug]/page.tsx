@@ -45,34 +45,34 @@ export default async function EpisodePage({ params }: Props) {
           { name: ep.title, url: `/your-best-season/${ep.slug}` },
         ]}
       />
-      <section className="bg-[var(--color-surface)] py-16 md:py-20">
+      <section className="bg-[var(--color-surface)] section-y">
         <Container>
           <FadeIn>
             <Link
               href="/your-best-season"
-              className="inline-flex items-center gap-1 text-sm font-medium text-[var(--color-moss)] hover:underline"
+              className="inline-flex items-center gap-1 text-sm font-medium text-ink hover:underline"
             >
               &larr; All episodes
             </Link>
             <div className="mt-6 flex items-center gap-3">
-              <span className="flex h-12 w-12 items-center justify-center rounded-full bg-[var(--color-moss)] text-lg font-semibold text-white">
+              <span className="flex h-12 w-12 items-center justify-center rounded-full bg-[var(--color-moss-deep)] text-lg font-semibold text-white">
                 {ep.number}
               </span>
-              <p className="text-sm text-neutral-500">
+              <p className="text-sm text-muted">
                 Episode {ep.number} of {tenant.episodes.length}
               </p>
             </div>
-            <h1 className="mt-4 font-display text-4xl font-semibold leading-tight tracking-tight md:text-5xl">
+            <h1 className="mt-4 font-display text-4xl md:text-5xl">
               {ep.title}
             </h1>
-            <p className="mt-5 max-w-2xl text-lg text-neutral-600 md:text-xl">
+            <p className="mt-6 text-lg text-muted">
               {ep.description}
             </p>
           </FadeIn>
         </Container>
       </section>
 
-      <section className="bg-white py-12 md:py-16">
+      <section className="bg-white section-y">
         <Container>
           <FadeIn className="mx-auto max-w-4xl">
             {hasVideo ? (
@@ -88,14 +88,14 @@ export default async function EpisodePage({ params }: Props) {
             ) : (
               <div className="flex aspect-video w-full items-center justify-center rounded-2xl bg-neutral-100 text-center">
                 <div>
-                  <p className="text-lg font-medium text-neutral-500">
+                  <p className="text-lg font-medium text-muted">
                     Video coming soon
                   </p>
                   <a
                     href={tenant.videos.featuredPlaylistUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="mt-3 inline-flex items-center gap-1 text-sm font-medium text-[var(--color-moss)] hover:underline"
+                    className="mt-3 inline-flex items-center gap-1 text-sm font-medium text-ink hover:underline"
                   >
                     Watch the full playlist on YouTube &rarr;
                   </a>
@@ -112,7 +112,7 @@ export default async function EpisodePage({ params }: Props) {
             {prev ? (
               <Link
                 href={`/your-best-season/${prev.slug}`}
-                className="text-sm font-medium text-[var(--color-moss)] hover:underline"
+                className="text-sm font-medium text-ink hover:underline"
               >
                 &larr; {prev.title}
               </Link>
@@ -122,7 +122,7 @@ export default async function EpisodePage({ params }: Props) {
             {next ? (
               <Link
                 href={`/your-best-season/${next.slug}`}
-                className="text-sm font-medium text-[var(--color-moss)] hover:underline"
+                className="text-sm font-medium text-ink hover:underline"
               >
                 {next.title} &rarr;
               </Link>

@@ -147,10 +147,10 @@ export default function AboutPage() {
               {/* The blinking light is the hook and it is literally true, which
                   is why it leads. Everything else on this page is downstream of
                   growing up somewhere that small. */}
-              <h1 className="mt-5 font-display text-4xl font-semibold leading-[1.05] tracking-tight md:text-6xl">
+              <h1 className="mt-6 font-display text-4xl md:text-6xl">
                 I grew up in a town with one blinking light.
               </h1>
-              <p className="mt-6 max-w-xl text-lg text-neutral-600 md:text-xl">
+              <p className="mt-6 max-w-xl text-lg text-muted">
                 {tenant.agent.bio}
               </p>
             </FadeIn>
@@ -180,15 +180,15 @@ export default function AboutPage() {
           that makes her a specific person from a specific place rather than an
           agent with a headshot, and it is the part search engines and answer
           engines have nothing else to work with on. */}
-      <section className="bg-white py-20 md:py-24">
+      <section className="bg-white section-y">
         <Container>
           <FadeIn className="mx-auto max-w-3xl">
             <p className="eyebrow">Where I&apos;m from</p>
-            <h2 className="mt-3 font-display text-3xl font-semibold leading-tight md:text-4xl">
+            <h2 className="mt-3 font-display text-3xl md:text-4xl">
               Eatonville, Washington. You&apos;d miss it if you blinked at the
               blinking light.
             </h2>
-            <div className="mt-8 space-y-5 text-lg text-neutral-700">
+            <div className="mt-8 space-y-6 text-lg text-muted">
               <p>
                 Eatonville sits at the foot of Mount Rainier and it was founded
                 by the Van Eaton family, which I mean literally and not as a
@@ -228,14 +228,14 @@ export default function AboutPage() {
           she did not learn the business in an easy market. Note the year is
           2010, not 2008; she was laid off in the recession and came into real
           estate in the aftermath, not at the bottom. Corrected 2026-09-05. */}
-      <section className="surface-warm py-20 md:py-24">
+      <section className="surface-warm section-y">
         <Container>
           <FadeIn className="mx-auto max-w-3xl">
             <p className="eyebrow">How I got here</p>
-            <h2 className="mt-3 font-display text-3xl font-semibold leading-tight md:text-4xl">
+            <h2 className="mt-3 font-display text-3xl md:text-4xl">
               Real estate was never the plan. Somebody recruited me in 2010.
             </h2>
-            <div className="mt-8 space-y-5 text-lg text-neutral-700">
+            <div className="mt-8 space-y-6 text-lg text-muted">
               <p>
                 Before real estate I spent eight years in event production,
                 doing sales, project management, and the creative side of it. If
@@ -276,7 +276,7 @@ export default function AboutPage() {
         </Container>
       </section>
 
-      <section className="bg-white py-20 md:py-24">
+      <section className="bg-white section-y">
         <Container>
           <SectionIntro
             eyebrow="How I work"
@@ -285,11 +285,11 @@ export default function AboutPage() {
           <FadeInStagger className="mt-12 grid gap-6 md:grid-cols-2">
             {HOW_I_WORK.map((v) => (
               <FadeIn key={v.title}>
-                <div className="flex h-full flex-col rounded-2xl border border-black/5 bg-white p-7 shadow-sm">
-                  <h3 className="font-display text-xl font-semibold text-balance">
+                <div className="flex h-full flex-col rounded-2xl border border-black/5 bg-white p-8 shadow-sm">
+                  <h3 className="text-xl font-semibold text-balance">
                     {v.title}
                   </h3>
-                  <p className="mt-3 text-base leading-relaxed text-neutral-600">
+                  <p className="mt-3 text-base leading-relaxed text-muted">
                     {v.body}
                   </p>
                 </div>
@@ -305,7 +305,7 @@ export default function AboutPage() {
           the headshot into public/photos/headshots and fill in `photo` in
           src/config/tenant.ts and the photo appears with no other change. */}
       {allbree && (
-        <section className="surface-warm py-20 md:py-24">
+        <section className="surface-warm section-y">
           <Container>
             <div className="mx-auto grid max-w-4xl items-center gap-10 md:grid-cols-12 md:gap-14">
               <FadeIn scaleIn className="md:col-span-5">
@@ -322,11 +322,12 @@ export default function AboutPage() {
                     <div className="flex h-full w-full flex-col items-center justify-center gap-3 border border-dashed border-black/15 bg-[var(--color-fog)] p-6 text-center">
                       <span
                         aria-hidden="true"
-                        className="font-display text-4xl font-semibold text-[var(--color-moss)]"
+                        className="font-display text-4xl text-[var(--color-moss)]"
                       >
                         AW
                       </span>
-                      <span className="text-sm text-neutral-500">
+                      {/* Ink, not muted: muted on fog is 6.4:1, under AAA. */}
+                      <span className="text-sm text-ink">
                         Photo of {allbree.name} coming soon
                       </span>
                     </div>
@@ -335,13 +336,13 @@ export default function AboutPage() {
               </FadeIn>
               <FadeIn className="md:col-span-7">
                 <p className="eyebrow">Who else you&apos;ll hear from</p>
-                <h2 className="mt-3 font-display text-3xl font-semibold leading-tight md:text-4xl">
+                <h2 className="mt-3 font-display text-3xl md:text-4xl">
                   {allbree.name}
                 </h2>
-                <p className="mt-2 text-sm font-semibold uppercase tracking-wide text-neutral-500">
+                <p className="mt-2 text-sm font-semibold uppercase tracking-wide text-muted">
                   {allbree.role}
                 </p>
-                <p className="mt-5 text-lg leading-relaxed text-neutral-700">
+                <p className="mt-6 text-lg leading-relaxed text-muted">
                   {allbree.bio}
                 </p>
               </FadeIn>
@@ -353,14 +354,14 @@ export default function AboutPage() {
       {/* Home, and where the SRES work comes from. The Alzheimer's paragraph is
           intentionally brief and says outright that the full story is coming.
           Do not expand it here; it is Becca's to write. */}
-      <section className="bg-white py-20 md:py-24">
+      <section className="bg-white section-y">
         <Container>
           <FadeIn className="mx-auto max-w-3xl">
             <p className="eyebrow">At home</p>
-            <h2 className="mt-3 font-display text-3xl font-semibold leading-tight md:text-4xl">
+            <h2 className="mt-3 font-display text-3xl md:text-4xl">
               Ryan, my mom, and the reason I got certified.
             </h2>
-            <div className="mt-8 space-y-5 text-lg text-neutral-700">
+            <div className="mt-8 space-y-6 text-lg text-muted">
               <p>
                 My husband Ryan is a full-stack developer and runs Selden
                 Furnishings, so dinner around here swings between contract
@@ -398,7 +399,7 @@ export default function AboutPage() {
         </Container>
       </section>
 
-      <section className="surface-warm py-20 md:py-24">
+      <section className="surface-warm section-y">
         <Container>
           <FadeIn className="mx-auto max-w-3xl">
             <SectionIntro
@@ -427,20 +428,20 @@ export default function AboutPage() {
       {/* The questions people ask before they call anybody. Plain headings and
           paragraphs rather than an accordion, so the answers are on the page
           for a reader and for anything crawling it. */}
-      <section className="bg-white py-20 md:py-24">
+      <section className="bg-white section-y">
         <Container>
           <FadeIn className="mx-auto max-w-3xl">
             <p className="eyebrow">Common questions</p>
-            <h2 className="mt-3 font-display text-3xl font-semibold leading-tight md:text-4xl">
+            <h2 className="mt-3 font-display text-3xl md:text-4xl">
               What people ask before they call me.
             </h2>
             <dl className="mt-10 space-y-8">
               {FAQS.map((faq) => (
                 <div key={faq.question} className="border-t border-black/10 pt-6">
-                  <dt className="font-display text-xl font-semibold text-neutral-950">
+                  <dt className="text-xl font-semibold text-ink">
                     {faq.question}
                   </dt>
-                  <dd className="mt-3 text-base leading-relaxed text-neutral-700 md:text-lg">
+                  <dd className="mt-3 text-base leading-relaxed text-muted">
                     {faq.answer}
                   </dd>
                 </div>
@@ -450,14 +451,15 @@ export default function AboutPage() {
         </Container>
       </section>
 
-      <section className="bg-[var(--color-fog)] py-16 md:py-20">
+      <section className="bg-[var(--color-fog)] section-y">
         <Container>
           <FadeIn className="mx-auto max-w-3xl">
-            <p className="eyebrow">Part of the family</p>
-            <h2 className="mt-3 font-display text-2xl font-semibold md:text-3xl">
+            {/* On fog, muted falls to 6.4:1, so this panel sets its text in ink. */}
+            <p className="eyebrow text-ink">Part of the family</p>
+            <h2 className="mt-4 font-display text-2xl md:text-3xl">
               {tenant.sibling.name}
             </h2>
-            <p className="mt-4 text-base text-neutral-600">
+            <p className="mt-4 text-base text-ink">
               {tenant.sibling.description} When a family I am working with needs
               care placement as part of the move, this is the sister business I
               point them to.
@@ -466,7 +468,7 @@ export default function AboutPage() {
               href={tenant.sibling.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-4 inline-flex text-sm font-medium text-[var(--color-moss)] hover:underline"
+              className="mt-4 inline-flex min-h-[44px] items-center text-sm font-medium text-ink underline underline-offset-4"
             >
               Visit {tenant.sibling.name}
             </a>
@@ -478,8 +480,8 @@ export default function AboutPage() {
         <Container>
           <FadeIn>
             <Border className="pt-8">
-              <div className="mx-auto max-w-3xl text-sm text-neutral-600">
-                <p className="font-semibold text-neutral-950">
+              <div className="mx-auto max-w-3xl text-sm text-muted">
+                <p className="font-semibold text-ink">
                   Brokerage disclosure
                 </p>
                 <p className="mt-3">{tenant.agent.brokerageDisclosure}</p>

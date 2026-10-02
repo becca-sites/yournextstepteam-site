@@ -23,15 +23,15 @@ export default function ListingsPage() {
           { name: "Listings", url: "/listings" },
         ]}
       />
-      <section className="bg-[var(--color-surface)] py-20 md:py-28">
+      <section className="bg-[var(--color-surface)] section-y">
         <Container>
           <FadeIn className="mx-auto max-w-3xl text-center">
             <p className="eyebrow">Search homes</p>
-            <h1 className="mt-4 font-display text-4xl font-semibold leading-tight md:text-6xl">
+            <h1 className="mt-4 font-display text-4xl md:text-6xl">
               The full home search lives on {tenant.agent.firstName}&apos;s
               agent site.
             </h1>
-            <p className="mt-5 text-lg text-neutral-600 md:text-xl">
+            <p className="mt-6 text-lg text-muted">
               Live MLS data across {tenant.market.primaryArea} (Pierce and South
               King County) is powered through {tenant.agent.firstName}&apos;s{" "}
               {tenant.agent.brokerage} agent site. Set filters, save searches,
@@ -55,13 +55,13 @@ export default function ListingsPage() {
                 Take the Buyer Questionnaire
               </a>
             </div>
-            <p className="mt-8 text-sm text-neutral-500">
+            <p className="mt-8 text-sm text-muted">
               Prefer to browse directly?{" "}
               <a
                 href={agentSiteUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-semibold text-[var(--color-primary)] underline decoration-dotted underline-offset-4"
+                className="font-semibold text-ink underline decoration-dotted underline-offset-4"
               >
                 Open the agent site
               </a>
@@ -73,7 +73,7 @@ export default function ListingsPage() {
       <Container>
         <FadeIn>
           <Border className="pb-12">
-            <p className="text-xs text-neutral-500">
+            <p className="text-sm text-muted">
               {tenant.agent.brokerageDisclosure}
             </p>
           </Border>

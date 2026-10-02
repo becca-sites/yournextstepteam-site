@@ -53,13 +53,13 @@ export function ContactForm() {
       className="rounded-2xl border border-neutral-200 bg-white p-6 shadow-sm md:p-8"
     >
       <fieldset className="grid gap-6">
-        <legend className="font-heading text-2xl font-semibold">
+        <legend className="font-display text-2xl">
           Tell me what you&apos;re working on
         </legend>
 
         <div>
           <label htmlFor="contact-name" className="block text-base font-medium">
-            Name <span className="text-[var(--color-muted)]">(required)</span>
+            Name <span className="text-muted">(required)</span>
           </label>
           <input
             id="contact-name"
@@ -73,7 +73,7 @@ export function ContactForm() {
 
         <div>
           <label htmlFor="contact-email" className="block text-base font-medium">
-            Email <span className="text-[var(--color-muted)]">(required)</span>
+            Email <span className="text-muted">(required)</span>
           </label>
           <input
             id="contact-email"
@@ -140,7 +140,7 @@ export function ContactForm() {
 
         <label
           htmlFor="contact-sms-consent"
-          className="flex cursor-pointer items-start gap-3 text-sm text-[var(--color-muted)]"
+          className="flex cursor-pointer items-start gap-3 text-sm text-muted"
         >
           <input
             id="contact-sms-consent"

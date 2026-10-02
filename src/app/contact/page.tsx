@@ -22,14 +22,14 @@ export default function ContactPage() {
           { name: "Contact", url: "/contact" },
         ]}
       />
-      <section className="bg-[var(--color-surface)] py-16 md:py-20">
+      <section className="bg-[var(--color-surface)] section-y">
         <Container>
           <FadeIn>
             <p className="eyebrow">Contact</p>
-            <h1 className="mt-4 font-display text-4xl font-semibold leading-tight md:text-6xl">
+            <h1 className="mt-4 font-display text-4xl md:text-6xl">
               Let&apos;s have a conversation.
             </h1>
-            <p className="mt-5 max-w-2xl text-lg text-neutral-600 md:text-xl">
+            <p className="mt-6 text-lg text-muted">
               Call the number below and I pick it up. Every message comes
               straight to me, or to Allbree, and one of us answers it. Buying,
               selling, or just wondering what your house would bring right now:
@@ -40,43 +40,43 @@ export default function ContactPage() {
         </Container>
       </section>
 
-      <section className="bg-white py-16 md:py-20">
+      <section className="bg-white section-y">
         <Container>
           <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
             <FadeIn className="lg:col-span-5">
               <p className="eyebrow">Direct</p>
-              <h2 className="mt-2 font-display text-2xl font-semibold">
+              <h2 className="mt-2 font-display text-2xl">
                 Reach me directly
               </h2>
-              <dl className="mt-8 space-y-5 text-base">
+              <dl className="mt-8 space-y-6 text-base">
                 <div>
-                  <dt className="text-xs uppercase tracking-widest text-neutral-500">
+                  <dt className="eyebrow text-muted">
                     Phone
                   </dt>
                   <dd className="mt-1 font-medium">
                     <a
                       href={`tel:${tenant.agent.phone.replace(/[^+\d]/g, "")}`}
-                      className="inline-flex min-h-[44px] items-center underline underline-offset-4 hover:text-[var(--color-moss)]"
+                      className="inline-flex min-h-[44px] items-center underline underline-offset-4 hover:text-ink"
                     >
                       {tenant.agent.phone}
                     </a>
                   </dd>
                 </div>
                 <div>
-                  <dt className="text-xs uppercase tracking-widest text-neutral-500">
+                  <dt className="eyebrow text-muted">
                     Email
                   </dt>
                   <dd className="mt-1 font-medium">
                     <a
                       href={`mailto:${tenant.agent.email}`}
-                      className="inline-flex min-h-[44px] items-center underline underline-offset-4 hover:text-[var(--color-moss)]"
+                      className="inline-flex min-h-[44px] items-center underline underline-offset-4 hover:text-ink"
                     >
                       {tenant.agent.email}
                     </a>
                   </dd>
                 </div>
                 <div>
-                  <dt className="text-xs uppercase tracking-widest text-neutral-500">
+                  <dt className="eyebrow text-muted">
                     Office
                   </dt>
                   <dd className="mt-1">
@@ -86,15 +86,15 @@ export default function ContactPage() {
                   </dd>
                 </div>
                 <div>
-                  <dt className="text-xs uppercase tracking-widest text-neutral-500">
+                  <dt className="eyebrow text-muted">
                     License
                   </dt>
                   <dd className="mt-1">{tenant.agent.license}</dd>
                 </div>
               </dl>
 
-              <div className="mt-10 rounded-2xl border border-black/5 bg-[var(--color-surface)] p-6 text-sm text-neutral-600">
-                <p className="font-semibold text-neutral-950">Hours</p>
+              <div className="mt-10 rounded-2xl border border-black/5 bg-[var(--color-surface)] p-6 text-sm text-muted">
+                <p className="font-semibold text-ink">Hours</p>
                 <p className="mt-2">
                   Monday through Saturday, 8 AM to 7 PM Pacific. Sundays by
                   appointment. Texts and emails get an answer the same day, every
@@ -102,8 +102,8 @@ export default function ContactPage() {
                 </p>
               </div>
 
-              <div className="mt-8 rounded-2xl border border-black/5 bg-[var(--color-surface)] p-6 text-sm text-neutral-600">
-                <p className="font-semibold text-neutral-950">
+              <div className="mt-8 rounded-2xl border border-black/5 bg-[var(--color-surface)] p-6 text-sm text-muted">
+                <p className="font-semibold text-ink">
                   Looking to buy?
                 </p>
                 <p className="mt-2">
@@ -112,7 +112,7 @@ export default function ContactPage() {
                     href={tenant.listings.buyerQuestionnaireUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="font-medium text-[var(--color-moss)] hover:underline"
+                    className="font-medium text-ink hover:underline"
                   >
                     Buyer Questionnaire
                   </a>{" "}
@@ -122,7 +122,7 @@ export default function ContactPage() {
               </div>
 
               <Border className="mt-8 pt-6">
-                <p className="text-xs text-neutral-500">
+                <p className="text-sm text-muted">
                   {tenant.agent.brokerageDisclosure}
                 </p>
               </Border>

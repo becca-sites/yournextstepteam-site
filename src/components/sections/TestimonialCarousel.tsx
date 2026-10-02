@@ -69,16 +69,16 @@ function TestimonialCard({ t }: { t: TenantTestimonial }) {
           The clamp plus the card's fixed height is what keeps every attribution
           block on the same line across the row, however long the quote runs.
         */}
-        <blockquote className="testimonial-card__quote line-clamp-4 text-sm leading-relaxed text-[color:var(--color-slate)]">
+        <blockquote className="testimonial-card__quote line-clamp-4 text-sm leading-relaxed text-ink">
           {t.quote}
         </blockquote>
         {/* Eats the slack under a short quote so the attribution stays pinned
             to the bottom edge while the card is collapsed, and collapses to
             nothing once the expanded quote fills the card. */}
         <div className="flex-1" aria-hidden="true" />
-        <figcaption className="mt-4 border-t border-[color:var(--color-moss)]/20 pt-3 text-xs">
+        <figcaption className="mt-4 border-t border-[color:var(--color-moss)]/20 pt-3 text-sm">
           <div className="flex items-baseline gap-1.5">
-            <span className="min-w-0 truncate font-semibold text-[color:var(--color-slate)]">
+            <span className="min-w-0 truncate font-semibold text-ink">
               {t.name}
             </span>
             {/* Google and Facebook reviews carry no city, so the separator
@@ -87,19 +87,19 @@ function TestimonialCard({ t }: { t: TenantTestimonial }) {
             {t.location && (
               <>
                 <span
-                  className="shrink-0 text-[color:var(--color-moss)]"
+                  className="shrink-0 text-ink"
                   aria-hidden="true"
                 >
                   &middot;
                 </span>
-                <span className="shrink-0 whitespace-nowrap text-[color:var(--color-muted)]">
+                <span className="shrink-0 whitespace-nowrap text-muted">
                   {t.location}
                 </span>
               </>
             )}
           </div>
           {detail && (
-            <p className="testimonial-card__meta text-[color:var(--color-muted)]">
+            <p className="testimonial-card__meta text-muted">
               {detail}
             </p>
           )}
@@ -180,11 +180,11 @@ export function TestimonialCarousel({
   const bottomRow = list.slice(split);
 
   return (
-    <section className="bg-white py-16 md:py-20">
+    <section className="bg-white section-y">
       <div className="mx-auto max-w-7xl px-4 lg:px-8">
         <div className="max-w-2xl">
           <p className="eyebrow">{eyebrow}</p>
-          <h2 className="mt-3 font-heading text-3xl font-semibold md:text-4xl">
+          <h2 className="mt-3 font-display text-3xl md:text-4xl">
             {heading || "What clients are saying"}
           </h2>
         </div>

@@ -13,6 +13,9 @@ import { RealEstateAgentSchema } from "@/components/schema/RealEstateAgentSchema
 import { HeroVideoSchema } from "@/components/schema/HeroVideoSchema";
 import { getAllPosts } from "@/lib/content";
 
+/** Right edge of the hero text column at any viewport width. See the scrim. */
+const HERO_COLUMN_END = "max(calc(50% + 64px), min(704px, 100%))";
+
 function HeroSection() {
   const video = tenant.media.heroVideo;
 
@@ -21,10 +24,34 @@ function HeroSection() {
       {/* Falls back to the photo mosaic if the video is ever unset. */}
       {video ? <HeroVideo video={video} /> : <HeroMosaicBackground />}
 
-      {/* There is deliberately no scrim over the video down here. The stat
-          cards are frosted white with dark type, so they carry their own
-          contrast; a dark band behind them would fight both the cards and the
-          hero's own left-to-right white wash. */}
+      {/*
+        The legibility scrim: a dark wash under the white headline and subhead.
+
+        It has to hold for any frame of the footage, including a frame that is
+        pure white, so its strength is set by that worst case rather than by
+        what the video usually looks like. Over pure white, 0.72 of this
+        near-ink colour composites to about #505357, and white on that is
+        7.8:1, which is AAA for the 20px subhead as well as the headline.
+
+        The hard part is width. The text column is 672px wide and left-aligned
+        inside a centred 1280px container, so where it ends depends on the
+        viewport: at 1440px it ends 784px in, at 1024px it ends 704px in, and
+        on a phone it is the whole screen. HERO_COLUMN_END is that edge,
+        max(50% + 64px, min(704px, 100%)), and the scrim holds at full
+        strength out to it before fading. On a phone the edge is the full
+        width, so the whole frame sits under the wash.
+
+        The previous version was a white wash with dark type, which was
+        legible on the left of a desktop and nowhere else: by 62% it was fully
+        clear, which on a 375px phone is under the second half of every line.
+      */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 z-0"
+        style={{
+          background: `linear-gradient(to right, rgba(14,18,24,0.80) 0%, rgba(14,18,24,0.72) ${HERO_COLUMN_END}, rgba(14,18,24,0.30) calc(${HERO_COLUMN_END} + 18%), rgba(14,18,24,0.12) 100%)`,
+        }}
+      />
 
       {/* Deliberately not <Container>: its inner `mx-auto max-w-2xl` centers
           the column below lg, which pushed the hero text out of line with the
@@ -38,11 +65,16 @@ function HeroSection() {
             800px-tall desktop viewport with the header above it. */}
         <div className="mx-auto w-full max-w-7xl px-4 py-10 lg:px-8 lg:py-12">
           <FadeIn className="max-w-2xl text-left">
-            <p className="eyebrow">{tenant.brand.eyebrow}</p>
+            <p className="eyebrow text-white/80">{tenant.brand.eyebrow}</p>
             {/* Hard break rather than a width constraint: "Puget Sound" over
-                "Real Estate Expert" is the intended reading, and letting it
-                wrap on its own would put "Real" up on line one at 6xl. */}
-            <h1 className="mt-4 font-display text-5xl font-semibold leading-[1.05] tracking-tight text-neutral-950 md:text-6xl">
+                "Real Estate Expert" is the intended reading. On a phone the
+                second line still wraps once, after "Estate".
+
+                White Playfair at 400 on the dark scrim, the Deborah Rose
+                treatment. No text-shadow: the scrim does that job for every
+                frame of the video, not just the ones a shadow happens to
+                rescue. */}
+            <h1 className="mt-4 font-display text-4xl text-white sm:text-5xl lg:text-6xl">
               Puget Sound
               <br />
               Real Estate Expert
@@ -50,14 +82,10 @@ function HeroSection() {
             {/* Hero subhead is written for this page rather than pulled from
                 tenant.agent.bio, so the headline and the copy under it read as
                 one thought. The bio still carries the About page hero.
-
-                neutral-700 plus a soft text-shadow: the video's white wash
-                keeps this readable on most frames, but the shadow is the
-                safety net for the darker ones. */}
-            <p
-              className="mt-5 max-w-xl text-lg text-neutral-700 md:text-xl"
-              style={{ textShadow: "0 1px 3px rgba(0,0,0,0.3)" }}
-            >
+                Full white rather than white/80: it is body-size text, so it
+                needs 7:1, and full white is what clears it on the scrim's
+                thinnest point under this column. */}
+            <p className="measure mt-6 max-w-xl text-lg text-white">
               Hi, I&apos;m Becca Pitts. Pierce, King, and the surrounding
               counties. Licensed in Washington since 2010 and 270 closings
               behind me, so I can tell you what your street is doing, what that
@@ -65,7 +93,7 @@ function HeroSection() {
             </p>
             {/* Buying and selling carry equal weight, so both CTAs use the
                 same button treatment. */}
-            <div className="mt-7 flex flex-wrap gap-4">
+            <div className="mt-8 flex flex-wrap gap-4">
               <Link href="/buyers" className="btn-primary">
                 Buying a Home
               </Link>
@@ -73,8 +101,14 @@ function HeroSection() {
                 Selling a Home
               </Link>
             </div>
-            <div className="mt-3">
-              <Link href="/quiz" className="text-sm font-medium text-[var(--color-moss)] hover:underline">
+            {/* min-h-[44px] so the link is a real tap target, not a 19px line
+                of text. Underlined, because on the scrim colour alone cannot
+                say "link". */}
+            <div className="mt-2">
+              <Link
+                href="/quiz"
+                className="inline-flex min-h-[44px] items-center text-sm font-medium text-white underline decoration-white/60 underline-offset-4 hover:decoration-white"
+              >
                 Or take YOUR Real Estate IQ Quiz &rarr;
               </Link>
             </div>
@@ -90,18 +124,23 @@ function HeroSection() {
 /**
  * Frosted glass, matched to the category tiles in the Living In platform hero.
  *
- * The recipe there is a vertical white gradient rather than a flat alpha: 0.40
- * at the top opening up to 0.85 at the bottom, so the card looks lit from
- * below and the type at the bottom sits on the most opaque part. That is why
- * the tiles read as frosted rather than as a grey film.
+ * The recipe there is a vertical white gradient rather than a flat alpha,
+ * lighter at the top and more opaque at the bottom, so the card looks lit from
+ * below. That is why the tiles read as frosted rather than as a grey film.
+ *
+ * Denser than the reference (0.78 to 0.92 rather than 0.40 to 0.85) because
+ * the cards now sit on the hero's dark scrim instead of a white wash. At 0.40
+ * over a near-black frame the top of a card was mid-grey and the ink label
+ * beside the numeral fell to about 4.8:1. At 0.78 the worst case, pure black
+ * behind the card, still gives the ink type better than 7:1.
  *
  * Two departures from the reference, both because this sits on moving video
  * instead of a still photo. It gets a real backdrop blur, which the reference
  * does not have and does not need on a fixed image. And the shadow is kept, so
- * the card still separates from a frame that happens to be white.
+ * the card still separates from the frame behind it.
  */
 const GLASS_BACKGROUND =
-  "linear-gradient(rgba(255,255,255,0.40) 0%, rgba(255,255,255,0.55) 45%, rgba(255,255,255,0.85) 100%)";
+  "linear-gradient(rgba(255,255,255,0.78) 0%, rgba(255,255,255,0.84) 45%, rgba(255,255,255,0.92) 100%)";
 
 /** Reference shadow, unchanged: a tight contact shadow plus a soft lift. */
 const GLASS_SHADOW =
@@ -145,13 +184,15 @@ function HeroStatRow() {
                   breakpoint: the values are not all short numerals, and at 4xl
                   "SRES®" ate enough of a 288px card to wrap its label onto four
                   lines, which set the height of the whole row. */}
-              <dt className="display-num shrink-0 text-3xl text-[color:var(--color-ink)]">
+              <dt className="display-num shrink-0 text-3xl text-ink">
                 {s.value}
               </dt>
-              {/* text-xs, not an arbitrary px value: this site redefines
-                  --text-xs to 14px as its type floor, so anything smaller
-                  would be undercutting that on purpose. */}
-              <dd className="text-xs font-semibold uppercase leading-tight tracking-wide text-[color:var(--color-ink)]">
+              {/* 16px and sentence case. The label is what the numeral means,
+                  so it is content, not a micro-label, and it holds the 16px
+                  floor. Uppercase at 16px would not fit "Senior Real Estate
+                  Specialist" beside the numeral, and caps are the slower read
+                  anyway. */}
+              <dd className="text-sm font-medium leading-snug text-ink">
                 {s.label}
               </dd>
             </div>
@@ -180,7 +221,7 @@ function ScenariosSection() {
   const rest = tenant.scenarios.filter((c) => !c.featured);
 
   return (
-    <section className="surface-warm py-20 md:py-28">
+    <section className="surface-warm section-y">
       <Container>
         <SectionIntro
           eyebrow="Find your next step"
@@ -204,18 +245,18 @@ function ScenariosSection() {
           <FadeIn className="mt-12">
             <Link
               href={hrefFor(featured)}
-              className="group flex flex-col rounded-2xl border-2 border-[var(--color-sunshine)] bg-[#FEF9EF] p-7 shadow-[0_2px_18px_rgba(217,154,43,0.18)] transition duration-300 hover:-translate-y-0.5 hover:shadow-xl md:p-10"
+              className="group flex flex-col rounded-2xl border-2 border-[var(--color-sunshine)] bg-[#FEF9EF] p-8 shadow-[0_2px_18px_rgba(217,154,43,0.18)] transition duration-300 hover:-translate-y-0.5 hover:shadow-card-hover md:p-10"
             >
-              <span className="text-xs font-semibold uppercase tracking-widest text-[var(--color-ink)]">
+              <span className="eyebrow text-ink">
                 Senior Real Estate Specialist
               </span>
-              <h3 className="mt-4 font-display text-2xl font-semibold md:text-3xl">
+              <h3 className="mt-4 font-display text-2xl md:text-3xl">
                 {featured.title}
               </h3>
-              <p className="mt-3 max-w-4xl text-base leading-relaxed text-neutral-700 md:text-lg">
+              <p className="mt-3 text-base leading-relaxed text-muted">
                 {featured.description}
               </p>
-              <p className="mt-6 text-sm font-medium text-[var(--color-primary)] group-hover:underline">
+              <p className="mt-6 text-sm font-medium text-ink group-hover:underline">
                 {ctaFor(featured)} &rarr;
               </p>
             </Link>
@@ -227,15 +268,15 @@ function ScenariosSection() {
             <FadeIn key={card.title}>
               <Link
                 href={hrefFor(card)}
-                className="group flex h-full flex-col rounded-2xl border border-black/5 bg-white p-7 transition hover:-translate-y-0.5 hover:border-[var(--color-primary)] hover:shadow-xl"
+                className="group flex h-full flex-col rounded-2xl shadow-card border border-black/5 bg-white p-8 transition hover:-translate-y-0.5 hover:border-[var(--color-primary)] hover:shadow-card-hover"
               >
-                <h3 className="font-display text-xl font-semibold">
+                <h3 className="text-xl font-semibold">
                   {card.title}
                 </h3>
-                <p className="mt-3 text-base leading-relaxed text-neutral-600">
+                <p className="mt-3 text-base leading-relaxed text-muted">
                   {card.description}
                 </p>
-                <p className="mt-auto pt-6 text-sm font-medium text-[var(--color-primary)] group-hover:underline">
+                <p className="mt-auto pt-6 text-sm font-medium text-ink group-hover:underline">
                   {ctaFor(card)} &rarr;
                 </p>
               </Link>
@@ -267,7 +308,9 @@ const PILLARS = [
     body: "The uncomfortable conversation is so much easier in week one than in week six. If the price is off, if the roof is going to come up on inspection, if your timeline doesn't match the calendar, I'll say it while there's still room to do something about it.",
   },
   {
-    title: "Plan A, Plan B, Usually C",
+    // Non-breaking spaces keep "Plan B" and "Usually C" whole, so balance
+    // cannot split the title as "Plan A, Plan / B, Usually C".
+    title: "Plan A, Plan\u00a0B, Usually\u00a0C",
     body: "270 closings teach you exactly where deals break. Before we start, I've thought through the low appraisal, the wobbly financing, the week the other side goes quiet. You don't have to carry all three plans. You just need to know somebody has them.",
   },
   {
@@ -287,7 +330,7 @@ const PILLARS = [
  */
 function DealTogetherSection() {
   return (
-    <section className="bg-white py-20 md:py-24">
+    <section className="bg-white section-y">
       <SectionIntro eyebrow="How I work" title="How to keep your deal together." />
       <Container>
         <FadeInStagger className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
@@ -298,15 +341,15 @@ function DealTogetherSection() {
                   purpose: these are static cards, not links, so the lift
                   acknowledges the cursor rather than promising a click.
                   Reduced-motion users get the border and shadow without it. */}
-              <div className="flex h-full flex-col rounded-2xl border border-black/5 bg-white p-7 transition duration-300 hover:scale-[1.02] hover:border-[var(--color-moss)] hover:shadow-lg motion-reduce:hover:scale-100">
+              <div className="flex h-full flex-col rounded-2xl shadow-card border border-black/5 bg-white p-8 transition duration-300 hover:scale-[1.02] hover:border-[var(--color-moss)] hover:shadow-card-hover motion-reduce:hover:scale-100">
                 {/* Two lines' worth of height at leading-snug (1.375), held at
                     every breakpoint so a one-line title on tablet does not
                     shorten its card. text-balance splits the two lines evenly
                     instead of leaving one orphan word. */}
-                <h3 className="min-h-[2.75em] font-display text-lg font-semibold leading-snug text-balance">
+                <h3 className="min-h-[2.75em] text-xl font-semibold leading-snug text-balance">
                   {card.title}
                 </h3>
-                <p className="mt-3 text-sm leading-relaxed text-neutral-600">
+                <p className="mt-3 text-sm leading-relaxed text-muted">
                   {card.body}
                 </p>
               </div>
@@ -320,15 +363,15 @@ function DealTogetherSection() {
 
 function ClientStorySection() {
   return (
-    <section className="surface-warm py-20 md:py-24">
+    <section className="surface-warm section-y">
       <Container>
         <FadeIn className="mx-auto max-w-3xl">
-          <div className="rounded-2xl border border-black/5 bg-white p-8 md:p-10">
+          <div className="rounded-2xl shadow-card border border-black/5 bg-white p-8 md:p-10">
             <div className="border-l-4 border-[var(--color-moss)] pl-6">
-              <p className="text-xs font-semibold uppercase tracking-widest text-[var(--color-moss)]">
+              <p className="eyebrow text-muted">
                 Client story
               </p>
-              <p className="mt-4 text-lg leading-relaxed text-neutral-700">
+              <p className="mt-4 text-lg leading-relaxed text-muted">
                 A young couple wanted to buy raw land in Graham and build on it.
                 Different loan, different down payment, different timeline. So
                 before I sent them to anybody, I did the homework myself: what
@@ -353,7 +396,7 @@ function AboutPreviewSection() {
   // White here so this reads as its own section against the warm scenarios
   // block below it, and so it meets the bottom of the hero video cleanly.
   return (
-    <section className="bg-white py-20 md:py-24">
+    <section className="bg-white section-y">
       <Container>
         <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-16">
           <FadeIn className="lg:col-span-7">
@@ -364,13 +407,13 @@ function AboutPreviewSection() {
                 business on the recession's wreckage. The year itself lives in
                 tenant.agent.licensedSince and is stated nowhere else as a
                 literal. */}
-            <h2 className="mt-4 font-display text-3xl font-semibold leading-tight md:text-4xl">
+            <h2 className="mt-4 font-display text-3xl md:text-4xl">
               Licensed since {tenant.agent.licensedSince}. 270 closings. And I
               still answer my own phone.
             </h2>
             {/* All of the about copy comes from tenant.agent.storyLong so the
                 homepage and the About page never drift apart. */}
-            <div className="mt-5 space-y-4 text-base text-neutral-600 md:text-lg">
+            <div className="mt-6 space-y-4 text-base text-muted">
               {tenant.agent.storyLong.split("\n\n").map((paragraph) => (
                 <p key={paragraph.slice(0, 40)}>{paragraph}</p>
               ))}
@@ -397,7 +440,7 @@ function AboutPreviewSection() {
             />
             {/* Brokerage identification now lives with the full disclosure at
                 the very bottom of the footer, so it is not repeated here. */}
-            <p className="mt-4 text-center text-sm text-neutral-500">
+            <p className="mt-4 text-center text-sm text-muted">
               {tenant.agent.name} &middot; Licensed in {tenant.market.state}{" "}
               since {tenant.agent.licensedSince}
             </p>

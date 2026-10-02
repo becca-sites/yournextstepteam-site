@@ -19,15 +19,15 @@ export function ScenarioRouter({
 }) {
   if (!scenarios?.length) return null;
   return (
-    <section className="surface-warm py-20 md:py-24">
+    <section className="surface-warm section-y">
       <div className="mx-auto max-w-7xl px-4 lg:px-8">
         <div className="max-w-2xl">
           <p className="eyebrow">{eyebrow}</p>
-          <h2 className="mt-3 font-heading text-3xl font-semibold md:text-4xl">
+          <h2 className="mt-3 font-display text-3xl md:text-4xl">
             {heading}
           </h2>
           {subhead && (
-            <p className="mt-4 text-base text-[color:var(--color-muted)] md:text-lg">
+            <p className="mt-4 text-base text-muted">
               {subhead}
             </p>
           )}
@@ -38,18 +38,18 @@ export function ScenarioRouter({
             <Link
               key={scenario.title}
               href={scenario.href}
-              className="group relative flex h-full flex-col rounded-2xl border border-black/5 bg-white p-7 transition hover:-translate-y-0.5 hover:border-[var(--color-primary)] hover:shadow-lg"
+              className="group relative flex h-full flex-col rounded-2xl shadow-card border border-black/5 bg-white p-8 transition hover:-translate-y-0.5 hover:border-[var(--color-primary)] hover:shadow-card-hover"
             >
-              <p className="font-mono text-xs tracking-widest text-[color:var(--color-secondary)]">
+              <p className="font-mono text-xs tracking-widest text-muted">
                 {String(i + 1).padStart(2, "0")}
               </p>
-              <h3 className="mt-3 font-heading text-xl font-semibold">
+              <h3 className="mt-3 text-xl font-semibold">
                 {scenario.title}
               </h3>
-              <p className="mt-3 text-sm leading-relaxed text-[color:var(--color-muted)]">
+              <p className="mt-3 text-sm leading-relaxed text-muted">
                 {scenario.description}
               </p>
-              <p className="mt-6 text-sm font-medium text-[var(--color-primary)] group-hover:underline">
+              <p className="mt-6 text-sm font-medium text-ink group-hover:underline">
                 Start here →
               </p>
             </Link>

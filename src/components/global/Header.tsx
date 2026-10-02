@@ -87,9 +87,9 @@ export function Header() {
             guidelines forbid recreating or typesetting the mark, so this is a
             plain identification line in the site's own type.
           */}
-          <span className="whitespace-nowrap border-l border-black/10 pl-2.5 text-[9px] font-medium uppercase leading-[1.35] tracking-[0.1em] text-[var(--color-ink-soft)] sm:pl-3 sm:text-[10px] sm:tracking-[0.12em]">
+          <span className="whitespace-nowrap border-l border-black/10 pl-2.5 text-[9px] font-medium uppercase leading-[1.35] tracking-[0.1em] text-muted sm:pl-3 sm:text-[10px] sm:tracking-[0.12em]">
             Brokered by
-            <span className="block font-bold tracking-[0.06em] text-[var(--color-ink)]">
+            <span className="block font-bold tracking-[0.06em] text-ink">
               {tenant.agent.brokerage}
             </span>
           </span>
@@ -108,8 +108,8 @@ export function Header() {
                     href={item.href}
                     className={
                       active
-                        ? "inline-flex items-center rounded-full bg-[var(--color-surface)] px-3 py-2 text-[var(--color-ink)] transition"
-                        : "inline-flex items-center rounded-full px-3 py-2 text-neutral-700 transition hover:bg-[var(--color-surface)] hover:text-[var(--color-ink)]"
+                        ? "inline-flex items-center rounded-full bg-[var(--color-surface)] px-3 py-2 text-ink transition"
+                        : "inline-flex items-center rounded-full px-3 py-2 text-muted transition hover:bg-[var(--color-surface)] hover:text-ink"
                     }
                     aria-current={active ? "page" : undefined}
                   >
@@ -131,7 +131,7 @@ export function Header() {
             aria-expanded={open}
             aria-controls="mobile-nav"
             aria-label={open ? "Close menu" : "Open menu"}
-            className="lg:hidden -m-2.5 flex min-h-[44px] min-w-[44px] items-center justify-center rounded-md p-2.5 text-neutral-950 transition hover:bg-neutral-100"
+            className="lg:hidden -m-2.5 flex min-h-[44px] min-w-[44px] items-center justify-center rounded-md p-2.5 text-ink transition hover:bg-neutral-100"
           >
             <svg viewBox="0 0 24 24" fill="currentColor" className="h-6 w-6" aria-hidden="true">
               {open ? (
@@ -156,8 +156,8 @@ export function Header() {
                       href={item.href}
                       className={
                         active
-                          ? "block rounded-lg bg-[var(--color-surface)] px-4 py-3 text-base font-medium text-[var(--color-ink)]"
-                          : "block rounded-lg px-4 py-3 text-base font-medium text-neutral-600 transition hover:bg-[var(--color-surface)] hover:text-[var(--color-ink)]"
+                          ? "block rounded-lg bg-[var(--color-surface)] px-4 py-3 text-base font-medium text-ink"
+                          : "block rounded-lg px-4 py-3 text-base font-medium text-muted transition hover:bg-[var(--color-surface)] hover:text-ink"
                       }
                       aria-current={active ? "page" : undefined}
                     >

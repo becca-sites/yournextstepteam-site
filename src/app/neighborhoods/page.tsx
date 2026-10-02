@@ -34,13 +34,13 @@ export default function NeighborhoodsIndex() {
           { name: "Neighborhoods", url: "/neighborhoods" },
         ]}
       />
-      <section className="bg-[var(--color-surface)] py-16 md:py-20">
+      <section className="bg-[var(--color-surface)] section-y">
         <div className="mx-auto max-w-7xl px-4 lg:px-8">
           <p className="eyebrow">Local knowledge</p>
-          <h1 className="mt-4 font-heading text-4xl font-semibold leading-tight md:text-6xl">
+          <h1 className="mt-4 font-display text-4xl md:text-6xl">
             Neighborhoods we serve.
           </h1>
-          <p className="mt-5 max-w-2xl text-lg text-[color:var(--color-muted)] md:text-xl">
+          <p className="mt-6 text-lg text-muted">
             The {tenant.market.primaryArea} and the greater Eastside. We know
             the streets, the schools, the commute times, and the homes that do
             not show up on a search portal.
@@ -52,7 +52,7 @@ export default function NeighborhoodsIndex() {
         <div className="mx-auto max-w-7xl px-4 lg:px-8">
           {Object.entries(grouped).map(([region, list]) => (
             <section key={region} className="mb-16 last:mb-0">
-              <h2 className="font-heading text-2xl font-semibold md:text-3xl">
+              <h2 className="font-display text-2xl md:text-3xl">
                 {REGION_HEADINGS[region] || region}
               </h2>
               <ul className="mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
@@ -60,7 +60,7 @@ export default function NeighborhoodsIndex() {
                   <li key={n.slug}>
                     <Link
                       href={`/neighborhoods/${n.slug}`}
-                      className="group block overflow-hidden rounded-2xl border border-black/5 bg-white transition hover:-translate-y-0.5 hover:shadow-lg"
+                      className="group block overflow-hidden rounded-2xl shadow-card border border-black/5 bg-white transition hover:-translate-y-0.5 hover:shadow-card-hover"
                     >
                       <div className="relative aspect-[4/3] w-full overflow-hidden bg-neutral-100">
                         <Image
@@ -72,13 +72,13 @@ export default function NeighborhoodsIndex() {
                         />
                       </div>
                       <div className="px-6 py-5">
-                        <p className="text-xs uppercase tracking-widest text-[color:var(--color-secondary)]">
+                        <p className="eyebrow text-muted">
                           {n.zip} &middot; {n.commute}
                         </p>
-                        <h3 className="mt-2 font-heading text-xl font-semibold">
+                        <h3 className="mt-2 text-xl font-semibold">
                           {n.name}, {tenant.market.stateAbbreviation}
                         </h3>
-                        <p className="mt-1 text-sm text-[color:var(--color-muted)]">
+                        <p className="mt-1 text-sm text-muted">
                           {n.tagline}
                         </p>
                         <p className="mt-4 text-sm font-medium">

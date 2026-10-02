@@ -18,14 +18,14 @@ export function FinalCtaBlock({
         aria-hidden="true"
         className="object-cover opacity-25"
       />
-      <div className="relative mx-auto max-w-4xl px-4 py-24 text-center lg:px-8 lg:py-28">
-        <p className="text-xs font-semibold uppercase tracking-widest text-white/70">
+      <div className="section-y-lg relative mx-auto max-w-4xl px-4 text-center lg:px-8">
+        <p className="eyebrow text-white/80">
           Pierce County, Washington
         </p>
-        <h2 className="mt-4 font-heading text-3xl font-semibold leading-tight md:text-5xl">
+        <h2 className="mt-4 font-display text-3xl md:text-5xl">
           {heading}
         </h2>
-        <p className="mt-5 text-lg text-white/80">{subhead}</p>
+        <p className="mt-6 text-lg text-white/80">{subhead}</p>
         <div className="mt-9 flex flex-wrap justify-center gap-3">
           <Link href="/contact" className="btn-on-dark">
             Let&apos;s have a conversation

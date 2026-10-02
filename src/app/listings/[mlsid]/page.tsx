@@ -30,28 +30,28 @@ export default async function ListingDetailPage({ params }: Props) {
         ]}
       />
 
-      <section className="bg-[var(--color-surface)] py-12 md:py-16">
+      <section className="bg-[var(--color-surface)] section-y">
         <div className="mx-auto max-w-7xl px-4 lg:px-8">
-          <p className="text-sm text-[color:var(--color-muted)]">
+          <p className="text-sm text-muted">
             <Link href="/listings" className="underline-offset-4 hover:underline">
               Listings
             </Link>{" "}
             &middot; #{mlsid}
           </p>
-          <h1 className="mt-4 font-heading text-3xl font-semibold tracking-tight md:text-5xl">
+          <h1 className="mt-4 font-display text-3xl md:text-5xl">
             Listing details
           </h1>
-          <p className="mt-4 max-w-2xl text-base text-[color:var(--color-muted)] md:text-lg">
+          <p className="mt-4 text-base text-muted">
             Loading property details from the MLS. Pricing, photos, square
             footage, and tour booking load below.
           </p>
         </div>
       </section>
 
-      <section className="bg-white py-16">
+      <section className="bg-white section-y">
         <div className="mx-auto max-w-7xl px-4 lg:px-8">
           <BoldTrailWidget variant="listing-detail" mlsId={mlsid} />
-          <p className="mt-12 text-xs text-[color:var(--color-muted)]">
+          <p className="mt-12 text-sm text-muted">
             {tenant.agent.brokerageDisclosure}
           </p>
         </div>

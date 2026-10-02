@@ -32,7 +32,7 @@ type NavItem = { href: string; label: string; external?: boolean };
 function FooterNav({ heading, items }: { heading: string; items: NavItem[] }) {
   return (
     <nav aria-label={heading}>
-      <h2 className="text-xs font-semibold uppercase tracking-widest text-white/60">
+      <h2 className="eyebrow text-white/80">
         {heading}
       </h2>
       <ul className="mt-4 space-y-2 text-sm">
@@ -70,7 +70,7 @@ export function Footer() {
   const socials = Object.entries(tenant.social).filter(([, v]) => v);
 
   return (
-    <footer className="border-t border-black/5 bg-[var(--color-slate)] text-white/85">
+    <footer className="border-t border-black/5 bg-[var(--color-slate)] text-white/80">
       <FadeIn>
         <div className="mx-auto max-w-7xl px-4 py-12 lg:px-8">
           <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
@@ -92,7 +92,7 @@ export function Footer() {
               </Link>
               {/* Brokerage identification lives in the compliance strip at the
                   very bottom, not here. */}
-              <p className="mt-6 max-w-sm text-sm leading-6 text-white/70">
+              <p className="mt-6 max-w-sm text-sm leading-6 text-white/80">
                 {tenant.market.positioning}
               </p>
             </div>
@@ -101,7 +101,7 @@ export function Footer() {
             <FooterNav heading="Learn more" items={NAV_LEARN} />
 
             <div>
-              <h2 className="text-xs font-semibold uppercase tracking-widest text-white/60">
+              <h2 className="eyebrow text-white/80">
                 Get in touch
               </h2>
               <ul className="mt-4 space-y-2 text-sm">
@@ -132,7 +132,7 @@ export function Footer() {
               </ul>
               {/* Mailing address, which is the firm-identification detail a
                   licensed agent's site is expected to publish. */}
-              <address className="mt-4 max-w-[16rem] text-sm not-italic leading-6 text-white/70">
+              <address className="mt-4 max-w-[16rem] text-sm not-italic leading-6 text-white/80">
                 {tenant.agent.address}
               </address>
               {socials.length > 0 && (
@@ -143,7 +143,7 @@ export function Footer() {
                         href={String(v)}
                         rel="noopener noreferrer"
                         target="_blank"
-                        className="inline-flex min-h-[44px] items-center capitalize text-white/70 transition hover:text-white"
+                        className="inline-flex min-h-[44px] items-center capitalize text-white/80 transition hover:text-white"
                       >
                         {k}
                         <span className="sr-only"> (opens in a new tab)</span>
@@ -156,10 +156,10 @@ export function Footer() {
           </div>
 
           <div className="mt-8 rounded-lg border border-white/10 p-5">
-            <h2 className="text-xs font-semibold uppercase tracking-widest text-white/60">
+            <h2 className="eyebrow text-white/80">
               Part of the family
             </h2>
-            <p className="mt-2 text-sm text-white/70">
+            <p className="mt-2 text-sm text-white/80">
               <a
                 href={tenant.sibling.url}
                 target="_blank"
@@ -190,7 +190,7 @@ export function Footer() {
           <div className="flex flex-col gap-6 border-b border-white/10 pb-6 lg:flex-row lg:items-center lg:justify-between">
             <BrokeredBy tone="light" />
 
-            <div className="flex flex-wrap items-center gap-x-8 gap-y-4 text-white/70">
+            <div className="flex flex-wrap items-center gap-x-8 gap-y-4 text-white/80">
               <ComplianceBadge mark={<RealtorMark />} label="REALTOR®" />
               <ComplianceBadge
                 mark={<MlsMark />}
@@ -205,7 +205,7 @@ export function Footer() {
             </div>
           </div>
 
-          <div className="mt-6 grid gap-4 text-[11px] leading-5 text-white/50 lg:grid-cols-2">
+          <div className="mt-6 grid gap-4 text-xs leading-5 text-white/80 lg:grid-cols-2">
             <div className="space-y-2">
               <p>
                 {tenant.agent.name}, {tenant.agent.title}. Washington broker
@@ -227,7 +227,7 @@ export function Footer() {
                   ? ", and surrounding areas."
                   : "."}
               </p>
-              <p className="text-white/60">
+              <p className="text-white/80">
                 &copy; {year} {tenant.brand.name}. All rights reserved.
               </p>
             </div>

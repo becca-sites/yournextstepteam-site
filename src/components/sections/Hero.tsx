@@ -13,10 +13,10 @@ export function Hero() {
         <div className="lg:col-span-6 lg:pr-6">
           <p className="eyebrow">{tenant.brand.eyebrow}</p>
           {/* TODO Becca-approved headline: placeholder senior-focused headline below. */}
-          <h1 className="mt-5 font-heading text-4xl font-semibold leading-[1.05] tracking-tight md:text-6xl">
+          <h1 className="mt-6 font-display text-4xl md:text-6xl">
             Senior real estate for every next step.
           </h1>
-          <p className="mt-6 max-w-xl text-lg text-[color:var(--color-muted)] md:text-xl">
+          <p className="mt-6 max-w-xl text-lg text-muted">
             {tenant.agent.bio}
           </p>
           <div className="mt-9 flex flex-wrap gap-3">
@@ -27,7 +27,7 @@ export function Hero() {
               See current listings
             </Link>
           </div>
-          <p className="mt-6 text-sm text-[color:var(--color-muted)]">
+          <p className="mt-6 text-sm text-muted">
             {tenant.market.city}, {tenant.market.stateAbbreviation} &middot;{" "}
             {tenant.market.commuteToHub} to {tenant.market.hubCity}
           </p>

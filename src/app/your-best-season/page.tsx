@@ -21,14 +21,14 @@ export default function YourBestSeasonPage() {
           { name: "Your Best Season", url: "/your-best-season" },
         ]}
       />
-      <section className="bg-[var(--color-surface)] py-16 md:py-24">
+      <section className="bg-[var(--color-surface)] section-y">
         <Container>
           <FadeIn className="max-w-3xl">
             <p className="eyebrow">Video series</p>
-            <h1 className="mt-5 font-display text-4xl font-semibold leading-[1.05] tracking-tight md:text-6xl">
+            <h1 className="mt-6 font-display text-4xl md:text-6xl">
               {tenant.videos.seriesTitle}
             </h1>
-            <p className="mt-6 text-lg text-neutral-600 md:text-xl">
+            <p className="mt-6 text-lg text-muted">
               {tenant.videos.seriesDescription}
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
@@ -48,7 +48,7 @@ export default function YourBestSeasonPage() {
         </Container>
       </section>
 
-      <section className="bg-white py-20 md:py-28">
+      <section className="bg-white section-y">
         <Container>
           <FadeInStagger className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {tenant.episodes.map((ep) => (
@@ -58,17 +58,17 @@ export default function YourBestSeasonPage() {
                   className="group flex h-full flex-col rounded-2xl border border-black/5 bg-[var(--color-surface)] p-7 transition hover:-translate-y-0.5 hover:border-[var(--color-primary)] hover:shadow-xl"
                 >
                   <div className="flex items-center gap-3">
-                    <span className="flex h-10 w-10 items-center justify-center rounded-full bg-[var(--color-moss)] text-sm font-semibold text-white">
+                    <span className="flex h-10 w-10 items-center justify-center rounded-full bg-[var(--color-moss-deep)] text-sm font-semibold text-white">
                       {ep.number}
                     </span>
-                    <h2 className="font-display text-xl font-semibold group-hover:text-[var(--color-moss)] transition">
+                    <h2 className="text-xl font-semibold group-hover:text-ink transition">
                       {ep.title}
                     </h2>
                   </div>
-                  <p className="mt-4 text-base leading-relaxed text-neutral-600">
+                  <p className="mt-4 text-base leading-relaxed text-muted">
                     {ep.description}
                   </p>
-                  <p className="mt-auto pt-6 text-sm font-medium text-[var(--color-moss)] group-hover:underline">
+                  <p className="mt-auto pt-6 text-sm font-medium text-ink group-hover:underline">
                     Watch episode &rarr;
                   </p>
                 </Link>

@@ -21,14 +21,14 @@ export default function CaseStudiesPage() {
           { name: "Case Studies", url: "/case-studies" },
         ]}
       />
-      <section className="bg-[var(--color-surface)] py-16 md:py-24">
+      <section className="bg-[var(--color-surface)] section-y">
         <Container>
           <FadeIn className="max-w-3xl">
             <p className="eyebrow">Client stories</p>
-            <h1 className="mt-5 font-display text-4xl font-semibold leading-[1.05] tracking-tight md:text-6xl">
+            <h1 className="mt-6 font-display text-4xl md:text-6xl">
               Real transitions from real families.
             </h1>
-            <p className="mt-6 text-lg text-neutral-600 md:text-xl">
+            <p className="mt-6 text-lg text-muted">
               Every move has a story. These are some of the families we have
               helped navigate downsizing, estate transitions, aging-in-place
               decisions, and first-time purchases across the{" "}
@@ -38,14 +38,14 @@ export default function CaseStudiesPage() {
         </Container>
       </section>
 
-      <section className="bg-white py-20 md:py-28">
+      <section className="bg-white section-y">
         <Container>
           <FadeIn className="mx-auto max-w-2xl text-center">
             <div className="rounded-2xl border border-dashed border-neutral-300 bg-[var(--color-surface)] px-8 py-16">
-              <p className="font-display text-2xl font-semibold text-neutral-950">
+              <p className="font-display text-2xl text-ink">
                 Client success stories coming soon.
               </p>
-              <p className="mt-4 text-base text-neutral-600">
+              <p className="mt-4 text-base text-muted">
                 I&apos;m writing up the real transitions I&apos;ve helped
                 families navigate. Leave your email and I&apos;ll let you know
                 when the first stories are published.

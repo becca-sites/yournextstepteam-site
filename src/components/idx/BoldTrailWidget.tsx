@@ -43,10 +43,10 @@ export function BoldTrailWidget({ variant, mlsId }: Props) {
       data-mls-id={mlsId}
       className="min-h-[600px] rounded-2xl border border-dashed border-neutral-300 bg-neutral-50 p-6"
     >
-      <p className="text-sm text-neutral-600">
+      <p className="text-sm text-muted">
         Bold Trail {variant} widget loads here. Configure your widget script URL in
-        <code className="ml-1 rounded bg-neutral-200 px-1">site.config.ts</code> or via the
-        <code className="ml-1 rounded bg-neutral-200 px-1">NEXT_PUBLIC_BOLDTRAIL_WIDGET_URL</code>
+        <code className="ml-1 rounded bg-neutral-200 px-1 text-ink">site.config.ts</code> or via the
+        <code className="ml-1 rounded bg-neutral-200 px-1 text-ink">NEXT_PUBLIC_BOLDTRAIL_WIDGET_URL</code>
         environment variable.
       </p>
     </div>

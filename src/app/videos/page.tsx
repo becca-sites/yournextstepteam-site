@@ -21,23 +21,23 @@ export default function VideosPage() {
           { name: "Videos", url: "/videos" },
         ]}
       />
-      <section className="bg-[var(--color-surface)] py-16 md:py-20">
+      <section className="bg-[var(--color-surface)] section-y">
         <div className="mx-auto max-w-3xl px-4 lg:px-8">
           <p className="eyebrow">Senior living education</p>
-          <h1 className="mt-4 font-heading text-4xl font-semibold leading-tight md:text-6xl">
+          <h1 className="mt-4 font-display text-4xl md:text-6xl">
             {seriesTitle}
           </h1>
-          <p className="mt-5 text-lg text-[color:var(--color-muted)] md:text-xl">
+          <p className="mt-6 text-lg text-muted">
             {seriesDescription}
           </p>
-          <p className="mt-4 text-base text-[color:var(--color-muted)]">
+          <p className="mt-4 text-base text-muted">
             An 8-part series walking through the decisions that come with a later-in-life
             move: aging in place, downsizing, elder care, and choosing a confident next step.
           </p>
         </div>
       </section>
 
-      <section className="bg-white py-14 md:py-20">
+      <section className="bg-white section-y">
         <div className="mx-auto max-w-4xl px-4 lg:px-8">
           <div className="relative aspect-video w-full overflow-hidden rounded-3xl border border-black/5 bg-neutral-100 shadow-lg">
             <iframe

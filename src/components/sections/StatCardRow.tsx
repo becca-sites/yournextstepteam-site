@@ -37,17 +37,17 @@ export function StatCardRow({
       className={
         isDark
           ? "bg-[var(--color-primary)] text-white"
-          : "border-y border-black/5 surface-warm text-[color:var(--color-ink)]"
+          : "border-y border-black/5 surface-warm text-ink"
       }
     >
-      <div className="mx-auto max-w-7xl px-4 py-14 lg:px-8 lg:py-20">
+      <div className="section-y mx-auto max-w-7xl px-4 lg:px-8">
         {(heading || eyebrow) && (
           <div className="mb-10 max-w-2xl">
             {eyebrow && (
               <p
                 className={
                   isDark
-                    ? "text-xs font-semibold uppercase tracking-widest text-white/60"
+                    ? "eyebrow text-white/80"
                     : "eyebrow"
                 }
               >
@@ -56,7 +56,7 @@ export function StatCardRow({
             )}
             {heading && (
               <h2
-                className={`mt-3 font-heading text-3xl font-semibold md:text-4xl ${
+                className={`mt-4 font-display text-3xl md:text-4xl ${
                   isDark ? "text-white" : ""
                 }`}
               >
@@ -84,8 +84,8 @@ export function StatCardRow({
               </dd>
               {s.detail && (
                 <p
-                  className={`mt-2 text-xs ${
-                    isDark ? "text-white/60" : "text-[color:var(--color-muted)]"
+                  className={`mt-2 text-sm ${
+                    isDark ? "text-white/80" : "text-muted"
                   }`}
                 >
                   {s.detail}

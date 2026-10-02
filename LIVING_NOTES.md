@@ -157,6 +157,13 @@ work done directly in the repo.
 
 ## Hero treatment
 
+> **Superseded 2026-10-02 (typography overhaul, Brett).** The hero is now white
+> Playfair on a dark scrim, the Deborah Rose treatment. The white wash below was
+> legible on the left of a desktop and nowhere else: it was clear by 62% of the
+> width, which on a 375px phone is under the second half of every line. See
+> "Typography system" for the current rules. The history below is kept for
+> context only.
+
 - **Show the footage.** The white scrim over the hero video was cut from a 0.97
   peak to 0.40 because the near-solid wash was the whole complaint: it read as a
   white page with a video hiding behind it.
@@ -525,6 +532,10 @@ work done directly in the repo.
 
 ## Homepage hero conventions
 
+> Glass and scrim notes here predate the 2026-10-02 dark scrim. The cards are
+> still frosted white with ink type, but denser (0.78 to 0.92) because they now
+> sit on a dark wash. See "Typography system".
+
 - **The hero carries the proof, not a separate strip.** The four stats live on
   the video at the bottom of the hero. There is no "By the numbers" section on
   the homepage any more, and the about section is the first thing below the fold.
@@ -569,6 +580,52 @@ pointed at these; the values below are read off the live page, not approximated.
   arbitrary `text-[11px]` or `text-[13px]` to make something fit. Arbitrary px
   values slide under the floor silently; the utility classes respect it. If a
   label needs to recede, change case, weight, or color instead of size.
+- **14px is for micro-labels only (2026-10-02).** Uppercase eyebrows, compliance
+  marks, the footer's legal lines. Anything someone reads as a sentence, a name,
+  or a label explaining a number is 16px minimum. The one exception still on the
+  site is the 9 to 10px "Brokered by eXp Realty" line in the header, which is
+  sized to eXp's rule that the agent's own branding be at least as large.
+
+## Typography system (2026-10-02, Brett)
+
+Brett prefers the look of DeborahRoseRealEstate.com, which he also built, and
+asked for its type on this site. From the visual audit of both sites.
+
+- **Two faces: Playfair Display for display, Geist for everything else.** Both
+  self-hosted from `public/fonts`, no CDN. Azo Sans is retired everywhere except
+  the closing crawl.
+- **Playfair only at 28px and up, only at weight 400.** It is a high-contrast
+  Didone and its hairlines break up at small sizes, which matters for an older
+  audience. It is opt-in through the `font-display` class; headings default to
+  Geist SemiBold. Never put `font-display` on anything that can render under
+  `text-2xl` at any breakpoint, including on phones.
+- **Display headings are 400, never bold.** Weight was the single biggest reason
+  the site read cheaper than Deborah Rose's: 62px at 700 reads loud, 69px at 400
+  reads expensive. `.font-display` enforces 400 and -0.01em tracking even if a
+  utility asks for more.
+- **The scale is a major third on the 18px body.** Reading sizes step by 2px
+  (16 / 18 / 20); headings are 18 x 1.25^n (22.5 / 28.1 / 35.2 / 43.9 / 54.9 /
+  68.7). Body is 18px, leads are 20px, card titles are 22.5px Geist SemiBold.
+  Section h2 is `text-3xl md:text-4xl`; page h1 is `text-4xl md:text-6xl`.
+- **Two text colours.** `text-ink` (#1A2028) for headings and anything read
+  first, `text-muted` (#4A5560) for body and supporting copy. On dark grounds,
+  white and white/80. No Tailwind neutral greys for text, and no sage text below
+  24px (5.3:1 is AA, not AAA). On the fog panel, use ink: muted is 6.4:1 there.
+- **Deep sage #4A5A47 for any sage surface carrying white text.** White on the
+  brand sage is 5.3:1; on the deep sage it is 7.4:1.
+- **Sections are 128px top and bottom on desktop, 96px on phones**, via
+  `section-y`. Final CTA blocks use `section-y-lg` (160 / 112).
+- **Paragraphs are capped at 32em, about 66 characters.** A base rule caps
+  every paragraph; do not put `max-w-2xl` or wider on a `<p>`, which overrides
+  it. (In em, not ch: a ch in Geist is about 1.27 average characters.)
+- **Cards lift on `shadow-card`**, two layers, ink-tinted, large blur and
+  negative spread. Hover goes to `shadow-card-hover`.
+- **Hero: white Playfair on a dark scrim, no text-shadow.** The scrim holds 0.72
+  or denser across the whole text column at every width, which keeps white at
+  7.8:1 even over a pure white frame.
+- **The closing crawl keeps Azo Sans and is not part of this system.** A
+  `.crawl` rule re-points the font variables inside it so nothing site-wide can
+  cascade in. Leave it that way.
 
 ## Scroll-driven motion
 

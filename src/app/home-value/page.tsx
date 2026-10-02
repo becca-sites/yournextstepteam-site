@@ -41,10 +41,10 @@ export default function HomeValuePage() {
         <div className="mx-auto grid max-w-7xl gap-12 px-4 pt-16 pb-12 lg:grid-cols-12 lg:gap-16 lg:px-8 lg:pt-24 lg:pb-20">
           <div className="lg:col-span-7">
             <p className="eyebrow">Home valuation</p>
-            <h1 className="mt-5 font-heading text-4xl font-semibold leading-[1.05] tracking-tight md:text-6xl">
+            <h1 className="mt-6 font-display text-4xl md:text-6xl">
               What is your home worth right now?
             </h1>
-            <p className="mt-6 max-w-xl text-lg text-[color:var(--color-muted)] md:text-xl">
+            <p className="mt-6 max-w-xl text-lg text-muted">
               Start with an instant estimate from public data, then I refine it
               by hand against your actual Pierce County comps and send you the
               real number within 24 hours.
@@ -73,17 +73,17 @@ export default function HomeValuePage() {
         </div>
       </section>
 
-      <section id="valuation" className="bg-white py-16 md:py-24">
+      <section id="valuation" className="bg-white section-y">
         <div className="mx-auto max-w-4xl px-4 lg:px-8">
           <ValuationWidget />
         </div>
       </section>
 
-      <section className="surface-warm py-16 md:py-24">
+      <section className="surface-warm section-y">
         <div className="mx-auto max-w-7xl px-4 lg:px-8">
           <div className="max-w-2xl">
             <p className="eyebrow">How it works</p>
-            <h2 className="mt-3 font-heading text-3xl font-semibold md:text-4xl">
+            <h2 className="mt-3 font-display text-3xl md:text-4xl">
               Three steps from address to answer.
             </h2>
           </div>
@@ -91,15 +91,15 @@ export default function HomeValuePage() {
             {STEPS.map((step, i) => (
               <article
                 key={step.title}
-                className="rounded-2xl border border-black/5 bg-white p-7"
+                className="rounded-2xl shadow-card border border-black/5 bg-white p-8"
               >
-                <p className="font-mono text-xs tracking-widest text-[color:var(--color-secondary)]">
+                <p className="font-mono text-xs tracking-widest text-muted">
                   STEP {String(i + 1).padStart(2, "0")}
                 </p>
-                <h3 className="mt-3 font-heading text-xl font-semibold">
+                <h3 className="mt-3 text-xl font-semibold">
                   {step.title}
                 </h3>
-                <p className="mt-3 text-sm leading-relaxed text-[color:var(--color-muted)]">
+                <p className="mt-3 text-sm leading-relaxed text-muted">
                   {step.body}
                 </p>
               </article>

@@ -118,7 +118,7 @@ export function ComplianceBadge({
   return (
     <div className="flex items-center gap-2.5">
       <span className="shrink-0">{mark}</span>
-      <span className="text-[11px] font-medium uppercase leading-tight tracking-[0.12em]">
+      <span className="text-xs font-medium uppercase leading-tight tracking-[0.12em]">
         {label}
         {detail && (
           <span className="block font-normal normal-case tracking-normal opacity-70">
@@ -155,8 +155,8 @@ export function BrokeredBy({
       <span
         className={
           tone === "light"
-            ? "text-[11px] font-medium uppercase leading-tight tracking-[0.14em] text-white/60"
-            : "text-[11px] font-medium uppercase leading-tight tracking-[0.14em] text-[var(--color-ink-soft)]"
+            ? "text-xs font-medium uppercase leading-tight tracking-[0.14em] text-white/80"
+            : "text-xs font-medium uppercase leading-tight tracking-[0.14em] text-muted"
         }
       >
         Brokered by
@@ -178,7 +178,7 @@ export function BrokeredBy({
           className={
             tone === "light"
               ? "text-base font-bold leading-none tracking-tight text-white"
-              : "text-base font-bold leading-none tracking-tight text-[var(--color-ink)]"
+              : "text-base font-bold leading-none tracking-tight text-ink"
           }
         >
           {agent.brokerage}

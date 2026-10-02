@@ -51,7 +51,7 @@ export function ValuationWidget() {
         data-realscout-container
         className="min-h-[480px] rounded-2xl border border-black/5 bg-[var(--color-surface)] p-8"
       >
-        <p className="text-sm text-[color:var(--color-muted)]">
+        <p className="text-sm text-muted">
           RealScout valuation widget loads here.
         </p>
       </div>
@@ -66,10 +66,10 @@ export function ValuationWidget() {
         className="rounded-2xl border border-black/5 bg-[var(--color-surface)] p-10 text-center"
       >
         <p className="eyebrow">Estimate request received</p>
-        <h2 className="mt-3 font-heading text-2xl font-semibold md:text-3xl">
+        <h2 className="mt-3 font-display text-2xl md:text-3xl">
           Thanks. {tenant.agent.firstName} will be in touch within 24 hours.
         </h2>
-        <p className="mt-4 text-base text-[color:var(--color-muted)]">
+        <p className="mt-4 text-base text-muted">
           A personalized CMA based on recent comparable sales is on the way to
           the email on file.
         </p>
@@ -96,10 +96,10 @@ export function ValuationWidget() {
         onChange={(e) => setAddress(e.target.value)}
         className="mt-3 block w-full rounded-xl border border-neutral-500 bg-white px-5 py-4 text-lg transition focus:border-[var(--color-primary)]"
       />
-      <button type="submit" className="btn-primary mt-5">
+      <button type="submit" className="btn-primary mt-6">
         Get my estimate
       </button>
-      <p className="mt-4 text-sm text-[color:var(--color-muted)]">
+      <p className="mt-4 text-sm text-muted">
         By submitting, you agree to receive a follow-up email with the personalized
         CMA. No additional marketing contact unless you opt in.
       </p>

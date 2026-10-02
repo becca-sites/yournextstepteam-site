@@ -23,22 +23,22 @@ export function FeaturedListings() {
   const cards = PLACEHOLDER_CARDS.slice(0, Math.min(PLACEHOLDER_CARDS.length, photos.length));
 
   return (
-    <section className="bg-white py-20 md:py-24">
+    <section className="bg-white section-y">
       <div className="mx-auto max-w-7xl px-4 lg:px-8">
         <div className="flex flex-wrap items-end justify-between gap-6">
           <div className="max-w-2xl">
             <p className="eyebrow">Recent work</p>
-            <h2 className="mt-3 font-heading text-3xl font-semibold md:text-4xl">
+            <h2 className="mt-3 font-display text-3xl md:text-4xl">
               A look at recent listings.
             </h2>
-            <p className="mt-4 text-base text-[color:var(--color-muted)] md:text-lg">
+            <p className="mt-4 text-base text-muted">
               Sample homes from the {tenant.market.primaryArea}. Photos and
               card copy below are placeholder data for the template demo.
             </p>
           </div>
           <Link
             href="/listings"
-            className="text-sm font-medium text-[var(--color-primary)] underline-offset-4 hover:underline"
+            className="text-sm font-medium text-ink underline-offset-4 hover:underline"
           >
             All current listings →
           </Link>
@@ -48,7 +48,7 @@ export function FeaturedListings() {
           {cards.map((card, i) => (
             <article
               key={`${card.tag}-${i}`}
-              className="group overflow-hidden rounded-2xl border border-black/5 bg-white transition hover:-translate-y-0.5 hover:shadow-lg"
+              className="group overflow-hidden rounded-2xl shadow-card border border-black/5 bg-white transition hover:-translate-y-0.5 hover:shadow-card-hover"
             >
               <div className="relative aspect-[4/3] w-full overflow-hidden bg-neutral-100">
                 <Image
@@ -63,13 +63,13 @@ export function FeaturedListings() {
                     that is not a control should look like one. It keeps the
                     white plate, because this sits on a photograph and needs
                     the contrast to stay readable. */}
-                <span className="absolute left-4 top-4 rounded-sm bg-white/95 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-[color:var(--color-ink)]">
+                <span className="absolute left-4 top-4 rounded-sm bg-white/95 px-3 py-1 eyebrow text-ink">
                   {card.tag}
                 </span>
               </div>
               <div className="px-5 py-4">
-                <p className="font-heading text-xl font-semibold">{card.price}</p>
-                <p className="mt-1 text-sm text-[color:var(--color-muted)]">
+                <p className="text-xl font-semibold">{card.price}</p>
+                <p className="mt-1 text-sm text-muted">
                   {card.line}
                 </p>
               </div>

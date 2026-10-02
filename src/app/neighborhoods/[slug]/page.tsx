@@ -44,11 +44,11 @@ export default async function NeighborhoodDetail({ params }: Props) {
         ]}
       />
 
-      <section className="bg-[var(--color-surface)] py-12 md:py-16">
+      <section className="bg-[var(--color-surface)] section-y">
         <div className="mx-auto max-w-7xl px-4 lg:px-8">
           <Link
             href="/neighborhoods"
-            className="text-sm text-[color:var(--color-muted)] underline-offset-4 hover:underline"
+            className="text-sm text-muted underline-offset-4 hover:underline"
           >
             ← All neighborhoods
           </Link>
@@ -58,16 +58,16 @@ export default async function NeighborhoodDetail({ params }: Props) {
       <section className="bg-[var(--color-surface)]">
         <div className="mx-auto grid max-w-7xl gap-10 px-4 pb-12 lg:grid-cols-12 lg:gap-12 lg:px-8 lg:pb-20">
           <div className="lg:col-span-6">
-            <p className="text-xs uppercase tracking-widest text-[color:var(--color-secondary)]">
+            <p className="eyebrow text-muted">
               {n.zip} &middot; {n.commute}
             </p>
-            <h1 className="mt-4 font-heading text-4xl font-semibold leading-[1.05] tracking-tight md:text-6xl">
+            <h1 className="mt-4 font-display text-4xl md:text-6xl">
               {n.name}, {tenant.market.state} real estate.
             </h1>
-            <p className="mt-3 text-2xl text-[color:var(--color-muted)]">
+            <p className="mt-3 text-2xl text-muted">
               {n.tagline}.
             </p>
-            <p className="mt-6 max-w-xl text-lg text-[color:var(--color-muted)]">
+            <p className="mt-6 max-w-xl text-lg text-muted">
               {n.description}
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
@@ -109,25 +109,25 @@ export default async function NeighborhoodDetail({ params }: Props) {
             <p className="mt-2 text-sm uppercase tracking-wide">To {tenant.market.hubCity}</p>
           </div>
           <div className="px-6 py-10">
-            <p className="font-heading text-lg font-semibold">{tenant.market.schoolDistrict}</p>
+            <p className="text-xl font-semibold">{tenant.market.schoolDistrict}</p>
             <p className="mt-2 text-sm uppercase tracking-wide">Primary district</p>
           </div>
         </div>
       </section>
 
-      <section className="bg-white py-20 md:py-24">
+      <section className="bg-white section-y">
         <div className="mx-auto max-w-4xl px-4 lg:px-8">
           <p className="eyebrow">What makes it special</p>
-          <h2 className="mt-3 font-heading text-3xl font-semibold md:text-4xl">
+          <h2 className="mt-3 font-display text-3xl md:text-4xl">
             {n.name} highlights.
           </h2>
-          <ol className="mt-10 space-y-5">
+          <ol className="mt-10 space-y-6">
             {n.highlights.map((h, i) => (
               <li
                 key={h}
                 className="flex gap-5 rounded-2xl border border-black/5 bg-[var(--color-surface)] p-6"
               >
-                <p className="display-num text-3xl text-[var(--color-secondary)]">
+                <p className="display-num text-3xl text-[var(--color-moss)]">
                   {String(i + 1).padStart(2, "0")}
                 </p>
                 <p className="self-center text-base leading-relaxed">{h}</p>
@@ -138,10 +138,10 @@ export default async function NeighborhoodDetail({ params }: Props) {
       </section>
 
       {nearby.length > 0 && (
-        <section className="surface-warm py-20 md:py-24">
+        <section className="surface-warm section-y">
           <div className="mx-auto max-w-7xl px-4 lg:px-8">
             <p className="eyebrow">Also worth a look</p>
-            <h2 className="mt-3 font-heading text-3xl font-semibold md:text-4xl">
+            <h2 className="mt-3 font-display text-3xl md:text-4xl">
               Nearby neighborhoods.
             </h2>
             <ul className="mt-10 grid gap-6 md:grid-cols-3">
@@ -149,10 +149,10 @@ export default async function NeighborhoodDetail({ params }: Props) {
                 <li key={other.slug}>
                   <Link
                     href={`/neighborhoods/${other.slug}`}
-                    className="block rounded-2xl border border-black/5 bg-white p-6 transition hover:-translate-y-0.5 hover:shadow-lg"
+                    className="block rounded-2xl shadow-card border border-black/5 bg-white p-6 transition hover:-translate-y-0.5 hover:shadow-card-hover"
                   >
-                    <p className="font-heading text-lg font-semibold">{other.name}</p>
-                    <p className="mt-1 text-sm text-[color:var(--color-muted)]">
+                    <p className="text-xl font-semibold">{other.name}</p>
+                    <p className="mt-1 text-sm text-muted">
                       Median {other.median} &middot; {other.zip}
                     </p>
                   </Link>

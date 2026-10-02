@@ -10,20 +10,56 @@ import { Footer } from "@/components/global/Footer";
 import "./globals.css";
 
 /*
- * Azo Sans, self-hosted.
+ * Type: the Deborah Rose pairing, self-hosted.
  *
- * Files live in public/fonts and are served from Becca's own deployment, not a
- * CDN. next/font/local fingerprints them, emits the @font-face rules, and sizes
- * the fallback metrics so swapping from Arial to Azo does not shift the layout.
+ * Every file lives in public/fonts and is served from Becca's own deployment,
+ * not a CDN. next/font/local fingerprints them, emits the @font-face rules, and
+ * sizes a metric-matched fallback so the swap does not shift the layout.
  *
- * The pack ships Thin, Light, Regular, Medium, Bold and Black with italics.
- * Only the five faces the design actually uses are shipped, keeping the payload
- * at roughly 92KB total across all weights, of which a page typically downloads
- * two or three. Thin and Light are deliberately left out: hairline weights are
- * the wrong call for readers with ageing eyesight.
+ * Geist carries body copy and every piece of interface. Four static faces, the
+ * same four roles the old Azo Sans set covered: Regular, Italic, Medium and
+ * SemiBold. Nothing lighter, because hairline weights are the wrong call for
+ * readers with ageing eyesight, and nothing heavier, because 600 is as loud as
+ * this site gets.
  *
- * There is no SemiBold in the pack. globals.css remaps font-semibold to the real
- * Bold at 700 rather than letting the browser synthesise one.
+ * Playfair Display is display type only, at 400, and only at 28px and up. It
+ * is a high-contrast Didone: the hairlines that make it look expensive at 60px
+ * are the same hairlines that break up at 16px for an older reader. globals.css
+ * holds that line; this file only loads the one face it needs. Latin subset,
+ * about 22KB.
+ */
+const geist = localFont({
+  src: [
+    { path: "../../public/fonts/Geist-Regular.woff2", weight: "400", style: "normal" },
+    { path: "../../public/fonts/Geist-Italic.woff2", weight: "400", style: "italic" },
+    { path: "../../public/fonts/Geist-Medium.woff2", weight: "500", style: "normal" },
+    { path: "../../public/fonts/Geist-SemiBold.woff2", weight: "600", style: "normal" },
+  ],
+  variable: "--font-geist",
+  display: "swap",
+  preload: true,
+  fallback: ["ui-sans-serif", "system-ui", "-apple-system", "Segoe UI", "Arial", "sans-serif"],
+  adjustFontFallback: "Arial",
+});
+
+const playfair = localFont({
+  src: [
+    { path: "../../public/fonts/PlayfairDisplay-Regular-latin.woff2", weight: "400", style: "normal" },
+  ],
+  variable: "--font-playfair",
+  display: "swap",
+  preload: true,
+  fallback: ["Iowan Old Style", "Georgia", "serif"],
+  adjustFontFallback: "Times New Roman",
+});
+
+/*
+ * Azo Sans, kept for one section only: the closing crawl.
+ *
+ * The crawl is deliberately left exactly as it was built, typeface included,
+ * so its five faces are still declared here. They are no longer preloaded,
+ * since nothing above the fold uses them; the browser fetches them when the
+ * crawl's text first needs them.
  */
 const azoSans = localFont({
   src: [
@@ -35,7 +71,7 @@ const azoSans = localFont({
   ],
   variable: "--font-azo",
   display: "swap",
-  preload: true,
+  preload: false,
   fallback: [
     "-apple-system",
     "BlinkMacSystemFont",
@@ -94,7 +130,10 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en-US" className={azoSans.variable}>
+    <html
+      lang="en-US"
+      className={`${geist.variable} ${playfair.variable} ${azoSans.variable}`}
+    >
       <head>
         {isNoIndex() && (
           <>
@@ -128,7 +167,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         */}
         <a
           href="#main-content"
-          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:inline-flex focus:min-h-[48px] focus:items-center focus:rounded-full focus:bg-[var(--color-sunshine)] focus:px-6 focus:py-3 focus:text-base focus:font-bold focus:text-[var(--color-ink)] focus:shadow-lg focus:outline-3 focus:outline-offset-2 focus:outline-[var(--color-ink)]"
+          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:inline-flex focus:min-h-[48px] focus:items-center focus:rounded-full focus:bg-[var(--color-sunshine)] focus:px-6 focus:py-3 focus:text-base focus:font-bold focus:text-ink focus:shadow-lg focus:outline-3 focus:outline-offset-2 focus:outline-[var(--color-ink)]"
         >
           Skip to main content
         </a>

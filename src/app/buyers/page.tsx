@@ -72,10 +72,10 @@ export default function BuyersPage() {
           <div className="grid max-w-7xl gap-12 lg:grid-cols-12 lg:items-center">
             <FadeIn className="lg:col-span-7">
               <p className="eyebrow">For buyers in the Puget Sound</p>
-              <h1 className="mt-5 font-display text-4xl font-semibold leading-[1.05] tracking-tight md:text-6xl">
+              <h1 className="mt-6 font-display text-4xl md:text-6xl">
                 Finding the house might be easy...
               </h1>
-              <p className="mt-6 max-w-xl text-lg text-neutral-600 md:text-xl">
+              <p className="mt-6 max-w-xl text-lg text-muted">
                 ...and honestly, the search is about five percent of this. Most
                 of my buyers find the house themselves. The other ninety-five
                 percent happens between mutual acceptance and the day you get
@@ -100,7 +100,7 @@ export default function BuyersPage() {
                   Let&apos;s have a conversation
                 </Link>
               </div>
-              <p className="mt-6 max-w-xl text-sm leading-relaxed text-neutral-500">
+              <p className="mt-6 max-w-xl text-sm leading-relaxed text-muted">
                 {CREDENTIALS.join(" · ")}
               </p>
             </FadeIn>
@@ -127,17 +127,17 @@ export default function BuyersPage() {
           filled container around a label reads as a button and nothing that is
           not a control should look like one. The colour ranks the section from
           the border, and the words stay dark so they are readable. */}
-      <section className="bg-white py-16 md:py-20">
+      <section className="bg-white section-y">
         <Container>
           <FadeIn>
             <div className="rounded-2xl border-2 border-[var(--color-sunshine)] bg-[#FEF9EF] p-8 shadow-[0_2px_18px_rgba(217,154,43,0.18)] md:p-12">
-              <span className="block text-xs font-semibold uppercase tracking-widest text-[var(--color-ink)]">
+              <span className="block eyebrow text-ink">
                 Where I specialize
               </span>
-              <h2 className="mt-5 font-display text-3xl font-semibold md:text-4xl">
+              <h2 className="mt-6 font-display text-3xl md:text-4xl">
                 Senior transitions
               </h2>
-              <p className="mt-4 max-w-3xl text-base leading-relaxed text-neutral-700 md:text-lg">
+              <p className="mt-4 text-base leading-relaxed text-muted">
                 Should Mom stay in the house, or is it time for something
                 smaller, or time for care? It is one of the hardest
                 conversations a family has, and it almost always shows up with a
@@ -159,11 +159,11 @@ export default function BuyersPage() {
 
       {/* Testimonials. Balanced with CSS columns so a long review and a short
           one can sit side by side without stretching a grid row. */}
-      <section className="surface-warm py-16 md:py-20">
+      <section className="surface-warm section-y">
         <Container>
           <FadeIn className="max-w-2xl">
             <p className="eyebrow">What buyers say</p>
-            <h2 className="mt-3 font-display text-3xl font-semibold md:text-4xl">
+            <h2 className="mt-3 font-display text-3xl md:text-4xl">
               The reviews are the pitch.
             </h2>
           </FadeIn>
@@ -171,16 +171,16 @@ export default function BuyersPage() {
           <FadeInStagger className="mt-10 gap-6 md:columns-2 lg:columns-3">
             {BUYER_REVIEWS.map((t) => (
               <FadeIn key={t.name} className="mb-6 break-inside-avoid">
-                <figure className="rounded-2xl border border-black/5 bg-white p-7 shadow-sm">
-                  <blockquote className="text-base leading-relaxed text-neutral-700">
+                <figure className="rounded-2xl border border-black/5 bg-white p-8 shadow-sm">
+                  <blockquote className="text-base leading-relaxed text-muted">
                     {t.quote}
                   </blockquote>
-                  <figcaption className="mt-5 border-t border-black/10 pt-4 text-sm">
-                    <span className="font-semibold text-neutral-950">
+                  <figcaption className="mt-6 border-t border-black/10 pt-4 text-sm">
+                    <span className="font-semibold text-ink">
                       {t.name}
                     </span>
                     {t.source && (
-                      <span className="text-neutral-500">
+                      <span className="text-muted">
                         {" "}
                         &middot; {t.source} review
                       </span>
@@ -194,13 +194,13 @@ export default function BuyersPage() {
       </section>
 
       {/* Quiz. The soft funnel for anyone who is not ready to fill out a form. */}
-      <section className="bg-white py-16 md:py-20">
+      <section className="bg-white section-y">
         <Container>
           <FadeIn className="mx-auto max-w-2xl text-center">
-            <h2 className="font-display text-3xl font-semibold md:text-4xl">
+            <h2 className="font-display text-3xl md:text-4xl">
               Not ready to fill out a questionnaire?
             </h2>
-            <p className="mt-4 text-lg text-neutral-600">
+            <p className="mt-4 text-lg text-muted">
               Take the Real Estate IQ Quiz. Six real scenarios out of this
               market, and you will see how you would handle pricing,
               inspections, and negotiation. It takes about four minutes.
@@ -215,14 +215,14 @@ export default function BuyersPage() {
       </section>
 
       {/* Neighborhoods. One line and a link. Town names live over there. */}
-      <section className="surface-warm py-16 md:py-20">
+      <section className="surface-warm section-y">
         <Container>
-          <FadeIn className="mx-auto flex max-w-3xl flex-col items-start gap-6 rounded-2xl border border-black/5 bg-white p-8 md:flex-row md:items-center md:justify-between md:p-10">
+          <FadeIn className="mx-auto flex max-w-3xl flex-col items-start gap-6 rounded-2xl shadow-card border border-black/5 bg-white p-8 md:flex-row md:items-center md:justify-between md:p-10">
             <div>
-              <h2 className="font-display text-2xl font-semibold md:text-3xl">
+              <h2 className="font-display text-2xl md:text-3xl">
                 Browse the area
               </h2>
-              <p className="mt-2 text-base text-neutral-600">
+              <p className="mt-2 text-base text-muted">
                 Guides to the towns and communities across Pierce, King, and the
                 surrounding counties.
               </p>

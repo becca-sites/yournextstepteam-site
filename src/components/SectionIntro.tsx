@@ -26,10 +26,13 @@ export function SectionIntro({
       <h2>
         {eyebrow && (
           <>
+            {/* The site's one eyebrow style, so a section intro and a
+                hand-built section never disagree about what an eyebrow is.
+                Geist, never Playfair: it is 14px. */}
             <span
               className={cn(
-                "mb-6 block font-display text-sm font-semibold tracking-wider uppercase",
-                invert ? "text-white/80" : "text-neutral-500",
+                "eyebrow mb-4 block",
+                invert && "text-white/80",
               )}
             >
               {eyebrow}
@@ -39,11 +42,12 @@ export function SectionIntro({
         )}
         <span
           className={cn(
-            "block font-display tracking-tight text-balance",
-            smaller
-              ? "text-2xl font-semibold"
-              : "text-3xl font-medium sm:text-4xl lg:text-5xl",
-            invert ? "text-white" : "text-neutral-950",
+            // The same h2 sizes every hand-built section uses: 35px on a
+            // phone, 44px from md. 55px was a page-title size doing a section
+            // heading's job.
+            "block font-display text-balance",
+            smaller ? "text-2xl" : "text-3xl md:text-4xl",
+            invert ? "text-white" : "text-ink",
           )}
         >
           {title}
@@ -52,8 +56,8 @@ export function SectionIntro({
       {children && (
         <div
           className={cn(
-            "mt-6 text-xl",
-            invert ? "text-neutral-300" : "text-neutral-600",
+            "measure mt-6 text-lg",
+            invert ? "text-white/80" : "text-muted",
           )}
         >
           {children}

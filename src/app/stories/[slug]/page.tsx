@@ -77,7 +77,7 @@ export default async function StoryPage({ params }: Props) {
         <div className="mx-auto max-w-3xl px-4 lg:px-8">
           <Link
             href="/stories"
-            className="text-sm text-[color:var(--color-muted)] underline-offset-4 hover:underline"
+            className="text-sm text-muted underline-offset-4 hover:underline"
           >
             ← All stories
           </Link>
@@ -89,11 +89,11 @@ export default async function StoryPage({ params }: Props) {
           {file.data.outcome && (
             <p className="eyebrow">{String(file.data.outcome)}</p>
           )}
-          <h1 className="mt-3 font-heading text-4xl font-semibold leading-tight md:text-5xl">
+          <h1 className="mt-3 font-display text-4xl md:text-5xl">
             {String(file.data.title ?? slug)}
           </h1>
           {file.data.summary && (
-            <p className="mt-5 text-lg text-[color:var(--color-muted)] md:text-xl">
+            <p className="mt-6 text-lg text-muted">
               {String(file.data.summary)}
             </p>
           )}
@@ -116,7 +116,7 @@ export default async function StoryPage({ params }: Props) {
       </section>
 
       <section className="bg-white pb-20">
-        <article className="mx-auto max-w-3xl px-4 lg:px-8 prose prose-neutral prose-headings:font-heading prose-h2:text-2xl prose-h2:mt-12 prose-p:leading-relaxed">
+        <article className="mx-auto max-w-3xl px-4 lg:px-8 prose prose-neutral prose-h2:text-2xl prose-h2:mt-12 prose-p:leading-relaxed">
           {content}
         </article>
       </section>

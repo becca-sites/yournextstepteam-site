@@ -74,19 +74,19 @@ export default async function BlogPost({ params }: Props) {
         <div className="mx-auto max-w-3xl px-4 lg:px-8">
           <Link
             href="/blog"
-            className="text-sm text-[color:var(--color-muted)] underline-offset-4 hover:underline"
+            className="text-sm text-muted underline-offset-4 hover:underline"
           >
             ← All posts
           </Link>
-          <p className="mt-6 text-xs uppercase tracking-widest text-[var(--color-secondary)]">
+          <p className="mt-6 eyebrow text-muted">
             {String(file.data.publishedAt ?? "")}
             {file.data.category ? ` · ${String(file.data.category)}` : ""}
           </p>
-          <h1 className="mt-3 font-heading text-4xl font-semibold leading-tight tracking-tight md:text-5xl">
+          <h1 className="mt-3 font-display text-4xl md:text-5xl">
             {String(file.data.title ?? slug)}
           </h1>
           {file.data.summary && (
-            <p className="mt-4 text-lg text-[color:var(--color-muted)]">
+            <p className="mt-4 text-lg text-muted">
               {String(file.data.summary)}
             </p>
           )}
@@ -111,7 +111,7 @@ export default async function BlogPost({ params }: Props) {
           {content}
         </div>
 
-        <p className="mt-16 text-xs text-[color:var(--color-muted)]">
+        <p className="mt-16 text-sm text-muted">
           {tenant.agent.brokerageDisclosure}
         </p>
       </article>

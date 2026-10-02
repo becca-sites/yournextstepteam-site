@@ -24,25 +24,25 @@ export default function StoriesIndexPage() {
           { name: "Stories", url: "/stories" },
         ]}
       />
-      <section className="bg-[var(--color-surface)] py-16 md:py-24">
+      <section className="bg-[var(--color-surface)] section-y">
         <div className="mx-auto max-w-7xl px-4 lg:px-8">
           <p className="eyebrow">Sold stories</p>
-          <h1 className="mt-4 font-heading text-4xl font-semibold leading-tight md:text-6xl">
+          <h1 className="mt-4 font-display text-4xl md:text-6xl">
             Real outcomes from real {tenant.market.primaryArea} clients.
           </h1>
-          <p className="mt-5 max-w-2xl text-lg text-[color:var(--color-muted)] md:text-xl">
+          <p className="mt-6 text-lg text-muted">
             Case studies told in the words of the buyers and sellers who lived
             them. Specific homes, specific numbers, specific timelines.
           </p>
         </div>
       </section>
 
-      <section className="bg-white py-16 md:py-20">
+      <section className="bg-white section-y">
         <div className="mx-auto max-w-7xl px-4 lg:px-8">
           {stories.length === 0 ? (
-            <p className="text-base text-[color:var(--color-muted)]">
+            <p className="text-base text-muted">
               Stories ship with the first tenant configuration. The
-              <code className="mx-1 rounded bg-neutral-100 px-1">content/stories/</code>
+              <code className="mx-1 rounded bg-neutral-100 px-1 text-ink">content/stories/</code>
               directory is where MDX case studies live.
             </p>
           ) : (
@@ -53,7 +53,7 @@ export default function StoriesIndexPage() {
                   <Link
                     key={story.slug}
                     href={`/stories/${story.slug}`}
-                    className="group block overflow-hidden rounded-2xl border border-black/5 bg-white transition hover:-translate-y-0.5 hover:shadow-lg"
+                    className="group block overflow-hidden rounded-2xl shadow-card border border-black/5 bg-white transition hover:-translate-y-0.5 hover:shadow-card-hover"
                   >
                     <div className="relative aspect-[16/10] w-full overflow-hidden bg-neutral-100">
                       <Image
@@ -66,14 +66,14 @@ export default function StoriesIndexPage() {
                     </div>
                     <div className="px-6 py-6">
                       {story.outcome && (
-                        <p className="text-xs font-semibold uppercase tracking-widest text-[color:var(--color-secondary)]">
+                        <p className="eyebrow text-muted">
                           {story.outcome}
                         </p>
                       )}
-                      <h2 className="mt-3 font-heading text-xl font-semibold leading-snug">
+                      <h2 className="mt-3 text-xl font-semibold leading-snug">
                         {story.title}
                       </h2>
-                      <p className="mt-3 text-sm text-[color:var(--color-muted)]">
+                      <p className="mt-3 text-sm text-muted">
                         {story.summary}
                       </p>
                     </div>

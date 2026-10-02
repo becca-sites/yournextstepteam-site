@@ -38,15 +38,15 @@ export function PersonaGrid({
 }: Props) {
   if (!cards?.length) return null;
   return (
-    <section className="surface-warm py-20 md:py-28">
+    <section className="surface-warm section-y">
       <div className="mx-auto max-w-7xl px-4 lg:px-8">
         <div className="max-w-2xl">
           <p className="eyebrow">{eyebrow}</p>
-          <h2 className="mt-3 font-heading text-3xl font-semibold md:text-4xl">
+          <h2 className="mt-3 font-display text-3xl md:text-4xl">
             {heading}
           </h2>
           {subhead && (
-            <p className="mt-4 text-base text-[color:var(--color-muted)] md:text-lg">
+            <p className="mt-4 text-base text-muted">
               {subhead}
             </p>
           )}
@@ -60,7 +60,7 @@ export function PersonaGrid({
               <Link
                 key={card.title}
                 href={card.href}
-                className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-black/5 bg-white transition hover:-translate-y-0.5 hover:border-[var(--color-primary)] hover:shadow-xl"
+                className="group relative flex h-full flex-col overflow-hidden rounded-2xl shadow-card border border-black/5 bg-white transition hover:-translate-y-0.5 hover:border-[var(--color-primary)] hover:shadow-card-hover"
               >
                 {img && (
                   <div className="relative aspect-[16/10] w-full overflow-hidden bg-neutral-100">
@@ -74,16 +74,16 @@ export function PersonaGrid({
                   </div>
                 )}
                 <div className="flex flex-1 flex-col p-7">
-                  <p className="font-mono text-xs tracking-widest text-[color:var(--color-secondary)]">
+                  <p className="font-mono text-xs tracking-widest text-muted">
                     {String(i + 1).padStart(2, "0")}
                   </p>
-                  <h3 className="mt-3 font-heading text-xl font-semibold">
+                  <h3 className="mt-3 text-xl font-semibold">
                     {card.title}
                   </h3>
-                  <p className="mt-3 text-sm leading-relaxed text-[color:var(--color-muted)]">
+                  <p className="mt-3 text-sm leading-relaxed text-muted">
                     {card.description}
                   </p>
-                  <p className="mt-auto pt-6 text-sm font-medium text-[var(--color-primary)] group-hover:underline">
+                  <p className="mt-auto pt-6 text-sm font-medium text-ink group-hover:underline">
                     Start here →
                   </p>
                 </div>

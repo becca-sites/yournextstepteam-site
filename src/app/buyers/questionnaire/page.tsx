@@ -125,14 +125,14 @@ export default function BuyerQuestionnairePage() {
           { name: "Buyer Questionnaire", url: "/buyers/questionnaire" },
         ]}
       />
-      <section className="bg-[var(--color-surface)] py-16 md:py-20">
+      <section className="bg-[var(--color-surface)] section-y">
         <Container>
           <FadeIn>
             <p className="eyebrow">For buyers</p>
-            <h1 className="mt-4 font-display text-4xl font-semibold leading-tight md:text-5xl">
+            <h1 className="mt-4 font-display text-4xl md:text-5xl">
               Buyer Questionnaire
             </h1>
-            <p className="mt-5 max-w-2xl text-lg text-neutral-600 md:text-xl">
+            <p className="mt-6 text-lg text-muted">
               Tell us what you are looking for. Timeline, budget, must-haves,
               and deal-breakers. {tenant.agent.firstName} reviews every
               submission personally and comes back with a plan.
@@ -141,7 +141,7 @@ export default function BuyerQuestionnairePage() {
         </Container>
       </section>
 
-      <section className="bg-white py-16 md:py-20">
+      <section className="bg-white section-y">
         <Container>
           <FadeIn className="mx-auto max-w-2xl">
             <form className="space-y-8">
@@ -149,7 +149,7 @@ export default function BuyerQuestionnairePage() {
                 <div key={q.id}>
                   <label
                     htmlFor={q.id}
-                    className="block font-display text-base font-semibold text-neutral-950"
+                    className="block text-base font-semibold text-ink"
                   >
                     {q.label}
                   </label>
@@ -157,7 +157,7 @@ export default function BuyerQuestionnairePage() {
                     <select
                       id={q.id}
                       name={q.id}
-                      className="mt-2 block w-full rounded-lg border border-neutral-500 bg-white px-4 py-3 text-base text-neutral-950 transition focus:border-[var(--color-moss)]"
+                      className="mt-2 block w-full rounded-lg border border-neutral-500 bg-white px-4 py-3 text-base text-ink transition focus:border-[var(--color-moss)]"
                     >
                       <option value="">Select one</option>
                       {q.options?.map((opt) => (
@@ -173,7 +173,7 @@ export default function BuyerQuestionnairePage() {
                       id={q.id}
                       name={q.id}
                       placeholder={q.placeholder}
-                      className="mt-2 block w-full rounded-lg border border-neutral-500 bg-white px-4 py-3 text-base text-neutral-950 transition placeholder:text-neutral-500 focus:border-[var(--color-moss)]"
+                      className="mt-2 block w-full rounded-lg border border-neutral-500 bg-white px-4 py-3 text-base text-ink transition placeholder:text-muted focus:border-[var(--color-moss)]"
                     />
                   )}
                   {q.type === "textarea" && (
@@ -182,7 +182,7 @@ export default function BuyerQuestionnairePage() {
                       name={q.id}
                       rows={3}
                       placeholder={q.placeholder}
-                      className="mt-2 block w-full rounded-lg border border-neutral-500 bg-white px-4 py-3 text-base text-neutral-950 transition placeholder:text-neutral-500 focus:border-[var(--color-moss)]"
+                      className="mt-2 block w-full rounded-lg border border-neutral-500 bg-white px-4 py-3 text-base text-ink transition placeholder:text-muted focus:border-[var(--color-moss)]"
                     />
                   )}
                 </div>
@@ -192,29 +192,29 @@ export default function BuyerQuestionnairePage() {
                 <button type="submit" className="btn-primary w-full text-center">
                   Submit questionnaire
                 </button>
-                <p className="mt-4 text-center text-sm text-neutral-500">
+                <p className="mt-4 text-center text-sm text-muted">
                   {tenant.agent.firstName} reviews every submission personally.
                   You will hear back within one business day.
                 </p>
               </div>
             </form>
 
-            <div className="mt-12 rounded-2xl border border-black/5 bg-[var(--color-surface)] p-6 text-sm text-neutral-600">
-              <p className="font-semibold text-neutral-950">
+            <div className="mt-12 rounded-2xl border border-black/5 bg-[var(--color-surface)] p-6 text-sm text-muted">
+              <p className="font-semibold text-ink">
                 Prefer to talk instead?
               </p>
               <p className="mt-2">
                 Call{" "}
                 <a
                   href={`tel:${tenant.agent.phone}`}
-                  className="font-medium text-[var(--color-moss)] hover:underline"
+                  className="font-medium text-ink hover:underline"
                 >
                   {tenant.agent.phone}
                 </a>{" "}
                 or{" "}
                 <Link
                   href="/contact"
-                  className="font-medium text-[var(--color-moss)] hover:underline"
+                  className="font-medium text-ink hover:underline"
                 >
                   send me a message
                 </Link>
