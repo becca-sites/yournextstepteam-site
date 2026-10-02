@@ -58,7 +58,7 @@ export default function TermsPage() {
       </p>
       <p>
         This site does not display listings from a multiple listing service.
-        Property search links to the eXp Realty agent site, which has its own
+        Property search links to the eXp Realty LLC agent site, which has its own
         terms.
       </p>
 

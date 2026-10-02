@@ -589,9 +589,11 @@ pointed at these; the values below are read off the live page, not approximated.
 ## Compliance and areas (2026-10-02)
 
 - **The firm name is one value: `FIRM_LICENSED_NAME` in src/config/tenant.ts,
-  currently "eXp Realty LLC" and UNVERIFIED.** Washington requires the firm's
-  name exactly as licensed, as text, on every page. Becca must confirm the
-  exact string with her designated broker; change it there and only there.
+  "eXp Realty LLC", verified against the DOL licence record (firm 9393,
+  Active) on 2026-10-02.** Washington requires the firm's name exactly as
+  licensed, as text, on every page. Never write "eXp Realty" without "LLC"
+  anywhere on the site, blog bios included: a partial name is unlawful.
+  DOL shows it in capitals; that is display, not registered casing.
 - **No MLS badge and no MLS number anywhere.** The site shows no MLS data, so
   an MLS mark next to the licence line could mislead. Do not add a licence
   number either; Washington does not require one (that is a Texas rule).

@@ -81,7 +81,7 @@ export default function AccessibilityPage() {
       <ul>
         <li>
           The buyer and seller questionnaires are hosted by Jotform, embedded
-          videos by YouTube, and the property search on the eXp Realty agent
+          videos by YouTube, and the property search on the eXp Realty LLC agent
           site. These may not fully conform. I raise accessibility with those
           providers.
         </li>

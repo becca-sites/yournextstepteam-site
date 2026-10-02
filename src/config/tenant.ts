@@ -62,10 +62,16 @@
  * 18.85.361(8) and WAC 308-124B-210(1) require it, as text, clear and
  * conspicuous, on every page. A logo does not count.
  *
- * UNVERIFIED. "eXp Realty LLC" is the most likely licensed string but it has
- * not been confirmed against the DOL record. Becca must get the exact string
- * from her designated broker at eXp. When she does, change it here: every
- * page, every disclosure line, and the structured data read this one value.
+ * VERIFIED 2026-10-02 against the Washington DOL licence record: firm licence
+ * 9393, Real Estate Firm, Active. DOL displays the firm field in capitals
+ * ("EXP REALTY LLC"); that is its display convention, not registered casing.
+ * The requirement is the complete licensed name, so the brand casing with all
+ * three tokens is used. "eXp Realty" alone is a partial name, which DOL treats
+ * as unlawful, so every mention on the site uses this full value. Every page,
+ * disclosure line, and the structured data read this one constant.
+ *
+ * No licence number is shown for the firm: Washington does not require one
+ * in advertising.
  */
 export const FIRM_LICENSED_NAME = "eXp Realty LLC";
 
@@ -462,7 +468,7 @@ export const tenant: Tenant = {
       {
         name: "eXp Icon Agent",
         abbreviation: "Icon Agent",
-        issuedBy: "eXp Realty",
+        issuedBy: "eXp Realty LLC",
         description:
           "Awarded in 2022 for production and for contribution to other agents in the brokerage.",
       },

@@ -102,7 +102,7 @@ const FAQS = [
   {
     question: "How long has Becca Pitts been a real estate agent?",
     answer:
-      "I've been a licensed real estate broker in Washington since 2010 and I've closed more than 270 transactions. Before that I spent eight years in event production doing sales, project management, and creative work, until the Great Recession ended that and somebody recruited me into real estate. I'm currently with eXp Realty and I was named an eXp Icon Agent in 2022.",
+      "I've been a licensed real estate broker in Washington since 2010 and I've closed more than 270 transactions. Before that I spent eight years in event production doing sales, project management, and creative work, until the Great Recession ended that and somebody recruited me into real estate. I'm currently with eXp Realty LLC and I was named an eXp Icon Agent in 2022.",
   },
   {
     question: "What does SRES® certification mean?",
@@ -267,7 +267,7 @@ export default function AboutPage() {
               <p>
                 Steve Hiatt at Keller Williams gave me my start and my first
                 real footing in the business. From there I went to Best Choice,
-                and for the last six years I&apos;ve been at eXp Realty, where I
+                and for the last six years I&apos;ve been at eXp Realty LLC, where I
                 was named an Icon Agent in 2022. Two hundred seventy closings
                 later, I&apos;m still doing the same thing I was doing on the
                 distressed files: answering my own phone and telling people the

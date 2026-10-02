@@ -141,7 +141,7 @@ export default function PrivacyPage() {
       <h2>Third-party sites</h2>
       <p>
         My questionnaires are on Jotform, some videos are embedded from
-        YouTube, and property search happens on the eXp Realty agent site. Those
+        YouTube, and property search happens on the eXp Realty LLC agent site. Those
         services have their own privacy policies, which apply when you use
         them. YouTube may set cookies when you play a video.
       </p>
