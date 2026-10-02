@@ -7,6 +7,60 @@ Note: the Google Drive **SESSION_LOG** doc is the more current master. See
 
 ---
 
+## 2026-10-02 - Typography overhaul, crawl title pinned, hook line
+
+**Deliverables:** the Deborah Rose type pairing across the site (Playfair
+Display for display, Geist for everything else), a dark hero scrim with white
+type, a real type scale and spacing rhythm, AAA contrast; the crawl title patch
+from the sandbox session landed; Brett's hook line under the crawl title.
+
+### What was asked
+
+Brett asked for every optimisation in the visual and typographic audit except
+removing the Star Wars crawl, with Azo Sans swapped for the fonts on
+DeborahRoseRealEstate.com. Becca and Brett then approved pushing straight to
+main to review live. The crawl title patch was handed over to land, and Brett
+chose "Your Next Step Begins." as its hook line.
+
+### Decisions
+
+- **Playfair only at 28px and up, always at 400.** Checked on 22 routes at 1440
+  and 375: zero elements under 24px render in Playfair.
+- **Weight was the biggest fix.** h1 went from 62px Azo at 700 and -0.032em to
+  68.7px Playfair at 400 and -0.01em.
+- **Scale:** 16 / 18 / 20 reading sizes, then 18 x 1.25^n for headings.
+  Homepage type styles 43 to 34; 14px text 311 instances to 25, now only on
+  uppercase micro-labels and legal lines.
+- **Two text colours, ink and muted.** AAA contrast sweep: 0 failures on 7 of
+  8 pages checked against production's 27 failures on the homepage and 34 on
+  About; the remaining fog-panel and step-circle cases were fixed.
+- **Hero:** white type on a dark scrim that holds 0.72+ across the whole text
+  column at every width. The old white wash cleared by 62%, so on a phone the
+  second half of every line sat on raw footage.
+- **Measure capped at 32em** (about 66 characters). It ran to 157 before.
+- **Not regressed:** measure, focus rings (3px on every focusable element at
+  both widths), tap targets (no new undersized target on 18 routes; one fixed).
+- **The stalled-opacity bug was not reproducible.** In a visible page the hero
+  is at opacity 1 on every poll. It only stalls in a hidden or background tab,
+  where Chrome stops painting frames. No fix shipped for it.
+- **Crawl:** Azo Sans kept inside it by scoping the font variables. Every
+  computed text style in the crawl is identical with and without the
+  typography change. The title zone is now measured from the rendered title
+  block, because a fixed percentage left lines visible behind the title on a
+  1280x720 laptop.
+
+### Open
+
+- Brett to judge whether "Your Next Step Begins." directly under the "Your
+  Next Step" wordmark reads as a deliberate beat. It is styled to separate.
+- The 9 to 10px "Brokered by eXp Realty" header line is under the type floor,
+  sized to eXp's branding rule. Needs a decision, not a silent change.
+- The crawl's reduced-motion flat view has no side gutter at 375px. Pre-existing.
+- The ESLint config imports @eslint/eslintrc, which is not installed. Lint
+  cannot run. Pre-existing.
+
+---
+
 ## 2026-09-05 - The licence year is 2010, not 2008, and the career arc changes with it
 
 **Deliverables:** `licensedSince` corrected in `src/config/tenant.ts`, the About
