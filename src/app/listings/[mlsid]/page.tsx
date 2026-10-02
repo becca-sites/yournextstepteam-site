@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/metadata";
 import Link from "next/link";
 import { tenant } from "@/config/tenant";
 import { BoldTrailWidget } from "@/components/idx/BoldTrailWidget";
@@ -10,11 +11,11 @@ interface Props {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { mlsid } = await params;
-  return {
+  return pageMetadata({
     title: `Listing ${mlsid}`,
     description: `Property details for listing ${mlsid}, represented by ${tenant.agent.name}.`,
-    alternates: { canonical: `/listings/${mlsid}` },
-  };
+    path: `/listings/${mlsid}`,
+  });
 }
 
 export default async function ListingDetailPage({ params }: Props) {

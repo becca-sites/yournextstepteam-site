@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { baseOpenGraph } from "@/lib/metadata";
 import { tenant } from "@/config/tenant";
 import { Container } from "@/components/Container";
 import { FadeIn } from "@/components/FadeIn";
@@ -10,6 +11,12 @@ export const metadata: Metadata = {
   title: "Listings",
   description: `Search homes across the ${tenant.market.primaryArea} on ${tenant.agent.firstName}'s agent site.`,
   alternates: { canonical: "/listings" },
+  openGraph: {
+    ...baseOpenGraph,
+    title: "Listings",
+    description: `Search homes across the ${tenant.market.primaryArea} on ${tenant.agent.firstName}'s agent site.`,
+    url: "/listings",
+  },
 };
 
 export default function ListingsPage() {

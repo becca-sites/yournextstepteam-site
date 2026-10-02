@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { baseOpenGraph } from "@/lib/metadata";
 import Link from "next/link";
 import Image from "next/image";
 import { tenant, type TenantTestimonial } from "@/config/tenant";
@@ -13,6 +14,12 @@ export const metadata: Metadata = {
   description:
     "Finding the house is about five percent of it. Buyer representation across Pierce, King, and the surrounding counties from Becca Pitts: licensed in Washington since 2010, 270 closings, SRES® certified.",
   alternates: { canonical: "/buyers" },
+  openGraph: {
+    ...baseOpenGraph,
+    title: "Buy a home in the Puget Sound region",
+    description: "Finding the house is about five percent of it. Buyer representation across Pierce, King, and the surrounding counties from Becca Pitts: licensed in Washington since 2010, 270 closings, SRES® certified.",
+    url: "/buyers",
+  },
 };
 
 /*

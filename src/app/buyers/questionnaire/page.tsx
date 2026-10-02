@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { baseOpenGraph } from "@/lib/metadata";
 import Link from "next/link";
 import { tenant } from "@/config/tenant";
 import { Container } from "@/components/Container";
@@ -9,6 +10,12 @@ export const metadata: Metadata = {
   title: "Buyer Questionnaire",
   description: `Tell ${tenant.agent.firstName} what you are looking for. Timeline, budget, must-haves, and deal-breakers.`,
   alternates: { canonical: "/buyers/questionnaire" },
+  openGraph: {
+    ...baseOpenGraph,
+    title: "Buyer Questionnaire",
+    description: `Tell ${tenant.agent.firstName} what you are looking for. Timeline, budget, must-haves, and deal-breakers.`,
+    url: "/buyers/questionnaire",
+  },
 };
 
 const QUESTIONS = [

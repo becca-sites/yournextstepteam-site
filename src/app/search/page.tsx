@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { baseOpenGraph } from "@/lib/metadata";
 import { tenant } from "@/config/tenant";
 import { BoldTrailWidget } from "@/components/idx/BoldTrailWidget";
 
@@ -6,6 +7,12 @@ export const metadata: Metadata = {
   title: "Search homes",
   description: `Search homes across the ${tenant.market.primaryArea} and the Eastside.`,
   alternates: { canonical: "/search" },
+  openGraph: {
+    ...baseOpenGraph,
+    title: "Search homes",
+    description: `Search homes across the ${tenant.market.primaryArea} and the Eastside.`,
+    url: "/search",
+  },
 };
 
 export default function SearchPage() {

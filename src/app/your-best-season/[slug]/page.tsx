@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/metadata";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { tenant } from "@/config/tenant";
@@ -18,11 +19,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const ep = tenant.episodes.find((e) => e.slug === slug);
   if (!ep) return {};
-  return {
+  return pageMetadata({
     title: `${ep.title} | ${tenant.videos.seriesTitle}`,
     description: ep.description,
-    alternates: { canonical: `/your-best-season/${ep.slug}` },
-  };
+    path: `/your-best-season/${ep.slug}`,
+  });
 }
 
 export default async function EpisodePage({ params }: Props) {

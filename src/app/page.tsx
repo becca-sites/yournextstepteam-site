@@ -1,4 +1,7 @@
+import type { Metadata } from "next";
 import Link from "next/link";
+import { baseOpenGraph } from "@/lib/metadata";
+import { siteConfig } from "@/site.config";
 import { tenant } from "@/config/tenant";
 import { Container } from "@/components/Container";
 import { FadeIn, FadeInStagger } from "@/components/FadeIn";
@@ -12,6 +15,15 @@ import { TestimonialCarousel } from "@/components/sections/TestimonialCarousel";
 import { RealEstateAgentSchema } from "@/components/schema/RealEstateAgentSchema";
 import { HeroVideoSchema } from "@/components/schema/HeroVideoSchema";
 import { getAllPosts } from "@/lib/content";
+
+export const metadata: Metadata = {
+  alternates: { canonical: "/" },
+  openGraph: {
+    ...baseOpenGraph,
+    title: `${tenant.brand.name} | ${tenant.market.city} ${siteConfig.agentTitle} ${siteConfig.agentName}`,
+    url: "/",
+  },
+};
 
 /** Right edge of the hero text column at any viewport width. See the scrim. */
 const HERO_COLUMN_END = "max(calc(50% + 64px), min(704px, 100%))";

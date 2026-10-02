@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { baseOpenGraph } from "@/lib/metadata";
 import Link from "next/link";
 import { tenant } from "@/config/tenant";
 import { Container } from "@/components/Container";
@@ -10,6 +11,12 @@ export const metadata: Metadata = {
   title: tenant.videos.seriesTitle,
   description: tenant.videos.seriesDescription,
   alternates: { canonical: "/your-best-season" },
+  openGraph: {
+    ...baseOpenGraph,
+    title: tenant.videos.seriesTitle,
+    description: tenant.videos.seriesDescription,
+    url: "/your-best-season",
+  },
 };
 
 export default function YourBestSeasonPage() {

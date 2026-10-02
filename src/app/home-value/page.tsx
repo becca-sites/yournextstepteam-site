@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { baseOpenGraph } from "@/lib/metadata";
 import Link from "next/link";
 import Image from "next/image";
 import { tenant } from "@/config/tenant";
@@ -11,6 +12,12 @@ export const metadata: Metadata = {
   description:
     "Instant home value estimate for Bonney Lake, Puyallup, North Tacoma, Eatonville, and the rest of Pierce County, refined by hand into a real CMA within 24 hours.",
   alternates: { canonical: "/home-value" },
+  openGraph: {
+    ...baseOpenGraph,
+    title: "What is my home worth",
+    description: "Instant home value estimate for Bonney Lake, Puyallup, North Tacoma, Eatonville, and the rest of Pierce County, refined by hand into a real CMA within 24 hours.",
+    url: "/home-value",
+  },
 };
 
 const STEPS = [

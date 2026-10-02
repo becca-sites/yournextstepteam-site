@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/metadata";
 import { notFound } from "next/navigation";
 import fs from "node:fs";
 import path from "node:path";
@@ -34,11 +35,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const file = readStory(slug);
   if (!file) return { title: "Story not found" };
-  return {
+  return pageMetadata({
     title: String(file.data.title ?? slug),
     description: String(file.data.summary ?? ""),
-    alternates: { canonical: `/stories/${slug}` },
-  };
+    path: `/stories/${slug}`,
+  });
 }
 
 export default async function StoryPage({ params }: Props) {

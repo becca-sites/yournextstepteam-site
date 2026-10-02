@@ -184,7 +184,12 @@ export function resolveSiteUrl() {
   // URLs, the sitemap, llms.txt, and every JSON-LD @id resolve to the real host
   // even on a deploy that forgets NEXT_PUBLIC_SITE_URL. Indexing is gated by
   // PLACEHOLDER_MODE / tenant.demo.noIndex, not by this value.
-  return process.env.NEXT_PUBLIC_SITE_URL || brandUrl();
+  const url = (process.env.NEXT_PUBLIC_SITE_URL || brandUrl()).replace(/\/+$/, "");
+  // An env var set to the bare domain would put every canonical on a host that
+  // 308s to www. Normalise it rather than trust a dashboard nobody can see.
+  const apex = `https://${tenant.brand.domain}`;
+  const apexHttp = `http://${tenant.brand.domain}`;
+  return url === apex || url === apexHttp ? brandUrl() : url;
 }
 
 export function resolveIdx() {

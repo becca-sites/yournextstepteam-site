@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { baseOpenGraph } from "@/lib/metadata";
 import Link from "next/link";
 import Image from "next/image";
 import { tenant } from "@/config/tenant";
@@ -9,6 +10,12 @@ export const metadata: Metadata = {
   title: "Blog",
   description: `Local market updates, neighborhood notes, and answers to questions buyers and sellers are asking across the ${tenant.market.primaryArea}.`,
   alternates: { canonical: "/blog" },
+  openGraph: {
+    ...baseOpenGraph,
+    title: "Blog",
+    description: `Local market updates, neighborhood notes, and answers to questions buyers and sellers are asking across the ${tenant.market.primaryArea}.`,
+    url: "/blog",
+  },
 };
 
 export default function BlogIndex() {

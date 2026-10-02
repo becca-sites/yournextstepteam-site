@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { baseOpenGraph } from "@/lib/metadata";
 import Link from "next/link";
 import Image from "next/image";
 import { getAllStories } from "@/lib/content";
@@ -10,6 +11,12 @@ export const metadata: Metadata = {
   title: "Client stories",
   description: `Sold stories and case studies from buyers and sellers across the ${tenant.market.primaryArea}.`,
   alternates: { canonical: "/stories" },
+  openGraph: {
+    ...baseOpenGraph,
+    title: "Client stories",
+    description: `Sold stories and case studies from buyers and sellers across the ${tenant.market.primaryArea}.`,
+    url: "/stories",
+  },
 };
 
 export default function StoriesIndexPage() {

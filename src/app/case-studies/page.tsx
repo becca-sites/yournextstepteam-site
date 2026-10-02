@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { baseOpenGraph } from "@/lib/metadata";
 import Link from "next/link";
 import { tenant } from "@/config/tenant";
 import { Container } from "@/components/Container";
@@ -10,6 +11,12 @@ export const metadata: Metadata = {
   title: "Client Stories",
   description: `Real transitions from real families across the ${tenant.market.primaryArea}. Senior downsizing, estate sales, aging-in-place evaluations, and first-time purchases.`,
   alternates: { canonical: "/case-studies" },
+  openGraph: {
+    ...baseOpenGraph,
+    title: "Client Stories",
+    description: `Real transitions from real families across the ${tenant.market.primaryArea}. Senior downsizing, estate sales, aging-in-place evaluations, and first-time purchases.`,
+    url: "/case-studies",
+  },
 };
 
 export default function CaseStudiesPage() {

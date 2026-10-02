@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { baseOpenGraph } from "@/lib/metadata";
 import Link from "next/link";
 import Image from "next/image";
 import { tenant } from "@/config/tenant";
@@ -8,6 +9,12 @@ export const metadata: Metadata = {
   title: "Neighborhoods",
   description: `Neighborhood guides across the ${tenant.market.primaryArea} and the Eastside, curated by ${tenant.agent.name}.`,
   alternates: { canonical: "/neighborhoods" },
+  openGraph: {
+    ...baseOpenGraph,
+    title: "Neighborhoods",
+    description: `Neighborhood guides across the ${tenant.market.primaryArea} and the Eastside, curated by ${tenant.agent.name}.`,
+    url: "/neighborhoods",
+  },
 };
 
 const REGION_HEADINGS: Record<string, string> = {

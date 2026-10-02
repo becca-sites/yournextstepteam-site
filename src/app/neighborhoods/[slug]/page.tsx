@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/metadata";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
@@ -18,11 +19,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const n = findNeighborhood(slug);
   if (!n) return { title: "Neighborhood not found" };
-  return {
+  return pageMetadata({
     title: `${n.name}, ${tenant.market.stateAbbreviation} real estate`,
     description: `${n.tagline}. ${n.description.slice(0, 140)}`,
-    alternates: { canonical: `/neighborhoods/${slug}` },
-  };
+    path: `/neighborhoods/${slug}`,
+  });
 }
 
 export default async function NeighborhoodDetail({ params }: Props) {

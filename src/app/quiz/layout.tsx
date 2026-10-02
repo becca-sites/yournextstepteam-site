@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { baseOpenGraph } from "@/lib/metadata";
 import { BreadcrumbListSchema } from "@/components/schema/BreadcrumbListSchema";
 
 export const metadata: Metadata = {
@@ -6,6 +7,12 @@ export const metadata: Metadata = {
   description:
     "Six real scenarios out of Pierce and King County transactions. See how you would handle pricing, inspections, and negotiation. About four minutes, and nothing to fill out at the end.",
   alternates: { canonical: "/quiz" },
+  openGraph: {
+    ...baseOpenGraph,
+    title: "Real Estate IQ Quiz",
+    description: "Six real scenarios out of Pierce and King County transactions. See how you would handle pricing, inspections, and negotiation. About four minutes, and nothing to fill out at the end.",
+    url: "/quiz",
+  },
 };
 
 /*

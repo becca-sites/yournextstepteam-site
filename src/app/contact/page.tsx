@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { baseOpenGraph } from "@/lib/metadata";
 import { tenant } from "@/config/tenant";
 import { Container } from "@/components/Container";
 import { FadeIn } from "@/components/FadeIn";
@@ -11,6 +12,12 @@ export const metadata: Metadata = {
   description:
     "Call, text, or email Becca Pitts directly. REALTOR® in Bonney Lake, WA, working Puyallup, North Tacoma, Eatonville, and the rest of Pierce County.",
   alternates: { canonical: "/contact" },
+  openGraph: {
+    ...baseOpenGraph,
+    title: "Contact Becca Pitts",
+    description: "Call, text, or email Becca Pitts directly. REALTOR® in Bonney Lake, WA, working Puyallup, North Tacoma, Eatonville, and the rest of Pierce County.",
+    url: "/contact",
+  },
 };
 
 export default function ContactPage() {

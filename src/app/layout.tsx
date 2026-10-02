@@ -3,6 +3,7 @@ import localFont from "next/font/local";
 import { siteConfig, resolveSiteUrl } from "@/site.config";
 import { tenant } from "@/config/tenant";
 import { isNoIndex } from "@/lib/placeholder";
+import { baseOpenGraph } from "@/lib/metadata";
 import { LocalBusinessSchema } from "@/components/schema/LocalBusinessSchema";
 import { Analytics } from "@/components/telemetry/Analytics";
 import { Header } from "@/components/global/Header";
@@ -95,14 +96,11 @@ export const metadata: Metadata = {
   },
   description: `${tenant.brand.tagline} ${tenant.market.primaryArea} representation across ${tenant.market.neighborhoods.slice(0, 4).join(", ")}.`,
   applicationName: tenant.brand.name,
-  openGraph: {
-    type: "website",
-    locale: "en_US",
-    siteName: tenant.brand.name,
-    title: `${tenant.brand.name} | ${tenant.market.city} ${siteConfig.agentTitle} ${siteConfig.agentName}`,
-    url: "/",
-    images: ["/images/hero/valley-landscape.jpg"],
-  },
+  // Site-wide defaults only. No og:url or og:title here: a page that does not
+  // set its own would inherit the homepage's, and a shared link to /buyers
+  // would preview as the homepage. Every page sets them through pageMetadata()
+  // or baseOpenGraph (src/lib/metadata.ts).
+  openGraph: baseOpenGraph,
   twitter: {
     card: "summary_large_image",
   },
@@ -117,9 +115,9 @@ export const metadata: Metadata = {
         googleBot: { index: false, follow: false, noimageindex: true },
       }
     : { index: true, follow: true },
-  alternates: {
-    canonical: "/",
-  },
+  // No canonical here either, for the same reason: it would be inherited by
+  // any page that forgot its own and point that page at the homepage. The
+  // homepage sets its canonical in src/app/page.tsx.
 };
 
 export const viewport: Viewport = {

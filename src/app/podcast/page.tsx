@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { baseOpenGraph } from "@/lib/metadata";
 import Link from "next/link";
 import { tenant } from "@/config/tenant";
 import { Container } from "@/components/Container";
@@ -10,6 +11,12 @@ export const metadata: Metadata = {
   title: tenant.podcast.name,
   description: tenant.podcast.description,
   alternates: { canonical: "/podcast" },
+  openGraph: {
+    ...baseOpenGraph,
+    title: tenant.podcast.name,
+    description: tenant.podcast.description,
+    url: "/podcast",
+  },
 };
 
 export default function PodcastPage() {

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { baseOpenGraph } from "@/lib/metadata";
 import Link from "next/link";
 import Image from "next/image";
 import { tenant } from "@/config/tenant";
@@ -41,6 +42,7 @@ export const metadata: Metadata = {
     "Becca Pitts grew up in Eatonville, went to Western Washington University, and has been a licensed Washington real estate broker since 2010. 270 closings, SRES® certified, eXp Icon Agent, working Pierce, King, and the surrounding counties from Bonney Lake.",
   alternates: { canonical: "/about" },
   openGraph: {
+    ...baseOpenGraph,
     title: "About Becca Pitts",
     description:
       "One blinking light in Eatonville, a business degree from Western, a real estate license earned in the wreckage the recession left behind, and 270 closings since. Here is the whole story.",

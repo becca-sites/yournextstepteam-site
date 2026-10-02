@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { baseOpenGraph } from "@/lib/metadata";
 import { tenant } from "@/config/tenant";
 import { FinalCtaBlock } from "@/components/sections/FinalCtaBlock";
 import { BreadcrumbListSchema } from "@/components/schema/BreadcrumbListSchema";
@@ -7,6 +8,12 @@ export const metadata: Metadata = {
   title: "Videos",
   description: `${tenant.videos.seriesTitle}: ${tenant.videos.seriesDescription}`,
   alternates: { canonical: "/videos" },
+  openGraph: {
+    ...baseOpenGraph,
+    title: "Videos",
+    description: `${tenant.videos.seriesTitle}: ${tenant.videos.seriesDescription}`,
+    url: "/videos",
+  },
 };
 
 export default function VideosPage() {
