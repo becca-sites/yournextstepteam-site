@@ -10,7 +10,9 @@ const NAV_ITEMS = [
   { href: "/", label: "Home" },
   { href: "/buyers", label: "Buyers" },
   { href: "/sellers", label: "Sellers" },
-  { href: "/neighborhoods", label: "Neighborhoods" },
+  // Areas is the geography hub. The neighbourhood guides hang off it, so the
+  // one nav item covers both rather than spending a sixth slot.
+  { href: "/areas", label: "Areas" },
   { href: "/about", label: "About Becca" },
 ];
 
@@ -20,6 +22,7 @@ const NAV_ITEMS = [
  */
 function isActive(pathname: string, href: string) {
   if (href === "/") return pathname === "/";
+  if (href === "/areas" && pathname.startsWith("/neighborhoods")) return true;
   return pathname === href || pathname.startsWith(href + "/");
 }
 

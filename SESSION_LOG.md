@@ -7,6 +7,40 @@ Note: the Google Drive **SESSION_LOG** doc is the more current master. See
 
 ---
 
+## 2026-10-02 - Footer compliance, areas, technical SEO
+
+**Deliverables:** firm-name and team disclosures, MLS badge removed, Equal
+Housing statement, five policy pages (privacy, consumer health data,
+accessibility, terms, fair housing); the Areas hub with Tacoma published and
+three cities held behind the content gate; the area overlap check in the build
+and in CI; sitewide entity graph, area schema, canonical and Open Graph fixes,
+and a real-date sitemap. Noindex, robots, X-Robots-Tag and the placeholder flag
+untouched.
+
+### Decisions
+
+- Firm name "eXp Realty LLC" as one config value, flagged unverified.
+- Only Tacoma clears the case-study gate (two published, anonymized case
+  studies). Puyallup's candidate post has a location conflict; Gig Harbor and
+  Federal Way have no written, consented case study.
+- Header "Neighborhoods" now reads "Areas" and goes to the hub, which links the
+  neighbourhood guides. The 14 config-driven /neighborhoods pages are left in
+  place but are the doorway-shaped cluster the SEO plan warns about; they need a
+  decision.
+- Canonicals, og:url and JSON-LD ids moved from the bare domain (which 308s) to
+  www. Pages no longer inherit the homepage's og:url and og:title.
+
+### Open
+
+- Becca: confirm the licensed firm string, REALTOR and SRES memberships, and
+  written designated-broker approval for the team name.
+- Remove the food-allergy question from both Jotform questionnaires, or keep
+  /consumer-health-data and add opt-in consent. Attorney review recommended.
+- /buyers/questionnaire submits nowhere: the form has no handler, so answers,
+  including name, email and phone, go into the URL and are not delivered.
+
+---
+
 ## 2026-10-02 - Typography overhaul, crawl title pinned, hook line
 
 **Deliverables:** the Deborah Rose type pairing across the site (Playfair

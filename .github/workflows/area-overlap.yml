@@ -1,0 +1,24 @@
+# Fails if any two area pages share more than 30% of their non-boilerplate
+# text, or if a page marked published does not clear the content gate (a real
+# case study and a 300-word first-hand block). The same script runs before every
+# Vercel build, so a failing page cannot deploy either way. See
+# scripts/check-area-overlap.mjs.
+name: Area page uniqueness
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Check area page overlap and content gate
+        run: node scripts/check-area-overlap.mjs
+      - name: Prove the check catches a templated clone
+        run: node scripts/check-area-overlap.mjs --self-test

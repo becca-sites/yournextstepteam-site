@@ -586,6 +586,37 @@ pointed at these; the values below are read off the live page, not approximated.
   site is the 9 to 10px "Brokered by eXp Realty" line in the header, which is
   sized to eXp's rule that the agent's own branding be at least as large.
 
+## Compliance and areas (2026-10-02)
+
+- **The firm name is one value: `FIRM_LICENSED_NAME` in src/config/tenant.ts,
+  currently "eXp Realty LLC" and UNVERIFIED.** Washington requires the firm's
+  name exactly as licensed, as text, on every page. Becca must confirm the
+  exact string with her designated broker; change it there and only there.
+- **No MLS badge and no MLS number anywhere.** The site shows no MLS data, so
+  an MLS mark next to the licence line could mislead. Do not add a licence
+  number either; Washington does not require one (that is a Texas rule).
+- **Becca is a solo agent. Site copy is "I", never "we",** including the
+  legal pages. The team disclosure says "the team name used by Rebecca Pitts",
+  not "a team of brokers".
+- **Consumer Health Data Privacy is its own footer link**, next to and never
+  nested under the Privacy Policy (My Health My Data Act). Both Jotform
+  questionnaires ask about food allergies, which is health data on its face;
+  the cleanest fix is to remove that question. If the forms change, change
+  /consumer-health-data to match.
+- **No analytics, pixel, or session recording runs today.** If one is turned
+  on, update /privacy first.
+- **Area pages have a hard gate** (src/lib/areas.ts): published flag, at least
+  one real case study that is a published "Case Studies" post, and a 300-word
+  first-hand block. Failing pages 404 and are not linked. Never pad a page to
+  get it through. The build fails if two area pages share more than 30% of
+  their own text (scripts/check-area-overlap.mjs).
+- **Tacoma shipped. Puyallup, Gig Harbor, and Federal Way are held** until a
+  real case study for each is written up and consented. Each held file says
+  what raw material exists.
+- **No review or rating structured data, ever.** Reviews are plain HTML.
+- **Canonical host is www.** The bare domain 308s to www; canonicals and
+  JSON-LD ids must not point at it.
+
 ## Typography system (2026-10-02, Brett)
 
 Brett prefers the look of DeborahRoseRealEstate.com, which he also built, and

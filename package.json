@@ -5,10 +5,11 @@
   "description": "Marketing site for Rebecca \"Becca\" Pitts (yournextstepteam.com), forked from the realestate-template chassis.",
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "node scripts/check-area-overlap.mjs && next build",
     "start": "next start",
     "lint": "next lint",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "check:areas": "node scripts/check-area-overlap.mjs && node scripts/check-area-overlap.mjs --self-test"
   },
   "dependencies": {
     "@mdx-js/loader": "^3.0.1",

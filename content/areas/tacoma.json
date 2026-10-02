@@ -1,0 +1,103 @@
+{
+  "slug": "tacoma",
+  "city": "Tacoma",
+  "county": "Pierce County",
+  "published": true,
+  "title": "Tacoma, WA: Single-Level Homes and Green Belt Sales",
+  "metaDescription": "What I've learned buying and selling in Tacoma: why single-level searches are harder than they look, what a green belt does to a sale, and when cash wins.",
+  "h1": "Tacoma, and what the listings don't tell you",
+  "orientation": "Tacoma buyers usually know exactly which part of town they want. Proctor feels different from Stadium, Stadium feels different from Lincoln, and the North End is its own thing again. So when someone tells me they want \"something in Tacoma,\" my first question is which Tacoma. This page is what I've learned working here: on a single-level search where the listings weren't honest about the stairs, and on a listing where the best feature of the house was a stretch of protected woods behind the back fence.",
+  "experienceHeading": "What I know about buying and selling here",
+  "experience": [
+    "So here's the first thing I tell anyone who needs a single-level home in Tacoma: the search results will lie to you. A lot of the housing stock around here went up between the 1960s and the 1990s, which means split-levels, sunken living rooms, and stairs in places you don't expect. When I ran a search for buyers who needed single-level living, the first pass returned plenty of homes. Once I checked doorway widths and bathroom layouts, the list got very short, very fast.",
+    "Also, the listing descriptions aren't reliable on this stuff. I've seen \"main-floor living\" on a house with a step up into the bathroom, and \"open concept\" on a house with a 28-inch hallway to the bedroom. So I verify it myself. I zoom in on doorframes in the listing photos, and I call the listing agent before I ever book a showing. On that search I spent about two weeks on the homework first and cut roughly 80% of the active inventory before my buyers saw a single house in person.",
+    "The ramblers from the 1970s and 1980s were the sweet spot. They tend to have the one-level layout and the wider hallways. Some manufactured homes checked the boxes too, but you have to ask whether the lot is owned or leased, because that changes the deal. Newer construction in University Place, Lakewood, and parts of South Tacoma has more open floor plans, and some builders are adding wider doors and curbless showers. Those homes are priced higher and they go fast.",
+    "On the selling side, a protected green belt behind the house is a real asset here. When I priced a Tacoma home that backed onto one, the comps were consistent: green belt homes sold slightly above the ones that didn't back onto one, with fewer days on market. But you have to prove it. I confirmed with the city or county what the designation actually meant and put the documentation in the listing packet, because \"I think it can't be built on\" isn't good enough for a buyer.",
+    "Honestly, the other thing this market taught me is that certainty can beat money. I've watched a cash offer win over two financed offers, one with an escalation clause, because the sellers had already lost a deal to financing and didn't want to live through that again."
+  ],
+  "seniorHeading": "When the move is about getting older",
+  "senior": [
+    "A lot of the single-level searches I do are really about staying independent. For the buyers on my Tacoma cash purchase, the must-haves weren't preferences. They were the home working for their daily life: no stairs to the main rooms, doorways of 32 inches at minimum and 36 ideally, a main-level bathroom with a walk-in or roll-in shower and no step-over curb, and a no-step entry or room to add a ramp.",
+    "On that purchase I brought in a specialist during the inspection period to look at the bathroom and the entry, so my buyers knew what it would take to make the house fit. After closing they added grab bars, adjusted a few door handles, and put a ramp at the back door.",
+    "I'm SRES certified, and I co-own an adult family home, so if the move is into care rather than into another house, I can talk through that side too."
+  ],
+  "caseStudies": [
+    {
+      "slug": "selling-home-tacoma-wa-green-belt",
+      "situation": "A Tacoma couple whose backyard ended at a protected green belt instead of a neighbor's fence.",
+      "outcome": "Several interested buyers, and it sold to a couple who'd searched Tacoma for months for privacy."
+    },
+    {
+      "slug": "cash-buyer-real-estate-tacoma",
+      "situation": "Cash buyers who needed one-level living, wide doorways, and a walk-in shower.",
+      "outcome": "A rambler with 34-inch doorways. The cash offer beat two financed offers and closed in 21 days."
+    }
+  ],
+  "marketSnapshot": null,
+  "faqs": [
+    {
+      "question": "Is it hard to find a single-level home in Tacoma?",
+      "answer": "Yes, harder than the search results suggest. A lot of Tacoma's homes were built between the 1960s and the 1990s, so split-levels and sunken living rooms are common, and listings often describe a home as one level when it isn't quite. Ramblers from the 1970s and 1980s are usually the best bet. I check doorways and bathrooms before I book a showing."
+    },
+    {
+      "question": "Do homes that back onto a green belt sell for more in Tacoma?",
+      "answer": "In the comps I pulled for my green belt listing, yes. The homes backing onto the green belt sold slightly above the ones that didn't, and with fewer days on market. But the green belt amplifies a well-prepared house. It doesn't make up for deferred maintenance, so I price for condition first."
+    },
+    {
+      "question": "Can a cash offer beat a higher financed offer?",
+      "answer": "Sometimes, yes. I've had a cash offer accepted over two financed offers, one with an escalation clause, because the sellers had already lost a deal to financing. Proof of funds went in with the offer, I called the listing agent to walk through it, and it closed 21 days after mutual acceptance."
+    },
+    {
+      "question": "Do I still need an agent if I'm paying cash?",
+      "answer": "I'd say yes, and maybe more so. There's no appraisal to catch you if you overpay, so someone has to run the comps. Washington contracts still carry inspection, title, and earnest money deadlines whether you finance or not, and I've seen cash buyers waive things they shouldn't have because no one explained them."
+    },
+    {
+      "question": "Should I get a sewer scope on an older house here?",
+      "answer": "Yes. I recommend a sewer scope on every older home in Pierce County, cash or financed, along with the general inspection. On my Tacoma cash purchase I booked the inspection within four days of mutual acceptance and added a sewer scope. It's a small cost next to what a failed line costs to replace."
+    }
+  ],
+  "subAreas": [
+    {
+      "name": "North End and North Tacoma",
+      "note": "The numbers are in my North Tacoma guide.",
+      "href": "/neighborhoods/tacoma"
+    },
+    {
+      "name": "Proctor, Stadium, and Lincoln",
+      "note": "Each has its own feel, and the buyers who want one of them usually know which."
+    },
+    {
+      "name": "South Tacoma",
+      "note": "Pockets of newer construction with more open floor plans. They move fast."
+    },
+    {
+      "name": "University Place and Lakewood",
+      "note": "Next door, with more of the newer, open-plan homes that single-level searches end up on."
+    }
+  ],
+  "related": [
+    {
+      "href": "/blog/north-tacoma-neighborhoods-guide",
+      "label": "North Tacoma neighborhoods",
+      "note": "How the neighborhoods north of downtown differ."
+    },
+    {
+      "href": "/blog/home-inspection-washington-state",
+      "label": "Home inspections in Washington",
+      "note": "What an inspection covers here, and what to add to it."
+    },
+    {
+      "href": "/blog/sres-agent-senior-transitions",
+      "label": "Senior transitions",
+      "note": "What an SRES does when a move is about getting older."
+    }
+  ],
+  "ogImage": {
+    "url": "/og/areas-tacoma.jpg",
+    "width": 1200,
+    "height": 630,
+    "alt": "A two-story home with a deck and a wide lawn at dusk, with tall evergreens behind it"
+  },
+  "datePublished": "2026-10-02",
+  "dateModified": "2026-10-02"
+}
