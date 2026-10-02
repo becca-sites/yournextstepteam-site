@@ -7,6 +7,30 @@ Note: the Google Drive **SESSION_LOG** doc is the more current master. See
 
 ---
 
+## 2026-10-02 - Search go-live: stage 1 of the 5.9 sequence
+
+**State now: searchStage 1.** robots.txt allows crawling; the X-Robots-Tag
+header and the meta noindex are both still ON; the sitemap is empty. Vercel
+production env PLACEHOLDER_MODE was set to "false" the same day (it is the
+master switch: any other value re-blocks everything at any stage).
+
+Becca and Brett approved going live in search. Pre-flight before stage 1:
+six TODO neighbourhood entries unpublished, the template sample story made a
+draft, page-level noindex on /search, /case-studies, /stories and
+/listings/[id], episode line set to 263 from tenant.brand.crawlEpisode.
+
+**Next, in order, never skipping:**
+1. Search Console property for https://www.yournextstepteam.com/ verified
+   (none exists in the Chrome account checked). URL Inspection, Test Live URL,
+   on 3 or 4 pages must report "Excluded by 'noindex' tag".
+2. Stage 2: searchStage 2 removes X-Robots-Tag. Verify with curl -I.
+3. Stage 3: searchStage 3 removes meta noindex and fills the sitemap. Verify
+   curl -s | grep -i noindex returns nothing on home, an area page, a post.
+4. Stage 4: submit sitemap.xml, request indexing on home, /about, /areas,
+   /areas/tacoma.
+
+---
+
 ## 2026-10-02 - Footer compliance, areas, technical SEO
 
 **Deliverables:** firm-name and team disclosures, MLS badge removed, Equal
