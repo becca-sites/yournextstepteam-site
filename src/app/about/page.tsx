@@ -8,7 +8,6 @@ import { FadeIn, FadeInStagger } from "@/components/FadeIn";
 import { SectionIntro } from "@/components/SectionIntro";
 import { Border } from "@/components/Border";
 import { ContactBlock } from "@/components/ContactBlock";
-import { RealEstateAgentSchema } from "@/components/schema/RealEstateAgentSchema";
 import { ProfilePageSchema } from "@/components/schema/ProfilePageSchema";
 import { BreadcrumbListSchema } from "@/components/schema/BreadcrumbListSchema";
 import { FAQSchema } from "@/components/schema/FAQSchema";
@@ -131,7 +130,6 @@ export default function AboutPage() {
 
   return (
     <>
-      <RealEstateAgentSchema />
       <ProfilePageSchema />
       <BreadcrumbListSchema
         items={[

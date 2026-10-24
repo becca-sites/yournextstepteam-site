@@ -1,5 +1,6 @@
 import { resolveSiteUrl } from "@/site.config";
 import { isPlaceholderMode } from "@/lib/placeholder";
+import { PERSON_ID } from "@/lib/entity";
 import { tenant } from "@/config/tenant";
 
 /** Date the hero video was published to this site, not the shoot date. */
@@ -56,11 +57,8 @@ export function HeroVideoSchema() {
         addressCountry: "US",
       },
     },
-    author: {
-      "@type": "Person",
-      name: tenant.agent.name,
-      url: base,
-    },
+    // The shared Person node, so the video credits the one canonical Becca.
+    author: { "@id": PERSON_ID },
   };
 
   return (

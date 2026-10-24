@@ -3,7 +3,7 @@ import { Container } from "@/components/Container";
 import { BreadcrumbListSchema } from "@/components/schema/BreadcrumbListSchema";
 import { getPublishedAreas } from "@/lib/areas";
 import { pageMetadata } from "@/lib/metadata";
-import { SERVICE_COUNTIES } from "@/components/schema/RealEstateAgentSchema";
+import { SERVICE_COUNTIES } from "@/lib/entity";
 
 export const metadata = pageMetadata({
   title: "Areas I Serve",

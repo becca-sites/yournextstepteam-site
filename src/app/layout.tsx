@@ -4,7 +4,7 @@ import { siteConfig, resolveSiteUrl } from "@/site.config";
 import { tenant } from "@/config/tenant";
 import { isNoIndex } from "@/lib/placeholder";
 import { baseOpenGraph } from "@/lib/metadata";
-import { LocalBusinessSchema } from "@/components/schema/LocalBusinessSchema";
+import { EntitySchema } from "@/components/schema/EntitySchema";
 import { Analytics } from "@/components/telemetry/Analytics";
 import { Header } from "@/components/global/Header";
 import { Footer } from "@/components/global/Footer";
@@ -155,7 +155,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <noscript>
           <style>{`[style*="opacity:0"]{opacity:1!important;transform:none!important}`}</style>
         </noscript>
-        <LocalBusinessSchema />
+        <EntitySchema />
       </head>
       <body className="min-h-screen antialiased">
         {/*

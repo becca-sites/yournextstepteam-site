@@ -1,6 +1,7 @@
 import { resolveSiteUrl } from "@/site.config";
 import { isPlaceholderMode } from "@/lib/placeholder";
 import type { Area } from "@/lib/areas";
+import { TEAM_ID, WEBSITE_ID } from "@/lib/entity";
 
 /**
  * Structured data for one area page: WebPage, Place (the city, not an office
@@ -30,7 +31,7 @@ export function AreaSchema({ area }: { area: Area }) {
       url,
       name: area.h1,
       description: area.metaDescription,
-      isPartOf: { "@id": `${base}#website` },
+      isPartOf: { "@id": WEBSITE_ID },
       about: { "@id": `${url}#place` },
       breadcrumb: { "@id": `${url}#breadcrumb` },
       datePublished: area.datePublished,
@@ -57,7 +58,7 @@ export function AreaSchema({ area }: { area: Area }) {
       "@type": "Service",
       "@id": `${url}#service`,
       serviceType: "Residential real estate representation",
-      provider: { "@id": `${base}#agent` },
+      provider: { "@id": TEAM_ID },
       areaServed: { "@id": `${url}#place` },
       description: area.metaDescription,
     },

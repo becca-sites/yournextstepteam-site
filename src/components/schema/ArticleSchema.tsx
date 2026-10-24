@@ -1,5 +1,6 @@
 import { siteConfig, resolveSiteUrl } from "@/site.config";
 import { isPlaceholderMode } from "@/lib/placeholder";
+import { PERSON_ID, TEAM_ID } from "@/lib/entity";
 
 interface Props {
   title: string;
@@ -39,11 +40,11 @@ export function ArticleSchema({
     image: image ? [image] : [`${base}/og/default.jpg`],
     datePublished: published || undefined,
     dateModified: updated || published || undefined,
-    author: { "@id": `${base}#person`, "@type": "Person", name: siteConfig.agentName },
+    author: { "@id": PERSON_ID },
     // The site publishes this, not the brokerage. The logo path is the real
     // brand mark rather than the /placeholders/ file, which does not exist.
     publisher: {
-      "@id": `${base}#agent`,
+      "@id": TEAM_ID,
       "@type": "Organization",
       name: siteConfig.brandName,
       logo: { "@type": "ImageObject", url: `${base}${siteConfig.logoUrl}` },

@@ -1,5 +1,6 @@
 import { siteConfig, resolveSiteUrl } from "@/site.config";
 import { isPlaceholderMode } from "@/lib/placeholder";
+import { TEAM_ID } from "@/lib/entity";
 
 interface Props {
   name: string;
@@ -19,7 +20,7 @@ export function ServiceSchema({ name, serviceType, description }: Props) {
     name,
     serviceType,
     description: description ?? `${name} across ${siteConfig.serviceArea.join(", ")}`,
-    provider: { "@id": `${base}#agent` },
+    provider: { "@id": TEAM_ID },
     areaServed: siteConfig.serviceArea.map((city) => ({ "@type": "City", name: city })),
     audience: { "@type": "Audience", audienceType: "Real estate buyers and sellers" },
   };

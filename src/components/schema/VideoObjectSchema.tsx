@@ -1,5 +1,6 @@
 import { resolveSiteUrl } from "@/site.config";
 import { isPlaceholderMode } from "@/lib/placeholder";
+import { PERSON_ID } from "@/lib/entity";
 import { tenant, type TenantEpisode } from "@/config/tenant";
 
 export function VideoObjectSchema({ episode }: { episode: TenantEpisode }) {
@@ -24,11 +25,8 @@ export function VideoObjectSchema({ episode }: { episode: TenantEpisode }) {
       description: tenant.videos.seriesDescription,
       url: tenant.videos.featuredPlaylistUrl,
     },
-    author: {
-      "@type": "Person",
-      name: tenant.agent.name,
-      url: base,
-    },
+    // The shared Person node, so the video credits the one canonical Becca.
+    author: { "@id": PERSON_ID },
   };
 
   return (

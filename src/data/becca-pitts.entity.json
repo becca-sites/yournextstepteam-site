@@ -1,0 +1,162 @@
+{
+  "person": {
+    "@type": "Person",
+    "@id": "https://www.yournextstepteam.com/#becca-pitts",
+    "name": "Becca Pitts",
+    "alternateName": [
+      "Rebecca Pitts",
+      "Rebecca L. Pitts",
+      "Rebecca L Pitts",
+      "Becca Iverson",
+      "Rebecca Iverson",
+      "Rebecca L Iverson"
+    ],
+    "givenName": "Rebecca",
+    "familyName": "Pitts",
+    "jobTitle": "Real Estate Broker",
+    "description": "Becca Pitts is a Washington State real estate broker and Seniors Real Estate Specialist serving Pierce County and South King County, and the co-owner of Burien Best Care Home, a licensed adult family home in Burien. She is also a working commercial actor and print model.",
+    "url": "https://www.yournextstepteam.com/about",
+    "mainEntityOfPage": "https://www.yournextstepteam.com/about",
+    "image": "https://www.yournextstepteam.com/photos/headshots/becca-headshot.webp",
+    "telephone": "+1-253-678-7089",
+    "email": "becca@yournextstepteam.com",
+    "knowsLanguage": ["en-US"],
+    "knowsAbout": [
+      "Senior transitions and downsizing",
+      "Aging in place planning",
+      "Selling a parent's home",
+      "Estate and probate home sales in Washington",
+      "First-time home buying in Pierce County",
+      "Selling one home while buying the next",
+      "Relocating to Western Washington",
+      "Buying raw land and building",
+      "Short sales, foreclosures, and bank-owned property",
+      "Pierce County and South King County housing market",
+      "Adult family home care and senior care placement"
+    ],
+    "hasCredential": [
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "license",
+        "name": "Washington State Real Estate Broker License",
+        "identifier": "107351",
+        "recognizedBy": {
+          "@type": "GovernmentOrganization",
+          "name": "Washington State Department of Licensing",
+          "url": "https://dol.wa.gov/"
+        },
+        "validFrom": "2010-06-14",
+        "validThrough": "2027-08-21"
+      },
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certification",
+        "name": "Seniors Real Estate Specialist",
+        "alternateName": "SRES",
+        "description": "Additional training in reverse mortgages, aging in place, care placement timelines, and the tax side of selling a home someone has lived in for decades.",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "National Association of REALTORS",
+          "url": "https://www.nar.realtor/"
+        }
+      },
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certification",
+        "name": "eXp Icon Agent",
+        "description": "Awarded in 2022 for production and for contribution to other agents in the brokerage.",
+        "recognizedBy": {
+          "@id": "https://www.yournextstepteam.com/#exp-realty"
+        }
+      }
+    ],
+    "hasOccupation": [
+      {
+        "@type": "Occupation",
+        "name": "Real Estate Broker",
+        "occupationalCategory": {
+          "@type": "CategoryCode",
+          "codeValue": "41-9022",
+          "name": "Real Estate Sales Agents",
+          "inCodeSet": {
+            "@type": "CategoryCodeSet",
+            "name": "O*NET-SOC",
+            "url": "https://www.onetonline.org/"
+          }
+        }
+      },
+      {
+        "@type": "Occupation",
+        "name": "Commercial Actor and Model",
+        "description": "Professional nonunion commercial actor and print model working in the Seattle market.",
+        "occupationalCategory": {
+          "@type": "CategoryCode",
+          "codeValue": "27-2011",
+          "name": "Actors",
+          "inCodeSet": {
+            "@type": "CategoryCodeSet",
+            "name": "O*NET-SOC",
+            "url": "https://www.onetonline.org/"
+          }
+        }
+      }
+    ],
+    "alumniOf": {
+      "@type": "CollegeOrUniversity",
+      "name": "Western Washington University",
+      "url": "https://www.wwu.edu/"
+    },
+    "worksFor": { "@id": "https://www.yournextstepteam.com/#exp-realty" },
+    "owns": [
+      { "@id": "https://www.yournextstepteam.com/#team" },
+      { "@id": "https://www.burienbestcarehome.com/#organization" }
+    ],
+    "memberOf": [
+      { "@id": "https://www.yournextstepteam.com/#team" },
+      { "@id": "https://www.burienbestcarehome.com/#organization" }
+    ],
+    "homeLocation": {
+      "@type": "Place",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Bonney Lake",
+        "addressRegion": "WA",
+        "addressCountry": "US"
+      }
+    },
+    "sameAs": [
+      "https://www.zillow.com/profile/BeccaPittsRealtor",
+      "https://www.homes.com/real-estate-agents/becca-pitts/v68egxg/",
+      "https://realestate.usnews.com/agents/profile/rebecca-pitts-4088521",
+      "https://www.yelp.com/biz/becca-pitts-exp-realty-seattle",
+      "https://www.facebook.com/beccayournextstep",
+      "https://www.instagram.com/beccapittsrealtor/",
+      "https://www.youtube.com/@beccapitts",
+      "https://www.pinterest.com/beccapittsrealtor/",
+      "https://www.backstage.com/u/becca-pitts/",
+      "https://rebeccapitts.exprealty.com/",
+      "https://sea.exprealty.com/agents/100363/Becca+Iverson",
+      "https://maps.google.com/maps?cid=401486134069244938"
+    ]
+  },
+  "brokerage": {
+    "@type": "RealEstateAgent",
+    "@id": "https://www.yournextstepteam.com/#exp-realty",
+    "name": "eXp Realty LLC",
+    "alternateName": "eXp Realty",
+    "url": "https://exprealty.com",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "1455 NW Leary Way",
+      "addressLocality": "Seattle",
+      "addressRegion": "WA",
+      "postalCode": "98107",
+      "addressCountry": "US"
+    },
+    "identifier": {
+      "@type": "PropertyValue",
+      "name": "Washington State Real Estate Firm License",
+      "value": "9393"
+    }
+  }
+}

@@ -12,7 +12,6 @@ import { ScrollCrossfadePortrait } from "@/components/ScrollCrossfadePortrait";
 import { ContactBlock } from "@/components/ContactBlock";
 import { ClosingCrawl } from "@/components/sections/ClosingCrawl";
 import { TestimonialCarousel } from "@/components/sections/TestimonialCarousel";
-import { RealEstateAgentSchema } from "@/components/schema/RealEstateAgentSchema";
 import { HeroVideoSchema } from "@/components/schema/HeroVideoSchema";
 import { getAllPosts } from "@/lib/content";
 
@@ -466,7 +465,6 @@ function AboutPreviewSection() {
 export default function HomePage() {
   return (
     <>
-      <RealEstateAgentSchema />
       <HeroVideoSchema />
       <HeroSection />
       {/* Nothing between these two. The stats used to sit here as their own
