@@ -19,11 +19,16 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const ep = tenant.episodes.find((e) => e.slug === slug);
   if (!ep) return {};
-  return pageMetadata({
-    title: `${ep.title} | ${tenant.videos.seriesTitle}`,
-    description: ep.description,
-    path: `/your-best-season/${ep.slug}`,
-  });
+  return {
+    ...pageMetadata({
+      title: `${ep.title} | ${tenant.videos.seriesTitle}`,
+      description: ep.description,
+      path: `/your-best-season/${ep.slug}`,
+    }),
+    // Not offered to search (video schema included) until the series has its
+    // real build. See tenant.videos.seriesIndexable.
+    ...(tenant.videos.seriesIndexable ? {} : { robots: { index: false, follow: true } }),
+  };
 }
 
 export default async function EpisodePage({ params }: Props) {

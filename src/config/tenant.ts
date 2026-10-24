@@ -246,6 +246,13 @@ export interface TenantVideos {
   featuredPlaylistUrl: string;
   seriesTitle: string;
   seriesDescription: string;
+  /**
+   * Whether /your-best-season and its episode pages are offered to search.
+   * Off until the series has its real build: the pages stay reachable, but
+   * carry their own noindex, stay out of the sitemap, and drop out of the
+   * footer. Flip to true to announce the series.
+   */
+  seriesIndexable: boolean;
 }
 
 export interface TenantPodcast {
@@ -607,6 +614,7 @@ export const tenant: Tenant = {
     featuredPlaylistUrl:
       "https://www.youtube.com/playlist?list=PLG5NuTm0xBQ-fdh6W3hLMwJHV3x4793NY",
     seriesTitle: "Your Best Season",
+    seriesIndexable: false,
     seriesDescription:
       "A senior living education series on aging in place, downsizing, elder care, and making a confident move into the next chapter.",
   },

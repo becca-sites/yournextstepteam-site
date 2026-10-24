@@ -11,6 +11,8 @@ export const metadata: Metadata = {
   title: tenant.videos.seriesTitle,
   description: tenant.videos.seriesDescription,
   alternates: { canonical: "/your-best-season" },
+  // Reachable, but not offered to search until the series has its real build.
+  ...(tenant.videos.seriesIndexable ? {} : { robots: { index: false, follow: true } }),
   openGraph: {
     ...baseOpenGraph,
     title: tenant.videos.seriesTitle,

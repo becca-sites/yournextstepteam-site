@@ -20,7 +20,9 @@ const NAV_WORKING = [
 
 const NAV_LEARN = [
   { href: "/podcast", label: "Next Step Conversations" },
-  { href: "/your-best-season", label: "Your Best Season" },
+  ...(tenant.videos.seriesIndexable
+    ? [{ href: "/your-best-season", label: "Your Best Season" }]
+    : []),
   { href: "/areas", label: "Areas I serve" },
   { href: "/about", label: "About Becca" },
   { href: tenant.sibling.url, label: tenant.sibling.name, external: true },

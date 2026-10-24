@@ -24,7 +24,6 @@ const STATIC_DATES: Record<string, string | undefined> = {
   "/listings": undefined,
   "/buyers": undefined,
   "/sellers": undefined,
-  "/your-best-season": undefined,
   "/podcast": undefined,
   "/contact": undefined,
   "/neighborhoods": undefined,
@@ -61,7 +60,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
   );
 
   const neighborhoods = readyNeighborhoods().map((n) => entry(`/neighborhoods/${n.slug}`));
-  const episodes = tenant.episodes.map((ep) => entry(`/your-best-season/${ep.slug}`));
+  const episodes = tenant.videos.seriesIndexable
+    ? [
+        entry("/your-best-season"),
+        ...tenant.episodes.map((ep) => entry(`/your-best-season/${ep.slug}`)),
+      ]
+    : [];
 
   return [...staticEntries, ...areas, ...posts, ...neighborhoods, ...episodes];
 }
