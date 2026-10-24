@@ -2,21 +2,78 @@
   "slug": "puyallup",
   "city": "Puyallup",
   "county": "Pierce County",
-  "published": false,
-  "heldReason": "Held: no published, consented case study set in Puyallup. The patient-seller post (when-to-sell-your-home-tacoma-patient-seller) is framed as Tacoma but the deal file puts the home in Puyallup (9820 58th Ave Ct E); resolve that before using it anywhere. Closed Puyallup deal folders exist (Connors, Wakeman, Walton, Whitman, Howard_Grogan) but none is written up or consented. Do not publish until a real case study for this city is published as a Case Studies post and the experience block is written from it. Do not fill this page with researched or generic text.",
-  "title": "",
-  "metaDescription": "",
-  "h1": "",
-  "orientation": "",
-  "experienceHeading": "",
-  "experience": [],
-  "seniorHeading": "",
-  "senior": [],
-  "caseStudies": [],
+  "published": true,
+  "title": "Puyallup, WA: Winning an Offer on South Hill",
+  "metaDescription": "How my South Hill buyers won a multiple-offer house without being the highest bid, and what self-employed buyers should know before they start in Puyallup.",
+  "h1": "Puyallup, and how a $5,000 offer won on South Hill",
+  "orientation": "I lived in Puyallup before I landed in Bonney Lake. The South Hill house on this page sold in seven days with more than one offer on the table, and my buyers got it without being the biggest number. They'd also been my future clients for about four years before they bought anything. Both of those things say more about buying here than any market chart I could post.",
+  "experienceHeading": "What I know about buying here",
+  "experience": [
+    "So here's how the South Hill offer actually went. The house was listed at $580,000 and drew multiple offers inside a week. Two of them were very close. Mine was $5,000 over list, not $20,000, with no closing cost request, and I'd already talked to the listing agent about what the seller actually wanted. When two offers are that close, the listing agent recommends one of them, and that recommendation comes from a person who has either heard from you or hasn't. We closed at $585,000.",
+    "Honestly, the bigger lesson is the one that started four years earlier. These buyers were building a junk removal business, and the plan was always that they'd buy through me when they could. In the meantime I hired them, over and over, to clear out my listings. For four years the money ran one direction, from me to them, on a sale that might never have happened. What finally changed was that their finances got stable and the right house came up.",
+    "Also, they're both self-employed, which always makes financing the harder version. It's rarely about whether you qualify. It's the paperwork: two years of returns, profit and loss statements, add-backs, and an explanation for every deposit that doesn't match the rest. That burden is one of the most common reasons capable people put off buying for years. If that's you, start the lender conversation earlier than a W-2 buyer would.",
+    "And I screened every house for how they'd actually live in it. They wanted good bones they could update over time, room for a teenager, and somewhere to park the work trucks and equipment. Almost no listing gets evaluated on that last one, and it's the one that decides whether a house still works two years in.",
+    "Almost a year after closing, one of them emailed because he'd lost the paperwork for his home warranty and two appliances were acting up. I pulled the invoice with the policy number and sent it within the hour. I still hire them for my listings, too."
+  ],
+  "practicalHeading": "If your work comes home with you",
+  "practical": [
+    "Trucks, trailers, and equipment change what a house has to do. Before you write an offer, check the zoning, the HOA covenants if there are any, the driveway's width and depth, the setbacks, gate access, and whether neighbors' cars already fill the street.",
+    "Check all of that before you write, not during inspection. If your business lives in your driveway, those aren't minor details. They're the deal. Screening for them up front is how my South Hill buyers avoided spending weekends on houses that could never have worked."
+  ],
+  "caseStudies": [
+    {
+      "slug": "south-hill-puyallup-buyers-i-waited-four-years-for",
+      "situation": "Self-employed buyers I'd known for four years, competing for a South Hill house.",
+      "outcome": "Seven days on market, multiple offers, and they won at $585,000 without being the highest bid."
+    }
+  ],
   "marketSnapshot": null,
-  "faqs": [],
-  "subAreas": [],
-  "related": [],
-  "datePublished": "",
-  "dateModified": ""
+  "faqs": [
+    {
+      "question": "How do I win a multiple-offer situation without being the highest bid?",
+      "answer": "Clean terms, no closing cost request, a fast inspection turnaround, and an agent who has actually talked to the listing agent and knows what the seller needs. My South Hill buyers won at $5,000 over a $580,000 list price, against an offer that was otherwise a match. The money they didn't spend stayed with them."
+    },
+    {
+      "question": "Can I buy a house if I'm self-employed?",
+      "answer": "Yes, and it's harder. The difficulty is usually paperwork rather than whether you qualify: two years of returns, profit and loss statements, and explanations for unusual deposits. Start talking to a lender earlier than a W-2 buyer would, because some of those documents take time to pull together."
+    },
+    {
+      "question": "What should I check if my work vehicles and equipment come with me?",
+      "answer": "Zoning, HOA covenants, driveway width and depth, setbacks, gate access, and whether the street parking is already full. Check before you write an offer, not during inspection. A house that can't hold the business you run out of it is the wrong house, however nice the kitchen is."
+    },
+    {
+      "question": "How early should I talk to an agent?",
+      "answer": "Earlier than you think. My South Hill buyers talked to me about four years before they bought. Nothing bad happens if you're early, and plenty of bad things happen if you're late, because the best time to fix your financing, your paperwork, or your search criteria is before you're competing for a house."
+    }
+  ],
+  "subAreas": [
+    {
+      "name": "South Hill",
+      "note": "Where my buyers found a house with good bones, room to grow, and somewhere to park the work trucks."
+    },
+    {
+      "name": "The rest of Puyallup",
+      "note": "Quick numbers and notes are in my Puyallup neighborhood guide.",
+      "href": "/neighborhoods/puyallup"
+    }
+  ],
+  "related": [
+    {
+      "href": "/blog/living-in-puyallup-wa",
+      "label": "Living in Puyallup",
+      "note": "What it's like to live here day to day."
+    },
+    {
+      "href": "/blog/first-time-buyer-pierce-county",
+      "label": "Buying your first home in Pierce County",
+      "note": "The steps, start to finish."
+    },
+    {
+      "href": "/blog/offer-to-closing-washington-state",
+      "label": "Offer to closing in Washington",
+      "note": "Every step between mutual acceptance and keys."
+    }
+  ],
+  "datePublished": "2026-10-23",
+  "dateModified": "2026-10-23"
 }

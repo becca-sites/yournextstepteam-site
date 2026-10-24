@@ -126,6 +126,12 @@ export interface TenantAgent {
   yearsOfExperience: number;
   /** Year Becca was first licensed in Washington. Feeds schema and About copy. */
   licensedSince: number;
+  /**
+   * Becca's verified career transaction count. The single source for every
+   * "263 closings" on the site, the stat cards, and the crawl's episode
+   * number. Update CAREER_CLOSINGS below and nothing else.
+   */
+  careerClosings: number;
   expProfileUrl: string;
   /**
    * Professional designations beyond the license itself. Rendered as plain
@@ -209,11 +215,6 @@ export interface TenantBrand {
    * logo and the episode line. Brett's copy; change it here, nowhere else.
    */
   crawlHook: string;
-  /**
-   * The episode number on the crawl's title card. Becca's verified career
-   * transaction count, so it goes up as she closes. Change it here only.
-   */
-  crawlEpisode: number;
   headingFont: string;
   bodyFont: string;
 }
@@ -403,6 +404,14 @@ export interface Tenant {
   demo: { searchStage: 0 | 1 | 2 | 3 };
 }
 
+/**
+ * Career closings, as the site has always stated it. Becca confirmed 270 on
+ * 2026-10-24: she has never done dual agency, so nothing is double counted, and
+ * it is more current than the September MLS export (263). If an official MLS
+ * production report later gives a different figure, change it here only.
+ */
+const CAREER_CLOSINGS = 270;
+
 export const tenant: Tenant = {
   agent: {
     name: 'Rebecca "Becca" Pitts',
@@ -428,14 +437,14 @@ export const tenant: Tenant = {
     // The one-paragraph version. Renders as the About page hero subhead and as
     // the first paragraph of storyLong on the homepage, so it has to work as a
     // standalone introduction and as the opening of a longer story.
-    bio: "Here's the thing about 270 closings: they teach you exactly where a deal breaks. So I structure things so they don't. Before we start, I've already worked out Plan A, Plan B, and usually Plan C, and I bring up the hard parts in week one while there's still room to do something about them. You don't need to carry all three plans around. You just need to know somebody has them.",
+    bio: `Here's the thing about ${CAREER_CLOSINGS} closings: they teach you exactly where a deal breaks. So I structure things so they don't. Before we start, I've already worked out Plan A, Plan B, and usually Plan C, and I bring up the hard parts in week one while there's still room to do something about them. You don't need to carry all three plans around. You just need to know somebody has them.`,
     // Becca's own words. Paragraphs are separated by a blank line and split on
     // "\n\n" wherever this renders. The homepage about section renders all
     // three; the About page tells the long version in its own words instead of
     // reusing these, so this is now the short story and /about is the full one.
     // Keep it em dash free: her voice uses periods and commas, not dashes.
     storyLong: [
-      "Here's the thing about 270 closings: they teach you exactly where a deal breaks. So I structure things so they don't. Before we start, I've already worked out Plan A, Plan B, and usually Plan C, and I bring up the hard parts in week one while there's still room to do something about them. You don't need to carry all three plans around. You just need to know somebody has them.",
+      `Here's the thing about ${CAREER_CLOSINGS} closings: they teach you exactly where a deal breaks. So I structure things so they don't. Before we start, I've already worked out Plan A, Plan B, and usually Plan C, and I bring up the hard parts in week one while there's still room to do something about them. You don't need to carry all three plans around. You just need to know somebody has them.`,
       "The first meeting is a conversation, not a script. I'm not going to run a presentation at you. I want to hear what you actually want out of this, and you should ask me anything, including the questions you think sound dumb. Those are usually the good ones. I came into real estate in 2010, while the market was still climbing out of the recession, so I learned this business on short sales, foreclosures, and bank-owned files. Ordinary transactions have never scared me since.",
       "I grew up in Eatonville, went to Western Washington University in Bellingham, and lived in Puyallup, Tacoma, and Renton before landing in Bonney Lake in 2017. I've helped buyers and sellers from Everett to Morton and from Grays Harbor to Roslyn, and I've lived in Pierce, King, and Whatcom counties myself. First house or tenth, upsizing, downsizing, investing, relocating: the questions change, the way I work them stays the same.",
     ].join("\n\n"),
@@ -456,6 +465,7 @@ export const tenant: Tenant = {
     // credential in schema read from here, so this is the only place the year
     // is stated as a number.
     licensedSince: 2010,
+    careerClosings: CAREER_CLOSINGS,
     expProfileUrl: "https://rebeccapitts.exprealty.com/",
     certifications: [
       {
@@ -565,7 +575,6 @@ export const tenant: Tenant = {
     // neighbourhood pages and in blog posts, where they are the subject.
     eyebrow: "Pierce County · King County · Surrounding Areas",
     crawlHook: "Your Next Step Begins.",
-    crawlEpisode: 263,
     // Descriptive only: nothing reads these to load a font. The faces are
     // self-hosted and wired up in src/app/layout.tsx and globals.css.
     headingFont: "Playfair Display",
@@ -1234,7 +1243,7 @@ export const tenant: Tenant = {
     // recession's wreckage and learned the job on distressed files), and it
     // never needs editing again.
     { value: "2010", label: "Licensed in Washington", detail: "Learned it on short sales and foreclosures" },
-    { value: "270", label: "Closings", detail: "Bonney Lake to Eatonville and beyond" },
+    { value: String(CAREER_CLOSINGS), label: "Closings", detail: "Bonney Lake to Eatonville and beyond" },
     { value: "SRES®", label: "Senior Real Estate Specialist", detail: "Certified for 55+ moves" },
     { value: "Icon", label: "eXp Icon Agent", detail: "Awarded 2022" },
   ],
@@ -1247,7 +1256,7 @@ export const tenant: Tenant = {
   resultsStats: [
     { value: "12", label: "Sales in the last 12 months", detail: "Across Puget Sound" },
     { value: "5.0", label: "Online reviews", detail: "46 verified reviews" },
-    { value: "270", label: "Career total", detail: "Across Western Washington" },
+    { value: String(CAREER_CLOSINGS), label: "Career total", detail: "Across Western Washington" },
   ],
 
   // Written for cold traffic: someone who found this page and has never met

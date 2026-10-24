@@ -29,7 +29,7 @@ export function GET() {
   const body = [
     `# ${siteConfig.agentName}`,
     "",
-    `> ${siteConfig.agentTitle} affiliated with ${siteConfig.brokerage}, trading as ${siteConfig.brandName}. Licensed in ${siteConfig.state} since ${agent.licensedSince}, license #${siteConfig.licenseNumber} (${siteConfig.stateAbbreviation}). More than 270 closings. Works Pierce County and South King County primarily, plus the surrounding Western Washington counties.`,
+    `> ${siteConfig.agentTitle} affiliated with ${siteConfig.brokerage}, trading as ${siteConfig.brandName}. Licensed in ${siteConfig.state} since ${agent.licensedSince}, license #${siteConfig.licenseNumber} (${siteConfig.stateAbbreviation}). More than ${tenant.agent.careerClosings} closings. Works Pierce County and South King County primarily, plus the surrounding Western Washington counties.`,
     "",
     // The credentials and topic list are stated in plain prose as well as in
     // JSON-LD, because an assistant reading this file will not have parsed the

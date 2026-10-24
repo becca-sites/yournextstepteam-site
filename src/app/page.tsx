@@ -99,7 +99,7 @@ function HeroSection() {
                 thinnest point under this column. */}
             <p className="measure mt-6 max-w-xl text-lg text-white">
               Hi, I&apos;m Becca Pitts. Pierce, King, and the surrounding
-              counties. Licensed in Washington since 2010 and 270 closings
+              counties. Licensed in Washington since 2010 and {tenant.agent.careerClosings} closings
               behind me, so I can tell you what your street is doing, what that
               house is really worth, and what it takes to get you into it.
             </p>
@@ -323,7 +323,7 @@ const PILLARS = [
     // Non-breaking spaces keep "Plan B" and "Usually C" whole, so balance
     // cannot split the title as "Plan A, Plan / B, Usually C".
     title: "Plan A, Plan\u00a0B, Usually\u00a0C",
-    body: "270 closings teach you exactly where deals break. Before we start, I've thought through the low appraisal, the wobbly financing, the week the other side goes quiet. You don't have to carry all three plans. You just need to know somebody has them.",
+    body: `${tenant.agent.careerClosings} closings teach you exactly where deals break. Before we start, I've thought through the low appraisal, the wobbly financing, the week the other side goes quiet. You don't have to carry all three plans. You just need to know somebody has them.`,
   },
   {
     title: "A Network I've Personally Vetted",
@@ -420,7 +420,7 @@ function AboutPreviewSection() {
                 tenant.agent.licensedSince and is stated nowhere else as a
                 literal. */}
             <h2 className="mt-4 font-display text-3xl md:text-4xl">
-              Licensed since {tenant.agent.licensedSince}. 270 closings. And I
+              Licensed since {tenant.agent.licensedSince}. {tenant.agent.careerClosings} closings. And I
               still answer my own phone.
             </h2>
             {/* All of the about copy comes from tenant.agent.storyLong so the

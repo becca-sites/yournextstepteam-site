@@ -20,7 +20,7 @@ import { isNoIndex } from "@/lib/placeholder";
 const STATIC_DATES: Record<string, string | undefined> = {
   "/": undefined,
   "/about": "2026-09-05",
-  "/areas": "2026-10-02",
+  "/areas": "2026-10-23",
   "/listings": undefined,
   "/buyers": undefined,
   "/sellers": undefined,

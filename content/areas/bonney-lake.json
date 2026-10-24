@@ -1,0 +1,79 @@
+{
+  "slug": "bonney-lake",
+  "city": "Bonney Lake",
+  "county": "Pierce County",
+  "published": true,
+  "title": "Bonney Lake, WA: Selling in Tehaleh",
+  "metaDescription": "What selling in Tehaleh taught me: HOA sign rules, why the community Facebook group beat my open house, and honest pricing in a slow Bonney Lake summer.",
+  "h1": "Bonney Lake, where I live, and what selling in Tehaleh takes",
+  "orientation": "I've lived in Bonney Lake since 2017, and my listings here have gone in a median of five days. The one on this page took forty. It was a 2014 home in Columbia Vista at Cascadia, one of the named sub-neighborhoods inside Tehaleh, the master-planned community off SR 410. It sold, and I'm going to tell you what didn't work along the way as well as what did.",
+  "experienceHeading": "What I know about selling in Tehaleh",
+  "experience": [
+    "So the first thing to know is that the HOA rules are real and they get enforced. Tehaleh doesn't allow A-board signs in the neighborhood, and when one goes out, somebody picks it up. I understand why. But Tehaleh is big and built in sub-neighborhoods, and nobody stumbles onto a house out here. Somebody has to tell you where to turn. So I hired teenagers in ice cream parlor outfits to hold \"Open House with Ice Cream\" signs, one group at the entrance roundabout and one at the turn into our sub-neighborhood. The rule covers placed signs, not people.",
+    "Here's the part I got wrong. I thought the dancers would fill the open house, and they didn't, really. What happened instead was that the community Facebook group lit up, with people asking which house it was and whether it was even allowed. In a master-planned community the neighbors are the distribution channel. They're the ones with a sister who's been trying to get in for a year.",
+    "Also, price honestly from the start. That summer Tehaleh was saturated, with very few sales, and buyers had no reason to hurry. Most of them have picked the community before they ever call an agent, so they're choosing between a handful of similar homes in one pocket, not between Tehaleh and the rest of Pierce County. I listed at $715,000, cut to $699,999, and it sold at $690,000. The buzz helped. It didn't save us from the reductions, and you should know which one worked.",
+    "And when the offer came in, the buyer's agent had left their own compensation out of the contract. That's been happening more since the rules on buyer agent compensation changed. It wasn't my mistake or my client's problem, and I flagged it anyway. Everybody gave a little, and it closed."
+  ],
+  "practicalHeading": "Selling through a hard season",
+  "practical": [
+    "My seller bought that house with money she'd inherited from her father, and in the middle of marketing it her mother died. She was starting over in another state, making a decision that size for the first time without a parent to call.",
+    "We didn't pause the listing. I carried more of the logistics, brought her only the decisions that actually needed her, and handled the rest. After closing I helped her get out of the house, went back for a few things she'd left, and coordinated her storage. People sell through a death in the family all the time. What matters is having somebody who'll carry the parts you can't right now."
+  ],
+  "caseStudies": [
+    {
+      "slug": "selling-home-tehaleh-bonney-lake-dancing-teenagers",
+      "situation": "A Tehaleh listing in a saturated summer, under an HOA that bans placed signs.",
+      "outcome": "Sign spinners, two honest price cuts, and a contract error fixed. It sold at $690,000."
+    }
+  ],
+  "marketSnapshot": null,
+  "faqs": [
+    {
+      "question": "Can you hold an open house in Tehaleh if the HOA bans signs?",
+      "answer": "Yes. The rule covers placed A-board signs, not people. Sign spinners at the entrance roundabout, directions at the turn into your sub-neighborhood, and the community Facebook group all work, and none of them breaks the covenant. Build your marketing around the HOA rules instead of hoping nobody notices."
+    },
+    {
+      "question": "How long does it take to sell a home in Tehaleh?",
+      "answer": "It swings hard with the season and inventory. My Bonney Lake listings have gone in a median of five days, and my Tehaleh listing took forty in a saturated summer with very few comparable sales. Forty days was an outlier, and the market was the reason, not the house."
+    },
+    {
+      "question": "Will I have to reduce my price in Tehaleh?",
+      "answer": "You might. In a quiet stretch with few comparable sales, the first price is a hypothesis, not a promise. My Tehaleh listing started at $715,000 and sold at $690,000 after two reductions. Creative marketing helps you get found while you wait for the right buyer. It doesn't replace a price the market will pay."
+    },
+    {
+      "question": "Does marketing in the community Facebook group actually work?",
+      "answer": "In a master-planned community, better than almost anything else. Your neighbors know the people who want to live there. On my Tehaleh listing the Facebook conversation about the sign spinners did more than the open house traffic. Give your neighbors something worth talking about and let them share it."
+    }
+  ],
+  "subAreas": [
+    {
+      "name": "Tehaleh",
+      "note": "The master-planned community off SR 410, platted as Cascadia and built in named sub-neighborhoods like Columbia Vista.",
+      "href": "/neighborhoods/tehaleh"
+    },
+    {
+      "name": "The rest of Bonney Lake",
+      "note": "Where I live. Quick numbers and notes are in my Bonney Lake neighborhood guide.",
+      "href": "/neighborhoods/bonney-lake"
+    }
+  ],
+  "related": [
+    {
+      "href": "/blog/living-in-tehaleh-bonney-lake-wa",
+      "label": "Living in Tehaleh",
+      "note": "What the community is like day to day."
+    },
+    {
+      "href": "/blog/living-in-bonney-lake-wa",
+      "label": "Living in Bonney Lake",
+      "note": "The town I've called home since 2017."
+    },
+    {
+      "href": "/blog/pre-list-prep-playbook",
+      "label": "Getting a house ready to list",
+      "note": "What's worth doing before you go live, and what isn't."
+    }
+  ],
+  "datePublished": "2026-10-23",
+  "dateModified": "2026-10-23"
+}

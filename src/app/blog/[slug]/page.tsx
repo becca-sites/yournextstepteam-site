@@ -47,7 +47,13 @@ export default async function BlogPost({ params }: Props) {
   const file = readPost(slug);
   if (!file) notFound();
 
-  const { content } = await compileMDX({ source: file.raw, options: { parseFrontmatter: false } });
+  // <CareerClosings /> renders tenant.agent.careerClosings, so a post never
+  // hard-codes a number that has to be kept in step with the rest of the site.
+  const { content } = await compileMDX({
+    source: file.raw,
+    options: { parseFrontmatter: false },
+    components: { CareerClosings: () => <>{tenant.agent.careerClosings}</> },
+  });
   const speakable = (file.data.speakable as string[] | undefined) ?? ["h1", "h2", ".speakable"];
   const heroImage =
     (file.data.heroImage as string | undefined) ??

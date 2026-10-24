@@ -2,21 +2,77 @@
   "slug": "gig-harbor",
   "city": "Gig Harbor",
   "county": "Pierce County",
-  "published": false,
-  "heldReason": "Held: no written, consented Gig Harbor case study. Best candidate is the Sue Schumacher senior transition (adult family home, POA, avoiding probate) noted in becca-pitts-content-sync-report.md; the address is unconfirmed and there is no consent on file. Do not publish until a real case study for this city is published as a Case Studies post and the experience block is written from it. Do not fill this page with researched or generic text.",
-  "title": "",
-  "metaDescription": "",
-  "h1": "",
-  "orientation": "",
-  "experienceHeading": "",
-  "experience": [],
-  "seniorHeading": "",
-  "senior": [],
-  "caseStudies": [],
+  "published": true,
+  "title": "Gig Harbor, WA: Selling a Parent's Home",
+  "metaDescription": "Selling a parent's home in Gig Harbor: why a trust set up early made the sale simple, and why a dated 1973 house sold in one day without a renovation.",
+  "h1": "Gig Harbor, and selling a parent's home the right way",
+  "orientation": "The Gig Harbor sale on this page was a single-story 1973 house in Artondale, on about four tenths of an acre. A woman had raised her family there, and by 2023 she was living in an adult family home and the family needed the equity to pay for her care. It sold in one day, over its $610,000 asking price. The part that made it go smoothly happened a year before there was any listing at all.",
+  "experienceHeading": "What I know about selling a parent's home here",
+  "experience": [
+    "So here's what I did a year early: I told the family to go get a trust done. I'm not an attorney, I didn't set it up, and I didn't give them legal advice. I recognized where things were heading and sent them to an estate professional before it was urgent. They went and did it with someone qualified. It took one conversation, and it was worth more than everything else I did on that file.",
+    "Here's why. A lot of families have a power of attorney and think that's the plan. A power of attorney lets you act for a living person. It doesn't avoid probate, it doesn't survive death, and depending on how it's written, title companies and lenders can be slow to accept it on a sale. When this house sold, it was owned by the trust, so the son and his wife signed as trustees. The power of attorney wasn't needed at all. The house stayed out of probate, the sale ran on a normal timeline, and nobody argued with a title company about the scope of a signature while a buyer waited.",
+    "Also, I didn't push a renovation. The house was dated, and it was structurally solid, and those are different things. Senior sellers and their adult children get told constantly to redo a kitchen before anyone will look, and it's usually the wrong trade when a family is already stretched thin. We cleaned it thoroughly, made the repairs that mattered, including a plumbing job that took two plumbers, and staged it.",
+    "Honestly, I'd known this family a long time, and I'd sold the son and his wife their own home years before. Being the agent and the friend at the same time isn't simple. Eight months after closing, one of them needed the settlement statement for a tax preparer, and I sent it and looped in escrow for the rest of the closing package."
+  ],
+  "practicalHeading": "If your parent is moving into care",
+  "practical": [
+    "Families sell a parent's home while the parent is still living all the time, often to pay for care. How it's structured matters a great deal, which makes it a conversation for an estate attorney, ideally before it's urgent. Most families discover the gap between a power of attorney and a trust at the worst possible moment, after a parent can no longer sign and the house needs to sell now.",
+    "I'm SRES certified, which means I've been trained on the financial, legal, and family side of a later-life move, and I co-own an adult family home myself. Neither one makes me a lawyer. Both mean I'll tell you early when it's time to go see one."
+  ],
+  "caseStudies": [
+    {
+      "slug": "artondale-gig-harbor-trust-before-you-list",
+      "situation": "A family selling their mother's Artondale home to pay for her care.",
+      "outcome": "A trust set up a year early, no renovation, and it sold in one day over its $610,000 asking price."
+    }
+  ],
   "marketSnapshot": null,
-  "faqs": [],
-  "subAreas": [],
-  "related": [],
-  "datePublished": "",
-  "dateModified": ""
+  "faqs": [
+    {
+      "question": "What's the difference between a trust and a power of attorney when selling a home?",
+      "answer": "A power of attorney lets someone act for a living person. A trust actually owns the property, and the trustees sign for it. For a sale, a trust is generally cleaner, and it keeps the house out of probate. Most families have one and assume it covers the other. An estate attorney can tell you which fits your family."
+    },
+    {
+      "question": "Can we sell my parent's home while they're still living?",
+      "answer": "Yes. Families do it regularly, often to fund care. How the sale is structured matters a great deal, so talk to an estate attorney, ideally well before it's urgent. On my Artondale sale, the trust was in place a year early, and that's what let the house sell on a normal timeline."
+    },
+    {
+      "question": "Do we have to renovate a dated house before we sell?",
+      "answer": "Usually not. Clean it thoroughly, repair what's actually broken, and stage it. The 1973 house in Artondale was dated but structurally solid, and with exactly that approach it sold in one day, over its asking price of $610,000. A renovation on somebody else's timeline and taste is rarely the right trade."
+    },
+    {
+      "question": "When should we start talking to someone about a parent's move?",
+      "answer": "Earlier than feels necessary. A year early gives you time to put a trust or other plan in place with an estate professional, and to sell on your own schedule. A month late usually means expensive, slow options. A first conversation costs nothing and commits you to nothing."
+    }
+  ],
+  "subAreas": [
+    {
+      "name": "Artondale",
+      "note": "Where this single-story 1973 house sat, on about four tenths of an acre."
+    },
+    {
+      "name": "The rest of Gig Harbor",
+      "note": "Quick numbers and notes are in my Gig Harbor neighborhood guide.",
+      "href": "/neighborhoods/gig-harbor"
+    }
+  ],
+  "related": [
+    {
+      "href": "/blog/sres-agent-senior-transitions",
+      "label": "Senior transitions",
+      "note": "What an SRES does when a move is about getting older."
+    },
+    {
+      "href": "/blog/estate-sale-real-estate-agent-washington",
+      "label": "Estate sales in Washington",
+      "note": "Selling a home that's part of an estate."
+    },
+    {
+      "href": "/your-best-season",
+      "label": "Your Best Season",
+      "note": "Conversations with senior-care professionals about the decisions around a later-life move."
+    }
+  ],
+  "datePublished": "2026-10-23",
+  "dateModified": "2026-10-23"
 }

@@ -121,17 +121,19 @@ export default async function AreaPage({ params }: Props) {
         </Container>
       </section>
 
-      {/* Block 3: senior and care transitions */}
-      <section className="section-y surface-warm">
-        <Container>
-          <h2 className="font-display text-3xl md:text-4xl">{area.seniorHeading}</h2>
-          <div className="mt-8 space-y-6 text-base text-muted">
-            {area.senior.map((p) => (
-              <p key={p.slice(0, 40)}>{p}</p>
-            ))}
-          </div>
-        </Container>
-      </section>
+      {/* Block 3: the practical section, only when the stories support one */}
+      {area.practical.length > 0 && (
+        <section className="section-y surface-warm">
+          <Container>
+            <h2 className="font-display text-3xl md:text-4xl">{area.practicalHeading}</h2>
+            <div className="mt-8 space-y-6 text-base text-muted">
+              {area.practical.map((p) => (
+                <p key={p.slice(0, 40)}>{p}</p>
+              ))}
+            </div>
+          </Container>
+        </section>
+      )}
 
       {/* Block 5: market snapshot. Only rendered with a date and a source. */}
       {area.marketSnapshot && (

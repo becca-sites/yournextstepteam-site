@@ -151,7 +151,7 @@ export default function QuizPage() {
 
   function getResultMessage() {
     if (score >= 5) {
-      return "You know your stuff. Imagine that instinct with 270 closings behind it.";
+      return `You know your stuff. Imagine that instinct with ${tenant.agent.careerClosings} closings behind it.`;
     }
     if (score >= 3) {
       return "Solid footing. A couple of these trip up buyers and sellers who have done this twice already.";

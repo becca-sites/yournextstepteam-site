@@ -9,7 +9,7 @@
  * be caught before it ships rather than after.
  *
  * What is compared: only the text each page owns, read from
- * content/areas/<slug>.json (orientation, experience, senior section, case
+ * content/areas/<slug>.json (orientation, experience, practical section, case
  * study lines, FAQs, sub-areas). The header, footer, call to action and
  * section headings come from the shared template and are not page content, so
  * they are not compared.
@@ -40,7 +40,7 @@ function pageText(area) {
   const parts = [
     area.orientation,
     ...(area.experience ?? []),
-    ...(area.senior ?? []),
+    ...(area.practical ?? []),
     ...(area.caseStudies ?? []).flatMap((c) => [c.situation, c.outcome]),
     ...(area.faqs ?? []).flatMap((f) => [f.question, f.answer]),
     ...(area.subAreas ?? []).flatMap((s) => [s.name, s.note]),
@@ -147,7 +147,7 @@ function selfTest() {
     process.exit(1);
   }
   // And a genuinely different page passes.
-  const different = { ...clone, orientation: "", experience: [], senior: [], caseStudies: [], faqs: [], subAreas: [] };
+  const different = { ...clone, orientation: "", experience: [], practical: [], caseStudies: [], faqs: [], subAreas: [] };
   different.experience = [Array.from({ length: 320 }, (_, k) => `distinct${k}`).join(" ")];
   const fine = check([original, different], new Set());
   if (fine.errors.some((e) => e.includes("share"))) {

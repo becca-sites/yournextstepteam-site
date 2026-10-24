@@ -69,9 +69,14 @@ export interface Area {
   /** Block 2: first-hand experience, 300 words minimum. */
   experienceHeading: string;
   experience: string[];
-  /** Block 3: senior and care-transition practicalities. */
-  seniorHeading: string;
-  senior: string[];
+  /**
+   * Block 3: a second practical section, written only from what the case
+   * studies actually support. Senior and care transitions where the story is
+   * one (Gig Harbor); something else where it is not. Optional: left empty
+   * rather than filled with researched or generic text.
+   */
+  practicalHeading: string;
+  practical: string[];
   /** Block 4: at least one, or the page does not ship. */
   caseStudies: AreaCaseStudy[];
   /** Block 5: omitted unless it can be dated, sourced, and kept current. */

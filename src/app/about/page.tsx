@@ -39,13 +39,13 @@ import { StatCardRow } from "@/components/sections/StatCardRow";
 export const metadata: Metadata = {
   title: "About Becca Pitts",
   description:
-    "Becca Pitts grew up in Eatonville, went to Western Washington University, and has been a licensed Washington real estate broker since 2010. 270 closings, SRES® certified, eXp Icon Agent, working Pierce, King, and the surrounding counties from Bonney Lake.",
+    `Becca Pitts grew up in Eatonville, went to Western Washington University, and has been a licensed Washington real estate broker since 2010. ${tenant.agent.careerClosings} closings, SRES® certified, eXp Icon Agent, working Pierce, King, and the surrounding counties from Bonney Lake.`,
   alternates: { canonical: "/about" },
   openGraph: {
     ...baseOpenGraph,
     title: "About Becca Pitts",
     description:
-      "One blinking light in Eatonville, a business degree from Western, a real estate license earned in the wreckage the recession left behind, and 270 closings since. Here is the whole story.",
+      `One blinking light in Eatonville, a business degree from Western, a real estate license earned in the wreckage the recession left behind, and ${tenant.agent.careerClosings} closings since. Here is the whole story.`,
     url: "/about",
     type: "profile",
   },
@@ -75,7 +75,7 @@ const HOW_I_WORK = [
   },
   {
     title: "Plan A, Plan B, and usually Plan C.",
-    body: "270 closings teach you exactly where deals break. So before we start, I've already thought through what we do if the appraisal comes in low, if financing wobbles, if the other side goes quiet for a week. You don't have to carry all three plans around in your head. You just need to know somebody has them.",
+    body: `${tenant.agent.careerClosings} closings teach you exactly where deals break. So before we start, I've already thought through what we do if the appraisal comes in low, if financing wobbles, if the other side goes quiet for a week. You don't have to carry all three plans around in your head. You just need to know somebody has them.`,
   },
   {
     title: "Other agents call me.",
@@ -102,7 +102,7 @@ const FAQS = [
   {
     question: "How long has Becca Pitts been a real estate agent?",
     answer:
-      "I've been a licensed real estate broker in Washington since 2010 and I've closed more than 270 transactions. Before that I spent eight years in event production doing sales, project management, and creative work, until the Great Recession ended that and somebody recruited me into real estate. I'm currently with eXp Realty LLC and I was named an eXp Icon Agent in 2022.",
+      `I've been a licensed real estate broker in Washington since 2010 and I've closed more than ${tenant.agent.careerClosings} transactions. Before that I spent eight years in event production doing sales, project management, and creative work, until the Great Recession ended that and somebody recruited me into real estate. I'm currently with eXp Realty LLC and I was named an eXp Icon Agent in 2022.`,
   },
   {
     question: "What does SRES® certification mean?",
@@ -175,7 +175,7 @@ export default function AboutPage() {
       <StatCardRow
         stats={tenant.stats}
         eyebrow="Credentials"
-        heading="Becca Pitts: 270 closings across Western Washington"
+        heading={`Becca Pitts: ${tenant.agent.careerClosings} closings across Western Washington`}
       />
 
       {/* Geography. The longest section on the page on purpose: it is the part

@@ -400,7 +400,7 @@ export function ClosingCrawl() {
               />
             </h2>
             <p className="crawl__episode">
-              Episode {tenant.brand.crawlEpisode}: The Closing
+              Episode {tenant.agent.careerClosings}: The Closing
             </p>
             {/* The hook. It repeats three words of the wordmark directly
                 above it, so it is set to read as a separate editorial beat
