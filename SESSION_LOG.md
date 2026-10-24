@@ -2100,3 +2100,34 @@ verification. Commit it if the dev server config is worth keeping.
   pills: `src/app/buyers/page.tsx:120`, `src/app/sellers/page.tsx:135`, and
   `src/components/sections/FeaturedListings.tsx:61`. All three are the same
   filled gold eyebrow pattern that just came off the home page.
+
+## 2026-10-24: Areas shipped, career number in config, search go-live complete
+
+### Shipped (all on main, verified live)
+
+- **Areas:** Tacoma rewritten from the case studies; Puyallup, Bonney Lake, and
+  Gig Harbor published with one case study each; Federal Way removed (no case
+  study, now a 404). Five new anonymized Case Studies posts plus the corrected
+  green belt story, each linking back to its area page. Overlap check passes
+  (0 to 1.3%).
+- **Career number:** one value, `CAREER_CLOSINGS = 270` in `src/config/tenant.ts`
+  (`tenant.agent.careerClosings`). Pages, metadata, llms.txt, and the crawl's
+  episode line read from it; MDX bios use `<CareerClosings />`. Original
+  wording ("more than", "over", "270+") kept. Crawl reads "Episode 270".
+- **Go-live, per section 5.9:**
+  - Stage 1 (earlier): robots.txt opened.
+  - Stage 2 (8aec701): X-Robots-Tag gone; meta noindex still on. Curl-verified.
+  - Stage 3 (6069a23): meta noindex gone on home, about, areas, a post;
+    sitemap has 60 URLs including all 4 areas and the 8 ready neighborhoods.
+  - Stage 4: sitemap resubmitted in GSC (domain property, authuser=0); read
+    Oct 24, Success, 60 discovered. Indexing requested for /, /about, /areas,
+    and all four area pages; each passed the live test.
+
+### Still open
+
+- Jotform questionnaires ask about food allergies (MHMDA exposure).
+- /buyers/questionnaire submits nowhere and puts answers in the URL.
+- Header "Brokered by" text is 9 to 10px.
+- Gig Harbor case study source (article 07) is marked hold by its writer.
+- Cash-buyer post is a Fircrest deal labeled Tacoma.
+- Dependabot reports 27 vulnerabilities on main (2 critical).
