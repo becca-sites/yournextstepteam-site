@@ -2131,3 +2131,17 @@ verification. Commit it if the dev server config is worth keeping.
 - Gig Harbor case study source (article 07) is marked hold by its writer.
 - Cash-buyer post is a Fircrest deal labeled Tacoma.
 - Dependabot reports 27 vulnerabilities on main (2 critical).
+
+## 2026-10-24 (later): Your Best Season held back from search; Vercel Analytics
+
+- **Your Best Season excluded from indexing** (Becca's decision; the series has
+  no real build yet). One switch: `tenant.videos.seriesIndexable = false`. The
+  hub and three episode pages stay reachable with `noindex, follow` (their
+  VideoObject schema goes with them), are out of the sitemap (now 56 URLs),
+  and are gone from the footer. Gig Harbor's related link to it was removed.
+  /podcast still lists the same three episodes under "Next Step
+  Conversations" and is indexable. Flip the switch to true when the series
+  launches.
+- **Vercel Web Analytics** added (rebuilt patch from session 1a6c2b16),
+  installed with pnpm, with the lockfile unchanged and no package-lock.json.
+- Sitemap resubmitted in GSC: read Oct 24, Success.
