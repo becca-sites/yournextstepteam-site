@@ -6,6 +6,7 @@ import { isNoIndex } from "@/lib/placeholder";
 import { baseOpenGraph } from "@/lib/metadata";
 import { EntitySchema } from "@/components/schema/EntitySchema";
 import { Analytics } from "@/components/telemetry/Analytics";
+import { Analytics as VercelAnalytics } from "@vercel/analytics/next";
 import { Header } from "@/components/global/Header";
 import { Footer } from "@/components/global/Footer";
 import "./globals.css";
@@ -180,6 +181,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </main>
         <Footer />
         <Analytics />
+        <VercelAnalytics />
       </body>
     </html>
   );
