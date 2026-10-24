@@ -1620,7 +1620,7 @@ export const tenant: Tenant = {
     description: "A 6-bed adult family home in Burien, WA providing long-term residential care, memory care, and respite care.",
   },
 
-  demo: { searchStage: 2 },
+  demo: { searchStage: 3 },
 };
 
 /**
